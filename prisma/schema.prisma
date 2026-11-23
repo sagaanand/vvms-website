@@ -1,0 +1,103 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Property {
+  id                 String   @id @default(cuid())
+  propertyId         String   @unique // e.g. VVS-TRY-101
+  slug               String   @unique
+  title              String
+  titleTa            String?
+  description        String
+  descriptionTa      String?
+  propertyType       String   // "DTCP Plots", "Individual Houses", "Duplex Villas", "Resale Homes", "Commercial", "Rentals"
+  listingType        String   @default("Buy") // "Buy", "Rent"
+  city               String   @default("Tiruchirappalli")
+  locality           String   // "K.K. Nagar", "Olaiyur", "Panjappur", "Vayalur Road", "Karumandapam", "No.1 Tollgate", "Mannachanallur", "Thuvakudi"
+  address            String
+  price              Float
+  priceDisplay       String   // e.g. "₹36 Lakhs"
+  downPayment        Float?
+  downPaymentDisplay String?  // e.g. "₹1 Lakh Downpayment"
+  plotAreaSqFt       Float
+  builtUpAreaSqFt    Float?
+  bedrooms           Int?
+  bathrooms          Int?
+  facing             String?  // "North", "East", "South", "West", "North-East"
+  roadWidthFt        Int?     // 30, 40
+  approvalStatus     String   // "DTCP Approved", "RERA Approved", "DTCP & RERA Approved"
+  bankLoanEligible   Boolean  @default(true)
+  youtubeUrl         String?
+  youtubeVideoId     String?
+  coverImage         String
+  images             String   // JSON string array of URLs
+  features           String   // JSON string array of amenity badges
+  isFeatured         Boolean  @default(false)
+  isSold             Boolean  @default(false)
+  viewsCount         Int      @default(0)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Lead {
+  id                 String   @id @default(cuid())
+  name               String
+  phone              String
+  email              String?
+  leadType           String   // "Property Site Visit", "Construction Inquiry", "Survey Requirement", "General Contact"
+  propertyId         String?
+  propertyTitle      String?
+  budget             String?
+  preferredLocality  String?
+  timeline           String?
+  plotLocation       String?
+  builtUpArea        Float?
+  selectedPackage    String?
+  message            String?
+  status             String   @default("NEW") // "NEW", "CONTACTED", "SITE_VISIT_SCHEDULED", "CLOSED"
+  source             String   @default("WEBSITE")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model ConstructionPackage {
+  id                 String   @id @default(cuid())
+  name               String   // "Basic Package", "Standard Package", "Premium Package"
+  nameTa             String
+  ratePerSqFt        Float    // 1950, 2250, 2650
+  description        String
+  descriptionTa      String?
+  cementBrand        String
+  steelBrand         String
+  flooringType       String
+  sanitaryware       String
+  electrical         String
+  woodwork           String
+  painting           String
+  ceilingHeight      String
+  features           String   // JSON array
+  isPopular          Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model PromotionRequest {
+  id                 String   @id @default(cuid())
+  ownerName          String
+  phone              String
+  email              String?
+  propertyType       String
+  locality           String
+  city               String   @default("Tiruchirappalli")
+  askingPrice        String
+  plotAreaSqFt       Float?
+  notes              String?
+  status             String   @default("PENDING") // "PENDING", "SHOOT_SCHEDULED", "COMPLETED", "REJECTED"
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}

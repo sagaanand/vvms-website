@@ -1,0 +1,262 @@
+"use client";
+
+import React, { useState, useEffect, Suspense } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import { useLanguage } from "@/lib/i18n";
+import { COMPANY_INFO } from "@/lib/constants";
+import PropertyCard, { PropertyData } from "@/components/PropertyCard";
+import VideoModal from "@/components/VideoModal";
+import {
+  Search,
+  RotateCcw,
+  Building2,
+  ArrowUpDown,
+  Sparkles,
+} from "lucide-react";
+
+function PropertiesDirectoryContent() {
+  const { language, t } = useLanguage();
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const [properties, setProperties] = useState<PropertyData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Filters State
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedLocality, setSelectedLocality] = useState(searchParams.get("locality") || "All");
+  const [selectedType, setSelectedType] = useState(searchParams.get("type") || "All");
+  const [selectedBudget, setSelectedBudget] = useState(searchParams.get("budget") || "All");
+  const [sortBy, setSortBy] = useState("newest");
+
+  // Video Modal State
+  const [activeVideo, setActiveVideo] = useState<{ id: string; title: string } | null>(null);
+
+  useEffect(() => {
+    async function fetchProperties() {
+      setLoading(true);
+      try {
+        const res = await fetch("/api/properties");
+        const data = await res.json();
+        if (data.properties) {
+          setProperties(data.properties);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProperties();
+  }, []);
+
+  // Filter & Sort Logic
+  const filteredProperties = properties
+    .filter((p) => {
+      // Search term
+      if (searchTerm) {
+        const query = searchTerm.toLowerCase();
+        const matchTitle = p.title.toLowerCase().includes(query);
+        const matchLoc = p.locality.toLowerCase().includes(query);
+        const matchId = p.propertyId.toLowerCase().includes(query);
+        if (!matchTitle && !matchLoc && !matchId) return false;
+      }
+      // Locality
+      if (selectedLocality !== "All" && p.locality !== selectedLocality) return false;
+      // Property Type
+      if (selectedType !== "All" && p.propertyType !== selectedType) return false;
+      // Budget
+      if (selectedBudget === "under-25" && p.price > 2500000) return false;
+      if (selectedBudget === "25-50" && (p.price < 2500000 || p.price > 5000000)) return false;
+      if (selectedBudget === "50-100" && (p.price < 5000000 || p.price > 10000000)) return false;
+      if (selectedBudget === "above-100" && p.price < 10000000) return false;
+
+      return true;
+    })
+    .sort((a, b) => {
+      if (sortBy === "price-asc") return a.price - b.price;
+      if (sortBy === "price-desc") return b.price - a.price;
+      if (sortBy === "downpayment") {
+        return (a.downPayment || 99999999) - (b.downPayment || 99999999);
+      }
+      return new Date(b.id).getTime() - new Date(a.id).getTime();
+    });
+
+  const resetFilters = () => {
+    setSearchTerm("");
+    setSelectedLocality("All");
+    setSelectedType("All");
+    setSelectedBudget("All");
+    setSortBy("newest");
+    router.push("/properties");
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50 py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Breadcrumb & Title Styled with Logo Colors */}
+        <div className="mb-8">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-50 border border-gold-300 text-gold-900 text-xs font-black uppercase tracking-wider mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
+            <span>Trichy Real Estate Directory • Er. J. Vairavel</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl font-black text-brand-black tracking-tight">
+            Verified Properties in Tiruchirappalli
+          </h1>
+          <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl font-medium">
+            Every property listed here has undergone legal title scrutiny, DTCP/RERA approval check, and on-site video inspection by Er. J. Vairavel.
+          </p>
+        </div>
+
+        {/* Search & Filter Toolbar with Gold Trim */}
+        <div className="bg-white rounded-3xl p-4 sm:p-5 border-2 border-gold-400/40 shadow-sm mb-8 space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+            {/* Search Input */}
+            <div className="lg:col-span-2 relative">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                placeholder="Search by ID (VVS-TRY-101), K.K. Nagar, Villa..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-gold-500 font-medium"
+              />
+            </div>
+
+            {/* Locality Dropdown */}
+            <div>
+              <select
+                value={selectedLocality}
+                onChange={(e) => setSelectedLocality(e.target.value)}
+                className="w-full py-2.5 px-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-gold-500 font-medium"
+              >
+                <option value="All">All Localities</option>
+                {COMPANY_INFO.trichyLocalities.map((loc) => (
+                  <option key={loc.en} value={loc.en}>
+                    {language === "ta" ? loc.ta : loc.en}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Property Type Dropdown */}
+            <div>
+              <select
+                value={selectedType}
+                onChange={(e) => setSelectedType(e.target.value)}
+                className="w-full py-2.5 px-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-gold-500 font-medium"
+              >
+                <option value="All">All Types</option>
+                {COMPANY_INFO.propertyTypes.map((pt) => (
+                  <option key={pt.en} value={pt.en}>
+                    {language === "ta" ? pt.ta : pt.en}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Budget Dropdown */}
+            <div>
+              <select
+                value={selectedBudget}
+                onChange={(e) => setSelectedBudget(e.target.value)}
+                className="w-full py-2.5 px-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-gold-500 font-medium"
+              >
+                <option value="All">All Budgets</option>
+                <option value="under-25">Under ₹25 Lakhs</option>
+                <option value="25-50">₹25L – ₹50 Lakhs</option>
+                <option value="50-100">₹50L – ₹1 Crore</option>
+                <option value="above-100">Above ₹1 Crore</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Sub Toolbar: Results Count, Sort By & Reset */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 text-xs text-slate-500">
+            <div className="font-bold text-slate-700">
+              Showing <span className="text-brand-black font-black">{filteredProperties.length}</span> properties
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1.5">
+                <ArrowUpDown className="w-3.5 h-3.5 text-cyan-600" />
+                <span className="text-slate-500 font-bold">Sort:</span>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="bg-transparent font-black text-brand-black focus:outline-none cursor-pointer"
+                >
+                  <option value="newest">{t.properties.sortNewest}</option>
+                  <option value="price-asc">{t.properties.sortPriceAsc}</option>
+                  <option value="price-desc">{t.properties.sortPriceDesc}</option>
+                  <option value="downpayment">Low Downpayment First</option>
+                </select>
+              </div>
+
+              <button
+                onClick={resetFilters}
+                className="flex items-center gap-1 text-slate-500 hover:text-red-600 transition font-bold"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>{t.properties.resetFilters}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Properties Grid */}
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="h-96 rounded-3xl bg-slate-200 animate-pulse" />
+            ))}
+          </div>
+        ) : filteredProperties.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {filteredProperties.map((property) => (
+              <PropertyCard
+                key={property.id}
+                property={property}
+                onWatchVideo={(id, title) => setActiveVideo({ id, title })}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 space-y-3">
+            <Building2 className="w-12 h-12 text-slate-300 mx-auto" />
+            <h3 className="text-base font-bold text-slate-800">
+              No matching properties found
+            </h3>
+            <p className="text-xs text-slate-500 max-w-sm mx-auto">
+              Try adjusting your filters or search terms. You can also submit your custom requirement to our team.
+            </p>
+            <button
+              onClick={resetFilters}
+              className="px-4 py-2 rounded-2xl bg-gold-500 text-brand-black font-black text-xs shadow-gold"
+            >
+              Reset All Filters
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Video Modal */}
+      {activeVideo && (
+        <VideoModal
+          isOpen={Boolean(activeVideo)}
+          onClose={() => setActiveVideo(null)}
+          videoId={activeVideo.id}
+          title={activeVideo.title}
+        />
+      )}
+    </div>
+  );
+}
+
+export default function PropertiesDirectoryPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 py-12 text-center">Loading properties...</div>}>
+      <PropertiesDirectoryContent />
+    </Suspense>
+  );
+}

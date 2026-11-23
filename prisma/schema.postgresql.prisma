@@ -1,0 +1,103 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Property {
+  id                 String   @id @default(cuid())
+  propertyId         String   @unique
+  slug               String   @unique
+  title              String
+  titleTa            String?
+  description        String
+  descriptionTa      String?
+  propertyType       String
+  listingType        String   @default("Buy")
+  city               String   @default("Tiruchirappalli")
+  locality           String
+  address            String
+  price              Float
+  priceDisplay       String
+  downPayment        Float?
+  downPaymentDisplay String?
+  plotAreaSqFt       Float
+  builtUpAreaSqFt    Float?
+  bedrooms           Int?
+  bathrooms          Int?
+  facing             String?
+  roadWidthFt        Int?
+  approvalStatus     String
+  bankLoanEligible   Boolean  @default(true)
+  youtubeUrl         String?
+  youtubeVideoId     String?
+  coverImage         String
+  images             String
+  features           String
+  isFeatured         Boolean  @default(false)
+  isSold             Boolean  @default(false)
+  viewsCount         Int      @default(0)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Lead {
+  id                 String   @id @default(cuid())
+  name               String
+  phone              String
+  email              String?
+  leadType           String
+  propertyId         String?
+  propertyTitle      String?
+  budget             String?
+  preferredLocality  String?
+  timeline           String?
+  plotLocation       String?
+  builtUpArea        Float?
+  selectedPackage    String?
+  message            String?
+  status             String   @default("NEW")
+  source             String   @default("WEBSITE")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model ConstructionPackage {
+  id                 String   @id @default(cuid())
+  name               String
+  nameTa             String
+  ratePerSqFt        Float
+  description        String
+  descriptionTa      String?
+  cementBrand        String
+  steelBrand         String
+  flooringType       String
+  sanitaryware       String
+  electrical         String
+  woodwork           String
+  painting           String
+  ceilingHeight      String
+  features           String
+  isPopular          Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model PromotionRequest {
+  id                 String   @id @default(cuid())
+  ownerName          String
+  phone              String
+  email              String?
+  propertyType       String
+  locality           String
+  city               String   @default("Tiruchirappalli")
+  askingPrice        String
+  plotAreaSqFt       Float?
+  notes              String?
+  status             String   @default("PENDING")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
