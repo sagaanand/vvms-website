@@ -6,6 +6,8 @@ import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { TRICHY_CORRIDORS, MicroMarketComps } from "@/lib/namnilam-data";
 import { formatLakhsCrores } from "@/lib/utils";
+import AIPropertyGuide from "@/components/AIPropertyGuide";
+import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
 import {
   BarChart3,
   TrendingUp,
@@ -669,6 +671,28 @@ export default function IntelligencePage() {
           </div>
         </div>
 
+        {/* 2.5 INTERACTIVE AI PROPERTY & ENGINEERING GUIDE */}
+        <div className="space-y-4">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-card border border-gold-500/40 text-gold-400 text-xs font-black uppercase tracking-wider">
+              <Compass className="w-3.5 h-3.5 text-cyan-400" />
+              <span>24/7 Interactive Conversational Advisory</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-black text-white">
+              {language === "ta"
+                ? "VVMS சொத்து & பொறியியல் AI வழிகாட்டி"
+                : "Ask the VVMS Property & Engineering AI Assistant"}
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-400">
+              {language === "ta"
+                ? "DTCP விதிகள், பஞ்சப்பூர் மதிப்பு உயர்வு, டர்ன்கீ வீடுகட்டும் செலவு அல்லது 80% வங்கிக் கடன் குறித்து உடனடி பதில் பெறுங்கள்."
+                : "Instant, grounded answers on DTCP regulations, corridor price trends, turnkey construction rates, and SBI/HDFC bank loans."}
+            </p>
+          </div>
+
+          <AIPropertyGuide />
+        </div>
+
         {/* Trichy Mega Infrastructure Catalysts */}
         <div className="space-y-6">
           <div className="text-center max-w-2xl mx-auto space-y-2">
@@ -759,6 +783,11 @@ export default function IntelligencePage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* 4.5 PLOTTED LAND VS APARTMENT COMPARATIVE MATRIX */}
+        <div className="rounded-3xl overflow-hidden border border-gold-500/20">
+          <PlotVsApartmentMatrix />
         </div>
 
         {/* Bottom CTA Card */}

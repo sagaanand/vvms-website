@@ -6,6 +6,8 @@ import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import PropertyCard, { PropertyData } from "@/components/PropertyCard";
 import VideoModal from "@/components/VideoModal";
+import SafePurchaseStandard from "@/components/SafePurchaseStandard";
+import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
 import {
   Search,
   RotateCcw,
@@ -254,6 +256,16 @@ function PropertiesDirectoryContent() {
             </button>
           </div>
         )}
+      </div>
+
+      {/* Safe Land Acquisition Standard (VVMS vs Unverified Brokers) */}
+      <div className="mt-16">
+        <SafePurchaseStandard />
+      </div>
+
+      {/* Plotted Land vs Apartment Flat Matrix */}
+      <div className="mt-12">
+        <PlotVsApartmentMatrix />
       </div>
 
       {/* Video Modal */}

@@ -15,7 +15,8 @@ import {
 import { Youtube } from "@/components/icons/YoutubeIcon";
 
 export default function PromotePropertyPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const [activePersona, setActivePersona] = useState<"promoter" | "owner" | "partner">("promoter");
 
   const [form, setForm] = useState({
     ownerName: "",
@@ -123,6 +124,52 @@ export default function PromotePropertyPage() {
               Inquiries routed straight to you. No hidden commissions or middleman friction.
             </div>
           </div>
+        </div>
+
+        {/* Persona Selector Tabs adapted from Nam Nilam */}
+        <div className="max-w-2xl mx-auto mb-8 bg-white p-2 rounded-2xl border-2 border-[#B78D42]/30 shadow-md flex items-center justify-between gap-1 sm:gap-2">
+          <button
+            type="button"
+            onClick={() => {
+              setActivePersona("promoter");
+              setForm({ ...form, propertyType: "Layout / Plots" });
+            }}
+            className={`flex-1 py-3 px-2 sm:px-4 rounded-xl text-xs sm:text-sm font-black transition text-center ${
+              activePersona === "promoter"
+                ? "bg-[#202020] text-[#F9DB5C] shadow-md border border-[#B78D42]"
+                : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+            }`}
+          >
+            {language === "ta" ? "லேஅவுட் புரமோட்டர் (Promoter)" : "Layout Promoter"}
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setActivePersona("owner");
+              setForm({ ...form, propertyType: "Individual House" });
+            }}
+            className={`flex-1 py-3 px-2 sm:px-4 rounded-xl text-xs sm:text-sm font-black transition text-center ${
+              activePersona === "owner"
+                ? "bg-[#202020] text-[#F9DB5C] shadow-md border border-[#B78D42]"
+                : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+            }`}
+          >
+            {language === "ta" ? "தனி உரிமையாளர் (Owner)" : "Individual Owner"}
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setActivePersona("partner");
+              setForm({ ...form, propertyType: "Commercial Land" });
+            }}
+            className={`flex-1 py-3 px-2 sm:px-4 rounded-xl text-xs sm:text-sm font-black transition text-center ${
+              activePersona === "partner"
+                ? "bg-[#202020] text-[#F9DB5C] shadow-md border border-[#B78D42]"
+                : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+            }`}
+          >
+            {language === "ta" ? "சேனல் பார்ட்னர் (Agent)" : "Channel Partner"}
+          </button>
         </div>
 
         {/* Promotion Request Submission Form */}

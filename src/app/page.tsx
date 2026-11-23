@@ -10,6 +10,7 @@ import PropertyCard, { PropertyData } from "@/components/PropertyCard";
 import VideoModal from "@/components/VideoModal";
 import CostEstimator from "@/components/CostEstimator";
 import SmartRequirementSurvey from "@/components/SmartRequirementSurvey";
+import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
 import ReviewsAndOffices from "@/components/ReviewsAndOffices";
 import {
   Search,
@@ -866,6 +867,9 @@ export default function HomePage() {
 
       {/* 4. SMART REQUIREMENT CAPTURE (SURVEYHEART REPLACEMENT) */}
       <SmartRequirementSurvey />
+
+      {/* 4.5 PLOTTED LAND VS APARTMENT COMPARATIVE MATRIX */}
+      <PlotVsApartmentMatrix />
 
       {/* 5. PROMOTE WITH US (B2B CREATOR & PROMOTER STUDIO) */}
       <section className="py-14 sm:py-18 bg-[#F2F2F2] relative overflow-hidden border-y border-[#B78D42]/25">
