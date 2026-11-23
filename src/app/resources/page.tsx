@@ -11,7 +11,6 @@ import {
   Download,
   ShieldCheck,
   CheckCircle2,
-  Sparkles,
   ArrowRight,
   BookOpen,
   Calculator,
@@ -226,7 +225,7 @@ export default function ResourcesPage() {
             <p className="text-xs sm:text-sm text-amber-50 font-medium">
               {language === "ta"
                 ? "எங்கள் திருச்சி அலுவலகத்திற்கு நேரில் வருகை தந்து அசல் ஆவணங்களை வழக்கறிஞர்களுடன் சரிபார்த்துக் கொள்ளுங்கள்."
-                : "Visit our Trichy headquarters at Olaiyur Ring Road or Karumandapam branch for complete title chain review before paying any advance."}
+                : "Visit our Trichy headquarters at Olaiyur Ring Road for complete title chain review before paying any advance."}
             </p>
           </div>
 

@@ -10,7 +10,6 @@ import { getWhatsAppUrl } from "@/lib/utils";
 import {
   ShieldCheck,
   Award,
-  Sparkles,
   ArrowRight,
   MessageCircle,
   FileCheck,

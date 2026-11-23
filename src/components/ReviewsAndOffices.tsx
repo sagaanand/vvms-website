@@ -10,8 +10,7 @@ import {
   Phone,
   ExternalLink,
   ShieldCheck,
-  Building2,
-  Sparkles,
+  CheckCircle2,
 } from "lucide-react";
 
 export default function ReviewsAndOffices() {
@@ -90,7 +89,7 @@ export default function ReviewsAndOffices() {
           ))}
         </div>
 
-        {/* Dual-Office Location Showcase Styled with Brand Gold (HQ) & Turquoise Blue (Branch) */}
+        {/* Corporate Headquarters Location Showcase Styled with Brand Gold */}
         <div className="pt-6 border-t border-slate-200">
           <div className="text-center max-w-xl mx-auto mb-10">
             <span className="text-xs font-black text-[#B78D42] uppercase tracking-wider block mb-1">
@@ -104,22 +103,35 @@ export default function ReviewsAndOffices() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="max-w-3xl mx-auto">
             {/* Primary HQ Card Styled in Charcoal Black + Antique Gold Border */}
-            <div className="bg-[#202020] text-white rounded-3xl p-6 sm:p-8 border-2 border-[#B78D42] shadow-2xl relative overflow-hidden flex flex-col justify-between">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#F9DB5C]/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="bg-[#202020] text-white rounded-3xl p-6 sm:p-8 border-2 border-[#B78D42] shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[#F9DB5C]/10 rounded-full blur-3xl pointer-events-none" />
 
-              <div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2B2B2B] text-[#F9DB5C] text-[11px] font-black uppercase tracking-wider mb-4 border border-[#B78D42]/50 shadow-gold">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#F9DB5C]" />
-                  <span>Corporate Headquarters (HQ)</span>
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#2E2E2E]">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2B2B2B] text-[#F9DB5C] text-[11px] font-black uppercase tracking-wider mb-2 border border-[#B78D42]/50 shadow-gold">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#F9DB5C]" />
+                    <span>Corporate Headquarters (HQ)</span>
+                  </div>
+                  <h4 className="text-xl sm:text-2xl font-black text-white">
+                    Olaiyur Ring Road Office
+                  </h4>
+                  <p className="text-xs text-[#22CDE1] font-bold mt-0.5">
+                    Landmark: 2nd Floor, Upstairs to SBI Bank 2
+                  </p>
                 </div>
 
-                <h4 className="text-lg sm:text-xl font-black text-white mb-2">
-                  Olaiyur Ring Road Office
-                </h4>
+                <div className="flex items-center gap-2">
+                  <div className="px-3.5 py-2 rounded-2xl bg-[#2B2B2B] border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                    <span>Open 7 Days a Week</span>
+                  </div>
+                </div>
+              </div>
 
-                <div className="space-y-3 text-xs text-slate-300 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-6">
+                <div className="space-y-4 text-xs text-slate-300">
                   <div className="flex items-start gap-2.5">
                     <MapPin className="w-4 h-4 text-[#F9DB5C] flex-shrink-0 mt-0.5" />
                     <span className="leading-relaxed">
@@ -129,15 +141,21 @@ export default function ReviewsAndOffices() {
 
                   <div className="flex items-center gap-2.5">
                     <Clock className="w-4 h-4 text-[#F9DB5C] flex-shrink-0" />
-                    <span>{COMPANY_INFO.workingHours} (Open Daily)</span>
+                    <span>{COMPANY_INFO.workingHours} (Monday – Sunday)</span>
                   </div>
+                </div>
 
+                <div className="space-y-4 text-xs text-slate-300">
                   <div className="flex items-center gap-2.5">
                     <Phone className="w-4 h-4 text-[#F9DB5C] flex-shrink-0" />
-                    <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="text-white hover:text-[#F9DB5C] font-black">
+                    <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="text-white hover:text-[#F9DB5C] font-black text-sm">
                       {COMPANY_INFO.phone}
                     </a>
                   </div>
+
+                  <p className="text-[11px] text-slate-400 leading-relaxed">
+                    Direct deed verification with Er. J. Vairavel. Bring original documents, parent deeds, and DTCP sketch maps for consultation.
+                  </p>
                 </div>
               </div>
 
@@ -151,54 +169,13 @@ export default function ReviewsAndOffices() {
                   <span>Google Maps Directions</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
-              </div>
-            </div>
 
-            {/* Secondary Branch Card Styled in Charcoal + Turquoise Border */}
-            <div className="bg-[#252525] text-white rounded-3xl p-6 sm:p-8 border-2 border-[#22CDE1]/80 shadow-2xl relative overflow-hidden flex flex-col justify-between">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#22CDE1]/10 rounded-full blur-2xl pointer-events-none" />
-
-              <div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2B2B2B] text-[#22CDE1] text-[11px] font-black uppercase tracking-wider mb-4 border border-[#22CDE1]/50 shadow-cyan">
-                  <Building2 className="w-3.5 h-3.5 text-[#22CDE1]" />
-                  <span>Branch Office</span>
-                </div>
-
-                <h4 className="text-lg sm:text-xl font-black text-white mb-2">
-                  Karumandapam Branch
-                </h4>
-
-                <div className="space-y-3 text-xs text-slate-300 mb-6">
-                  <div className="flex items-start gap-2.5">
-                    <MapPin className="w-4 h-4 text-[#22CDE1] flex-shrink-0 mt-0.5" />
-                    <span className="leading-relaxed">
-                      Vision Properties Building, Ashok Nagar 2nd Street, RMS Colony, Karumandapam, Trichy – 620001
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2.5">
-                    <Clock className="w-4 h-4 text-[#22CDE1] flex-shrink-0" />
-                    <span>{COMPANY_INFO.workingHours} (Open Daily)</span>
-                  </div>
-
-                  <div className="flex items-center gap-2.5">
-                    <Phone className="w-4 h-4 text-[#22CDE1] flex-shrink-0" />
-                    <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="text-white hover:text-[#22CDE1] font-black">
-                      {COMPANY_INFO.phone}
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-[#2E2E2E] flex flex-wrap gap-3">
                 <a
-                  href="https://maps.google.com/?q=Karumandapam+Trichy+Vision+Properties"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-gradient-to-r from-[#22CDE1] to-[#0891B2] hover:brightness-105 text-white font-black text-xs shadow-cyan transition border border-[#22CDE1]/50"
+                  href={`tel:${COMPANY_INFO.phoneRaw}`}
+                  className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-[#2B2B2B] hover:bg-[#333333] text-white font-black text-xs transition border border-[#B78D42]/30"
                 >
-                  <span>Google Maps Directions</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <Phone className="w-3.5 h-3.5 text-[#F9DB5C]" />
+                  <span>Call {COMPANY_INFO.phone}</span>
                 </a>
               </div>
             </div>

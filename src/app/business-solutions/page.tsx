@@ -7,12 +7,11 @@ import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 import {
-  Sparkles,
   ArrowRight,
   ShieldCheck,
   CheckCircle2,
   Share2,
-  Bot,
+  MessageSquareCode,
   Database,
   BarChart3,
   Video,
@@ -81,7 +80,7 @@ export default function BusinessSolutionsPage() {
         language === "ta" ? "கூகுள் காலண்டர் மற்றும் CRM நேரடி ஒருங்கிணைப்பு" : "Seamless calendar syncing and pipeline deal creation",
       ],
       image: "/images/hero-villa.jpg",
-      icon: Bot,
+      icon: MessageSquareCode,
       deliverable: "Custom Flow Builder + Pre-approved Templates + AI Setup",
     },
   ];
@@ -115,7 +114,7 @@ export default function BusinessSolutionsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#B78D42]/50 text-[#F9DB5C] text-xs font-black uppercase tracking-wider backdrop-blur-md">
-              <Sparkles className="w-4 h-4 text-[#22CDE1]" />
+              <Layers className="w-4 h-4 text-[#22CDE1]" />
               <span>B2B Real Estate & Digital Solutions</span>
             </div>
 

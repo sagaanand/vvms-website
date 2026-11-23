@@ -11,7 +11,6 @@ import {
   RotateCcw,
   Building2,
   ArrowUpDown,
-  Sparkles,
 } from "lucide-react";
 
 function PropertiesDirectoryContent() {
@@ -97,7 +96,7 @@ function PropertiesDirectoryContent() {
         {/* Header Breadcrumb & Title Styled with Logo Colors */}
         <div className="mb-8">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-50 border border-gold-300 text-gold-900 text-xs font-black uppercase tracking-wider mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
+            <Building2 className="w-3.5 h-3.5 text-cyan-600" />
             <span>Trichy Real Estate Directory • Er. J. Vairavel</span>
           </div>
           <h1 className="text-2xl sm:text-4xl font-black text-brand-black tracking-tight">

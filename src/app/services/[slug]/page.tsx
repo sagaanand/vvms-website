@@ -18,7 +18,6 @@ import {
   Send,
   MessageCircle,
   Phone,
-  Sparkles,
 } from "lucide-react";
 
 export default function SingleServicePage({
@@ -169,7 +168,7 @@ export default function SingleServicePage({
             {/* What Er. J. Vairavel & Team Help With */}
             <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-gold-300 shadow-sm space-y-4">
               <div className="flex items-center gap-2 text-gold-900 font-black text-base">
-                <Sparkles className="w-5 h-5 text-gold-600" />
+                <ShieldCheck className="w-5 h-5 text-gold-600" />
                 <h2>Our Verification Scope & Technical Methodology</h2>
               </div>
               <div className="space-y-3 text-xs">
@@ -339,7 +338,7 @@ export default function SingleServicePage({
                 &ldquo;Our advisory reports are 100% independent. We do not take secret kickbacks from sellers, so our valuation and due diligence reports protect only you.&rdquo;
               </p>
               <div className="pt-1 text-[11px] text-cyan-400 flex items-center gap-2 font-semibold">
-                <span>Offices in Olaiyur Ring Road & Karumandapam</span>
+                <span>Head Office at Olaiyur Ring Road, Trichy</span>
               </div>
             </div>
           </div>

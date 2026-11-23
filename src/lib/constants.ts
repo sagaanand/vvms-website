@@ -36,15 +36,6 @@ export const COMPANY_INFO = {
       isPrimary: true,
       mapUrl: "https://maps.google.com/?q=Valli+Tower+Olaiyur+Ring+Road+Trichy",
     },
-    {
-      name: "Branch Office (Karumandapam)",
-      nameTa: "கிளை அலுவலகம் (கரு மண்டபம்)",
-      address: "Vision Properties Building, Ashok Nagar 2nd Street, RMS Colony, Karumandapam, Trichy – 620001",
-      addressTa: "விஷன் பிராப்பர்ட்டீஸ் கட்டிடம், அசோக் நகர் 2வது தெரு, RMS காலனி, கரு மண்டபம், திருச்சி – 620001",
-      landmark: "Near RMS Colony, Dindigul Highway",
-      isPrimary: false,
-      mapUrl: "https://maps.google.com/?q=Karumandapam+Trichy+Vision+Properties",
-    },
   ],
   serviceCities: [
     { en: "Tiruchirappalli", ta: "திருச்சிராப்பள்ளி", isPrimary: true },

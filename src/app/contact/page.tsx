@@ -16,7 +16,6 @@ import {
   ShieldCheck,
   Send,
   Building2,
-  Sparkles,
   CheckCircle2,
   Calendar,
 } from "lucide-react";
@@ -125,18 +124,18 @@ export default function ContactPage() {
           <div className="lg:col-span-7 space-y-6">
             <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
               <MapPin className="w-5 h-5 text-amber-600" />
-              <span>{language === "ta" ? "அலுவலக முகவரிகள்" : "Our Office Locations"}</span>
+              <span>{language === "ta" ? "தலைமை அலுவலக முகவரி" : "Our Head Office Location"}</span>
             </h2>
 
-            {/* HQ Card */}
-            <div className="bg-white rounded-3xl p-6 sm:p-7 border-2 border-amber-200/90 shadow-md space-y-4 relative overflow-hidden">
+            {/* Corporate Headquarters Card */}
+            <div className="bg-white rounded-3xl p-6 sm:p-7 border-2 border-amber-300 shadow-md space-y-4 relative overflow-hidden">
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-1">
-                  <span className="text-[10px] font-black uppercase tracking-wider bg-amber-500 text-white px-2.5 py-0.5 rounded-full">
-                    Corporate Headquarters
+                  <span className="text-[10px] font-black uppercase tracking-wider bg-amber-500 text-white px-2.5 py-0.5 rounded-full shadow-sm">
+                    Corporate Headquarters (HQ)
                   </span>
-                  <h3 className="text-lg font-black text-slate-900 mt-2">
-                    {language === "ta" ? "ஒலையூர் ரிங் ரோடு தலைமை அலுவலகம்" : "Olaiyur Semi-Ring Road HQ"}
+                  <h3 className="text-xl font-black text-slate-900 mt-2">
+                    {language === "ta" ? "ஒலையூர் ரிங் ரோடு தலைமை அலுவலகம்" : "Olaiyur Ring Road Office"}
                   </h3>
                 </div>
                 <div className="p-3 rounded-2xl bg-amber-50 border border-amber-200 text-amber-700">
@@ -158,43 +157,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-amber-700 hover:text-amber-800 font-bold"
                 >
-                  <span>Google Maps</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-
-            {/* Branch Card */}
-            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-amber-200 shadow-sm space-y-4 relative overflow-hidden">
-              <div className="flex items-start justify-between gap-4">
-                <div className="space-y-1">
-                  <span className="text-[10px] font-black uppercase tracking-wider bg-cyan-600 text-white px-2.5 py-0.5 rounded-full">
-                    Branch Office
-                  </span>
-                  <h3 className="text-lg font-black text-slate-900 mt-2">
-                    {language === "ta" ? "கரு மண்டபம் கிளை அலுவலகம்" : "Karumandapam Branch"}
-                  </h3>
-                </div>
-                <div className="p-3 rounded-2xl bg-cyan-50 border border-cyan-200 text-cyan-700">
-                  <MapPin className="w-6 h-6 text-cyan-600" />
-                </div>
-              </div>
-
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                {language === "ta"
-                  ? "விஷன் பிராப்பர்ட்டீஸ் கட்டிடம், அசோக் நகர் 2வது தெரு, RMS காலனி, கரு மண்டபம், திருச்சி – 620001"
-                  : "Vision Properties Building, Ashok Nagar 2nd Street, RMS Colony, Karumandapam, Trichy – 620001"}
-              </p>
-
-              <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs">
-                <span className="text-slate-500 font-semibold">Landmark: Near RMS Colony, Dindigul Highway</span>
-                <a
-                  href="https://maps.google.com/?q=Karumandapam+Trichy+Vision+Properties"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-cyan-700 hover:text-cyan-800 font-bold"
-                >
-                  <span>Google Maps</span>
+                  <span>Google Maps Directions</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
@@ -227,7 +190,7 @@ export default function ContactPage() {
             <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-amber-300 shadow-xl space-y-6">
               <div className="space-y-1">
                 <div className="inline-flex items-center gap-1.5 text-[11px] font-black uppercase text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-md border border-amber-200">
-                  <Sparkles className="w-3 h-3 text-amber-600" />
+                  <Calendar className="w-3 h-3 text-amber-600" />
                   <span>Direct Meeting Scheduling</span>
                 </div>
                 <h3 className="text-xl font-black text-slate-900">
@@ -284,20 +247,12 @@ export default function ContactPage() {
 
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Preferred Office Location
+                      Office Location
                     </label>
-                    <select
-                      value={form.officeLocation}
-                      onChange={(e) => setForm({ ...form, officeLocation: e.target.value })}
-                      className="w-full bg-slate-50 border border-amber-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-amber-500 font-semibold"
-                    >
-                      <option value="Corporate Headquarters (Olaiyur Ring Road)">
-                        Olaiyur Ring Road HQ (K.K. Nagar)
-                      </option>
-                      <option value="Branch Office (Karumandapam)">
-                        Karumandapam Branch (RMS Colony)
-                      </option>
-                    </select>
+                    <div className="w-full bg-slate-50 border border-amber-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-semibold flex items-center gap-2">
+                      <MapPin className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
+                      <span>Corporate Headquarters (Olaiyur Ring Road, Trichy)</span>
+                    </div>
                   </div>
 
                   <div>

@@ -18,7 +18,8 @@ import {
   ShieldCheck,
   Star,
   ArrowRight,
-  Sparkles,
+  Compass,
+  Layers,
   BarChart3,
   FileSearch,
   Droplets,
@@ -118,7 +119,7 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-8 sm:mb-12">
             {/* Approved Eyebrow Badge in Charcoal & Antique Gold */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#202020]/90 border border-[#B78D42]/60 text-[#F9DB5C] text-xs font-black tracking-widest uppercase shadow-md backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-[#22CDE1]" />
+              <Compass className="w-3.5 h-3.5 text-[#22CDE1]" />
               <span>{t.hero.eyebrow}</span>
             </div>
 
@@ -407,7 +408,7 @@ export default function HomePage() {
             <div className="p-2">
               <div className="text-xl sm:text-2xl font-black text-[#F9DB5C]">1,900+</div>
               <div className="text-[11px] sm:text-xs text-[#F6E785] font-bold flex items-center justify-center gap-1 mt-0.5">
-                <Sparkles className="w-3.5 h-3.5 text-[#F9DB5C]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#F9DB5C]" />
                 <span>{t.hero.quickStatsWalkthroughs}</span>
               </div>
             </div>
@@ -436,7 +437,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#B78D42]/40 text-[#202020] text-xs font-black uppercase tracking-wider shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-[#B78D42]" />
+              <Layers className="w-3.5 h-3.5 text-[#B78D42]" />
               <span>{t.divisions.eyebrow}</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black text-[#202020] tracking-tight">
@@ -599,7 +600,7 @@ export default function HomePage() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                   />
                   <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
-                    <Sparkles className="w-3.5 h-3.5 text-[#F9DB5C]" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#F9DB5C]" />
                     <span>Division 05</span>
                   </div>
                 </div>
@@ -915,7 +916,7 @@ export default function HomePage() {
 
             <div className="space-y-3 text-center lg:text-left max-w-2xl relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#F9DB5C] text-xs font-bold uppercase tracking-wider border border-[#B78D42]/40">
-                <Sparkles className="w-3.5 h-3.5 text-[#22CDE1]" />
+                <Building2 className="w-3.5 h-3.5 text-[#22CDE1]" />
                 <span>Custom Quotation & Engineering Advisory</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-black tracking-tight">

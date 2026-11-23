@@ -21,7 +21,6 @@ import {
   Calculator,
   CheckCircle2,
   ChevronRight,
-  Sparkles,
 } from "lucide-react";
 
 interface PropertyDetailClientProps {
@@ -189,7 +188,7 @@ export default function PropertyDetailClient({ property }: PropertyDetailClientP
             </div>
             {property.downPaymentDisplay && (
               <div className="mt-1 inline-flex items-center gap-1.5 text-xs text-gold-900 bg-gold-50 px-2.5 py-0.5 rounded-lg font-black border border-gold-300">
-                <Sparkles className="w-3 h-3 text-gold-600" />
+                <ShieldCheck className="w-3 h-3 text-gold-600" />
                 <span>{property.downPaymentDisplay}</span>
               </div>
             )}
@@ -576,7 +575,7 @@ export default function PropertyDetailClient({ property }: PropertyDetailClientP
                 &ldquo;We provide 100% legal scrutiny for all parent deeds, DTCP sketch maps, and survey numbers. No hidden brokerage.&rdquo;
               </p>
               <div className="pt-1 text-[11px] text-cyan-400 flex items-center gap-2 font-semibold">
-                <span>Olaiyur HQ & Karumandapam Branch</span>
+                <span>Olaiyur Ring Road Headquarters</span>
               </div>
             </div>
           </div>

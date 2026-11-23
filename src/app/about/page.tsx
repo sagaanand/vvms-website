@@ -10,7 +10,6 @@ import {
   ShieldCheck,
   HardHat,
   Phone,
-  Sparkles,
 } from "lucide-react";
 import { Youtube } from "@/components/icons/YoutubeIcon";
 
@@ -125,7 +124,7 @@ export default function AboutPage() {
             Meet Er. J. Vairavel in Person
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto font-medium">
-            Visit our Olaiyur Ring Road Headquarters or Karumandapam Branch in Trichy. Our team is available 7 days a week from 10:00 AM to 7:30 PM.
+            Visit our Olaiyur Ring Road Headquarters in Trichy. Our team is available 7 days a week from 10:00 AM to 7:30 PM.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">

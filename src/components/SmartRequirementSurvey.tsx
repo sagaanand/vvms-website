@@ -9,7 +9,6 @@ import {
   Send,
   Building,
   HardHat,
-  Sparkles,
 } from "lucide-react";
 
 export default function SmartRequirementSurvey() {
@@ -81,7 +80,7 @@ export default function SmartRequirementSurvey() {
           {/* Header Styled with Brand Theme */}
           <div className="text-center max-w-xl mx-auto mb-8">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F2F2F2] border border-[#22CDE1]/40 text-[#0891B2] text-xs font-black uppercase tracking-wide mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#22CDE1]" />
+              <Building className="w-3.5 h-3.5 text-[#22CDE1]" />
               <span>Smart Requirement Matcher</span>
             </span>
             <h2 className="text-xl sm:text-3xl font-black text-[#202020] tracking-tight mb-2">

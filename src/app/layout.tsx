@@ -78,14 +78,6 @@ export default function RootLayout({
         postalCode: "620021",
         addressCountry: "IN",
       },
-      {
-        "@type": "PostalAddress",
-        streetAddress: "Vision Properties Building, Ashok Nagar 2nd Street, RMS Colony, Karumandapam",
-        addressLocality: "Tiruchirappalli",
-        addressRegion: "Tamil Nadu",
-        postalCode: "620001",
-        addressCountry: "IN",
-      },
     ],
     geo: {
       "@type": "GeoCoordinates",

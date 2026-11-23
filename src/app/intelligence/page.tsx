@@ -19,7 +19,6 @@ import {
   MessageCircle,
   Phone,
   Search,
-  Sparkles,
   Calculator,
   Compass,
   FileSearch,

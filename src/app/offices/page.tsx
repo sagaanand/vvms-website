@@ -132,15 +132,11 @@ export default function OfficesContactPage() {
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-700 mb-1">Select Office</label>
-                <select
-                  value={form.office}
-                  onChange={(e) => setForm({ ...form, office: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:border-gold-500"
-                >
-                  <option value="HQ (Olaiyur Ring Road)">Corporate Headquarters (Olaiyur Ring Road)</option>
-                  <option value="Branch (Karumandapam)">Branch Office (Karumandapam)</option>
-                </select>
+                <label className="block font-semibold text-slate-700 mb-1">Office Location</label>
+                <div className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-semibold flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                  <span>Corporate Headquarters (Olaiyur Ring Road, Trichy)</span>
+                </div>
               </div>
 
               <div>

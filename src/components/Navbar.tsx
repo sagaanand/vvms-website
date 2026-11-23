@@ -20,7 +20,7 @@ import {
   MapPin,
   ShieldCheck,
   KeyRound,
-  Sparkles,
+  Layers,
   Briefcase,
   BarChart3,
   BookOpen,
@@ -51,7 +51,7 @@ export default function Navbar() {
     { href: "/construction", label: t.nav.construction, icon: HardHat },
     { href: "/intelligence", label: t.nav.intelligence, icon: BarChart3 },
     { href: "/academy", label: t.nav.academy, icon: BookOpen },
-    { href: "/business-solutions", label: t.nav.businessSolutions, icon: Sparkles },
+    { href: "/business-solutions", label: t.nav.businessSolutions, icon: Layers },
     { href: "/resources", label: t.nav.resources, icon: FileText },
     { href: "/about", label: t.nav.about, icon: UserCheck },
     { href: "/contact", label: t.nav.contact, icon: PhoneCall },
@@ -80,7 +80,7 @@ export default function Navbar() {
             </span>
             <span className="hidden lg:inline text-[#B78D42]/60">•</span>
             <span className="hidden lg:flex items-center gap-1 text-[#22CDE1] font-medium">
-              <Sparkles className="w-3 h-3 text-[#22CDE1]" />
+              <ShieldCheck className="w-3 h-3 text-[#22CDE1]" />
               <span>Trichy’s Most Trusted Engineering & Construction Partner</span>
             </span>
           </div>

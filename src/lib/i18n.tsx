@@ -298,11 +298,11 @@ export const translations: Record<Language, Translations> = {
       ctaButton: "Book a Video Shoot Today",
     },
     offices: {
-      title: "Visit Our Trichy Offices",
+      title: "Visit Our Trichy Head Office",
       subtitle:
         "Meet Er. J. Vairavel and our engineering team in person for transparent deed reviews, layout maps, and construction discussions.",
       headquarters: "Corporate Headquarters (Olaiyur Ring Road)",
-      branch: "Branch Office (Karumandapam)",
+      branch: "Head Office (Olaiyur Ring Road)",
       workingHours: "Working Hours: Mon – Sun: 10:00 AM – 7:30 PM",
       getDirections: "Get Directions on Google Maps",
     },
@@ -458,11 +458,11 @@ export const translations: Record<Language, Translations> = {
       ctaButton: "வீடியோ பதிவு செய்ய முன்பதிவு செய்க",
     },
     offices: {
-      title: "எங்கள் திருச்சி அலுவலகங்களுக்கு வருகை தாருங்கள்",
+      title: "எங்கள் திருச்சி தலைமை அலுவலகத்திற்கு வருகை தாருங்கள்",
       subtitle:
         "Er. J. வைரவேல் மற்றும் எங்கள் பொறியாளர் குழுவை நேரில் சந்தித்து பத்திரங்கள், லே-அவுட் பிளான் மற்றும் கட்டுமான ஆலோசனை பெறலாம்.",
       headquarters: "தலைமை அலுவலகம் (ஒலையூர் ரிங் ரோடு)",
-      branch: "கிளை அலுவலகம் (கரு மண்டபம்)",
+      branch: "தலைமை அலுவலகம் (ஒலையூர் ரிங் ரோடு)",
       workingHours: "பணி நேரம்: திங்கள் – ஞாயிறு: காலை 10:00 – இரவு 7:30",
       getDirections: "கூகுள் மேப்பில் வழியை காண",
     },

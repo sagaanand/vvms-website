@@ -13,7 +13,6 @@ import {
   Compass,
   ArrowRight,
   MessageCircle,
-  Sparkles,
   CheckCircle,
 } from "lucide-react";
 
@@ -169,7 +168,7 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
           {/* Downpayment deal callout in Primary Gold */}
           {property.downPaymentDisplay && (
             <div className="mb-3 px-3 py-1.5 rounded-xl bg-[#F9DB5C]/15 border border-[#B78D42]/40 flex items-center gap-1.5 text-xs text-[#202020] font-black">
-              <Sparkles className="w-3.5 h-3.5 text-[#B78D42] flex-shrink-0" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#B78D42] flex-shrink-0" />
               <span>{property.downPaymentDisplay}</span>
             </div>
           )}

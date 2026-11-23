@@ -14,7 +14,6 @@ import {
   Award,
   CheckCircle2,
   ExternalLink,
-  Sparkles,
 } from "lucide-react";
 import { Youtube } from "@/components/icons/YoutubeIcon";
 
@@ -116,32 +115,32 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Dual Office Locations */}
+          {/* Column 2: Head Office Location */}
           <div className="space-y-4">
             <h4 className="text-[#F9DB5C] font-black text-xs uppercase tracking-wider border-b border-[#2E2E2E] pb-2">
-              {language === "ta" ? "எங்கள் திருச்சி அலுவலகங்கள்" : "Trichy Office Locations"}
+              {language === "ta" ? "எங்கள் திருச்சி அலுவலகம்" : "Trichy Head Office"}
             </h4>
 
-            {/* HQ */}
-            <div className="text-xs space-y-1.5 bg-[#2B2B2B] p-3 rounded-xl border border-[#B78D42]/40 shadow-sm">
+            {/* HQ Only */}
+            <div className="text-xs space-y-2 bg-[#2B2B2B] p-3.5 rounded-xl border border-[#B78D42]/40 shadow-sm">
               <div className="font-bold text-[#F9DB5C] flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-[#F9DB5C] flex-shrink-0" />
-                <span>HQ (Olaiyur Ring Road)</span>
+                <span>Head Office (Olaiyur Ring Road)</span>
               </div>
               <p className="text-slate-300 pl-5 leading-relaxed text-[11px]">
                 2nd Floor, Valli Tower, Upstairs to SBI Bank 2, Ring Road, K.K. Nagar, Olaiyur, Trichy - 620021
               </p>
-            </div>
-
-            {/* Branch */}
-            <div className="text-xs space-y-1.5 bg-[#2B2B2B] p-3 rounded-xl border border-[#22CDE1]/40 shadow-sm">
-              <div className="font-bold text-[#22CDE1] flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#22CDE1] flex-shrink-0" />
-                <span>Branch (Karumandapam)</span>
+              <div className="pl-5 pt-1">
+                <a
+                  href="https://maps.google.com/?q=Valli+Tower+Olaiyur+Ring+Road+Trichy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[#F9DB5C] hover:underline text-[11px] font-semibold"
+                >
+                  <span>Google Maps Directions</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </div>
-              <p className="text-slate-300 pl-5 leading-relaxed text-[11px]">
-                Vision Properties Bldg, Ashok Nagar 2nd St, RMS Colony, Karumandapam, Trichy - 620001
-              </p>
             </div>
           </div>
 

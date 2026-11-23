@@ -21,7 +21,6 @@ import {
   FileText,
   Compass,
   ExternalLink,
-  Sparkles,
 } from "lucide-react";
 
 export default function AcademyPage() {
@@ -457,8 +456,7 @@ export default function AcademyPage() {
               Have Property Documents You Want Er. J. Vairavel to Inspect?
             </h2>
             <p className="text-slate-300 text-xs sm:text-sm">
-              Book a personal appointment at our <strong>Olaiyur Ring Road HQ</strong> or{" "}
-              <strong>Karumandapam Branch</strong>. Bring your parent deeds, EC, and layout map for a
+              Book a personal appointment at our <strong>Olaiyur Ring Road Headquarters</strong>. Bring your parent deeds, EC, and layout map for a
               rigorous 30-minute legal and structural verification.
             </p>
           </div>
