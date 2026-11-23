@@ -178,11 +178,10 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("buy")}
-                  className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
-                    activeTab === "buy"
-                      ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md shadow-amber-600/30"
-                      : "text-slate-600 hover:text-amber-800"
-                  }`}
+                  className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${activeTab === "buy"
+                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md shadow-amber-600/30"
+                    : "text-slate-600 hover:text-amber-800"
+                    }`}
                 >
                   <Building2 className="w-3.5 h-3.5" />
                   <span>{t.hero.tabBuy}</span>
@@ -191,11 +190,10 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("build")}
-                  className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${
-                    activeTab === "build"
-                      ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md shadow-amber-600/30"
-                      : "text-slate-600 hover:text-amber-800"
-                  }`}
+                  className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${activeTab === "build"
+                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md shadow-amber-600/30"
+                    : "text-slate-600 hover:text-amber-800"
+                    }`}
                 >
                   <HardHat className="w-3.5 h-3.5" />
                   <span>{t.hero.tabBuild}</span>
@@ -305,22 +303,20 @@ export default function HomePage() {
                       <button
                         type="button"
                         onClick={() => setOwnPlot("yes")}
-                        className={`py-2 px-2 rounded-xl text-xs font-bold transition border ${
-                          ownPlot === "yes"
-                            ? "bg-amber-500 text-white border-amber-500 font-black shadow-sm"
-                            : "bg-white text-slate-700 border-amber-200 hover:bg-amber-50"
-                        }`}
+                        className={`py-2 px-2 rounded-xl text-xs font-bold transition border ${ownPlot === "yes"
+                          ? "bg-amber-500 text-white border-amber-500 font-black shadow-sm"
+                          : "bg-white text-slate-700 border-amber-200 hover:bg-amber-50"
+                          }`}
                       >
                         {t.hero.ownPlotYes.split(",")[0]}
                       </button>
                       <button
                         type="button"
                         onClick={() => setOwnPlot("no")}
-                        className={`py-2 px-2 rounded-xl text-xs font-bold transition border ${
-                          ownPlot === "no"
-                            ? "bg-amber-500 text-white border-amber-500 font-black shadow-sm"
-                            : "bg-white text-slate-700 border-amber-200 hover:bg-amber-50"
-                        }`}
+                        className={`py-2 px-2 rounded-xl text-xs font-bold transition border ${ownPlot === "no"
+                          ? "bg-amber-500 text-white border-amber-500 font-black shadow-sm"
+                          : "bg-white text-slate-700 border-amber-200 hover:bg-amber-50"
+                          }`}
                       >
                         {t.hero.ownPlotNo.split(",")[0]}
                       </button>
@@ -338,11 +334,10 @@ export default function HomePage() {
                           key={sqft}
                           type="button"
                           onClick={() => setBuildArea(sqft)}
-                          className={`flex-1 py-2 rounded-xl text-xs font-bold transition border ${
-                            buildArea === sqft
-                              ? "bg-amber-500 text-white border-amber-500 font-black shadow-sm"
-                              : "bg-white text-slate-700 border-amber-200 hover:bg-amber-50"
-                          }`}
+                          className={`flex-1 py-2 rounded-xl text-xs font-bold transition border ${buildArea === sqft
+                            ? "bg-amber-500 text-white border-amber-500 font-black shadow-sm"
+                            : "bg-white text-slate-700 border-amber-200 hover:bg-amber-50"
+                            }`}
                         >
                           {sqft} sqft
                         </button>
@@ -361,11 +356,10 @@ export default function HomePage() {
                           key={fl}
                           type="button"
                           onClick={() => setBuildFloors(fl)}
-                          className={`flex-1 py-2 rounded-xl text-xs font-bold transition border ${
-                            buildFloors === fl
-                              ? "bg-amber-500 text-white border-amber-500 font-black shadow-sm"
-                              : "bg-white text-slate-700 border-amber-200 hover:bg-amber-50"
-                          }`}
+                          className={`flex-1 py-2 rounded-xl text-xs font-bold transition border ${buildFloors === fl
+                            ? "bg-amber-500 text-white border-amber-500 font-black shadow-sm"
+                            : "bg-white text-slate-700 border-amber-200 hover:bg-amber-50"
+                            }`}
                         >
                           {fl}
                         </button>
