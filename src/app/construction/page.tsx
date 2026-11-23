@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import CostEstimator from "@/components/CostEstimator";
+import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import {
   HardHat,
   MessageCircle,
@@ -140,6 +141,61 @@ export default function ConstructionPage() {
     },
   ];
 
+  const constructionHeroSlides: HeroSlide[] = [
+    {
+      image: "/images/turnkey-home.jpg",
+      tag: "CIVIL ENGINEERING & TURNKEY HOMES",
+      tagColor: "gold",
+      title: "Architect-Supervised Construction • Zero Cost Escalations",
+      subtitle:
+        "Build your custom home on your plot or ours with total transparency. Stage-milestone billing, branded materials (TATA Tiscon, Ultratech), and 10-year structural warranty.",
+      primaryCta: {
+        label: "Estimate Construction Cost",
+        href: "#cost-estimator",
+      },
+      secondaryCta: {
+        label: "WhatsApp Er. J. Vairavel",
+        href: `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+          "Hello Er. J. Vairavel, I have a plot in Trichy and want to discuss turnkey construction quotation."
+        )}`,
+      },
+      metrics: [
+        { value: "₹1,950", label: "Basic Package / sq.ft" },
+        { value: "₹2,250", label: "Standard / sq.ft" },
+        { value: "₹2,650", label: "Luxury / sq.ft" },
+        { value: "10 Yrs", label: "Structural Guarantee" },
+      ],
+    },
+    {
+      image: "/images/blueprint-audit.jpg",
+      tag: "GEOTECHNICAL & SOIL AUDITS",
+      tagColor: "cyan",
+      title: "Scientific Soil Bearing Tests • 100% Vasthu 2D/3D Plans",
+      subtitle:
+        "Engineered foundations customized for Trichy soil conditions — red gravel, clay, and alluvial zones — with structural safety approvals.",
+      metrics: [
+        { value: "40 Pts", label: "Pre-Handover Audit" },
+        { value: "Fe-550D", label: "Branded Steel" },
+        { value: "Grade 53", label: "Portland Cement" },
+        { value: "100%", label: "Vasthu Verified" },
+      ],
+    },
+    {
+      image: "/images/luxury-interior.jpg",
+      tag: "LUXURY INTERIORS & FINISHING",
+      tagColor: "emerald",
+      title: "Teakwood Entrances & Modular Living • Key Handover on Schedule",
+      subtitle:
+        "Complete interior woodwork, UPVC sliding windows, Jaquar/Kohler bath fittings, and deep cleaned key handing over on promised dates.",
+      metrics: [
+        { value: "1st Quality", label: "Teak Wood Frame" },
+        { value: "GVT", label: "4x2 Vitrified Tiles" },
+        { value: "Jaquar", label: "Concealed Diverters" },
+        { value: "On Time", label: "Key Handover" },
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Visual Preview Notice Banner */}
@@ -161,50 +217,11 @@ export default function ConstructionPage() {
         </div>
       </div>
 
-      {/* Hero Section Styled with Logo Dark, Gold & Cyan */}
-      <section className="bg-brand-black text-white py-14 sm:py-20 relative overflow-hidden border-b-2 border-gold-500/40">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-card border border-gold-500/50 text-gold-300 text-xs font-black uppercase tracking-wider mb-4 shadow-gold">
-            <HardHat className="w-4 h-4 text-cyan-400" />
-            <span>Er. J. Vairavel Civil Engineering Services</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight mb-4">
-            Turnkey Home Construction in Tiruchirappalli
-          </h1>
-
-          <p className="text-xs sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto mb-8 font-medium">
-            Build your dream home on your plot or ours with total transparency. We guarantee branded materials, stage-wise payments, zero cost escalations, and personal civil engineering supervision.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <button
-              onClick={() => {
-                const el = document.getElementById("cost-estimator");
-                if (el) el.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="py-3.5 px-6 rounded-2xl bg-gold-500 hover:bg-gold-400 text-brand-black font-black text-xs uppercase tracking-wide shadow-gold transition border border-gold-300"
-            >
-              Calculate Construction Cost
-            </button>
-
-            <a
-              href={`https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
-                "Hello Er. J. Vairavel, I have a plot in Trichy and want to discuss turnkey construction quotation."
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-wide shadow transition flex items-center gap-2 border border-emerald-400/30"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>WhatsApp Er. J. Vairavel</span>
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* Hero Visual Slider */}
+      <HeroSlider
+        slides={constructionHeroSlides}
+        heightClass="min-h-[560px] sm:min-h-[620px] lg:min-h-[680px]"
+      />
 
       {/* Side-by-Side Comparison Table of Packages */}
       <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -8,6 +8,7 @@ import { TRICHY_CORRIDORS, MicroMarketComps } from "@/lib/namnilam-data";
 import { formatLakhsCrores } from "@/lib/utils";
 import AIPropertyGuide from "@/components/AIPropertyGuide";
 import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
+import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import {
   BarChart3,
   TrendingUp,
@@ -71,8 +72,90 @@ export default function IntelligencePage() {
     window.open(`https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${text}`, "_blank");
   };
 
+  const intelligenceSlides: HeroSlide[] = [
+    {
+      image: "/images/dtcp-plots.jpg",
+      tag: "SUB-REGISTRAR GUIDELINE VALUE HUB",
+      tagColor: "gold",
+      title: "Trichy Land Intelligence • Transparent SRO Data",
+      subtitle:
+        language === "ta"
+          ? "திருச்சியின் 7 முக்கிய வளர்ச்சி வழித்தடங்களுக்கான பதிவுத்துறை வழிகாட்டி மதிப்பு, சந்தை பரிவர்த்தனைகள் மற்றும் ஆவண பகுப்பாய்வு."
+          : "Access registered transaction comps, 2024 revised SRO guideline values, and corridor appreciation rates across Tiruchirappalli.",
+      primaryCta: {
+        label: language === "ta" ? "7 வழித்தடங்களை காண்க" : "Explore 7 Corridors",
+        href: "#corridors-section",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "வழிகாட்டி கால்குலேட்டர்" : "Guideline Calculator",
+        href: "#calculator-section",
+      },
+      metrics: [
+        { value: "7 Corridors", label: "Trichy Micro-Markets" },
+        { value: "2024 Rates", label: "Revised SRO Values" },
+        { value: "100% Unbiased", label: "No Broker Inflations" },
+        { value: "Ground Truth", label: "Field Soil & Water Data" },
+      ],
+    },
+    {
+      image: "/images/hero-villa.jpg",
+      tag: "INFRASTRUCTURE CATALYSTS",
+      tagColor: "cyan",
+      title: "Airport Terminal & Semi-Ring Road • Growth Corridors",
+      subtitle:
+        language === "ta"
+          ? "₹1,200 கோடி புதிய சர்வதேச விமான முனையம், திருச்சி அரைவட்டச் சாலை மற்றும் சிப்காட் தொழிற்பேட்டை நில மதிப்பு உயர்வு பகுப்பாய்வு."
+          : "Detailed impact analysis of ₹1,200 Cr International Terminal, 5-Arm Junctions, and Trichy-Karur NH connectivity on future land appreciation.",
+      primaryCta: {
+        label: language === "ta" ? "வழித்தட ஆய்வுகள்" : "Corridor Comps",
+        href: "#corridors-section",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "வாட்ஸ்அப் புலனாய்வு" : "WhatsApp Intelligence",
+        href: `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+          "Hello Er. J. Vairavel, I want the Trichy Infrastructure & Corridor Growth Report."
+        )}`,
+      },
+      metrics: [
+        { value: "₹1,200 Cr", label: "Airport Terminal" },
+        { value: "4 Lanes", label: "NHAI Semi-Ring Road" },
+        { value: "35+ km", label: "Expansion Corridors" },
+        { value: "12-18%", label: "Annual Capital Growth" },
+      ],
+    },
+    {
+      image: "/images/blueprint-audit.jpg",
+      tag: "24/7 AI PROPERTY GUIDE",
+      tagColor: "emerald",
+      title: "Civil Engineering Intelligence • Instant Clarity",
+      subtitle:
+        language === "ta"
+          ? "பட்டா சிட்டா, FMB வரைபடம், வழிகாட்டி மதிப்பு மற்றும் நிலச் சட்டங்கள் குறித்து எந்த நேரமும் Er. J. வைரவேலின் AI வழிகாட்டியிடம் கேளுங்கள்."
+          : "Ask anything about Tamil Nadu land rules, FMB sketch validation, Patta Chitta transfer, or turnkey construction estimation.",
+      primaryCta: {
+        label: language === "ta" ? "AI வழிகாட்டியை தொடங்கு" : "Launch AI Guide",
+        href: "#ai-guide-section",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "Er. வைரவேலுடன் பேசுங்கள்" : "Speak to Er. Vairavel",
+        href: `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+          "Hello Er. J. Vairavel, I have a specific technical land question."
+        )}`,
+      },
+      metrics: [
+        { value: "24/7 Live", label: "Instant Answers" },
+        { value: "100+ Topics", label: "Land & Building Codes" },
+        { value: "Zero Jargon", label: "Plain Tamil & English" },
+        { value: "Er. Vairavel", label: "Knowledge Base" },
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 pb-20">
+      {/* 1. Hero Carousel */}
+      <HeroSlider slides={intelligenceSlides} />
+
       {/* Notice Banner */}
       <div className="bg-amber-500/20 border-b border-amber-400/40 text-amber-200 py-2.5 px-4 text-xs font-semibold backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
@@ -324,7 +407,7 @@ export default function IntelligencePage() {
         </div>
 
         {/* Interactive SRO Guideline vs Market Price Matrix */}
-        <div className="bg-brand-card rounded-3xl border border-brand-dark p-6 sm:p-8 space-y-6">
+        <div id="corridors-section" className="bg-brand-card rounded-3xl border border-brand-dark p-6 sm:p-8 space-y-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 text-gold-400 text-xs font-bold uppercase tracking-wider">
@@ -528,7 +611,7 @@ export default function IntelligencePage() {
         </div>
 
         {/* Live Guideline vs Market Acquisition Calculator */}
-        <div className="bg-gradient-to-r from-brand-black via-brand-dark to-brand-black rounded-3xl border border-gold-500/30 p-6 sm:p-10 shadow-xl space-y-8">
+        <div id="calculator-section" className="bg-gradient-to-r from-brand-black via-brand-dark to-brand-black rounded-3xl border border-gold-500/30 p-6 sm:p-10 shadow-xl space-y-8">
           <div className="max-w-3xl space-y-2">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 uppercase tracking-widest">
               <Calculator className="w-4 h-4" />
@@ -672,7 +755,7 @@ export default function IntelligencePage() {
         </div>
 
         {/* 2.5 INTERACTIVE AI PROPERTY & ENGINEERING GUIDE */}
-        <div className="space-y-4">
+        <div id="ai-guide-section" className="space-y-4">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-card border border-gold-500/40 text-gold-400 text-xs font-black uppercase tracking-wider">
               <Compass className="w-3.5 h-3.5 text-cyan-400" />

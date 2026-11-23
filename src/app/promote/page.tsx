@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
+import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import {
   Camera,
   CheckCircle2,
@@ -59,28 +60,85 @@ export default function PromotePropertyPage() {
     }
   };
 
+  const promoteSlides: HeroSlide[] = [
+    {
+      image: "/images/drone-walkthrough.jpg",
+      tag: "TAMIL NADU'S #1 PROPERTY YOUTUBE CHANNEL",
+      tagColor: "red",
+      title: "125,000+ Active Property Buyers • 4K Drone Showcase",
+      subtitle:
+        language === "ta"
+          ? "உங்கள் அப்ரூவ்டு மனை அல்லது வீட்டை தமிழ்நாட்டின் முன்னணி ரியல் எஸ்டேட் யூடியூப் தளத்தில் விளம்பரம் செய்து நேரடியாக வாங்குபவர்களிடம் விற்பனை செய்யுங்கள்."
+          : "Sell faster with zero broker interference. Er. J. Vairavel presents your property on-camera with 4K drone cinematography, reaching verified buyers across TN & overseas NRIs.",
+      primaryCta: {
+        label: language === "ta" ? "விளம்பரம் செய்ய பதிவு" : "Submit Your Property",
+        href: "#promote-form",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "வாட்ஸ்அப் மீடியா குழு" : "WhatsApp Media Desk",
+        href: `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+          "Hello Er. J. Vairavel, I want to promote my property on your YouTube channel."
+        )}`,
+      },
+      metrics: [
+        { value: "125K+", label: "Subscribers" },
+        { value: "4K UHD", label: "Drone Walkthrough" },
+        { value: "0% Brokerage", label: "Direct Inquiries" },
+        { value: "NRI Reach", label: "Singapore & Gulf" },
+      ],
+    },
+    {
+      image: "/images/youtube-production.jpg",
+      tag: "AUTHORITATIVE MEDIA PRESENTATION",
+      tagColor: "gold",
+      title: "Civil Engineering Authority • Eliminate Lowball Offers",
+      subtitle:
+        language === "ta"
+          ? "Er. J. வைரவேலின் நேரடி கள விளக்கம் வாங்குபவர்களுக்கு உடனடி நம்பிக்கையை அளித்து உங்கள் மனைகளுக்கு முழு மதிப்பை பெற்றுத் தருகிறது."
+          : "When a practicing civil engineer presents your layout's road width, drainage, and legal approvals on-camera, buyers negotiate with confidence.",
+      primaryCta: {
+        label: language === "ta" ? "வீடியோ பதிவு செய்ய" : "Book Video Shoot",
+        href: "#promote-form",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "நேரடி அழைப்பு" : "Call Media Desk",
+        href: `tel:${COMPANY_INFO.phone}`,
+      },
+      metrics: [
+        { value: "Er. Vairavel", label: "On-Camera Review" },
+        { value: "Full Horizon", label: "Trichy & Central TN" },
+        { value: "Multi-Platform", label: "YouTube + Reels" },
+        { value: "Direct Calls", label: "Routed to You" },
+      ],
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-slate-50 py-10 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-100 text-red-700 text-xs font-black uppercase tracking-wider border border-red-300">
-            <Youtube className="w-4 h-4 text-red-600" />
-            <span>YouTube Promotion Network • 125K+ Subscribers</span>
+    <div className="min-h-screen bg-slate-50">
+      {/* 1. Hero Carousel */}
+      <HeroSlider slides={promoteSlides} />
+
+      <div className="py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-100 text-red-700 text-xs font-black uppercase tracking-wider border border-red-300">
+              <Youtube className="w-4 h-4 text-red-600" />
+              <span>YouTube Promotion Network • 125K+ Subscribers</span>
+            </div>
+
+            <h2 className="text-2xl sm:text-4xl font-black text-brand-black tracking-tight leading-tight">
+              Promote Your Layout or Home on Tamil Nadu&apos;s Leading Property Channel
+            </h2>
+
+            <p className="text-xs sm:text-base text-slate-600 max-w-2xl mx-auto font-medium">
+              Sell faster with zero broker interference. Er. J. Vairavel presents your property on-camera with 4K drone cinematography, reaching genuine NRI and Tamil buyers worldwide.
+            </p>
           </div>
-
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-brand-black tracking-tight leading-tight">
-            Promote Your Layout or Home on Tamil Nadu&apos;s Leading Property Channel
-          </h1>
-
-          <p className="text-xs sm:text-base text-slate-600 max-w-2xl mx-auto font-medium">
-            Sell faster with zero broker interference. Er. J. Vairavel presents your property on-camera with 4K drone cinematography, reaching genuine NRI and Tamil buyers worldwide.
-          </p>
-        </div>
 
         {/* Benefits Grid Styled with Logo Palette */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-          <div className="bg-white p-6 rounded-3xl border-2 border-red-200 shadow-sm text-center space-y-2 hover:shadow-md transition">
+          <div className="bg-white p-6 rounded-3xl border-2 border-red-200 shadow-sm text-center space-y-2 hover:shadow-md glass-card-interactive transition">
             <div className="w-12 h-12 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mx-auto border border-red-200">
               <Users className="w-6 h-6" />
             </div>
@@ -90,7 +148,7 @@ export default function PromotePropertyPage() {
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-3xl border-2 border-gold-200 shadow-sm text-center space-y-2 hover:shadow-gold transition">
+          <div className="bg-white p-6 rounded-3xl border-2 border-gold-200 shadow-sm text-center space-y-2 hover:shadow-gold glass-card-interactive transition">
             <div className="w-12 h-12 bg-gold-50 text-gold-600 rounded-2xl flex items-center justify-center mx-auto border border-gold-200">
               <Camera className="w-6 h-6" />
             </div>
@@ -100,7 +158,7 @@ export default function PromotePropertyPage() {
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-3xl border-2 border-cyan-200 shadow-sm text-center space-y-2 hover:shadow-cyan transition flex flex-col items-center">
+          <div className="bg-white p-6 rounded-3xl border-2 border-cyan-200 shadow-sm text-center space-y-2 hover:shadow-cyan glass-card-interactive transition flex flex-col items-center">
             <div className="relative w-14 h-14 rounded-2xl overflow-hidden border-2 border-cyan-400 shadow-sm flex-shrink-0 bg-slate-100">
               <Image
                 src="/images/vairavel-avatar.jpg"
@@ -115,7 +173,7 @@ export default function PromotePropertyPage() {
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-3xl border-2 border-slate-200 shadow-sm text-center space-y-2 hover:shadow-md transition">
+          <div className="bg-white p-6 rounded-3xl border-2 border-slate-200 shadow-sm text-center space-y-2 hover:shadow-md glass-card-interactive transition">
             <div className="w-12 h-12 bg-brand-black text-gold-400 rounded-2xl flex items-center justify-center mx-auto">
               <TrendingUp className="w-6 h-6" />
             </div>
@@ -127,7 +185,7 @@ export default function PromotePropertyPage() {
         </div>
 
         {/* Persona Selector Tabs adapted from Nam Nilam */}
-        <div className="max-w-2xl mx-auto mb-8 bg-white p-2 rounded-2xl border-2 border-[#B78D42]/30 shadow-md flex items-center justify-between gap-1 sm:gap-2">
+        <div id="promote-form" className="max-w-2xl mx-auto mb-8 bg-white p-2 rounded-2xl border-2 border-[#B78D42]/30 shadow-md flex items-center justify-between gap-1 sm:gap-2">
           <button
             type="button"
             onClick={() => {
@@ -315,6 +373,7 @@ export default function PromotePropertyPage() {
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 }

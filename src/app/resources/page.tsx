@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
+import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import {
   FileText,
   Download,
@@ -82,8 +83,66 @@ export default function ResourcesPage() {
     },
   ];
 
+  const resourcesSlides: HeroSlide[] = [
+    {
+      image: "/images/blueprint-audit.jpg",
+      tag: "BUYER HANDBOOKS & BOQ TEMPLATES",
+      tagColor: "gold",
+      title: "Technical Due Diligence • Standardized BOQ Guides",
+      subtitle:
+        language === "ta"
+          ? "சட்ட சிக்கல்கள், போலி பட்டாக்கள் மற்றும் கட்டுமான ஏமாற்றங்களைத் தவிர்க்க Er. J. வைரவேல் மற்றும் சிவில் இன்ஜினியரிங் நிபுணர்களால் உருவாக்கப்பட்ட இலவச கையேடுகள்."
+          : "Authoritative checklists, cost estimation templates, and legal guidance handbooks published by Er. J. Vairavel for real estate buyers.",
+      primaryCta: {
+        label: language === "ta" ? "கையேடுகளைக் காண்க" : "Browse Handbooks",
+        href: "#guides-list",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "சரிபார்ப்பு பட்டியல் PDF" : "Request Checklist PDF",
+        href: `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+          "Hello Er. J. Vairavel, please send me the PDF due diligence checklists."
+        )}`,
+      },
+      metrics: [
+        { value: "6 Handbooks", label: "Free Buyer Downloads" },
+        { value: "BOQ Specs", label: "Fe-550 TMT & 53-Grade" },
+        { value: "Step-by-Step", label: "Visual Verification" },
+        { value: "Civil Eng.", label: "Technical Standards" },
+      ],
+    },
+    {
+      image: "/images/turnkey-home.jpg",
+      tag: "ENGINEERING PROTOCOLS",
+      tagColor: "cyan",
+      title: "Soil Bearing Capacity • Groundwater TDS Standards",
+      subtitle:
+        language === "ta"
+          ? "போர்வெல் அமைப்பதற்கு முன் நிலத்தடி நீர் ஆழம், குடிநீர் TDS அளவு மற்றும் அடித்தளம் தாங்கும் திறன் (SBC) நெறிமுறைகள்."
+          : "Protect your construction budget from foundation settling and saline water corrosion with rigorous geotechnical testing protocols.",
+      primaryCta: {
+        label: language === "ta" ? "தொழில்நுட்ப கையேடுகள்" : "View Protocols",
+        href: "#guides-list",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "இன்ஜினியருடன் பேசுங்கள்" : "Consult Engineer",
+        href: `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+          "Hello Er. J. Vairavel, I have questions about soil bearing and water testing."
+        )}`,
+      },
+      metrics: [
+        { value: "SBC Testing", label: "Foundation Safety" },
+        { value: "<300 TDS", label: "Sweet Water Benchmark" },
+        { value: "6-Stage", label: "Milestone BOQ Schedule" },
+        { value: "Zero Escalation", label: "Contractor Cost Caps" },
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-slate-50 pb-20">
+      {/* 1. Hero Carousel */}
+      <HeroSlider slides={resourcesSlides} />
+
       {/* Notice Banner */}
       <div className="bg-amber-100 border-b border-amber-300 text-amber-950 py-2.5 px-4 text-xs font-semibold">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
@@ -103,49 +162,6 @@ export default function ResourcesPage() {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="bg-brand-black text-white py-14 sm:py-20 relative overflow-hidden border-b-2 border-amber-400/40">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-amber-400/50 text-amber-300 text-xs font-black uppercase tracking-wider backdrop-blur-md">
-              <BookOpen className="w-4 h-4 text-amber-400" />
-              <span>Real Estate Knowledge & Forensic Handbooks</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              {language === "ta"
-                ? "சொத்து வாங்குபவர்களுக்கான வழிகாட்டிகள் & சரிபார்ப்பு பட்டியல்கள்"
-                : "Due Diligence Handbooks & Property Verification Checklists"}
-            </h1>
-
-            <p className="text-xs sm:text-base text-slate-300 leading-relaxed font-medium">
-              {language === "ta"
-                ? "சட்ட சிக்கல்கள், போலி பட்டாக்கள் மற்றும் கட்டுமான ஏமாற்றங்களைத் தவிர்க்க Er. J. வைரவேல் மற்றும் சட்ட ஆலோசகர்களால் உருவாக்கப்பட்ட இலவச கையேடுகள்."
-                : "Authoritative guides designed to protect land buyers and homebuilders from forged title deeds, encumbrance traps, unapproved layouts, and construction escalations."}
-            </p>
-
-            <div className="pt-2 flex flex-wrap items-center gap-3">
-              <a
-                href="#guides-list"
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-600/30 transition hover:-translate-y-0.5"
-              >
-                {language === "ta" ? "கையேடுகளைக் காண்க" : "Browse All Handbooks"}
-              </a>
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs backdrop-blur-md transition"
-              >
-                <span>{language === "ta" ? "சட்ட சேவைகள்" : "Need Written Advocate Scrutiny?"}</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Resource Cards Grid */}
       <section id="guides-list" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -159,7 +175,7 @@ export default function ResourcesPage() {
             return (
               <div
                 key={guide.id}
-                className="bg-white rounded-3xl p-6 sm:p-7 border border-amber-200/90 hover:border-amber-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-3xl p-6 sm:p-7 border border-amber-200/90 hover:border-amber-400 shadow-sm hover:shadow-xl glass-card-interactive transition-all duration-300 flex flex-col justify-between group"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
+import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import {
   ArrowRight,
   ShieldCheck,
@@ -85,8 +86,92 @@ export default function BusinessSolutionsPage() {
     },
   ];
 
+  const businessSlides: HeroSlide[] = [
+    {
+      image: "/images/youtube-production.jpg",
+      tag: "125K+ SUBSCRIBER YOUTUBE NETWORK",
+      tagColor: "red",
+      title: "4K Drone Walkthroughs • Direct NRI & Tamil Buyers",
+      subtitle:
+        language === "ta"
+          ? "வீடு வீட்டுமனை சந்தையின் 125,000+ பார்வையாளர் பலம், Er. J. வைரவேலின் நேரடி கள விளக்கம் மற்றும் சினிமாட்டிக் ட்ரோன் காட்சிகள்."
+          : "Showcase approved layouts and builder projects to an active community of 125,000+ verified buyers and NRIs across Singapore, Malaysia, and the Gulf.",
+      primaryCta: {
+        label: language === "ta" ? "தீர்வுகளைக் காண்க" : "Explore Solutions",
+        href: "#solutions-overview",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "வீடியோ பதிவு செய்ய" : "Book Video Shoot",
+        href: `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+          "Hello Er. J. Vairavel, I want to feature my layout/villa project on your YouTube channel."
+        )}`,
+      },
+      metrics: [
+        { value: "125K+", label: "Subscribers" },
+        { value: "4K UHD", label: "Drone Walkthrough" },
+        { value: "On-Camera", label: "Er. J. Vairavel Review" },
+        { value: "Direct", label: "Zero Broker Bias" },
+      ],
+    },
+    {
+      image: "/images/luxury-interior.jpg",
+      tag: "REAL ESTATE CRM ARCHITECTURE",
+      tagColor: "cyan",
+      title: "Structured Sales Pipelines • Zero Lead Leakage",
+      subtitle:
+        language === "ta"
+          ? "ஸ்ப்ரெட்ஷீட் குழப்பங்களை முடிவுக்கு கொண்டு வாருங்கள். உங்கள் திட்டத்திற்கு ஏற்ப கட்டமைக்கப்பட்ட ரியல் எஸ்டேட் CRM மற்றும் தானியங்கி லீட் மேலாண்மை."
+          : "Eliminate spreadsheet chaos with tailored real estate CRMs featuring automated lead attribution, stage-wise pipeline visibility, and agent performance tracking.",
+      primaryCta: {
+        label: language === "ta" ? "CRM கட்டமைப்பு" : "CRM Solutions",
+        href: "#solutions-overview",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "டெமோ கோரிக்கை" : "Request Demo",
+        href: `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+          "Hello Er. J. Vairavel, I need a custom CRM pipeline setup for my real estate firm."
+        )}`,
+      },
+      metrics: [
+        { value: "Multi-Channel", label: "Lead Ingestion" },
+        { value: "Instant Alerts", label: "WhatsApp & SMS" },
+        { value: "SOPs", label: "Sales Team Training" },
+        { value: "Full Stack", label: "Done-For-You Delivery" },
+      ],
+    },
+    {
+      image: "/images/hero-villa.jpg",
+      tag: "24/7 WHATSAPP CONCIERGE & AI",
+      tagColor: "gold",
+      title: "Automated Brochure Dispatch • Instant Buyer Qualification",
+      subtitle:
+        language === "ta"
+          ? "இரவு பகல் எந்த நேரமும் வாங்குபவர்களின் கேள்விகளுக்கு உடனடி பதில் அளித்து, அப்ரூவ்டு மனை வரைபடங்களை வாட்ஸ்அப்பில் அனுப்பும் நவீன தீர்வு."
+          : "Deploy intelligent conversational workflows on official WhatsApp Business API to qualify buyers, share layout maps, and book site visits automatically.",
+      primaryCta: {
+        label: language === "ta" ? "வாட்ஸ்அப் ஆட்டோமேஷன்" : "WhatsApp Automation",
+        href: "#solutions-overview",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "டெமோவை சோதிக்க" : "Test Live Flow",
+        href: `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+          "Hello Er. J. Vairavel, I want to see a demo of WhatsApp Real Estate Automation."
+        )}`,
+      },
+      metrics: [
+        { value: "Meta Cloud", label: "Official WhatsApp API" },
+        { value: "Instant PDF", label: "Brochures & Layouts" },
+        { value: "24/7 Active", label: "Buyer Qualification" },
+        { value: "Calendar Sync", label: "Site Visit Booking" },
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-[#F2F2F2] pb-20">
+      {/* 1. Hero Carousel */}
+      <HeroSlider slides={businessSlides} />
+
       {/* Visual Preview Notice Banner */}
       <div className="bg-white border-b border-[#B78D42]/30 text-[#202020] py-2.5 px-4 text-xs font-semibold shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
@@ -106,52 +191,7 @@ export default function BusinessSolutionsPage() {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="bg-[#202020] text-white py-14 sm:py-20 relative overflow-hidden border-b-2 border-[#B78D42]/40">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#F9DB5C]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#22CDE1]/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#B78D42]/50 text-[#F9DB5C] text-xs font-black uppercase tracking-wider backdrop-blur-md">
-              <Layers className="w-4 h-4 text-[#22CDE1]" />
-              <span>B2B Real Estate & Digital Solutions</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              {language === "ta"
-                ? "ரியல் எஸ்டேட் நிறுவனங்களுக்கான நவீன தொழில்நுட்ப தீர்வுகள்"
-                : "Digital Marketing, CRM & AI Workflows for Real Estate"}
-            </h1>
-
-            <p className="text-xs sm:text-base text-slate-300 leading-relaxed font-medium">
-              {language === "ta"
-                ? "வீடு வீட்டுமனை சந்தையின் 125,000+ பார்வையாளர் பலம், சிவில் இன்ஜினியரிங் நம்பகத்தன்மை மற்றும் நவீன ஆட்டோமேஷன் தொழில்நுட்பங்கள் மூலம் உங்கள் திட்டங்களை வேகமாக விற்பனை செய்யுங்கள்."
-                : "Accelerate property absorption with video walkthroughs on our 125K+ subscriber channel, structured CRM pipeline architectures, and 24/7 conversational WhatsApp automation."}
-            </p>
-
-            <div className="pt-2 flex flex-wrap items-center gap-3">
-              <a
-                href="#solutions-overview"
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-black text-xs uppercase tracking-wider shadow-gold border border-[#B78D42]/50 transition hover:-translate-y-0.5"
-              >
-                {language === "ta" ? "தீர்வுகளைக் காண்க" : "Explore 3 Core Solutions"}
-              </a>
-              <a
-                href={`https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
-                  "Hello Er. J. Vairavel, I am interested in VVMS B2B Business Solutions (Marketing / CRM / WhatsApp). Please share consultation details."
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs backdrop-blur-md transition"
-              >
-                <MessageCircle className="w-4 h-4 text-emerald-400" />
-                <span>{language === "ta" ? "வாட்ஸ்அப் ஆலோசனை" : "Book B2B Consultation"}</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Solutions Tabs & Detailed Breakdown */}
       <section id="solutions-overview" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

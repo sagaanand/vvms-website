@@ -54,6 +54,23 @@ export default function HomePage() {
   // Video Modal State
   const [activeVideo, setActiveVideo] = useState<{ id: string; title: string } | null>(null);
 
+  // Hero Background Cycling Slides
+  const heroBackgrounds = [
+    { src: "/images/hero-villa.jpg", alt: "Architectural Villa Horizon", label: "Luxury Villas" },
+    { src: "/images/dtcp-plots.jpg", alt: "DTCP & RERA Gated Plots", label: "Approved Plots" },
+    { src: "/images/turnkey-home.jpg", alt: "Turnkey Civil Engineering Construction", label: "Turnkey Homes" },
+    { src: "/images/luxury-interior.jpg", alt: "Luxury Contemporary Interiors", label: "Interior Architecture" },
+    { src: "/images/drone-walkthrough.jpg", alt: "Aerial Drone Corridor Mapping", label: "Drone Mapping" },
+  ];
+  const [bgIndex, setBgIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setBgIndex((prev) => (prev + 1) % heroBackgrounds.length);
+    }, 5500);
+    return () => clearInterval(timer);
+  }, [heroBackgrounds.length]);
+
   useEffect(() => {
     async function loadProperties() {
       try {
@@ -99,17 +116,35 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen">
       {/* 1. LUXURY HYBRID GLASS HERO IN CHARCOAL BLACK & BRAND GOLD PALETTE */}
       <section className="relative bg-[#202020] text-[#F2F2F2] pt-10 sm:pt-14 pb-20 sm:pb-28 overflow-hidden border-b border-[#B78D42]/35">
-        {/* Full-width architectural backdrop using locally generated 16:9 Villa Image */}
+        {/* Full-width cycling architectural backdrop with smooth crossfade */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <Image
-            src="/images/hero-villa.jpg"
-            alt="Veedu Veettumanai Santhai Architectural Horizon"
-            fill
-            className="object-cover object-center opacity-30 scale-105"
-            priority
-          />
+          {heroBackgrounds.map((bg, idx) => {
+            const isActive = idx === bgIndex;
+            return (
+              <div
+                key={bg.src}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  isActive ? "opacity-35 z-10" : "opacity-0 z-0"
+                }`}
+              >
+                <div
+                  className={`relative w-full h-full transform transition-transform duration-[7000ms] ease-out ${
+                    isActive ? "scale-105" : "scale-100"
+                  }`}
+                >
+                  <Image
+                    src={bg.src}
+                    alt={bg.alt}
+                    fill
+                    className="object-cover object-center"
+                    priority={idx === 0}
+                  />
+                </div>
+              </div>
+            );
+          })}
           {/* Layered Charcoal Black glass gradient overlay for ultra-crisp typography */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#202020]/95 via-[#202020]/80 to-[#202020]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#202020]/95 via-[#202020]/80 to-[#202020] z-10" />
         </div>
 
         {/* Ambient radial gold & turquoise glow circles */}
@@ -164,6 +199,32 @@ export default function HomePage() {
                 <HardHat className="w-4 h-4 text-[#F9DB5C]" />
                 <span>{t.hero.secondaryCta}</span>
               </button>
+            </div>
+
+            {/* Visual Subject Carousel Indicators */}
+            <div className="pt-3 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+              {heroBackgrounds.map((bg, idx) => {
+                const isActive = idx === bgIndex;
+                return (
+                  <button
+                    key={bg.src}
+                    type="button"
+                    onClick={() => setBgIndex(idx)}
+                    className={`px-3 py-1 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all duration-300 flex items-center gap-1.5 ${
+                      isActive
+                        ? "bg-[#F9DB5C] text-[#202020] shadow-gold scale-105 border border-[#B78D42]"
+                        : "bg-[#202020]/70 text-slate-300 hover:text-white border border-white/10 hover:border-[#B78D42]/40"
+                    }`}
+                  >
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full ${
+                        isActive ? "bg-[#202020]" : "bg-[#22CDE1]"
+                      }`}
+                    />
+                    <span>{bg.label}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 

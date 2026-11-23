@@ -8,6 +8,7 @@ import PropertyCard, { PropertyData } from "@/components/PropertyCard";
 import VideoModal from "@/components/VideoModal";
 import SafePurchaseStandard from "@/components/SafePurchaseStandard";
 import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
+import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import {
   Search,
   RotateCcw,
@@ -92,23 +93,60 @@ function PropertiesDirectoryContent() {
     router.push("/properties");
   };
 
-  return (
-    <div className="min-h-screen bg-slate-50 py-8 sm:py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Breadcrumb & Title Styled with Logo Colors */}
-        <div className="mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-50 border border-gold-300 text-gold-900 text-xs font-black uppercase tracking-wider mb-2">
-            <Building2 className="w-3.5 h-3.5 text-cyan-600" />
-            <span>Trichy Real Estate Directory • Er. J. Vairavel</span>
-          </div>
-          <h1 className="text-2xl sm:text-4xl font-black text-brand-black tracking-tight">
-            Verified Properties in Tiruchirappalli
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl font-medium">
-            Every property listed here has undergone legal title scrutiny, DTCP/RERA approval check, and on-site video inspection by Er. J. Vairavel.
-          </p>
-        </div>
+  const propertyHeroSlides: HeroSlide[] = [
+    {
+      image: "/images/dtcp-plots.jpg",
+      tag: "100% DTCP & RERA APPROVED PLOTS",
+      tagColor: "gold",
+      title: "Verified Plots in Tiruchirappalli • Legal Safety Guaranteed",
+      subtitle:
+        "Every plot features individual Thani Patta, 33ft blacktop tar roads, OSR park gift deeds, and pre-approved 80% SBI bank loans.",
+      metrics: [
+        { value: "100%", label: "Legally Vetted" },
+        { value: "0%", label: "Buyer Brokerage" },
+        { value: "80%", label: "SBI Loan Support" },
+        { value: "33 Ft", label: "Tar Roads" },
+      ],
+    },
+    {
+      image: "/images/hero-villa.jpg",
+      tag: "INDEPENDENT LUXURY VILLAS",
+      tagColor: "cyan",
+      title: "Custom Homes & Gated Communities • Prime Trichy Corridors",
+      subtitle:
+        "Vasthu-aligned G+1 & G+2 villas in K.K. Nagar, Olaiyur Ring Road, and Panjappur with sweet potable groundwater.",
+      metrics: [
+        { value: "G+1 / G+2", label: "Custom Architecture" },
+        { value: "10 Yrs", label: "Structural Warranty" },
+        { value: "100%", label: "Vasthu Compliant" },
+        { value: "TDS <300", label: "Sweet Water" },
+      ],
+    },
+    {
+      image: "/images/blueprint-audit.jpg",
+      tag: "0% BUYER COMMISSION",
+      tagColor: "emerald",
+      title: "Direct Transparent Pricing • No Hidden Broker Cuts",
+      subtitle:
+        "All parent deeds, revenue sketches, and survey subdivisions scrutinized on-camera and in person by Er. J. Vairavel.",
+      metrics: [
+        { value: "30 Yrs", label: "EC Scrutiny" },
+        { value: "₹0", label: "Hidden Fees" },
+        { value: "4K", label: "Video Proof" },
+        { value: "7 Days", label: "Office Support" },
+      ],
+    },
+  ];
 
+  return (
+    <div className="min-h-screen bg-slate-50">
+      {/* Hero Visual Slider */}
+      <HeroSlider
+        slides={propertyHeroSlides}
+        heightClass="min-h-[480px] sm:min-h-[520px] lg:min-h-[560px]"
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Visual Preview Notice */}
         <div className="mb-6 p-3 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-xs flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">

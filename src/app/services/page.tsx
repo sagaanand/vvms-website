@@ -7,6 +7,7 @@ import { useLanguage } from "@/lib/i18n";
 import { ALL_SERVICES, ServiceDetail } from "@/lib/namnilam-data";
 import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
+import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import {
   ShieldCheck,
   Award,
@@ -40,19 +41,101 @@ export default function ServicesPage() {
     return svc.category === selectedCategory;
   });
 
+  const serviceSlides: HeroSlide[] = [
+    {
+      image: "/images/blueprint-audit.jpg",
+      tag: "30-YEAR TITLE DEED FORENSICS",
+      tagColor: "gold",
+      title: "Civil Law Due Diligence • Zero Legal Defects",
+      subtitle:
+        language === "ta"
+          ? "30 வருட வில்லங்கச் சான்று, பட்டா/சிட்டா உண்மைத்தன்மை மற்றும் உயர்நீதிமன்ற வழக்கறிஞர்களின் விரிவான சட்ட ஆய்வு."
+          : "30-year Encumbrance Certificate audit, parent title scrutiny, and High Court advocate verification before you invest.",
+      primaryCta: {
+        label: language === "ta" ? "சேவைகளை காண்க" : "Explore Services",
+        href: "#services-grid",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "வாட்ஸ்அப் ஆலோசனை" : "WhatsApp Advisory",
+        href: `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+          "Hello Er. J. Vairavel, I need legal due diligence advisory for a property."
+        )}`,
+      },
+      metrics: [
+        { value: "30 Years", label: "EC Title Scrutiny" },
+        { value: "12 Points", label: "Document Checklist" },
+        { value: "100%", label: "Court Records Check" },
+        { value: "Zero", label: "Hidden Encumbrance" },
+      ],
+    },
+    {
+      image: "/images/dtcp-plots.jpg",
+      tag: "REGISTERED SRO VALUATIONS",
+      tagColor: "cyan",
+      title: "Sub-Registrar Guideline • Unbiased Valuation",
+      subtitle:
+        language === "ta"
+          ? "பதிவுத்துறை வழிகாட்டி மதிப்பு மற்றும் உண்மையான சந்தை நிலவரத்தின் அடிப்படையில் நியாயமான சொத்து மதிப்பீடு."
+          : "Data-driven property valuation based on actual registered transactions, guideline benchmarks, and locality absorption rates.",
+      primaryCta: {
+        label: language === "ta" ? "மதிப்பீட்டு சேவைகள்" : "Valuation Desk",
+        href: "#services-grid",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "தொடர்பு கொள்ள" : "Contact Desk",
+        href: "/contact",
+      },
+      metrics: [
+        { value: "SRO Data", label: "Registration Comps" },
+        { value: "Zero Bias", label: "Independent Valuation" },
+        { value: "7 Corridors", label: "Trichy Micro-Markets" },
+        { value: "24-48 Hrs", label: "Dossier Turnaround" },
+      ],
+    },
+    {
+      image: "/images/consulting.jpg",
+      tag: "ENGINEERING FIELD AUDITS",
+      tagColor: "red",
+      title: "Geotechnical Soil • Groundwater Audits",
+      subtitle:
+        language === "ta"
+          ? "மண் தாங்கும் திறன் (SBC) சோதனை, நிலத்தடி நீர் தரம் (TDS) மற்றும் Er. J. வைரவேலின் நேரடி கள ஆய்வு."
+          : "Soil bearing capacity testing, borehole water potability analysis, and structural safety audits led by Er. J. Vairavel.",
+      primaryCta: {
+        label: language === "ta" ? "இன்ஜினியரிங் ஆய்வுகள்" : "Engineering Audits",
+        href: "#services-grid",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "நேரடி ஆலோசனை" : "Direct Consultation",
+        href: `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+          "Hello Er. J. Vairavel, I need geotechnical soil and water testing."
+        )}`,
+      },
+      metrics: [
+        { value: "Civil Eng.", label: "Technical Oversight" },
+        { value: "SBC Test", label: "Soil Bearing Capacity" },
+        { value: "<300 TDS", label: "Potability Benchmark" },
+        { value: "Site Visit", label: "On-Ground Verification" },
+      ],
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-[#F2F2F2] py-10 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Hero Section Styled with Brand Theme */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+    <div className="min-h-screen bg-[#F2F2F2]">
+      {/* 1. Hero Carousel */}
+      <HeroSlider slides={serviceSlides} />
+
+      <div id="services-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-12">
+        {/* Category Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#202020] border-2 border-[#B78D42] text-[#F9DB5C] text-xs font-black uppercase tracking-wider shadow-gold">
             <ShieldCheck className="w-4 h-4 text-[#22CDE1]" />
             <span>Independent Real Estate Advisory & Engineering Intelligence</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black text-[#202020] tracking-tight leading-tight">
-            Real Estate Advisory, Legal Due Diligence & Technical Audits
-          </h1>
+          <h2 className="text-2xl sm:text-4xl font-black text-[#202020] tracking-tight leading-tight">
+            Comprehensive Services Portfolio
+          </h2>
 
           <p className="text-xs sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
             Backed by Er. J. Vairavel&apos;s civil engineering authority and experienced Tamil Nadu civil advocates. We protect buyers and investors from overpricing, forged deeds, fake pattas, and structural failures.
@@ -98,7 +181,7 @@ export default function ServicesPage() {
             return (
               <div
                 key={svc.slug}
-                className="group bg-white rounded-3xl overflow-hidden border-2 border-[#B78D42]/30 hover:border-[#B78D42] shadow-card hover:shadow-gold transition-all duration-300 flex flex-col justify-between"
+                className="group bg-white rounded-3xl overflow-hidden border-2 border-[#B78D42]/30 hover:border-[#B78D42] shadow-card hover:shadow-gold glass-card-interactive flex flex-col justify-between"
               >
                 <div>
                   {/* Service Cover Image with Category Badge */}

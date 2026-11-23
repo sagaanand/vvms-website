@@ -59,7 +59,7 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
   const whatsappUrl = getWhatsAppUrl(COMPANY_INFO.whatsappRaw, whatsappMessage);
 
   return (
-    <div className="group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/35 hover:border-[#B78D42] shadow-[0_4px_20px_-2px_rgba(32,32,32,0.06)] hover:shadow-[0_12px_36px_-6px_rgba(183,141,66,0.22)] transition-all duration-300 flex flex-col justify-between">
+    <div className="group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/35 hover:border-[#B78D42] shadow-[0_4px_20px_-2px_rgba(32,32,32,0.06)] hover:shadow-[0_12px_36px_-6px_rgba(183,141,66,0.22)] glass-card-interactive flex flex-col justify-between">
       {/* Top Media & Badges Styled with VVMS Brand Colors */}
       <div>
         <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">

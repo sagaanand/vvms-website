@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { ACADEMY_GUIDES, AcademyGuide } from "@/lib/namnilam-data";
+import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import {
   BookOpen,
   ShieldCheck,
@@ -87,8 +88,64 @@ export default function AcademyPage() {
     }, 800);
   };
 
+  const academySlides: HeroSlide[] = [
+    {
+      image: "/images/blueprint-audit.jpg",
+      tag: "LAND BUYING DUE DILIGENCE",
+      tagColor: "gold",
+      title: "30-Year Title Scrutiny • Legal Safety Masterclass",
+      subtitle:
+        language === "ta"
+          ? "டோக்கன் அட்வான்ஸ் கொடுப்பதற்கு முன் தெரிந்து கொள்ள வேண்டிய 15 கட்டாய ஆவண சரிபார்ப்பு முறைகள் மற்றும் சட்ட விழிப்புணர்வு."
+          : "Master the 15 critical due diligence checks before paying token advance: 30-year ECs, registered GPA verification, and court litigation search.",
+      primaryCta: {
+        label: language === "ta" ? "வழிகாட்டிகளை காண்க" : "Explore Guides",
+        href: "#academy-guides",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "15-பாயிண்ட் சரிபார்ப்பு பட்டியல்" : "Download Checklist",
+        href: "#fatal-traps",
+      },
+      metrics: [
+        { value: "15 Checks", label: "Mandatory Audit Steps" },
+        { value: "30 Years", label: "EC Verification Scope" },
+        { value: "Zero Risk", label: "Pre-Token Advance" },
+        { value: "TN Civil Law", label: "High Court Precedents" },
+      ],
+    },
+    {
+      image: "/images/drone-walkthrough.jpg",
+      tag: "BOUNDARY & SURVEY FORENSICS",
+      tagColor: "cyan",
+      title: "FMB Sketch & TSLR • On-Site Survey Verification",
+      subtitle:
+        language === "ta"
+          ? "சர்வே கற்கள் மாற்றம், ஏரி புறம்போக்கு, தேசிய நெடுஞ்சாலை விரிவாக்க பாதிப்புகளை களத்தில் கண்டுபிடிப்பது எப்படி?"
+          : "Learn how to detect survey stone tampering, Poramboke buffer zones, and road-widening acquisitions before registration.",
+      primaryCta: {
+        label: language === "ta" ? "8 ஆபத்தான தவறுகள்" : "Review Fatal Traps",
+        href: "#fatal-traps",
+      },
+      secondaryCta: {
+        label: language === "ta" ? "வாட்ஸ்அப் உதவி" : "WhatsApp Guidance",
+        href: `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+          "Hello Er. J. Vairavel, I want advice on property due diligence verification."
+        )}`,
+      },
+      metrics: [
+        { value: "FMB Sketch", label: "Taluk Records Check" },
+        { value: "TSLR Match", label: "Town Survey Audit" },
+        { value: "8 Traps", label: "Explained in Tamil" },
+        { value: "Public Good", label: "Free Education" },
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 pb-20">
+      {/* 1. Hero Carousel */}
+      <HeroSlider slides={academySlides} />
+
       {/* Notice Banner */}
       <div className="bg-amber-500/20 border-b border-amber-400/40 text-amber-200 py-2.5 px-4 text-xs font-semibold backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
@@ -243,7 +300,7 @@ export default function AcademyPage() {
         </div>
 
         {/* Detailed Due Diligence Guides Accordion / Card Section */}
-        <div className="space-y-6">
+        <div id="academy-guides" className="space-y-6">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <div className="text-xs font-bold text-gold-400 uppercase tracking-widest">
               Deep-Dive Guides
@@ -332,7 +389,7 @@ export default function AcademyPage() {
         </div>
 
         {/* 8 Deadly Traps & Red Flags in Tamil Nadu */}
-        <div className="bg-brand-card rounded-3xl border border-red-500/30 p-6 sm:p-10 space-y-6">
+        <div id="fatal-traps" className="bg-brand-card rounded-3xl border border-red-500/30 p-6 sm:p-10 space-y-6">
           <div className="space-y-2">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-red-400 uppercase tracking-widest">
               <AlertOctagon className="w-4 h-4" />
@@ -350,7 +407,7 @@ export default function AcademyPage() {
             {DEADLY_TRAPS.map((trap, idx) => (
               <div
                 key={idx}
-                className="bg-brand-black p-4 rounded-xl border border-slate-800 space-y-2.5 flex flex-col justify-between"
+                className="bg-brand-black p-4 rounded-xl border border-slate-800 space-y-2.5 flex flex-col justify-between glass-card-interactive"
               >
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
