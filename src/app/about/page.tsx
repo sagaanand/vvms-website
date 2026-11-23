@@ -22,19 +22,19 @@ export default function AboutPage() {
         {/* Hero Section Styled with White & Gold Theme & Real Consultation Photo */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-5 text-center lg:text-left">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-amber-300 shadow-xl bg-white group">
+            <div className="relative aspect-square rounded-3xl overflow-hidden border-2 border-amber-300 shadow-2xl bg-[#202020] group">
               <Image
-                src="/images/consulting.jpg"
-                alt="Er. J. Vairavel Civil Engineering Consultation"
+                src="/images/vairavel.jpg"
+                alt="Er. J. Vairavel - Founder & Chief Civil Consultant VVMS"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                 priority
               />
-              <div className="absolute top-3 left-3 flex items-center gap-2 bg-white/95 px-3 py-1.5 rounded-xl shadow-md border border-amber-200">
+              <div className="absolute top-3 left-3 flex items-center gap-2 bg-[#202020]/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-amber-400/60">
                 <div className="relative w-7 h-7 rounded-full overflow-hidden border border-amber-400">
                   <Image src="/images/logo.png" alt="Logo" fill className="object-cover" />
                 </div>
-                <span className="text-xs font-black text-amber-900">Er. J. Vairavel</span>
+                <span className="text-xs font-black text-[#F9DB5C]">Er. J. Vairavel</span>
               </div>
             </div>
             <div className="mt-4">

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import {
@@ -109,17 +110,27 @@ export default function ReviewsAndOffices() {
               <div className="absolute top-0 right-0 w-48 h-48 bg-[#F9DB5C]/10 rounded-full blur-3xl pointer-events-none" />
 
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#2E2E2E]">
-                <div>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2B2B2B] text-[#F9DB5C] text-[11px] font-black uppercase tracking-wider mb-2 border border-[#B78D42]/50 shadow-gold">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#F9DB5C]" />
-                    <span>Corporate Headquarters (HQ)</span>
+                <div className="flex items-center gap-4">
+                  <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden border-2 border-[#B78D42] shadow-gold flex-shrink-0 bg-[#252525]">
+                    <Image
+                      src="/images/vairavel-avatar.jpg"
+                      alt="Er. J. Vairavel"
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                  <h4 className="text-xl sm:text-2xl font-black text-white">
-                    Olaiyur Ring Road Office
-                  </h4>
-                  <p className="text-xs text-[#22CDE1] font-bold mt-0.5">
-                    Landmark: 2nd Floor, Upstairs to SBI Bank 2
-                  </p>
+                  <div>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#2B2B2B] text-[#F9DB5C] text-[10px] font-black uppercase tracking-wider mb-1 border border-[#B78D42]/50 shadow-gold">
+                      <ShieldCheck className="w-3 h-3 text-[#F9DB5C]" />
+                      <span>Corporate Headquarters (HQ)</span>
+                    </div>
+                    <h4 className="text-xl sm:text-2xl font-black text-white">
+                      Olaiyur Ring Road Office
+                    </h4>
+                    <p className="text-xs text-[#22CDE1] font-bold mt-0.5">
+                      Landmark: 2nd Floor, Upstairs to SBI Bank 2
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex items-center gap-2">

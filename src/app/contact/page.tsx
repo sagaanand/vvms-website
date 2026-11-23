@@ -76,42 +76,59 @@ export default function ContactPage() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-amber-400/50 text-amber-300 text-xs font-black uppercase tracking-wider backdrop-blur-md">
-              <Building2 className="w-4 h-4 text-amber-400" />
-              <span>Two Physical Offices Across Tiruchirappalli</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-amber-400/50 text-amber-300 text-xs font-black uppercase tracking-wider backdrop-blur-md">
+                <Building2 className="w-4 h-4 text-amber-400" />
+                <span>Headquarters in Tiruchirappalli</span>
+              </div>
+
+              <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+                {language === "ta"
+                  ? "எங்கள் திருச்சி தலைமை அலுவலகத்திற்கு நேரில் வருகை தாருங்கள்"
+                  : "Visit Our Trichy Head Office or Connect Directly"}
+              </h1>
+
+              <p className="text-xs sm:text-base text-slate-300 leading-relaxed font-medium">
+                {language === "ta"
+                  ? "Er. J. வைரவேல் மற்றும் எங்கள் சிவில் இன்ஜினியரிங் குழுவினரை நேரில் சந்தித்து ஆவணங்களைச் சரிபார்க்கவும், மனை வரைபடங்கள் மற்றும் கட்டுமான ஒப்பந்தங்களை ஆலோசிக்கவும் அழைக்கிறோம்."
+                  : "Meet Er. J. Vairavel and our engineering team in person for transparent deed reviews, layout maps, structural designs, and turnkey home construction consultations."}
+              </p>
+
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <a
+                  href={`tel:${COMPANY_INFO.phoneRaw}`}
+                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-600/30 transition hover:-translate-y-0.5"
+                >
+                  Call: {COMPANY_INFO.phone}
+                </a>
+                <a
+                  href={`https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+                    "Hello Er. J. Vairavel, I would like to schedule an office consultation in Trichy."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>WhatsApp Appointment</span>
+                </a>
+              </div>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              {language === "ta"
-                ? "எங்கள் திருச்சி அலுவலகங்களுக்கு நேரில் வருகை தாருங்கள்"
-                : "Visit Our Trichy Offices or Connect Directly"}
-            </h1>
-
-            <p className="text-xs sm:text-base text-slate-300 leading-relaxed font-medium">
-              {language === "ta"
-                ? "Er. J. வைரவேல் மற்றும் எங்கள் சிவில் இன்ஜினியரிங் குழுவினரை நேரில் சந்தித்து ஆவணங்களைச் சரிபார்க்கவும், மனை வரைபடங்கள் மற்றும் கட்டுமான ஒப்பந்தங்களை ஆலோசிக்கவும் அழைக்கிறோம்."
-                : "Meet Er. J. Vairavel and our engineering team in person for transparent deed reviews, layout maps, structural designs, and turnkey home construction consultations."}
-            </p>
-
-            <div className="pt-2 flex flex-wrap items-center gap-3">
-              <a
-                href={`tel:${COMPANY_INFO.phoneRaw}`}
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-600/30 transition hover:-translate-y-0.5"
-              >
-                Call: {COMPANY_INFO.phone}
-              </a>
-              <a
-                href={`https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
-                  "Hello Er. J. Vairavel, I would like to schedule an office consultation in Trichy."
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp Appointment</span>
-              </a>
+            <div className="lg:col-span-4 flex justify-center lg:justify-end">
+              <div className="relative w-56 sm:w-64 aspect-square rounded-3xl overflow-hidden border-2 border-amber-400/60 shadow-2xl bg-[#202020] group">
+                <Image
+                  src="/images/vairavel.jpg"
+                  alt="Er. J. Vairavel - VVMS"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute bottom-2 left-2 right-2 bg-[#202020]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amber-400/40 text-center">
+                  <div className="text-xs font-black text-[#F9DB5C]">{COMPANY_INFO.founder}</div>
+                  <div className="text-[10px] text-slate-300 font-semibold">{COMPANY_INFO.founderTitle}</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -322,7 +322,7 @@ export default function SingleServicePage({
               <div className="flex items-center gap-3">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-gold-400 bg-brand-black flex-shrink-0">
                   <Image
-                    src="/images/logo.png"
+                    src="/images/vairavel-avatar.jpg"
                     alt="Er. J. Vairavel"
                     width={48}
                     height={48}

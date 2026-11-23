@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
@@ -98,9 +99,14 @@ export default function PromotePropertyPage() {
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-3xl border-2 border-cyan-200 shadow-sm text-center space-y-2 hover:shadow-cyan transition">
-            <div className="w-12 h-12 bg-cyan-50 text-cyan-600 rounded-2xl flex items-center justify-center mx-auto border border-cyan-200">
-              <ShieldCheck className="w-6 h-6" />
+          <div className="bg-white p-6 rounded-3xl border-2 border-cyan-200 shadow-sm text-center space-y-2 hover:shadow-cyan transition flex flex-col items-center">
+            <div className="relative w-14 h-14 rounded-2xl overflow-hidden border-2 border-cyan-400 shadow-sm flex-shrink-0 bg-slate-100">
+              <Image
+                src="/images/vairavel-avatar.jpg"
+                alt="Er. J. Vairavel"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="font-black text-brand-black text-sm">Presented by Er. J. Vairavel</div>
             <div className="text-xs text-slate-500 font-medium">

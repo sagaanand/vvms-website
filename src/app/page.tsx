@@ -489,7 +489,7 @@ export default function HomePage() {
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                   <Image
-                    src="/images/consulting.jpg"
+                    src="/images/vairavel.jpg"
                     alt={t.divisions.d2Title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
