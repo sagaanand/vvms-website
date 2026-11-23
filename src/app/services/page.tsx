@@ -42,16 +42,16 @@ export default function ServicesPage() {
   });
 
   return (
-    <div className="min-h-screen bg-slate-50 py-10 sm:py-16">
+    <div className="min-h-screen bg-[#F2F2F2] py-10 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Hero Section Styled with Logo Theme */}
+        {/* Hero Section Styled with Brand Theme */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-black border-2 border-gold-400 text-gold-300 text-xs font-black uppercase tracking-wider shadow-gold">
-            <ShieldCheck className="w-4 h-4 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#202020] border-2 border-[#B78D42] text-[#F9DB5C] text-xs font-black uppercase tracking-wider shadow-gold">
+            <ShieldCheck className="w-4 h-4 text-[#22CDE1]" />
             <span>Independent Real Estate Advisory & Engineering Intelligence</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black text-brand-black tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-black text-[#202020] tracking-tight leading-tight">
             Real Estate Advisory, Legal Due Diligence & Technical Audits
           </h1>
 
@@ -61,10 +61,10 @@ export default function ServicesPage() {
 
           <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
             <span className="text-xs font-bold text-slate-500">Service Verticals:</span>
-            <span className="text-xs font-black text-gold-700 bg-gold-50 px-3 py-1 rounded-full border border-gold-300">
+            <span className="text-xs font-black text-[#202020] bg-white px-3 py-1 rounded-full border border-[#B78D42]/40 shadow-sm">
               30-Yr Legal Due Diligence
             </span>
-            <span className="text-xs font-black text-cyan-700 bg-cyan-50 px-3 py-1 rounded-full border border-cyan-300">
+            <span className="text-xs font-black text-[#0891B2] bg-[#22CDE1]/10 px-3 py-1 rounded-full border border-[#22CDE1]/30">
               SRO Guideline Valuation
             </span>
             <span className="text-xs font-black text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-300">
@@ -81,8 +81,8 @@ export default function ServicesPage() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-2 rounded-2xl text-xs font-black transition whitespace-nowrap border-2 ${
                 selectedCategory === cat
-                  ? "bg-brand-black text-gold-400 border-gold-400 shadow-gold"
-                  : "bg-white text-slate-700 border-slate-200 hover:border-cyan-400"
+                  ? "bg-[#202020] text-[#F9DB5C] border-[#B78D42] shadow-gold"
+                  : "bg-white text-slate-700 border-slate-200 hover:border-[#22CDE1]"
               }`}
             >
               {cat === "All" ? `All Services (${ALL_SERVICES.length})` : cat}
@@ -99,21 +99,21 @@ export default function ServicesPage() {
             return (
               <div
                 key={svc.slug}
-                className="group bg-white rounded-3xl overflow-hidden border-2 border-slate-200 hover:border-gold-400/80 shadow-card hover:shadow-gold transition-all duration-300 flex flex-col justify-between"
+                className="group bg-white rounded-3xl overflow-hidden border-2 border-[#B78D42]/30 hover:border-[#B78D42] shadow-card hover:shadow-gold transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Service Cover Image with Category Badge */}
-                  <div className="relative aspect-[16/10] bg-brand-black overflow-hidden">
+                  <div className="relative aspect-[16/10] bg-[#202020] overflow-hidden">
                     <Image
                       src={svc.coverImage}
                       alt={svc.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                     />
-                    <div className="absolute top-3 left-3 bg-brand-black/95 text-gold-400 text-[11px] font-black px-3 py-1 rounded-xl border border-gold-400/50 shadow">
+                    <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-[11px] font-black px-3 py-1 rounded-xl border border-[#B78D42]/50 shadow">
                       {svc.badge}
                     </div>
-                    <div className="absolute top-3 right-3 bg-white/95 text-brand-black text-[11px] font-black px-2.5 py-1 rounded-xl shadow border border-slate-100">
+                    <div className="absolute top-3 right-3 bg-white/95 text-[#202020] text-[11px] font-black px-2.5 py-1 rounded-xl shadow border border-slate-100">
                       {svc.priceTag}
                     </div>
                   </div>

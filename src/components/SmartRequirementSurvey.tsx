@@ -77,14 +77,14 @@ export default function SmartRequirementSurvey() {
   return (
     <section className="py-14 sm:py-20 bg-slate-50 border-t border-b border-slate-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border-2 border-gold-400/40 shadow-xl relative overflow-hidden">
-          {/* Header Styled with Logo Theme */}
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border-2 border-[#B78D42]/35 shadow-xl relative overflow-hidden">
+          {/* Header Styled with Brand Theme */}
           <div className="text-center max-w-xl mx-auto mb-8">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-300 text-cyan-800 text-xs font-black uppercase tracking-wide mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F2F2F2] border border-[#22CDE1]/40 text-[#0891B2] text-xs font-black uppercase tracking-wide mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#22CDE1]" />
               <span>Smart Requirement Matcher</span>
             </span>
-            <h2 className="text-xl sm:text-3xl font-black text-brand-black tracking-tight mb-2">
+            <h2 className="text-xl sm:text-3xl font-black text-[#202020] tracking-tight mb-2">
               {t.survey.title}
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 font-medium">
@@ -92,16 +92,16 @@ export default function SmartRequirementSurvey() {
             </p>
           </div>
 
-          {/* Stepper Progress with Logo Gold & Cyan */}
+          {/* Stepper Progress with Brand Gold & Turquoise */}
           <div className="flex items-center justify-center gap-2 mb-8">
             {[1, 2, 3, 4].map((s) => (
               <div
                 key={s}
                 className={`h-2.5 rounded-full transition-all duration-300 ${
                   s === step
-                    ? "w-10 bg-gold-500 shadow-gold"
+                    ? "w-10 bg-[#B78D42] shadow-gold"
                     : s < step
-                    ? "w-6 bg-cyan-500"
+                    ? "w-6 bg-[#22CDE1]"
                     : "w-6 bg-slate-200"
                 }`}
               />
@@ -137,11 +137,11 @@ export default function SmartRequirementSurvey() {
                       }}
                       className={`p-5 rounded-2xl border-2 text-left transition flex items-center gap-4 ${
                         objective === "Buy"
-                          ? "border-gold-500 bg-gold-50/60 shadow-gold"
-                          : "border-slate-200 hover:border-gold-300"
+                          ? "border-[#B78D42] bg-[#F9DB5C]/15 shadow-gold"
+                          : "border-slate-200 hover:border-[#B78D42]/40"
                       }`}
                     >
-                      <div className="p-3 bg-white rounded-2xl shadow-sm text-gold-600 border border-gold-200">
+                      <div className="p-3 bg-white rounded-2xl shadow-sm text-[#B78D42] border border-[#B78D42]/30">
                         <Building className="w-6 h-6" />
                       </div>
                       <div>
@@ -162,11 +162,11 @@ export default function SmartRequirementSurvey() {
                       }}
                       className={`p-5 rounded-2xl border-2 text-left transition flex items-center gap-4 ${
                         objective === "Construct"
-                          ? "border-cyan-500 bg-cyan-50/60 shadow-cyan"
-                          : "border-slate-200 hover:border-cyan-300"
+                          ? "border-[#22CDE1] bg-[#22CDE1]/10 shadow-cyan"
+                          : "border-slate-200 hover:border-[#22CDE1]/40"
                       }`}
                     >
-                      <div className="p-3 bg-white rounded-2xl shadow-sm text-cyan-600 border border-cyan-200">
+                      <div className="p-3 bg-white rounded-2xl shadow-sm text-[#22CDE1] border border-[#22CDE1]/30">
                         <HardHat className="w-6 h-6" />
                       </div>
                       <div>
@@ -199,8 +199,8 @@ export default function SmartRequirementSurvey() {
                         }}
                         className={`p-4 rounded-2xl border-2 text-center font-bold text-xs sm:text-sm transition ${
                           budget === b
-                            ? "bg-brand-black text-gold-400 border-gold-500 shadow-gold"
-                            : "bg-white text-slate-700 border-slate-200 hover:border-cyan-400"
+                            ? "bg-[#202020] text-[#F9DB5C] border-[#B78D42] shadow-gold"
+                            : "bg-white text-slate-700 border-slate-200 hover:border-[#22CDE1]"
                         }`}
                       >
                         {b}
@@ -237,8 +237,8 @@ export default function SmartRequirementSurvey() {
                           onClick={() => setLocality(loc.en)}
                           className={`p-2.5 rounded-xl border-2 text-center text-xs font-bold transition ${
                             locality === loc.en
-                              ? "bg-gold-500 text-brand-black border-gold-400 shadow-gold"
-                              : "bg-white text-slate-700 border-slate-200 hover:border-cyan-400"
+                              ? "bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] text-[#202020] border-[#B78D42] shadow-gold font-black"
+                              : "bg-white text-slate-700 border-slate-200 hover:border-[#22CDE1]"
                           }`}
                         >
                           {language === "ta" ? loc.ta : loc.en}
@@ -259,7 +259,7 @@ export default function SmartRequirementSurvey() {
                           onClick={() => setTimeline(tOpt)}
                           className={`p-2 rounded-xl border-2 text-center text-[11px] font-bold transition ${
                             timeline === tOpt
-                              ? "bg-brand-black text-cyan-400 border-cyan-400"
+                              ? "bg-[#202020] text-[#22CDE1] border-[#22CDE1]"
                               : "bg-white text-slate-600 border-slate-200 hover:border-slate-300"
                           }`}
                         >
@@ -278,7 +278,7 @@ export default function SmartRequirementSurvey() {
                     </button>
                     <button
                       onClick={() => setStep(4)}
-                      className="px-6 py-2.5 rounded-xl bg-brand-black text-gold-400 font-black text-xs hover:bg-slate-900 border border-gold-500/40 shadow transition"
+                      className="px-6 py-2.5 rounded-xl bg-[#202020] text-[#F9DB5C] font-black text-xs hover:bg-[#2B2B2B] border border-[#B78D42]/50 shadow transition"
                     >
                       Next: Contact Info →
                     </button>

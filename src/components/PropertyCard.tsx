@@ -60,10 +60,10 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
   const whatsappUrl = getWhatsAppUrl(COMPANY_INFO.whatsappRaw, whatsappMessage);
 
   return (
-    <div className="group bg-white rounded-3xl overflow-hidden border border-amber-200/80 hover:border-amber-400 shadow-[0_4px_20px_-2px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_36px_-6px_rgba(245,158,11,0.18)] transition-all duration-300 flex flex-col justify-between">
-      {/* Top Media & Badges Styled with White & Gold Luxury Glass */}
+    <div className="group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/35 hover:border-[#B78D42] shadow-[0_4px_20px_-2px_rgba(32,32,32,0.06)] hover:shadow-[0_12px_36px_-6px_rgba(183,141,66,0.22)] transition-all duration-300 flex flex-col justify-between">
+      {/* Top Media & Badges Styled with VVMS Brand Colors */}
       <div>
-        <div className="relative aspect-[16/10] overflow-hidden bg-amber-50/50">
+        <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
           <Image
             src={property.coverImage}
             alt={displayTitle}
@@ -74,12 +74,12 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
 
           {/* Sold / Available Overlay Badge */}
           {property.isSold ? (
-            <div className="absolute top-3 left-3 bg-red-600/95 text-white text-xs font-black uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-sm">
+            <div className="absolute top-3 left-3 bg-[#C20E10] text-white text-xs font-black uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-sm border border-white/20">
               {t.properties.soldOut}
             </div>
           ) : (
             <div className="absolute top-3 left-3 flex flex-col gap-1.5">
-              <span className="bg-white/95 text-amber-900 text-[11px] font-black px-2.5 py-1 rounded-lg backdrop-blur-md shadow-md border border-amber-300">
+              <span className="bg-[#202020]/95 text-[#F9DB5C] text-[11px] font-black px-2.5 py-1 rounded-lg backdrop-blur-md shadow-md border border-[#B78D42]/50">
                 {property.propertyId}
               </span>
               <span className="bg-emerald-700/95 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-lg backdrop-blur-md shadow-md flex items-center gap-1 border border-emerald-400/40">
@@ -90,7 +90,7 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
           )}
 
           {/* Sample Specimen Demonstration Badge */}
-          <div className="absolute top-3 right-3 bg-slate-900/80 text-amber-300 text-[10px] font-bold px-2 py-0.5 rounded-md backdrop-blur-sm border border-amber-400/40 shadow-sm">
+          <div className="absolute top-3 right-3 bg-[#202020]/90 text-[#F6E785] text-[10px] font-bold px-2.5 py-1 rounded-md backdrop-blur-sm border border-[#B78D42]/40 shadow-sm">
             {language === "ta" ? "மாதிரி முன்னோட்டம்" : "Sample Specimen"}
           </div>
 
@@ -98,7 +98,7 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
           <button
             onClick={() => onWatchVideo && onWatchVideo(videoId, displayTitle)}
             aria-label="Watch Video Walkthrough"
-            className="absolute bottom-3 right-3 bg-red-600/95 hover:bg-red-600 text-white text-xs font-black px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 transform hover:scale-105 transition group/btn border border-red-400/40 backdrop-blur-md"
+            className="absolute bottom-3 right-3 bg-[#C20E10] hover:bg-[#9E0A0C] text-white text-xs font-black px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 transform hover:scale-105 transition group/btn border border-white/25 backdrop-blur-md"
           >
             <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
               <Play className="w-3 h-3 fill-white text-white ml-0.5" />
@@ -107,22 +107,22 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
           </button>
 
           {/* Property Type Tag */}
-          <div className="absolute top-3 right-3 bg-white/95 text-slate-800 text-[10px] font-black px-2.5 py-1 rounded-lg shadow-sm border border-amber-200 backdrop-blur-md">
+          <div className="absolute bottom-3 left-3 bg-white/95 text-[#202020] text-[10px] font-black px-2.5 py-1 rounded-lg shadow-sm border border-[#B78D42]/30 backdrop-blur-md">
             {property.propertyType}
           </div>
         </div>
 
         {/* Content Body */}
         <div className="p-4 sm:p-5">
-          {/* Locality & Facing in Logo Cyan */}
+          {/* Locality & Facing in Turquoise */}
           <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
-            <span className="flex items-center gap-1 font-bold text-slate-800">
-              <MapPin className="w-3.5 h-3.5 text-cyan-600" />
+            <span className="flex items-center gap-1 font-bold text-[#202020]">
+              <MapPin className="w-3.5 h-3.5 text-[#22CDE1]" />
               <span>{property.locality}, Trichy</span>
             </span>
             {property.facing && (
-              <span className="flex items-center gap-1 text-[11px] bg-cyan-50 border border-cyan-200 px-2 py-0.5 rounded text-cyan-900 font-bold">
-                <Compass className="w-3 h-3 text-cyan-600" />
+              <span className="flex items-center gap-1 text-[11px] bg-[#22CDE1]/10 border border-[#22CDE1]/30 px-2 py-0.5 rounded text-[#0891B2] font-bold">
+                <Compass className="w-3 h-3 text-[#22CDE1]" />
                 <span>{property.facing} {t.properties.facing}</span>
               </span>
             )}
@@ -130,46 +130,46 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
 
           {/* Title */}
           <Link href={`/properties/${property.slug}`}>
-            <h3 className="font-extrabold text-slate-900 text-base leading-snug line-clamp-2 hover:text-cyan-700 transition mb-3">
+            <h3 className="font-extrabold text-[#202020] text-base leading-snug line-clamp-2 hover:text-[#B78D42] transition mb-3">
               {displayTitle}
             </h3>
           </Link>
 
-          {/* Key Specs Pills with Logo Gold Borders */}
-          <div className="grid grid-cols-3 gap-2 py-2.5 px-3 bg-slate-50 rounded-2xl border border-slate-100 text-center mb-3">
+          {/* Key Specs Pills with Off-White Surface */}
+          <div className="grid grid-cols-3 gap-2 py-2.5 px-3 bg-[#F2F2F2] rounded-2xl border border-[#B78D42]/20 text-center mb-3">
             <div>
-              <div className="text-[10px] text-slate-400 uppercase font-bold">Plot Area</div>
-              <div className="font-black text-slate-900 text-xs sm:text-sm">
+              <div className="text-[10px] text-slate-500 uppercase font-bold">Plot Area</div>
+              <div className="font-black text-[#202020] text-xs sm:text-sm">
                 {formatIndianNumber(property.plotAreaSqFt)} <span className="text-[10px] text-slate-500 font-normal">sq.ft</span>
               </div>
             </div>
             {property.builtUpAreaSqFt && property.builtUpAreaSqFt > 0 ? (
               <div>
-                <div className="text-[10px] text-slate-400 uppercase font-bold">Built-Up</div>
-                <div className="font-black text-slate-900 text-xs sm:text-sm">
+                <div className="text-[10px] text-slate-500 uppercase font-bold">Built-Up</div>
+                <div className="font-black text-[#202020] text-xs sm:text-sm">
                   {formatIndianNumber(property.builtUpAreaSqFt)} <span className="text-[10px] text-slate-500 font-normal">sq.ft</span>
                 </div>
               </div>
             ) : (
               <div>
-                <div className="text-[10px] text-slate-400 uppercase font-bold">Approval</div>
+                <div className="text-[10px] text-slate-500 uppercase font-bold">Approval</div>
                 <div className="font-black text-emerald-700 text-xs truncate">
                   DTCP / RERA
                 </div>
               </div>
             )}
             <div>
-              <div className="text-[10px] text-slate-400 uppercase font-bold">Configuration</div>
-              <div className="font-black text-slate-900 text-xs sm:text-sm flex items-center justify-center gap-1">
+              <div className="text-[10px] text-slate-500 uppercase font-bold">Configuration</div>
+              <div className="font-black text-[#202020] text-xs sm:text-sm flex items-center justify-center gap-1">
                 {property.bedrooms ? `${property.bedrooms} BHK` : "Plots"}
               </div>
             </div>
           </div>
 
-          {/* Downpayment deal callout in Logo Gold */}
+          {/* Downpayment deal callout in Primary Gold */}
           {property.downPaymentDisplay && (
-            <div className="mb-3 px-3 py-1.5 rounded-xl bg-gold-50 border border-gold-300 flex items-center gap-1.5 text-xs text-gold-900 font-black">
-              <Sparkles className="w-3.5 h-3.5 text-gold-600 flex-shrink-0" />
+            <div className="mb-3 px-3 py-1.5 rounded-xl bg-[#F9DB5C]/15 border border-[#B78D42]/40 flex items-center gap-1.5 text-xs text-[#202020] font-black">
+              <Sparkles className="w-3.5 h-3.5 text-[#B78D42] flex-shrink-0" />
               <span>{property.downPaymentDisplay}</span>
             </div>
           )}
@@ -178,7 +178,7 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
           <div className="pt-1 flex items-baseline justify-between">
             <div>
               <span className="text-[10px] text-slate-500 block uppercase font-bold">Total Price</span>
-              <span className="text-xl sm:text-2xl font-black text-amber-700 tracking-tight">
+              <span className="text-xl sm:text-2xl font-black text-[#202020] tracking-tight">
                 {property.priceDisplay}
               </span>
             </div>
@@ -192,14 +192,14 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
         </div>
       </div>
 
-      {/* Card Actions Footer with White & Gold and Emerald Buttons */}
+      {/* Card Actions Footer with Off-White and Emerald Buttons */}
       <div className="p-4 pt-0 sm:p-5 sm:pt-0 grid grid-cols-2 gap-2 mt-2">
         <Link
           href={`/properties/${property.slug}`}
-          className="flex items-center justify-center gap-1 py-2.5 px-3 rounded-xl bg-amber-50/80 hover:bg-amber-100 text-amber-900 font-bold text-xs transition border border-amber-200/80"
+          className="flex items-center justify-center gap-1 py-2.5 px-3 rounded-xl bg-[#F2F2F2] hover:bg-white text-[#202020] font-bold text-xs transition border border-[#B78D42]/35 shadow-sm"
         >
           <span>{t.properties.viewDetails}</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          <ArrowRight className="w-3.5 h-3.5 text-[#B78D42]" />
         </Link>
 
         <a

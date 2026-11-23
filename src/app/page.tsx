@@ -95,45 +95,45 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* 1. LUXURY WHITE & GOLDEN HERO WITH IMMERSIVE ARCHITECTURAL BACKDROP */}
-      <section className="relative bg-gradient-to-b from-[#FDFBF7] via-white to-[#FDFBF7] text-slate-900 pt-10 sm:pt-14 pb-20 sm:pb-28 overflow-hidden border-b border-amber-200/80">
+      {/* 1. LUXURY HYBRID GLASS HERO IN CHARCOAL BLACK & BRAND GOLD PALETTE */}
+      <section className="relative bg-[#202020] text-[#F2F2F2] pt-10 sm:pt-14 pb-20 sm:pb-28 overflow-hidden border-b border-[#B78D42]/35">
         {/* Full-width architectural backdrop using locally generated 16:9 Villa Image */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <Image
             src="/images/hero-villa.jpg"
             alt="Veedu Veettumanai Santhai Architectural Horizon"
             fill
-            className="object-cover object-center opacity-25 scale-105"
+            className="object-cover object-center opacity-30 scale-105"
             priority
           />
-          {/* Layered White & Champagne glass gradient overlay for ultra-crisp typography */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/85 to-[#FDFBF7]" />
+          {/* Layered Charcoal Black glass gradient overlay for ultra-crisp typography */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#202020]/95 via-[#202020]/80 to-[#202020]" />
         </div>
 
-        {/* Ambient radial gold glow circles */}
-        <div className="absolute top-10 right-1/4 w-[480px] h-[480px] bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-10 w-[480px] h-[480px] bg-yellow-400/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Ambient radial gold & turquoise glow circles */}
+        <div className="absolute top-10 right-1/4 w-[480px] h-[480px] bg-[#F9DB5C]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-[480px] h-[480px] bg-[#22CDE1]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-8 sm:mb-12">
-            {/* Approved Eyebrow Badge in White & Gold */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-amber-300 text-amber-900 text-xs font-black tracking-widest uppercase shadow-sm backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            {/* Approved Eyebrow Badge in Charcoal & Antique Gold */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#202020]/90 border border-[#B78D42]/60 text-[#F9DB5C] text-xs font-black tracking-widest uppercase shadow-md backdrop-blur-md">
+              <Sparkles className="w-3.5 h-3.5 text-[#22CDE1]" />
               <span>{t.hero.eyebrow}</span>
             </div>
 
-            {/* Approved Brand Positioning Headline in White & Gold */}
+            {/* Approved Brand Positioning Headline with Primary Gold Gradient */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12]">
-              <span className="block text-slate-900 drop-shadow-sm">
+              <span className="block text-[#F2F2F2] drop-shadow-sm">
                 {t.hero.headline.split(".")[0]}.
               </span>
-              <span className="bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-600 bg-clip-text text-transparent drop-shadow-sm">
+              <span className="bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] bg-clip-text text-transparent drop-shadow-sm">
                 {t.hero.headline.split(".")[1] ? `${t.hero.headline.split(".")[1]}.` : ""}
               </span>
             </h1>
 
             {/* Approved Supporting Description */}
-            <p className="text-xs sm:text-base text-slate-700 max-w-2xl mx-auto leading-relaxed font-medium">
+            <p className="text-xs sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
               {t.hero.supportingDesc}
             </p>
 
@@ -145,10 +145,10 @@ export default function HomePage() {
                   const el = document.getElementById("featured-properties");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 hover:from-amber-600 hover:to-amber-700 text-white font-extrabold text-xs sm:text-sm tracking-wide shadow-lg shadow-amber-600/30 border border-amber-400/40 transition transform hover:-translate-y-0.5 active:translate-y-0"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-black text-xs sm:text-sm tracking-wide shadow-gold border border-[#B78D42]/60 transition transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span>{t.hero.primaryCta}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-[#202020]" />
               </button>
 
               <button
@@ -157,30 +157,30 @@ export default function HomePage() {
                   const el = document.getElementById("cost-estimator");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/90 hover:bg-white text-slate-800 font-bold text-xs sm:text-sm border-2 border-amber-400/60 shadow-md backdrop-blur-md transition transform hover:-translate-y-0.5 active:translate-y-0"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#202020]/80 hover:bg-[#202020] text-[#F2F2F2] font-bold text-xs sm:text-sm border-2 border-[#B78D42]/50 shadow-md backdrop-blur-md transition transform hover:-translate-y-0.5 active:translate-y-0"
               >
-                <HardHat className="w-4 h-4 text-amber-600" />
+                <HardHat className="w-4 h-4 text-[#F9DB5C]" />
                 <span>{t.hero.secondaryCta}</span>
               </button>
             </div>
           </div>
 
-          {/* FLOATING WHITE & GOLD GLASS SEARCH DOCK */}
-          <div className="max-w-4xl mx-auto glass-gold-light rounded-3xl p-3 sm:p-5 shadow-2xl relative border-2 border-amber-200/90">
-            <div className="text-center sm:text-left px-2 pt-1 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-amber-200/60">
-              <span className="text-xs sm:text-sm font-extrabold text-slate-900 tracking-wide flex items-center justify-center sm:justify-start gap-2">
-                <Search className="w-4 h-4 text-amber-600" />
+          {/* FLOATING CHARCOAL GLASS SEARCH DOCK */}
+          <div className="max-w-4xl mx-auto bg-[#252525]/95 backdrop-blur-xl rounded-3xl p-3 sm:p-5 shadow-2xl relative border-2 border-[#B78D42]/45">
+            <div className="text-center sm:text-left px-2 pt-1 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#B78D42]/30">
+              <span className="text-xs sm:text-sm font-extrabold text-[#F2F2F2] tracking-wide flex items-center justify-center sm:justify-start gap-2">
+                <Search className="w-4 h-4 text-[#F9DB5C]" />
                 <span>{t.hero.searchHeading}</span>
               </span>
 
               {/* Two Tabs: Buy Property & Build a Home */}
-              <div className="inline-flex p-1 rounded-2xl bg-amber-50 border border-amber-200 self-center sm:self-auto">
+              <div className="inline-flex p-1 rounded-2xl bg-[#202020] border border-[#B78D42]/30 self-center sm:self-auto">
                 <button
                   type="button"
                   onClick={() => setActiveTab("buy")}
                   className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${activeTab === "buy"
-                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md shadow-amber-600/30"
-                    : "text-slate-600 hover:text-amber-800"
+                    ? "bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] text-[#202020] shadow-md"
+                    : "text-slate-300 hover:text-[#F9DB5C]"
                     }`}
                 >
                   <Building2 className="w-3.5 h-3.5" />
@@ -191,8 +191,8 @@ export default function HomePage() {
                   type="button"
                   onClick={() => setActiveTab("build")}
                   className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${activeTab === "build"
-                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md shadow-amber-600/30"
-                    : "text-slate-600 hover:text-amber-800"
+                    ? "bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] text-[#202020] shadow-md"
+                    : "text-slate-300 hover:text-[#F9DB5C]"
                     }`}
                 >
                   <HardHat className="w-3.5 h-3.5" />
@@ -207,16 +207,16 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                   {/* City */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-700 mb-1">
+                    <label className="block text-[11px] font-bold text-slate-300 mb-1">
                       City / Location
                     </label>
                     <select
                       value={selectedCity}
                       onChange={(e) => setSelectedCity(e.target.value)}
-                      className="w-full bg-white border border-amber-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-amber-500 font-semibold shadow-sm"
+                      className="w-full bg-[#202020] border border-[#B78D42]/40 rounded-xl px-3 py-2.5 text-xs text-[#F2F2F2] focus:outline-none focus:border-[#F9DB5C] font-semibold shadow-sm"
                     >
                       {COMPANY_INFO.serviceCities.map((city) => (
-                        <option key={city.en} value={city.en}>
+                        <option key={city.en} value={city.en} className="bg-[#202020] text-[#F2F2F2]">
                           {language === "ta" ? city.ta : city.en} {city.isPrimary ? "(Primary)" : ""}
                         </option>
                       ))}
@@ -225,17 +225,17 @@ export default function HomePage() {
 
                   {/* Locality */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-700 mb-1">
+                    <label className="block text-[11px] font-bold text-slate-300 mb-1">
                       Trichy Locality
                     </label>
                     <select
                       value={selectedLocality}
                       onChange={(e) => setSelectedLocality(e.target.value)}
-                      className="w-full bg-white border border-amber-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-amber-500 font-semibold shadow-sm"
+                      className="w-full bg-[#202020] border border-[#B78D42]/40 rounded-xl px-3 py-2.5 text-xs text-[#F2F2F2] focus:outline-none focus:border-[#F9DB5C] font-semibold shadow-sm"
                     >
-                      <option value="All">{t.hero.allLocalities}</option>
+                      <option value="All" className="bg-[#202020] text-[#F2F2F2]">{t.hero.allLocalities}</option>
                       {COMPANY_INFO.trichyLocalities.map((loc) => (
-                        <option key={loc.en} value={loc.en}>
+                        <option key={loc.en} value={loc.en} className="bg-[#202020] text-[#F2F2F2]">
                           {language === "ta" ? loc.ta : loc.en}
                         </option>
                       ))}
@@ -244,17 +244,17 @@ export default function HomePage() {
 
                   {/* Property Type */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-700 mb-1">
+                    <label className="block text-[11px] font-bold text-slate-300 mb-1">
                       Property Type
                     </label>
                     <select
                       value={selectedPropertyType}
                       onChange={(e) => setSelectedPropertyType(e.target.value)}
-                      className="w-full bg-white border border-amber-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-amber-500 font-semibold shadow-sm"
+                      className="w-full bg-[#202020] border border-[#B78D42]/40 rounded-xl px-3 py-2.5 text-xs text-[#F2F2F2] focus:outline-none focus:border-[#F9DB5C] font-semibold shadow-sm"
                     >
-                      <option value="All">{t.hero.allPropertyTypes}</option>
+                      <option value="All" className="bg-[#202020] text-[#F2F2F2]">{t.hero.allPropertyTypes}</option>
                       {COMPANY_INFO.propertyTypes.map((pt) => (
-                        <option key={pt.en} value={pt.en}>
+                        <option key={pt.en} value={pt.en} className="bg-[#202020] text-[#F2F2F2]">
                           {language === "ta" ? pt.ta : pt.en}
                         </option>
                       ))}
@@ -263,19 +263,19 @@ export default function HomePage() {
 
                   {/* Budget */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-700 mb-1">
+                    <label className="block text-[11px] font-bold text-slate-300 mb-1">
                       Budget Range
                     </label>
                     <select
                       value={selectedBudget}
                       onChange={(e) => setSelectedBudget(e.target.value)}
-                      className="w-full bg-white border border-amber-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-amber-500 font-semibold shadow-sm"
+                      className="w-full bg-[#202020] border border-[#B78D42]/40 rounded-xl px-3 py-2.5 text-xs text-[#F2F2F2] focus:outline-none focus:border-[#F9DB5C] font-semibold shadow-sm"
                     >
-                      <option value="All">{t.hero.anyBudget}</option>
-                      <option value="under-25">{t.hero.budgetUnder25}</option>
-                      <option value="25-50">{t.hero.budget25to50}</option>
-                      <option value="50-100">{t.hero.budget50to1cr}</option>
-                      <option value="above-100">{t.hero.budgetAbove1cr}</option>
+                      <option value="All" className="bg-[#202020] text-[#F2F2F2]">{t.hero.anyBudget}</option>
+                      <option value="under-25" className="bg-[#202020] text-[#F2F2F2]">{t.hero.budgetUnder25}</option>
+                      <option value="25-50" className="bg-[#202020] text-[#F2F2F2]">{t.hero.budget25to50}</option>
+                      <option value="50-100" className="bg-[#202020] text-[#F2F2F2]">{t.hero.budget50to1cr}</option>
+                      <option value="above-100" className="bg-[#202020] text-[#F2F2F2]">{t.hero.budgetAbove1cr}</option>
                     </select>
                   </div>
                 </div>
@@ -283,9 +283,9 @@ export default function HomePage() {
                 <div className="pt-2 flex justify-end">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto py-2.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-xs uppercase tracking-wider shadow-gold transition flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto py-2.5 px-6 rounded-xl bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] hover:brightness-105 text-[#202020] font-black text-xs uppercase tracking-wider shadow-gold transition flex items-center justify-center gap-2 border border-[#B78D42]/40"
                   >
-                    <Search className="w-4 h-4" />
+                    <Search className="w-4 h-4 text-[#202020]" />
                     <span>{t.hero.searchBtn}</span>
                   </button>
                 </div>
@@ -296,7 +296,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {/* Own Plot? */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-700 mb-1.5">
+                    <label className="block text-[11px] font-bold text-slate-300 mb-1.5">
                       {t.hero.ownPlotLabel}
                     </label>
                     <div className="grid grid-cols-2 gap-1.5">
@@ -304,8 +304,8 @@ export default function HomePage() {
                         type="button"
                         onClick={() => setOwnPlot("yes")}
                         className={`py-2 px-2 rounded-xl text-xs font-bold transition border ${ownPlot === "yes"
-                          ? "bg-amber-500 text-white border-amber-500 font-black shadow-sm"
-                          : "bg-white text-slate-700 border-amber-200 hover:bg-amber-50"
+                          ? "bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] text-[#202020] border-[#B78D42] font-black shadow-sm"
+                          : "bg-[#202020] text-slate-300 border-[#B78D42]/40 hover:bg-[#2A2A2A]"
                           }`}
                       >
                         {t.hero.ownPlotYes.split(",")[0]}
@@ -314,8 +314,8 @@ export default function HomePage() {
                         type="button"
                         onClick={() => setOwnPlot("no")}
                         className={`py-2 px-2 rounded-xl text-xs font-bold transition border ${ownPlot === "no"
-                          ? "bg-amber-500 text-white border-amber-500 font-black shadow-sm"
-                          : "bg-white text-slate-700 border-amber-200 hover:bg-amber-50"
+                          ? "bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] text-[#202020] border-[#B78D42] font-black shadow-sm"
+                          : "bg-[#202020] text-slate-300 border-[#B78D42]/40 hover:bg-[#2A2A2A]"
                           }`}
                       >
                         {t.hero.ownPlotNo.split(",")[0]}
@@ -325,7 +325,7 @@ export default function HomePage() {
 
                   {/* Built-up Area */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-700 mb-1.5">
+                    <label className="block text-[11px] font-bold text-slate-300 mb-1.5">
                       {t.hero.areaLabel}
                     </label>
                     <div className="flex items-center gap-1.5">
@@ -335,8 +335,8 @@ export default function HomePage() {
                           type="button"
                           onClick={() => setBuildArea(sqft)}
                           className={`flex-1 py-2 rounded-xl text-xs font-bold transition border ${buildArea === sqft
-                            ? "bg-amber-500 text-white border-amber-500 font-black shadow-sm"
-                            : "bg-white text-slate-700 border-amber-200 hover:bg-amber-50"
+                            ? "bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] text-[#202020] border-[#B78D42] font-black shadow-sm"
+                            : "bg-[#202020] text-slate-300 border-[#B78D42]/40 hover:bg-[#2A2A2A]"
                             }`}
                         >
                           {sqft} sqft
@@ -347,7 +347,7 @@ export default function HomePage() {
 
                   {/* Floors */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-700 mb-1.5">
+                    <label className="block text-[11px] font-bold text-slate-300 mb-1.5">
                       {t.hero.floorsLabel}
                     </label>
                     <div className="flex items-center gap-1.5">
@@ -357,8 +357,8 @@ export default function HomePage() {
                           type="button"
                           onClick={() => setBuildFloors(fl)}
                           className={`flex-1 py-2 rounded-xl text-xs font-bold transition border ${buildFloors === fl
-                            ? "bg-amber-500 text-white border-amber-500 font-black shadow-sm"
-                            : "bg-white text-slate-700 border-amber-200 hover:bg-amber-50"
+                            ? "bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] text-[#202020] border-[#B78D42] font-black shadow-sm"
+                            : "bg-[#202020] text-slate-300 border-[#B78D42]/40 hover:bg-[#2A2A2A]"
                             }`}
                         >
                           {fl}
@@ -368,8 +368,8 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-amber-200/60">
-                  <div className="text-xs text-slate-600 text-center sm:text-left font-medium">
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-[#B78D42]/30">
+                  <div className="text-xs text-slate-300 text-center sm:text-left font-medium">
                     Basic (₹1,950) • Standard (₹2,250) • Premium (₹2,650/sq.ft) under Er. J. Vairavel
                   </div>
 
@@ -379,51 +379,51 @@ export default function HomePage() {
                       const el = document.getElementById("cost-estimator");
                       if (el) el.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="w-full sm:w-auto py-2.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-xs uppercase tracking-wider shadow-gold transition flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto py-2.5 px-6 rounded-xl bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] hover:brightness-105 text-[#202020] font-black text-xs uppercase tracking-wider shadow-gold transition flex items-center justify-center gap-2 border border-[#B78D42]/40"
                   >
                     <span>{t.hero.estimateBtn}</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 text-[#202020]" />
                   </button>
                 </div>
               </div>
             )}
 
             {/* Closing Microcopy Inside Dock Footer */}
-            <div className="mt-3 pt-2 border-t border-amber-200/60 text-center text-[11px] text-amber-900/80 tracking-wide font-semibold">
+            <div className="mt-3 pt-2 border-t border-[#B78D42]/30 text-center text-[11px] text-[#F9DB5C]/90 tracking-wide font-semibold">
               {t.hero.closingMicrocopy}
             </div>
           </div>
 
-          {/* VERIFIED TRUST METRICS BAR IN WHITE & GOLD */}
-          <div className="mt-10 pt-6 border-t border-amber-200/70 grid grid-cols-2 md:grid-cols-4 gap-4 text-center bg-white/75 backdrop-blur-md rounded-2xl py-4 shadow-sm border border-amber-100">
+          {/* VERIFIED TRUST METRICS BAR IN CHARCOAL & BRAND GOLD */}
+          <div className="mt-10 pt-6 border-t border-[#B78D42]/35 grid grid-cols-2 md:grid-cols-4 gap-4 text-center bg-[#252525]/90 backdrop-blur-md rounded-2xl py-4 shadow-sm border border-[#B78D42]/30">
             <div className="p-2">
-              <div className="text-xl sm:text-2xl font-black text-slate-900">125K+</div>
-              <div className="text-[11px] sm:text-xs text-red-700 font-bold flex items-center justify-center gap-1.5 mt-0.5">
-                <Youtube className="w-3.5 h-3.5 text-red-600" />
+              <div className="text-xl sm:text-2xl font-black text-[#F2F2F2]">125K+</div>
+              <div className="text-[11px] sm:text-xs text-red-300 font-bold flex items-center justify-center gap-1.5 mt-0.5">
+                <Youtube className="w-3.5 h-3.5 text-[#C20E10]" />
                 <span>{t.hero.quickStatsYoutube}</span>
               </div>
             </div>
 
             <div className="p-2">
-              <div className="text-xl sm:text-2xl font-black text-amber-600">1,900+</div>
-              <div className="text-[11px] sm:text-xs text-amber-800 font-bold flex items-center justify-center gap-1 mt-0.5">
-                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <div className="text-xl sm:text-2xl font-black text-[#F9DB5C]">1,900+</div>
+              <div className="text-[11px] sm:text-xs text-[#F6E785] font-bold flex items-center justify-center gap-1 mt-0.5">
+                <Sparkles className="w-3.5 h-3.5 text-[#F9DB5C]" />
                 <span>{t.hero.quickStatsWalkthroughs}</span>
               </div>
             </div>
 
             <div className="p-2">
-              <div className="text-xl sm:text-2xl font-black text-emerald-800">DTCP & RERA</div>
-              <div className="text-[11px] sm:text-xs text-emerald-700 font-bold flex items-center justify-center gap-1 mt-0.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <div className="text-xl sm:text-2xl font-black text-[#22CDE1]">DTCP & RERA</div>
+              <div className="text-[11px] sm:text-xs text-[#22CDE1] font-bold flex items-center justify-center gap-1 mt-0.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#22CDE1]" />
                 <span>{t.hero.quickStatsApproval}</span>
               </div>
             </div>
 
             <div className="p-2">
-              <div className="text-xl sm:text-2xl font-black text-amber-600">4.8★</div>
-              <div className="text-[11px] sm:text-xs text-slate-800 font-bold flex items-center justify-center gap-1 mt-0.5">
-                <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+              <div className="text-xl sm:text-2xl font-black text-[#F9DB5C]">4.8★</div>
+              <div className="text-[11px] sm:text-xs text-slate-300 font-bold flex items-center justify-center gap-1 mt-0.5">
+                <Star className="w-3.5 h-3.5 fill-[#F9DB5C] text-[#F9DB5C]" />
                 <span>{t.hero.quickStatsGoogle}</span>
               </div>
             </div>
@@ -431,15 +431,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 1.5 FIVE BUSINESS DIVISIONS IN LUXURY WHITE & GOLD */}
-      <section className="py-14 sm:py-20 bg-white border-b border-amber-200/80">
+      {/* 1.5 FIVE BUSINESS DIVISIONS IN LUXURY HYBRID GLASS PALETTE */}
+      <section className="py-14 sm:py-20 bg-[#F2F2F2] border-b border-[#B78D42]/25">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-black uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#B78D42]/40 text-[#202020] text-xs font-black uppercase tracking-wider shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#B78D42]" />
               <span>{t.divisions.eyebrow}</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-[#202020] tracking-tight">
               {t.divisions.headline}
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
@@ -449,7 +449,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Division 1: Property Marketplace */}
-            <div className="group bg-gradient-to-b from-white to-[#FDFBF7] rounded-3xl overflow-hidden border border-amber-200 hover:border-amber-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div className="group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                   <Image
@@ -458,13 +458,13 @@ export default function HomePage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                   />
-                  <div className="absolute top-3 left-3 bg-slate-900/90 text-amber-300 text-xs font-bold px-3 py-1 rounded-xl border border-amber-400/40 backdrop-blur-md flex items-center gap-1.5">
-                    <Building2 className="w-3.5 h-3.5 text-amber-400" />
+                  <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                    <Building2 className="w-3.5 h-3.5 text-[#F9DB5C]" />
                     <span>Division 01</span>
                   </div>
                 </div>
                 <div className="p-6 space-y-2.5">
-                  <h3 className="text-xl font-black text-slate-900 group-hover:text-amber-700 transition">
+                  <h3 className="text-xl font-black text-[#202020] group-hover:text-[#B78D42] transition">
                     {t.divisions.d1Title}
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed font-medium">
@@ -475,16 +475,16 @@ export default function HomePage() {
               <div className="p-6 pt-0">
                 <Link
                   href="/properties"
-                  className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-amber-50 group-hover:bg-amber-500 text-amber-900 group-hover:text-white font-extrabold text-xs transition border border-amber-200 group-hover:border-amber-500"
+                  className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
                 >
                   <span>{t.divisions.d1Cta}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-[#202020]" />
                 </Link>
               </div>
             </div>
 
             {/* Division 2: Property Services */}
-            <div className="group bg-gradient-to-b from-white to-[#FDFBF7] rounded-3xl overflow-hidden border border-amber-200 hover:border-amber-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div className="group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                   <Image
@@ -493,13 +493,13 @@ export default function HomePage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                   />
-                  <div className="absolute top-3 left-3 bg-slate-900/90 text-amber-300 text-xs font-bold px-3 py-1 rounded-xl border border-amber-400/40 backdrop-blur-md flex items-center gap-1.5">
-                    <FileCheck className="w-3.5 h-3.5 text-amber-400" />
+                  <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                    <FileCheck className="w-3.5 h-3.5 text-[#F9DB5C]" />
                     <span>Division 02</span>
                   </div>
                 </div>
                 <div className="p-6 space-y-2.5">
-                  <h3 className="text-xl font-black text-slate-900 group-hover:text-amber-700 transition">
+                  <h3 className="text-xl font-black text-[#202020] group-hover:text-[#B78D42] transition">
                     {t.divisions.d2Title}
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed font-medium">
@@ -510,16 +510,16 @@ export default function HomePage() {
               <div className="p-6 pt-0">
                 <Link
                   href="/services"
-                  className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-amber-50 group-hover:bg-amber-500 text-amber-900 group-hover:text-white font-extrabold text-xs transition border border-amber-200 group-hover:border-amber-500"
+                  className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
                 >
                   <span>{t.divisions.d2Cta}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-[#202020]" />
                 </Link>
               </div>
             </div>
 
             {/* Division 3: Construction & Engineering */}
-            <div className="group bg-gradient-to-b from-white to-[#FDFBF7] rounded-3xl overflow-hidden border border-amber-200 hover:border-amber-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div className="group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                   <Image
@@ -528,13 +528,13 @@ export default function HomePage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                   />
-                  <div className="absolute top-3 left-3 bg-slate-900/90 text-amber-300 text-xs font-bold px-3 py-1 rounded-xl border border-amber-400/40 backdrop-blur-md flex items-center gap-1.5">
-                    <HardHat className="w-3.5 h-3.5 text-amber-400" />
+                  <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                    <HardHat className="w-3.5 h-3.5 text-[#F9DB5C]" />
                     <span>Division 03</span>
                   </div>
                 </div>
                 <div className="p-6 space-y-2.5">
-                  <h3 className="text-xl font-black text-slate-900 group-hover:text-amber-700 transition">
+                  <h3 className="text-xl font-black text-[#202020] group-hover:text-[#B78D42] transition">
                     {t.divisions.d3Title}
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed font-medium">
@@ -545,16 +545,16 @@ export default function HomePage() {
               <div className="p-6 pt-0">
                 <Link
                   href="/construction"
-                  className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-amber-50 group-hover:bg-amber-500 text-amber-900 group-hover:text-white font-extrabold text-xs transition border border-amber-200 group-hover:border-amber-500"
+                  className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
                 >
                   <span>{t.divisions.d3Cta}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-[#202020]" />
                 </Link>
               </div>
             </div>
 
             {/* Division 4: Property Intelligence */}
-            <div className="group bg-gradient-to-b from-white to-[#FDFBF7] rounded-3xl overflow-hidden border border-amber-200 hover:border-amber-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div className="group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                   <Image
@@ -563,13 +563,13 @@ export default function HomePage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                   />
-                  <div className="absolute top-3 left-3 bg-slate-900/90 text-amber-300 text-xs font-bold px-3 py-1 rounded-xl border border-amber-400/40 backdrop-blur-md flex items-center gap-1.5">
-                    <BarChart3 className="w-3.5 h-3.5 text-amber-400" />
+                  <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                    <BarChart3 className="w-3.5 h-3.5 text-[#F9DB5C]" />
                     <span>Division 04</span>
                   </div>
                 </div>
                 <div className="p-6 space-y-2.5">
-                  <h3 className="text-xl font-black text-slate-900 group-hover:text-amber-700 transition">
+                  <h3 className="text-xl font-black text-[#202020] group-hover:text-[#B78D42] transition">
                     {t.divisions.d4Title}
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed font-medium">
@@ -580,16 +580,16 @@ export default function HomePage() {
               <div className="p-6 pt-0">
                 <Link
                   href="/intelligence"
-                  className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-amber-50 group-hover:bg-amber-500 text-amber-900 group-hover:text-white font-extrabold text-xs transition border border-amber-200 group-hover:border-amber-500"
+                  className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
                 >
                   <span>{t.divisions.d4Cta}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-[#202020]" />
                 </Link>
               </div>
             </div>
 
             {/* Division 5: Academy & Business Solutions */}
-            <div className="group bg-gradient-to-b from-white to-[#FDFBF7] rounded-3xl overflow-hidden border border-amber-200 hover:border-amber-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between md:col-span-2 lg:col-span-2">
+            <div className="group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between md:col-span-2 lg:col-span-2">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="relative aspect-[16/10] sm:aspect-auto h-48 sm:h-full overflow-hidden bg-slate-900">
                   <Image
@@ -598,14 +598,14 @@ export default function HomePage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                   />
-                  <div className="absolute top-3 left-3 bg-slate-900/90 text-amber-300 text-xs font-bold px-3 py-1 rounded-xl border border-amber-400/40 backdrop-blur-md flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                  <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                    <Sparkles className="w-3.5 h-3.5 text-[#F9DB5C]" />
                     <span>Division 05</span>
                   </div>
                 </div>
                 <div className="p-6 flex flex-col justify-between space-y-4">
                   <div className="space-y-2.5">
-                    <h3 className="text-xl font-black text-slate-900 group-hover:text-amber-700 transition">
+                    <h3 className="text-xl font-black text-[#202020] group-hover:text-[#B78D42] transition">
                       {t.divisions.d5Title}
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed font-medium">
@@ -615,17 +615,17 @@ export default function HomePage() {
                   <div className="flex flex-wrap items-center gap-2 pt-2">
                     <Link
                       href="/academy"
-                      className="inline-flex items-center gap-1.5 py-2 px-3.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-900 font-bold text-xs border border-amber-200 transition"
+                      className="inline-flex items-center gap-1.5 py-2 px-3.5 rounded-lg bg-[#F2F2F2] hover:bg-slate-200 text-[#202020] font-bold text-xs border border-[#B78D42]/30 transition"
                     >
-                      <BookOpen className="w-3.5 h-3.5 text-amber-600" />
+                      <BookOpen className="w-3.5 h-3.5 text-[#22CDE1]" />
                       <span>Academy</span>
                     </Link>
                     <Link
                       href="/business-solutions"
-                      className="inline-flex items-center gap-1.5 py-2 px-3.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition"
+                      className="inline-flex items-center gap-1.5 py-2 px-3.5 rounded-lg bg-[#202020] hover:bg-[#2A2A2A] text-[#F9DB5C] font-black text-xs border border-[#B78D42]/40 transition shadow-sm"
                     >
                       <span>{t.divisions.d5Cta}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#F9DB5C]" />
                     </Link>
                   </div>
                 </div>
@@ -636,12 +636,12 @@ export default function HomePage() {
       </section>
 
       {/* 2. FEATURED PROPERTIES GRID */}
-      <section id="featured-properties" className="py-14 sm:py-20 bg-slate-50">
+      <section id="featured-properties" className="py-14 sm:py-20 bg-[#F2F2F2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Demonstration Notice */}
-          <div className="mb-6 p-3 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-xs flex items-center justify-between gap-3">
+          <div className="mb-6 p-3 rounded-2xl bg-white border border-[#B78D42]/40 text-[#202020] text-xs flex items-center justify-between gap-3 shadow-sm">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded-md bg-amber-200/80 font-black text-[10px] uppercase tracking-wider text-amber-900">
+              <span className="px-2 py-0.5 rounded-md bg-[#202020] text-[#F9DB5C] font-black text-[10px] uppercase tracking-wider">
                 Visual Preview
               </span>
               <span className="font-semibold text-slate-700">
@@ -650,7 +650,7 @@ export default function HomePage() {
                   : "Listing cards below are presented as realistic visual demonstration specimens for design review."}
               </span>
             </div>
-            <span className="text-[11px] font-bold text-amber-800 hidden sm:inline">
+            <span className="text-[11px] font-bold text-[#B78D42] hidden sm:inline">
               Sample Demonstration Data
             </span>
           </div>
@@ -658,11 +658,11 @@ export default function HomePage() {
           {/* Header & Locality Filter Chips */}
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
-              <div className="text-gold-600 font-black text-xs uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-cyan-500 inline-block" />
+              <div className="text-[#B78D42] font-black text-xs uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#22CDE1] inline-block" />
                 <span>Verified Trichy Listings</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-black text-brand-black tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#202020] tracking-tight">
                 {t.properties.heading}
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl">
@@ -672,22 +672,22 @@ export default function HomePage() {
 
             <Link
               href="/properties"
-              className="inline-flex items-center gap-1.5 text-xs font-black text-cyan-700 hover:text-gold-600 transition"
+              className="inline-flex items-center gap-1.5 text-xs font-black text-[#202020] hover:text-[#B78D42] transition"
             >
               <span>{t.properties.viewAll}</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-[#B78D42]" />
             </Link>
           </div>
 
-          {/* Locality Quick Filters Styled with Logo Theme */}
+          {/* Locality Quick Filters Styled with Brand Palette */}
           <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 touch-scroll">
             {["All", "K.K. Nagar", "Olaiyur", "Panjappur", "Vayalur Road", "Karumandapam"].map((loc) => (
               <button
                 key={loc}
                 onClick={() => setFilterLocality(loc)}
                 className={`px-4 py-2 rounded-full text-xs font-black whitespace-nowrap transition border ${filterLocality === loc
-                  ? "bg-brand-black text-gold-400 border-gold-500 shadow-gold"
-                  : "bg-white text-slate-700 border-slate-200 hover:border-cyan-400"
+                  ? "bg-[#202020] text-[#F9DB5C] border-[#B78D42] shadow-gold"
+                  : "bg-white text-slate-700 border-slate-200 hover:border-[#22CDE1]"
                   }`}
               >
                 {loc}
@@ -723,27 +723,27 @@ export default function HomePage() {
           <div className="mt-10 text-center">
             <Link
               href="/properties"
-              className="inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-2xl bg-brand-black hover:bg-slate-900 text-gold-400 font-black text-xs uppercase tracking-wider shadow-gold border border-gold-500/40 transition"
+              className="inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-2xl bg-[#202020] hover:bg-[#2A2A2A] text-[#F9DB5C] font-black text-xs uppercase tracking-wider shadow-gold border border-[#B78D42]/50 transition"
             >
               <span>{t.properties.viewAll} (8 Trichy Listings)</span>
-              <ArrowRight className="w-4 h-4 text-cyan-400" />
+              <ArrowRight className="w-4 h-4 text-[#22CDE1]" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 2.5 LAND INTELLIGENCE & ADVISORY DOSSIERS IN WHITE & GOLD */}
-      <section className="py-14 sm:py-18 bg-[#FDFBF7] text-slate-900 border-y border-amber-200/80 relative overflow-hidden">
-        <div className="absolute top-0 right-10 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+      {/* 2.5 LAND INTELLIGENCE & ADVISORY DOSSIERS */}
+      <section className="py-14 sm:py-18 bg-white text-[#202020] border-y border-[#B78D42]/25 relative overflow-hidden">
+        <div className="absolute top-0 right-10 w-96 h-96 bg-[#F9DB5C]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider shadow-sm">
-                <BarChart3 className="w-3.5 h-3.5 text-amber-600" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F2F2F2] border border-[#B78D42]/40 text-[#202020] text-xs font-bold uppercase tracking-wider shadow-sm">
+                <BarChart3 className="w-3.5 h-3.5 text-[#22CDE1]" />
                 <span>Civil Engineering Due Diligence & Market Intelligence</span>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900">
-                Verify Before You Buy: <span className="text-amber-600">Legal, Water & SRO Comps</span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#202020]">
+                Verify Before You Buy: <span className="text-[#B78D42]">Legal, Water & SRO Comps</span>
               </h2>
               <p className="text-slate-600 text-xs sm:text-sm max-w-2xl font-medium">
                 Led by <strong>Er. J. Vairavel</strong>. High Court advocate title investigation,
@@ -754,16 +754,16 @@ export default function HomePage() {
             <div className="flex items-center gap-3">
               <Link
                 href="/intelligence"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-xs transition shadow-gold"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] hover:brightness-105 text-[#202020] font-black text-xs transition shadow-gold border border-[#B78D42]/40"
               >
                 <BarChart3 className="w-4 h-4" />
                 <span>Explore SRO Comps</span>
               </Link>
               <Link
                 href="/academy"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-amber-300 text-slate-800 font-bold text-xs hover:bg-amber-50 transition shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-[#B78D42]/40 text-slate-800 font-bold text-xs hover:bg-slate-50 transition shadow-sm"
               >
-                <BookOpen className="w-4 h-4 text-amber-600" />
+                <BookOpen className="w-4 h-4 text-[#22CDE1]" />
                 <span>Due Diligence Guide</span>
               </Link>
             </div>
@@ -771,88 +771,88 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1 */}
-            <div className="bg-white p-6 rounded-3xl border border-amber-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group shadow-sm">
+            <div className="bg-[#F2F2F2] p-6 rounded-3xl border border-[#B78D42]/30 hover:border-[#B78D42] hover:shadow-xl transition-all duration-300 flex flex-col justify-between group shadow-sm">
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <div className="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-600">
+                  <div className="p-2.5 bg-white rounded-xl border border-[#B78D42]/30 text-[#B78D42]">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
-                  <span className="text-[11px] font-black text-amber-900 bg-amber-50 px-2.5 py-0.5 rounded-lg border border-amber-300">
+                  <span className="text-[11px] font-black text-[#202020] bg-white px-2.5 py-0.5 rounded-lg border border-[#B78D42]/40">
                     Custom Quotation
                   </span>
                 </div>
-                <h3 className="font-bold text-slate-900 text-base group-hover:text-amber-700 transition">
+                <h3 className="font-bold text-[#202020] text-base group-hover:text-[#B78D42] transition">
                   30-Year Advocate Title Opinion
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   Scrutiny of original parent deeds, Patta/Chitta transfers, continuous EC from 1975, and civil court dispute checks by High Court advocates.
                 </p>
               </div>
-              <div className="pt-4 mt-4 border-t border-amber-100">
+              <div className="pt-4 mt-4 border-t border-[#B78D42]/20">
                 <Link
                   href="/services/online-legal-opinion"
-                  className="text-amber-700 hover:text-amber-800 text-xs font-bold flex items-center gap-1.5 transition"
+                  className="text-[#202020] hover:text-[#B78D42] text-xs font-bold flex items-center gap-1.5 transition"
                 >
                   <span>View Legal Scope</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#B78D42]" />
                 </Link>
               </div>
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white p-6 rounded-3xl border border-amber-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group shadow-sm">
+            <div className="bg-[#F2F2F2] p-6 rounded-3xl border border-[#B78D42]/30 hover:border-[#B78D42] hover:shadow-xl transition-all duration-300 flex flex-col justify-between group shadow-sm">
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <div className="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-600">
+                  <div className="p-2.5 bg-white rounded-xl border border-[#B78D42]/30 text-[#22CDE1]">
                     <Droplets className="w-5 h-5" />
                   </div>
-                  <span className="text-[11px] font-black text-amber-900 bg-amber-50 px-2.5 py-0.5 rounded-lg border border-amber-300">
+                  <span className="text-[11px] font-black text-[#202020] bg-white px-2.5 py-0.5 rounded-lg border border-[#B78D42]/40">
                     Custom Quotation
                   </span>
                 </div>
-                <h3 className="font-bold text-slate-900 text-base group-hover:text-amber-700 transition">
+                <h3 className="font-bold text-[#202020] text-base group-hover:text-[#B78D42] transition">
                   On-Site Technical & Water Audit
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   Physical inspection of survey stones, approach road width, groundwater aquifer depth, potable water TDS test, and foundation bearing test.
                 </p>
               </div>
-              <div className="pt-4 mt-4 border-t border-amber-100">
+              <div className="pt-4 mt-4 border-t border-[#B78D42]/20">
                 <Link
                   href="/services/onsite-infrastructure-valuation"
-                  className="text-amber-700 hover:text-amber-800 text-xs font-bold flex items-center gap-1.5 transition"
+                  className="text-[#202020] hover:text-[#B78D42] text-xs font-bold flex items-center gap-1.5 transition"
                 >
                   <span>Book Site Audit</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#B78D42]" />
                 </Link>
               </div>
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white p-6 rounded-3xl border border-amber-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group shadow-sm">
+            <div className="bg-[#F2F2F2] p-6 rounded-3xl border border-[#B78D42]/30 hover:border-[#B78D42] hover:shadow-xl transition-all duration-300 flex flex-col justify-between group shadow-sm">
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <div className="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-600">
+                  <div className="p-2.5 bg-white rounded-xl border border-[#B78D42]/30 text-[#B78D42]">
                     <BarChart3 className="w-5 h-5" />
                   </div>
-                  <span className="text-[11px] font-black text-amber-900 bg-amber-50 px-2.5 py-0.5 rounded-lg border border-amber-300">
+                  <span className="text-[11px] font-black text-[#202020] bg-white px-2.5 py-0.5 rounded-lg border border-[#B78D42]/40">
                     8 Trichy Corridors
                   </span>
                 </div>
-                <h3 className="font-bold text-slate-900 text-base group-hover:text-amber-700 transition">
+                <h3 className="font-bold text-[#202020] text-base group-hover:text-[#B78D42] transition">
                   SRO Guideline vs Market Comps
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   Live data tables comparing government guideline rates vs actual transacted market values, 3-year appreciation rates, and Panjappur/Ring Road impact.
                 </p>
               </div>
-              <div className="pt-4 mt-4 border-t border-amber-100">
+              <div className="pt-4 mt-4 border-t border-[#B78D42]/20">
                 <Link
                   href="/intelligence"
-                  className="text-amber-700 hover:text-amber-800 text-xs font-bold flex items-center gap-1.5 transition"
+                  className="text-[#202020] hover:text-[#B78D42] text-xs font-bold flex items-center gap-1.5 transition"
                 >
                   <span>View Corridor Table</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#B78D42]" />
                 </Link>
               </div>
             </div>
@@ -866,8 +866,8 @@ export default function HomePage() {
       {/* 4. SMART REQUIREMENT CAPTURE (SURVEYHEART REPLACEMENT) */}
       <SmartRequirementSurvey />
 
-      {/* 5. PROMOTE WITH US (B2B CREATOR & PROMOTER STUDIO) IN WHITE & GOLD */}
-      <section className="py-14 sm:py-18 bg-gradient-to-b from-[#FDFBF7] to-white relative overflow-hidden border-y border-amber-200/80">
+      {/* 5. PROMOTE WITH US (B2B CREATOR & PROMOTER STUDIO) */}
+      <section className="py-14 sm:py-18 bg-[#F2F2F2] relative overflow-hidden border-y border-[#B78D42]/25">
         {/* Real Estate Media Production Studio Image Backdrop */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <Image
@@ -876,17 +876,17 @@ export default function HomePage() {
             fill
             className="object-cover object-center opacity-15"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-[#FDFBF7]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-[#F2F2F2]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="bg-white/95 backdrop-blur-xl p-8 sm:p-12 rounded-3xl flex flex-col lg:flex-row items-center justify-between gap-8 border-2 border-amber-200/90 shadow-xl">
+          <div className="bg-white/95 backdrop-blur-xl p-8 sm:p-12 rounded-3xl flex flex-col lg:flex-row items-center justify-between gap-8 border-2 border-[#B78D42]/30 shadow-xl">
             <div className="space-y-3 text-center lg:text-left max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-50 text-red-700 text-xs font-black uppercase tracking-wider border border-red-200">
-                <Youtube className="w-4 h-4 fill-red-600 text-red-600" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C20E10]/10 text-[#C20E10] text-xs font-black uppercase tracking-wider border border-[#C20E10]/30">
+                <Youtube className="w-4 h-4 fill-[#C20E10] text-[#C20E10]" />
                 <span>YouTube Creator Network • 125K+ Subscribers</span>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
+              <h2 className="text-2xl sm:text-4xl font-black text-[#202020] leading-tight">
                 {t.promote.title}
               </h2>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
@@ -897,10 +897,10 @@ export default function HomePage() {
             <div className="flex-shrink-0">
               <Link
                 href="/promote"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-xs uppercase tracking-wider shadow-gold transition transform hover:scale-105 active:scale-95 border border-amber-400"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-black text-xs uppercase tracking-wider shadow-gold transition transform hover:scale-105 active:scale-95 border border-[#B78D42]/50"
               >
                 <span>{t.promote.ctaButton}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-[#202020]" />
               </Link>
             </div>
           </div>
@@ -908,14 +908,14 @@ export default function HomePage() {
       </section>
 
       {/* 5.5 INTEGRATED ENQUIRY & CONSULTATION CALLOUT */}
-      <section className="py-12 bg-white border-b border-amber-200">
+      <section className="py-12 bg-white border-b border-[#B78D42]/25">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-brand-black via-slate-900 to-brand-black text-white p-8 sm:p-12 rounded-3xl border-2 border-amber-400/50 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="bg-gradient-to-r from-[#202020] via-[#2A2A2A] to-[#202020] text-white p-8 sm:p-12 rounded-3xl border-2 border-[#B78D42]/50 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#F9DB5C]/10 rounded-full blur-3xl pointer-events-none" />
 
             <div className="space-y-3 text-center lg:text-left max-w-2xl relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider border border-amber-400/30">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#F9DB5C] text-xs font-bold uppercase tracking-wider border border-[#B78D42]/40">
+                <Sparkles className="w-3.5 h-3.5 text-[#22CDE1]" />
                 <span>Custom Quotation & Engineering Advisory</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-black tracking-tight">
@@ -933,13 +933,13 @@ export default function HomePage() {
             <div className="flex-shrink-0 flex flex-wrap items-center justify-center gap-3 relative z-10">
               <Link
                 href="/contact"
-                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 hover:from-amber-600 hover:to-amber-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-600/30 transition transform hover:-translate-y-0.5"
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-extrabold text-xs uppercase tracking-wider shadow-gold transition transform hover:-translate-y-0.5 border border-[#B78D42]/50"
               >
                 {language === "ta" ? "நேரடி ஆலோசனை முன்பதிவு" : "Schedule Consultation"}
               </Link>
               <Link
                 href="/services"
-                className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider border border-white/20 transition"
+                className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-[#F2F2F2] font-bold text-xs uppercase tracking-wider border border-white/20 transition"
               >
                 {language === "ta" ? "11 சேவைகளைக் காண்க" : "View 11 Services"}
               </Link>

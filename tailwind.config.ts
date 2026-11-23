@@ -10,36 +10,52 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // VVMS Official Brand Colour System (Approved Palette)
+        vvms: {
+          primaryGold: "#F9DB5C",
+          lightGold: "#F6E785",
+          turquoise: "#22CDE1",
+          red: "#C20E10",
+          antiqueGold: "#B78D42",
+          charcoal: "#202020",
+          offWhite: "#F2F2F2",
+        },
         // Hybrid Glass Core System
         surface: {
-          dark: "#0A0E17",
-          darkGlass: "rgba(15, 23, 42, 0.75)",
-          light: "#F8FAFC",
-          whiteGlass: "rgba(255, 255, 255, 0.80)",
+          dark: "#202020",
+          darkGlass: "rgba(32, 32, 32, 0.85)",
+          light: "#F2F2F2",
+          whiteGlass: "rgba(242, 242, 242, 0.88)",
         },
         text: {
-          primary: "#0F172A",
-          secondary: "#475569",
+          primary: "#202020",
+          secondary: "#4A5568",
         },
         accent: {
-          goldPrimary: "#D97706",
-          goldSecondary: "#F59E0B",
-          cyan: "#0284C7",
+          goldPrimary: "#F9DB5C",
+          goldSecondary: "#F6E785",
+          antiqueGold: "#B78D42",
+          cyan: "#22CDE1",
+          red: "#C20E10",
           green: "#15803D",
         },
-        // Logo-derived brand color system
+        // Logo-derived brand color system mapped to the 7 approved colors
         brand: {
-          black: "#0D1117",      // Deep onyx black from logo background
-          dark: "#161B22",       // Dark surface slate
-          card: "#1F242C",       // Dark elevated card surface
-          gold: "#F59E0B",       // Warm gold/yellow from "வீடு" typography & roof frame
-          goldLight: "#FDE047",  // Light golden accent
-          goldDark: "#D97706",   // Deep amber gold
-          cyan: "#00BCD4",       // Vivid Cyan from "வீட்டுமனை சந்தை" typography
-          cyanLight: "#38BDF8",  // Sky cyan
-          cyanDark: "#0891B2",   // Deep teal cyan
-          red: "#EF4444",        // Vibrant Red from logo building & YouTube icon
-          redDark: "#DC2626",
+          black: "#202020",      // Charcoal Black #202020
+          charcoal: "#202020",   // Charcoal Black
+          offWhite: "#F2F2F2",   // Off White
+          dark: "#252525",       // Dark elevated surface
+          card: "#2B2B2B",       // Dark card surface
+          gold: "#F9DB5C",       // Primary Gold #F9DB5C
+          goldLight: "#F6E785",  // Light Gold #F6E785
+          goldDark: "#B78D42",   // Antique Gold #B78D42
+          antiqueGold: "#B78D42",// Antique Gold #B78D42
+          cyan: "#22CDE1",       // Turquoise Blue #22CDE1
+          cyanLight: "#67E8F9",  // Light turquoise
+          cyanDark: "#0891B2",   // Deep turquoise
+          turquoise: "#22CDE1",  // Turquoise Blue
+          red: "#C20E10",        // Construction Red #C20E10
+          redDark: "#9E0A0C",    // Deep construction red
         },
         navy: {
           50: "#F8FAFC",
@@ -50,29 +66,29 @@ const config: Config = {
           500: "#64748B",
           600: "#334155",
           700: "#1E293B",
-          800: "#0F172A",
-          900: "#0C101A",
-          950: "#070A10",        // Deepest backdrop
+          800: "#202020",
+          900: "#1A1A1A",
+          950: "#121212",        // Deepest backdrop
         },
         gold: {
-          50: "#FFFBEB",
-          100: "#FEF3C7",
-          200: "#FDE68A",
-          300: "#FCD34D",
-          400: "#FBBF24",
-          500: "#F59E0B",        // Matched with logo "வீடு" gold
-          600: "#D97706",
-          700: "#B45309",
-          800: "#92400E",
-          950: "#451A03",
+          50: "#FEFCE8",
+          100: "#FEF9C3",
+          200: "#F6E785",        // Light Gold #F6E785
+          300: "#F9DB5C",        // Primary Gold #F9DB5C
+          400: "#F9DB5C",        // Primary Gold #F9DB5C
+          500: "#E0BF38",
+          600: "#B78D42",        // Antique Gold #B78D42
+          700: "#9A7332",
+          800: "#7A5B27",
+          950: "#3A2A12",
         },
         cyan: {
           50: "#ECFEFF",
           100: "#CFFAFE",
           200: "#A5F3FC",
           300: "#67E8F9",
-          400: "#22D3EE",
-          500: "#06B6D4",        // Matched with logo "வீட்டுமனை சந்தை" cyan
+          400: "#22CDE1",        // Turquoise Blue #22CDE1
+          500: "#22CDE1",        // Turquoise Blue #22CDE1
           600: "#0891B2",
           700: "#0E7490",
           800: "#155E75",
@@ -91,10 +107,12 @@ const config: Config = {
         mono: ["var(--font-geist-mono)", "monospace"],
       },
       boxShadow: {
-        gold: "0 4px 20px -2px rgba(245, 158, 11, 0.35)",
-        cyan: "0 4px 20px -2px rgba(6, 182, 212, 0.35)",
-        card: "0 4px 24px -2px rgba(13, 17, 23, 0.08)",
-        floating: "0 10px 30px -5px rgba(13, 17, 23, 0.25)",
+        gold: "0 4px 20px -2px rgba(249, 219, 92, 0.40)",
+        antique: "0 4px 20px -2px rgba(183, 141, 66, 0.35)",
+        cyan: "0 4px 20px -2px rgba(34, 205, 225, 0.35)",
+        red: "0 4px 20px -2px rgba(194, 14, 16, 0.35)",
+        card: "0 4px 24px -2px rgba(32, 32, 32, 0.08)",
+        floating: "0 10px 30px -5px rgba(32, 32, 32, 0.25)",
       },
     },
   },

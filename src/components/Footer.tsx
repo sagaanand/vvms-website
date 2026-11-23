@@ -22,47 +22,47 @@ export default function Footer() {
   const { language, t } = useLanguage();
 
   return (
-    <footer className="bg-brand-black text-slate-300 border-t-2 border-gold-500/40">
-      {/* Upper Brand & Trust Bar Styled with Logo Colors */}
-      <div className="border-b border-brand-dark bg-brand-dark/50 py-10 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#202020] text-slate-300 border-t-2 border-[#B78D42]">
+      {/* Upper Brand & Trust Bar Styled with Official VVMS Brand Palette */}
+      <div className="border-b border-[#2E2E2E] bg-[#252525] py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 text-center md:text-left">
           <div className="flex items-center gap-3 justify-center md:justify-start">
-            <div className="p-3 bg-brand-card rounded-2xl border border-gold-500/40 text-gold-400 shadow-gold">
+            <div className="p-3 bg-[#2B2B2B] rounded-2xl border border-[#B78D42]/50 text-[#F9DB5C] shadow-gold">
               <Award className="w-6 h-6" />
             </div>
             <div>
-              <div className="font-bold text-white text-base">Er. J. Vairavel</div>
-              <div className="text-xs text-gold-400 font-medium">Civil Engineer & Turnkey Consultant</div>
+              <div className="font-bold text-[#F2F2F2] text-base">Er. J. Vairavel</div>
+              <div className="text-xs text-[#F9DB5C] font-semibold">Civil Engineer & Turnkey Consultant</div>
             </div>
           </div>
 
           <div className="flex items-center gap-3 justify-center md:justify-start">
-            <div className="p-3 bg-brand-card rounded-2xl border border-cyan-500/40 text-cyan-400 shadow-cyan">
+            <div className="p-3 bg-[#2B2B2B] rounded-2xl border border-[#22CDE1]/50 text-[#22CDE1] shadow-cyan">
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
-              <div className="font-bold text-white text-base">DTCP & RERA Verified</div>
-              <div className="text-xs text-cyan-400 font-medium">100% Legal Scrutiny & Clear Titles</div>
+              <div className="font-bold text-[#F2F2F2] text-base">DTCP & RERA Verified</div>
+              <div className="text-xs text-[#22CDE1] font-semibold">100% Legal Scrutiny & Clear Titles</div>
             </div>
           </div>
 
           <div className="flex items-center gap-3 justify-center md:justify-start">
-            <div className="p-3 bg-brand-card rounded-2xl border border-red-500/40 text-red-500 shadow-md">
+            <div className="p-3 bg-[#2B2B2B] rounded-2xl border border-[#C20E10]/50 text-[#C20E10] shadow-md">
               <Youtube className="w-6 h-6" />
             </div>
             <div>
-              <div className="font-bold text-white text-base">125K+ Subscribers</div>
-              <div className="text-xs text-red-400 font-medium">1,900+ YouTube Walkthroughs</div>
+              <div className="font-bold text-[#F2F2F2] text-base">125K+ Subscribers</div>
+              <div className="text-xs text-red-300 font-semibold">1,900+ YouTube Walkthroughs</div>
             </div>
           </div>
 
           <div className="flex items-center gap-3 justify-center md:justify-start">
-            <div className="p-3 bg-brand-card rounded-2xl border border-emerald-500/40 text-emerald-400 shadow-md">
+            <div className="p-3 bg-[#2B2B2B] rounded-2xl border border-emerald-500/40 text-emerald-400 shadow-md">
               <CheckCircle2 className="w-6 h-6" />
             </div>
             <div>
-              <div className="font-bold text-white text-base">4.8★ Google Rated</div>
-              <div className="text-xs text-emerald-400 font-medium">5.0★ Justdial Highest Trust</div>
+              <div className="font-bold text-[#F2F2F2] text-base">4.8★ Google Rated</div>
+              <div className="text-xs text-emerald-400 font-semibold">5.0★ Justdial Highest Trust</div>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function Footer() {
           {/* Column 1: Brand & Founder */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-gold-400 bg-brand-black flex-shrink-0 shadow-gold">
+              <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-[#B78D42] bg-[#202020] flex-shrink-0 shadow-gold">
                 <Image
                   src="/images/logo.png"
                   alt="Veedu Veettumanai Santhai Logo"
@@ -85,19 +85,19 @@ export default function Footer() {
               </div>
               <div>
                 <div className="font-black text-base leading-tight flex items-center gap-1.5">
-                  <span className="text-gold-400">வீடு</span>
-                  <span className="text-cyan-400">வீட்டுமனை சந்தை</span>
+                  <span className="text-[#F9DB5C]">வீடு</span>
+                  <span className="text-[#22CDE1]">வீட்டுமனை சந்தை</span>
                 </div>
-                <p className="text-xs text-slate-300 font-medium">
+                <p className="text-xs text-[#F2F2F2] font-medium">
                   {COMPANY_INFO.name}
                 </p>
-                <p className="text-[10px] text-gold-400/90 font-bold">
+                <p className="text-[10px] text-[#F6E785] font-bold">
                   {language === "ta" ? "உங்கள் கனவு இல்லம் எங்களுடன் சாத்தியமாகும்..." : "Your Dream Home Becomes Reality With Us"}
                 </p>
               </div>
             </div>
 
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-300 leading-relaxed">
               {t.footer.founderDisclaimer}
             </p>
 
@@ -107,9 +107,9 @@ export default function Footer() {
                 href={COMPANY_INFO.youtube.channelUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-600/20 hover:bg-red-600/30 border border-red-500/40 text-red-300 text-xs font-bold transition"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#C20E10]/20 hover:bg-[#C20E10]/30 border border-[#C20E10]/50 text-red-200 text-xs font-bold transition"
               >
-                <Youtube className="w-3.5 h-3.5 text-red-500" />
+                <Youtube className="w-3.5 h-3.5 text-[#C20E10]" />
                 <span>YouTube ({COMPANY_INFO.youtube.subscribers})</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
@@ -118,28 +118,28 @@ export default function Footer() {
 
           {/* Column 2: Dual Office Locations */}
           <div className="space-y-4">
-            <h4 className="text-gold-400 font-black text-xs uppercase tracking-wider border-b border-brand-card pb-2">
+            <h4 className="text-[#F9DB5C] font-black text-xs uppercase tracking-wider border-b border-[#2E2E2E] pb-2">
               {language === "ta" ? "எங்கள் திருச்சி அலுவலகங்கள்" : "Trichy Office Locations"}
             </h4>
 
             {/* HQ */}
-            <div className="text-xs space-y-1.5 bg-brand-card p-3 rounded-xl border border-gold-500/30 shadow-sm">
-              <div className="font-bold text-gold-300 flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-gold-400 flex-shrink-0" />
+            <div className="text-xs space-y-1.5 bg-[#2B2B2B] p-3 rounded-xl border border-[#B78D42]/40 shadow-sm">
+              <div className="font-bold text-[#F9DB5C] flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-[#F9DB5C] flex-shrink-0" />
                 <span>HQ (Olaiyur Ring Road)</span>
               </div>
-              <p className="text-slate-400 pl-5 leading-relaxed text-[11px]">
+              <p className="text-slate-300 pl-5 leading-relaxed text-[11px]">
                 2nd Floor, Valli Tower, Upstairs to SBI Bank 2, Ring Road, K.K. Nagar, Olaiyur, Trichy - 620021
               </p>
             </div>
 
             {/* Branch */}
-            <div className="text-xs space-y-1.5 bg-brand-card p-3 rounded-xl border border-cyan-500/30 shadow-sm">
-              <div className="font-bold text-cyan-300 flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+            <div className="text-xs space-y-1.5 bg-[#2B2B2B] p-3 rounded-xl border border-[#22CDE1]/40 shadow-sm">
+              <div className="font-bold text-[#22CDE1] flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-[#22CDE1] flex-shrink-0" />
                 <span>Branch (Karumandapam)</span>
               </div>
-              <p className="text-slate-400 pl-5 leading-relaxed text-[11px]">
+              <p className="text-slate-300 pl-5 leading-relaxed text-[11px]">
                 Vision Properties Bldg, Ashok Nagar 2nd St, RMS Colony, Karumandapam, Trichy - 620001
               </p>
             </div>
@@ -147,37 +147,37 @@ export default function Footer() {
 
           {/* Column 3: Properties & Construction */}
           <div className="space-y-4">
-            <h4 className="text-cyan-400 font-black text-xs uppercase tracking-wider border-b border-brand-card pb-2">
+            <h4 className="text-[#22CDE1] font-black text-xs uppercase tracking-wider border-b border-[#2E2E2E] pb-2">
               {t.footer.quickLinks}
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/properties" className="text-slate-400 hover:text-gold-400 transition font-medium">
+                <Link href="/properties" className="text-slate-300 hover:text-[#F9DB5C] transition font-medium">
                   • {t.nav.properties}
                 </Link>
               </li>
               <li>
-                <Link href="/construction" className="text-slate-400 hover:text-cyan-400 transition font-medium">
+                <Link href="/construction" className="text-slate-300 hover:text-[#22CDE1] transition font-medium">
                   • {t.nav.construction}
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-slate-400 hover:text-gold-400 transition font-medium">
+                <Link href="/services" className="text-slate-300 hover:text-[#F9DB5C] transition font-medium">
                   • {t.nav.services}
                 </Link>
               </li>
               <li>
-                <Link href="/business-solutions" className="text-slate-400 hover:text-cyan-400 transition font-medium">
+                <Link href="/business-solutions" className="text-slate-300 hover:text-[#22CDE1] transition font-medium">
                   • {t.nav.businessSolutions}
                 </Link>
               </li>
               <li>
-                <Link href="/resources" className="text-slate-400 hover:text-gold-400 transition font-medium">
+                <Link href="/resources" className="text-slate-300 hover:text-[#F9DB5C] transition font-medium">
                   • {t.nav.resources}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-slate-400 hover:text-white transition font-medium">
+                <Link href="/contact" className="text-slate-300 hover:text-[#F2F2F2] transition font-medium">
                   • {t.nav.contact}
                 </Link>
               </li>
@@ -186,68 +186,68 @@ export default function Footer() {
 
           {/* Column 4: Advisory & Land Intelligence */}
           <div className="space-y-4">
-            <h4 className="text-gold-400 font-black text-xs uppercase tracking-wider border-b border-brand-card pb-2">
+            <h4 className="text-[#F9DB5C] font-black text-xs uppercase tracking-wider border-b border-[#2E2E2E] pb-2">
               Advisory & Intelligence
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/services" className="text-slate-400 hover:text-gold-400 transition font-medium">
+                <Link href="/services" className="text-slate-300 hover:text-[#F9DB5C] transition font-medium">
                   • 11 Advisory Services
                 </Link>
               </li>
               <li>
-                <Link href="/services/online-legal-opinion" className="text-slate-400 hover:text-cyan-400 transition font-medium">
+                <Link href="/services/online-legal-opinion" className="text-slate-300 hover:text-[#22CDE1] transition font-medium">
                   • 30-Yr Legal Due Diligence
                 </Link>
               </li>
               <li>
-                <Link href="/services/onsite-infrastructure-valuation" className="text-slate-400 hover:text-gold-400 transition font-medium">
+                <Link href="/services/onsite-infrastructure-valuation" className="text-slate-300 hover:text-[#F9DB5C] transition font-medium">
                   • On-Site Technical & Water Audit
                 </Link>
               </li>
               <li>
-                <Link href="/services/property-valuation" className="text-slate-400 hover:text-cyan-400 transition font-medium">
+                <Link href="/services/property-valuation" className="text-slate-300 hover:text-[#22CDE1] transition font-medium">
                   • Independent Property Valuation
                 </Link>
               </li>
               <li>
-                <Link href="/intelligence" className="text-slate-400 hover:text-gold-400 transition font-medium">
+                <Link href="/intelligence" className="text-slate-300 hover:text-[#F9DB5C] transition font-medium">
                   • Trichy SRO Guideline Comps
                 </Link>
               </li>
               <li>
-                <Link href="/academy" className="text-slate-400 hover:text-cyan-400 transition font-medium">
+                <Link href="/academy" className="text-slate-300 hover:text-[#22CDE1] transition font-medium">
                   • Due Diligence Academy
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Contact & Hours */}
+          {/* Column 5: Contact & Hours */}
           <div className="space-y-4">
-            <h4 className="text-gold-400 font-black text-xs uppercase tracking-wider border-b border-brand-card pb-2">
+            <h4 className="text-[#22CDE1] font-black text-xs uppercase tracking-wider border-b border-[#2E2E2E] pb-2">
               {t.nav.contact}
             </h4>
 
-            <div className="space-y-2.5 text-xs text-slate-400">
+            <div className="space-y-2.5 text-xs text-slate-300">
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-gold-400 flex-shrink-0" />
-                <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="text-slate-200 hover:text-gold-400 font-bold">
+                <Phone className="w-4 h-4 text-[#F9DB5C] flex-shrink-0" />
+                <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="text-[#F2F2F2] hover:text-[#F9DB5C] font-bold">
                   {COMPANY_INFO.phone}
                 </a>
               </div>
 
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                <a href={`mailto:${COMPANY_INFO.email}`} className="text-slate-300 hover:text-cyan-300 font-medium">
+                <Mail className="w-4 h-4 text-[#22CDE1] flex-shrink-0" />
+                <a href={`mailto:${COMPANY_INFO.email}`} className="text-slate-300 hover:text-[#22CDE1] font-medium">
                   {COMPANY_INFO.email}
                 </a>
               </div>
 
               <div className="flex items-start gap-2 pt-1">
-                <Clock className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
+                <Clock className="w-4 h-4 text-[#F9DB5C] flex-shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-bold text-slate-200">
+                  <div className="font-bold text-[#F2F2F2]">
                     {language === "ta" ? "பணி நேரம்:" : "Office Hours:"}
                   </div>
                   <div className="text-slate-400 text-[11px]">{COMPANY_INFO.workingHours}</div>
@@ -272,11 +272,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Disclaimer & Copyright */}
-        <div className="mt-12 pt-6 border-t border-brand-card text-center text-xs text-slate-500 space-y-2">
+        <div className="mt-12 pt-6 border-t border-[#2E2E2E] text-center text-xs text-slate-400 space-y-2">
           <p className="font-medium">© {new Date().getFullYear()} {COMPANY_INFO.name}. {t.footer.rights}</p>
-          <p className="text-[11px] text-slate-500 max-w-4xl mx-auto">
+          <p className="text-[11px] text-slate-400 max-w-4xl mx-auto">
             Veedu Veettumanai Santhai Pvt Ltd is an engineering and property consultancy firm founded by Er. J. Vairavel.
-            Color theme: Brand Gold & Cyan derived from the official registered corporate trademark emblem.
+            Corporate visual identity: Primary Gold (#F9DB5C), Light Gold (#F6E785), Turquoise Blue (#22CDE1), Construction Red (#C20E10), Antique Gold (#B78D42), Charcoal Black (#202020), and Off White (#F2F2F2).
           </p>
         </div>
       </div>

@@ -125,19 +125,19 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
   };
 
   return (
-    <section id="cost-estimator" className="py-14 sm:py-20 bg-gradient-to-b from-white via-amber-50/30 to-white text-slate-900 relative overflow-hidden border-t-2 border-amber-300">
-      {/* Decorative backdrop glow matching White & Gold Theme */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl pointer-events-none" />
+    <section id="cost-estimator" className="py-14 sm:py-20 bg-gradient-to-b from-[#F2F2F2] via-white to-[#F2F2F2] text-[#202020] relative overflow-hidden border-t-2 border-[#B78D42]/30">
+      {/* Decorative backdrop glow matching VVMS Palette */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#F9DB5C]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#22CDE1]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header Styled with White & Gold Theme */}
+        {/* Header Styled with VVMS Brand Theme */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-amber-300 text-amber-900 text-xs font-black uppercase tracking-wider mb-3 shadow-sm">
-            <HardHat className="w-4 h-4 text-amber-600" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#B78D42]/40 text-[#202020] text-xs font-black uppercase tracking-wider mb-3 shadow-sm">
+            <HardHat className="w-4 h-4 text-[#B78D42]" />
             <span>{t.estimator.badge}</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mb-3">
+          <h2 className="text-2xl sm:text-4xl font-black text-[#202020] tracking-tight mb-3">
             {t.estimator.title}
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
@@ -147,19 +147,19 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
 
         {/* Main Grid: Controls + Live Cost Summary */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Controls Column (7 cols) in White & Gold */}
-          <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border-2 border-amber-200/90 shadow-xl space-y-6">
+          {/* Controls Column (7 cols) */}
+          <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#B78D42]/30 shadow-xl space-y-6">
             {/* 1. Built-Up Area Slider */}
             <div>
               <div className="flex justify-between items-center mb-2">
                 <label className="text-xs sm:text-sm font-black text-slate-800">
                   {t.estimator.areaSlider}
                 </label>
-                <div className="flex items-center gap-1.5 bg-amber-50 px-3.5 py-1.5 rounded-xl border border-amber-300 shadow-sm">
-                  <span className="text-base sm:text-lg font-black text-amber-700">
+                <div className="flex items-center gap-1.5 bg-[#F2F2F2] px-3.5 py-1.5 rounded-xl border border-[#B78D42]/40 shadow-sm">
+                  <span className="text-base sm:text-lg font-black text-[#202020]">
                     {formatIndianNumber(area)}
                   </span>
-                  <span className="text-xs text-amber-800 font-bold">sq.ft</span>
+                  <span className="text-xs text-[#B78D42] font-bold">sq.ft</span>
                 </div>
               </div>
 
@@ -171,19 +171,19 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
                 value={area}
                 onChange={(e) => setArea(Number(e.target.value))}
                 aria-label="Built-Up Area Slider"
-                className="w-full h-3 bg-amber-100 rounded-lg appearance-none cursor-pointer accent-amber-500 focus:outline-none border border-amber-200"
+                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#B78D42] focus:outline-none border border-slate-300"
               />
 
               <div className="flex justify-between text-[11px] text-slate-500 mt-1 font-medium">
                 <span>600 sq.ft (Starter Home)</span>
-                <span className="text-amber-700 font-bold">2,500 sq.ft</span>
+                <span className="text-[#B78D42] font-bold">2,500 sq.ft</span>
                 <span>5,000 sq.ft (Grand Villa)</span>
               </div>
             </div>
 
             {/* 2. Number of Floors */}
             <div>
-              <label className="block text-xs sm:text-sm font-black text-slate-200 mb-2">
+              <label className="block text-xs sm:text-sm font-black text-slate-800 mb-2">
                 {t.estimator.floors}
               </label>
               <div className="grid grid-cols-3 gap-2.5">
@@ -198,8 +198,8 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
                     onClick={() => setFloors(f.id)}
                     className={`py-3 px-3 rounded-2xl text-xs sm:text-sm font-black transition flex flex-col items-center justify-center border-2 ${
                       floors === f.id
-                        ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white border-amber-400 shadow-md shadow-amber-600/30"
-                        : "bg-amber-50/50 text-slate-700 border-amber-200 hover:border-amber-400 hover:bg-amber-50"
+                        ? "bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] text-[#202020] border-[#B78D42] shadow-sm"
+                        : "bg-[#F2F2F2] text-slate-700 border-slate-200 hover:border-[#B78D42]/40 hover:bg-slate-100"
                     }`}
                   >
                     <span>{f.id}</span>
@@ -209,7 +209,7 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
               </div>
             </div>
 
-            {/* 3. Package Selection Styled with White & Gold Theme */}
+            {/* 3. Package Selection */}
             <div>
               <label className="block text-xs sm:text-sm font-black text-slate-800 mb-2.5">
                 {t.estimator.selectPackage}
@@ -224,21 +224,21 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
                       onClick={() => setSelectedPackage(pkgKey)}
                       className={`relative cursor-pointer rounded-2xl p-4 border-2 transition-all ${
                         isSelected
-                          ? "bg-amber-50/70 border-amber-400 ring-2 ring-amber-400/40 shadow-md"
-                          : "bg-white border-amber-100 hover:border-amber-300"
+                          ? "bg-[#F9DB5C]/15 border-[#B78D42] ring-2 ring-[#B78D42]/30 shadow-sm"
+                          : "bg-white border-slate-200 hover:border-[#B78D42]/40"
                       }`}
                     >
                       {pkg.isPopular && (
-                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow-md border border-amber-300">
+                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] text-[#202020] text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow-md border border-[#B78D42]/40">
                           Popular
                         </span>
                       )}
-                      <div className="font-extrabold text-slate-900 text-sm mb-1">
+                      <div className="font-extrabold text-[#202020] text-sm mb-1">
                         {language === "ta" ? pkg.nameTa : pkg.name}
                       </div>
-                      <div className="text-lg font-black text-amber-600 mb-1">
+                      <div className="text-lg font-black text-[#202020] mb-1">
                         ₹{pkg.rate}
-                        <span className="text-xs text-amber-800 font-bold"> /sq.ft</span>
+                        <span className="text-xs text-[#B78D42] font-bold"> /sq.ft</span>
                       </div>
                       <p className="text-[11px] text-slate-600 leading-tight font-medium">
                         {pkg.description}
@@ -250,26 +250,26 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
             </div>
           </div>
 
-          {/* Output & Breakdown Column (5 cols) Styled in White & Gold */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-amber-50/80 via-white to-amber-50/60 rounded-3xl p-6 sm:p-8 border-2 border-amber-300/80 shadow-xl space-y-6">
+          {/* Output & Breakdown Column (5 cols) */}
+          <div className="lg:col-span-5 bg-gradient-to-br from-[#F2F2F2] via-white to-[#F2F2F2] rounded-3xl p-6 sm:p-8 border-2 border-[#B78D42]/40 shadow-xl space-y-6">
             <div>
               <span className="text-xs text-slate-500 font-black uppercase tracking-wider block mb-1">
                 {t.estimator.estTotalCost}
               </span>
-              <div className="text-3xl sm:text-4xl font-black text-amber-700 tracking-tight">
+              <div className="text-3xl sm:text-4xl font-black text-[#202020] tracking-tight">
                 {formatPrice(estimatedCost)}
               </div>
               <div className="text-xs text-slate-600 mt-1 flex items-center gap-1.5 font-semibold">
                 <span>Built-Up: ~{formatIndianNumber(calculatedTotalArea)} sq.ft</span>
-                <span className="text-amber-300">•</span>
-                <span className="text-amber-800 font-bold">₹{activePkg.rate}/sq.ft</span>
+                <span className="text-[#B78D42]">•</span>
+                <span className="text-[#202020] font-bold">₹{activePkg.rate}/sq.ft</span>
               </div>
             </div>
 
-            {/* Stage-wise payment breakdown with Gold bars */}
-            <div className="space-y-3 pt-2 border-t border-amber-200">
-              <h4 className="text-xs font-black uppercase tracking-wider text-amber-800 flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            {/* Stage-wise payment breakdown */}
+            <div className="space-y-3 pt-2 border-t border-[#B78D42]/20">
+              <h4 className="text-xs font-black uppercase tracking-wider text-[#202020] flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-[#22CDE1]" />
                 <span>{t.estimator.stageBreakdown}</span>
               </h4>
 
@@ -278,11 +278,11 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
                   <div key={idx} className="space-y-1">
                     <div className="flex justify-between items-center text-slate-700">
                       <span className="text-[11px] font-medium">{stage.name}</span>
-                      <span className="font-bold text-amber-700">{formatPrice(stage.cost)}</span>
+                      <span className="font-bold text-[#202020]">{formatPrice(stage.cost)}</span>
                     </div>
-                    <div className="h-1.5 w-full bg-amber-100 rounded-full overflow-hidden">
+                    <div className="h-1.5 w-full bg-slate-200 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full"
+                        className="h-full bg-gradient-to-r from-[#F6E785] to-[#B78D42] rounded-full"
                         style={{ width: `${stage.percent * 3}%` }}
                       />
                     </div>
@@ -291,12 +291,12 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
               </div>
             </div>
 
-            {/* CTA Button in White & Gold */}
+            {/* CTA Button */}
             <button
               onClick={() => setModalOpen(true)}
-              className="w-full py-4 px-4 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-xs uppercase tracking-wider shadow-gold transition transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 border border-amber-400/40"
+              className="w-full py-4 px-4 rounded-2xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-black text-xs uppercase tracking-wider shadow-gold transition transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 border border-[#B78D42]/50"
             >
-              <FileSpreadsheet className="w-4 h-4 text-white" />
+              <FileSpreadsheet className="w-4 h-4 text-[#202020]" />
               <span>{t.estimator.ctaButton}</span>
             </button>
 
@@ -313,7 +313,7 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
           <div className="absolute inset-0" onClick={() => setModalOpen(false)} />
 
-          <div className="relative w-full max-w-lg bg-brand-dark border-2 border-gold-500/50 rounded-3xl p-6 sm:p-8 shadow-2xl z-10 text-white">
+          <div className="relative w-full max-w-lg bg-[#202020] border-2 border-[#B78D42]/50 rounded-3xl p-6 sm:p-8 shadow-2xl z-10 text-white">
             <button
               onClick={() => setModalOpen(false)}
               className="absolute top-4 right-4 text-slate-400 hover:text-white"
@@ -334,7 +334,7 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
                 </p>
                 <button
                   onClick={() => setModalOpen(false)}
-                  className="px-6 py-2.5 rounded-xl bg-gold-500 text-brand-black font-black text-xs"
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] text-[#202020] font-black text-xs"
                 >
                   Close Window
                 </button>
@@ -342,7 +342,7 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
             ) : (
               <form onSubmit={handleLeadSubmit} className="space-y-4">
                 <div className="space-y-1">
-                  <div className="text-gold-400 font-black text-xs uppercase tracking-wider">
+                  <div className="text-[#F9DB5C] font-black text-xs uppercase tracking-wider">
                     Turnkey Construction Quotation
                   </div>
                   <h3 className="text-lg sm:text-xl font-black text-white">
@@ -353,15 +353,15 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
                   </p>
                 </div>
 
-                {/* Estimate Snapshot with Logo Cyan & Gold */}
-                <div className="bg-brand-black p-3.5 rounded-2xl border border-slate-700 text-xs space-y-1.5">
+                {/* Estimate Snapshot with Brand Cyan & Gold */}
+                <div className="bg-[#2B2B2B] p-3.5 rounded-2xl border border-[#B78D42]/40 text-xs space-y-1.5">
                   <div className="flex justify-between text-slate-300">
                     <span>Package:</span>
-                    <strong className="text-gold-400">{activePkg.name} (₹{activePkg.rate}/sq.ft)</strong>
+                    <strong className="text-[#F9DB5C]">{activePkg.name} (₹{activePkg.rate}/sq.ft)</strong>
                   </div>
                   <div className="flex justify-between text-slate-300">
                     <span>Estimated Area:</span>
-                    <strong className="text-cyan-400">{calculatedTotalArea} sq.ft ({floors})</strong>
+                    <strong className="text-[#22CDE1]">{calculatedTotalArea} sq.ft ({floors})</strong>
                   </div>
                   <div className="flex justify-between text-slate-300">
                     <span>Est. Cost:</span>

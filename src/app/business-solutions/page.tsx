@@ -87,12 +87,12 @@ export default function BusinessSolutionsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 pb-20">
+    <div className="min-h-screen bg-[#F2F2F2] pb-20">
       {/* Visual Preview Notice Banner */}
-      <div className="bg-amber-100 border-b border-amber-300 text-amber-950 py-2.5 px-4 text-xs font-semibold">
+      <div className="bg-white border-b border-[#B78D42]/30 text-[#202020] py-2.5 px-4 text-xs font-semibold shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-600 text-white text-[10px] uppercase font-black px-2 py-0.5 rounded">
+            <span className="bg-[#202020] text-[#F9DB5C] text-[10px] uppercase font-black px-2 py-0.5 rounded">
               UI/UX Preview
             </span>
             <span>
@@ -101,21 +101,21 @@ export default function BusinessSolutionsPage() {
                 : "Business Solutions Visual Preview • Solutions are delivered as managed consulting services, not multi-tenant SaaS products."}
             </span>
           </div>
-          <span className="hidden md:inline text-amber-800 text-[11px] font-bold">
+          <span className="hidden md:inline text-[#B78D42] text-[11px] font-bold">
             Custom Quotation Model
           </span>
         </div>
       </div>
 
       {/* Hero Section */}
-      <section className="bg-brand-black text-white py-14 sm:py-20 relative overflow-hidden border-b-2 border-amber-400/40">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="bg-[#202020] text-white py-14 sm:py-20 relative overflow-hidden border-b-2 border-[#B78D42]/40">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#F9DB5C]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#22CDE1]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-amber-400/50 text-amber-300 text-xs font-black uppercase tracking-wider backdrop-blur-md">
-              <Sparkles className="w-4 h-4 text-amber-400" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#B78D42]/50 text-[#F9DB5C] text-xs font-black uppercase tracking-wider backdrop-blur-md">
+              <Sparkles className="w-4 h-4 text-[#22CDE1]" />
               <span>B2B Real Estate & Digital Solutions</span>
             </div>
 
@@ -134,7 +134,7 @@ export default function BusinessSolutionsPage() {
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <a
                 href="#solutions-overview"
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-600/30 transition hover:-translate-y-0.5"
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-black text-xs uppercase tracking-wider shadow-gold border border-[#B78D42]/50 transition hover:-translate-y-0.5"
               >
                 {language === "ta" ? "தீர்வுகளைக் காண்க" : "Explore 3 Core Solutions"}
               </a>
@@ -167,11 +167,11 @@ export default function BusinessSolutionsPage() {
                 onClick={() => setActiveTab(sol.id as any)}
                 className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs font-black transition border-2 whitespace-nowrap ${
                   isActive
-                    ? "bg-brand-black text-amber-400 border-amber-400 shadow-lg shadow-amber-500/10"
-                    : "bg-white text-slate-700 border-amber-100 hover:border-amber-300"
+                    ? "bg-[#202020] text-[#F9DB5C] border-[#B78D42] shadow-gold"
+                    : "bg-white text-slate-700 border-slate-200 hover:border-[#B78D42]/40"
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? "text-amber-400" : "text-amber-600"}`} />
+                <Icon className={`w-4 h-4 ${isActive ? "text-[#F9DB5C]" : "text-[#B78D42]"}`} />
                 <span>{sol.title.split("&")[0]}</span>
               </button>
             );
@@ -186,7 +186,7 @@ export default function BusinessSolutionsPage() {
             return (
               <div
                 key={item.id}
-                className="bg-white rounded-3xl overflow-hidden border-2 border-amber-200/90 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-0"
+                className="bg-white rounded-3xl overflow-hidden border-2 border-[#B78D42]/35 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-0"
               >
                 {/* Left Media Banner */}
                 <div className="relative aspect-[16/10] lg:aspect-auto lg:col-span-5 bg-slate-900 overflow-hidden">
@@ -197,11 +197,11 @@ export default function BusinessSolutionsPage() {
                     className="object-cover opacity-85"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                  <div className="absolute top-4 left-4 bg-brand-black/90 text-amber-300 text-xs font-black px-3 py-1 rounded-xl border border-amber-400/40 backdrop-blur-md">
+                  <div className="absolute top-4 left-4 bg-[#202020]/95 text-[#F9DB5C] text-xs font-black px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md shadow-md">
                     {item.eyebrow}
                   </div>
                   <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <div className="text-xs uppercase font-bold text-amber-300">Deliverable Spec</div>
+                    <div className="text-xs uppercase font-bold text-[#F9DB5C]">Deliverable Spec</div>
                     <div className="font-extrabold text-sm">{item.deliverable}</div>
                   </div>
                 </div>
@@ -209,12 +209,12 @@ export default function BusinessSolutionsPage() {
                 {/* Right Content */}
                 <div className="p-6 sm:p-10 lg:col-span-7 flex flex-col justify-between space-y-6">
                   <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-300 text-[11px] font-black uppercase">
-                      <Icon className="w-3.5 h-3.5 text-amber-600" />
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F2F2F2] text-[#202020] border border-[#B78D42]/40 text-[11px] font-black uppercase">
+                      <Icon className="w-3.5 h-3.5 text-[#B78D42]" />
                       <span>{item.tagline}</span>
                     </div>
 
-                    <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
+                    <h2 className="text-2xl sm:text-3xl font-black text-[#202020]">
                       {item.title}
                     </h2>
 
@@ -230,7 +230,7 @@ export default function BusinessSolutionsPage() {
                         {item.features.map((feat, idx) => (
                           <div
                             key={idx}
-                            className="flex items-start gap-2 p-2.5 rounded-xl bg-amber-50/50 border border-amber-100 text-xs font-semibold text-slate-800"
+                            className="flex items-start gap-2 p-2.5 rounded-xl bg-[#F2F2F2] border border-[#B78D42]/20 text-xs font-semibold text-slate-800"
                           >
                             <Check className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
                             <span>{feat}</span>
@@ -241,7 +241,7 @@ export default function BusinessSolutionsPage() {
                   </div>
 
                   {/* Consultation CTA */}
-                  <div className="pt-4 border-t border-amber-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div className="text-xs text-slate-500 font-medium text-center sm:text-left">
                       Custom Quotation tailored to project scale & timeline.
                     </div>
@@ -252,10 +252,10 @@ export default function BusinessSolutionsPage() {
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-xs uppercase tracking-wider shadow-md transition"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-black text-xs uppercase tracking-wider shadow-gold border border-[#B78D42]/50 transition"
                     >
                       <span>Request Custom Scope</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-4 h-4 text-[#202020]" />
                     </a>
                   </div>
                 </div>
@@ -267,7 +267,7 @@ export default function BusinessSolutionsPage() {
       {/* Why Choose VVMS for B2B Growth */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+          <h3 className="text-xl sm:text-2xl font-black text-[#202020]">
             Why Tamil Nadu Real Estate Firms Partner With VVMS
           </h3>
           <p className="text-xs sm:text-sm text-slate-600">
@@ -276,8 +276,8 @@ export default function BusinessSolutionsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 border border-amber-200 flex items-center justify-center">
+          <div className="bg-white p-6 rounded-2xl border border-[#B78D42]/30 shadow-sm space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-[#F2F2F2] text-[#B78D42] border border-[#B78D42]/30 flex items-center justify-center">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h4 className="font-bold text-slate-900 text-base">Civil Engineering Authority</h4>
@@ -286,9 +286,9 @@ export default function BusinessSolutionsPage() {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 border border-red-200 flex items-center justify-center">
-              <Youtube className="w-5 h-5 fill-red-600" />
+          <div className="bg-white p-6 rounded-2xl border border-[#B78D42]/30 shadow-sm space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-[#C20E10]/10 text-[#C20E10] border border-[#C20E10]/30 flex items-center justify-center">
+              <Youtube className="w-5 h-5 fill-[#C20E10]" />
             </div>
             <h4 className="font-bold text-slate-900 text-base">125K+ Active NRI Audience</h4>
             <p className="text-xs text-slate-600 leading-relaxed">
@@ -296,8 +296,8 @@ export default function BusinessSolutionsPage() {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-cyan-50 text-cyan-700 border border-cyan-200 flex items-center justify-center">
+          <div className="bg-white p-6 rounded-2xl border border-[#B78D42]/30 shadow-sm space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-[#22CDE1]/10 text-[#0891B2] border border-[#22CDE1]/30 flex items-center justify-center">
               <Layers className="w-5 h-5" />
             </div>
             <h4 className="font-bold text-slate-900 text-base">End-to-End Operational Fit</h4>
