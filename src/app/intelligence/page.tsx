@@ -71,8 +71,27 @@ export default function IntelligencePage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto space-y-12">
+    <div className="min-h-screen bg-slate-950 text-slate-100 pb-20">
+      {/* Notice Banner */}
+      <div className="bg-amber-500/20 border-b border-amber-400/40 text-amber-200 py-2.5 px-4 text-xs font-semibold backdrop-blur-md">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <span className="bg-amber-500 text-slate-950 text-[10px] uppercase font-black px-2 py-0.5 rounded">
+              UI/UX Preview
+            </span>
+            <span>
+              {language === "ta"
+                ? "நில வழிகாட்டி நுண்ணறிவு முன்னோட்டம் • பதிவுத்துறை வழிகாட்டி மதிப்பு மற்றும் சந்தை மதிப்பீட்டு ஆய்வு."
+                : "Property Intelligence Visual Preview • Sub-Registrar guideline values, corridor appreciation, and infrastructure analytics."}
+            </span>
+          </div>
+          <span className="hidden md:inline text-amber-300 text-[11px] font-bold">
+            Methodology & SRO Deeds
+          </span>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto space-y-12 px-4 sm:px-6 lg:px-8 pt-8">
         {/* Hero Section */}
         <div className="relative rounded-3xl bg-gradient-to-br from-brand-black via-brand-dark to-slate-900 border border-gold-500/30 p-8 sm:p-12 overflow-hidden shadow-2xl">
           <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />

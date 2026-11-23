@@ -108,6 +108,23 @@ function PropertiesDirectoryContent() {
           </p>
         </div>
 
+        {/* Visual Preview Notice */}
+        <div className="mb-6 p-3 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-xs flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <span className="bg-amber-600 text-white text-[10px] uppercase font-black px-2 py-0.5 rounded">
+              Visual Preview
+            </span>
+            <span className="font-semibold text-slate-700">
+              {language === "ta"
+                ? "கீழே உள்ள சொத்து விவரங்கள் மாதிரி வடிவமைப்பு முன்னோட்டத்திற்காக மட்டுமே காட்டப்படுகின்றன."
+                : "Property profiles below are presented as realistic visual demonstration specimens for design review."}
+            </span>
+          </div>
+          <span className="text-[11px] font-bold text-amber-800 hidden sm:inline">
+            Sample Demonstration Data
+          </span>
+        </div>
+
         {/* Search & Filter Toolbar with Gold Trim */}
         <div className="bg-white rounded-3xl p-4 sm:p-5 border-2 border-gold-400/40 shadow-sm mb-8 space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">

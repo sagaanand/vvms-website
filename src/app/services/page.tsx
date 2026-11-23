@@ -33,6 +33,7 @@ export default function ServicesPage() {
     "Advisory",
     "Engineering",
     "Finance",
+    "Business",
   ];
 
   const filteredServices = ALL_SERVICES.filter((svc) => {
@@ -84,7 +85,7 @@ export default function ServicesPage() {
                   : "bg-white text-slate-700 border-slate-200 hover:border-cyan-400"
               }`}
             >
-              {cat === "All" ? "All Services (7)" : cat}
+              {cat === "All" ? `All Services (${ALL_SERVICES.length})` : cat}
             </button>
           ))}
         </div>

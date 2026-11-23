@@ -89,6 +89,11 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
             </div>
           )}
 
+          {/* Sample Specimen Demonstration Badge */}
+          <div className="absolute top-3 right-3 bg-slate-900/80 text-amber-300 text-[10px] font-bold px-2 py-0.5 rounded-md backdrop-blur-sm border border-amber-400/40 shadow-sm">
+            {language === "ta" ? "மாதிரி முன்னோட்டம்" : "Sample Specimen"}
+          </div>
+
           {/* YouTube Walkthrough Button Badge */}
           <button
             onClick={() => onWatchVideo && onWatchVideo(videoId, displayTitle)}

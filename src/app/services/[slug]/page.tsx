@@ -27,7 +27,9 @@ export default function SingleServicePage({
   params: { slug: string };
 }) {
   const { language } = useLanguage();
-  const service = ALL_SERVICES.find((s) => s.slug === params.slug);
+  const service = ALL_SERVICES.find(
+    (s) => s.slug === params.slug || s.aliases?.includes(params.slug)
+  );
 
   if (!service) {
     notFound();

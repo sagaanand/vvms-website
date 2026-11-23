@@ -24,6 +24,9 @@ import {
   Briefcase,
   BarChart3,
   BookOpen,
+  FileText,
+  PhoneCall,
+  ArrowRight,
 } from "lucide-react";
 import { Youtube } from "@/components/icons/YoutubeIcon";
 
@@ -45,12 +48,13 @@ export default function Navbar() {
     { href: "/", label: t.nav.home, icon: Home },
     { href: "/properties", label: t.nav.properties, icon: Building2 },
     { href: "/services", label: t.nav.services, icon: Briefcase },
+    { href: "/construction", label: t.nav.construction, icon: HardHat },
     { href: "/intelligence", label: t.nav.intelligence, icon: BarChart3 },
     { href: "/academy", label: t.nav.academy, icon: BookOpen },
-    { href: "/construction", label: t.nav.construction, icon: HardHat },
-    { href: "/promote", label: t.nav.promote, icon: Share2 },
+    { href: "/business-solutions", label: t.nav.businessSolutions, icon: Sparkles },
+    { href: "/resources", label: t.nav.resources, icon: FileText },
     { href: "/about", label: t.nav.about, icon: UserCheck },
-    { href: "/offices", label: t.nav.offices, icon: MapPin },
+    { href: "/contact", label: t.nav.contact, icon: PhoneCall },
   ];
 
   const whatsappMessage = encodeURIComponent(
@@ -148,8 +152,17 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* Header Right Actions: Tamil Toggle & Mobile Menu */}
+            {/* Header Right Actions: Primary CTA, Tamil Toggle & Mobile Menu */}
             <div className="flex items-center gap-2 sm:gap-3">
+              {/* Primary Header CTA */}
+              <Link
+                href="/properties"
+                className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 2xl:px-4 2xl:py-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 hover:from-amber-600 hover:to-amber-700 text-white font-extrabold text-[11px] 2xl:text-xs uppercase tracking-wider shadow-sm border border-amber-400/50 transition transform hover:-translate-y-0.5 active:translate-y-0"
+              >
+                <span>{t.nav.exploreCta}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+
               {/* Language Selector: EN | தமிழ் */}
               <button
                 onClick={toggleLanguage}

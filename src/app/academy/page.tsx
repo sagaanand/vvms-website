@@ -89,8 +89,27 @@ export default function AcademyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto space-y-12">
+    <div className="min-h-screen bg-slate-950 text-slate-100 pb-20">
+      {/* Notice Banner */}
+      <div className="bg-amber-500/20 border-b border-amber-400/40 text-amber-200 py-2.5 px-4 text-xs font-semibold backdrop-blur-md">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <span className="bg-amber-500 text-slate-950 text-[10px] uppercase font-black px-2 py-0.5 rounded">
+              UI/UX Preview
+            </span>
+            <span>
+              {language === "ta"
+                ? "அகாடமி முன்னோட்டம் • Er. J. வைரவேலின் ரியல் எஸ்டேட் விழிப்புணர்வு மற்றும் சட்ட ஆய்வு வழிகாட்டிகள்."
+                : "Academy Visual Preview • Due diligence education and buyer training modules by Er. J. Vairavel."}
+            </span>
+          </div>
+          <span className="hidden md:inline text-amber-300 text-[11px] font-bold">
+            Public Education Initiative
+          </span>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto space-y-12 px-4 sm:px-6 lg:px-8 pt-8">
         {/* Academy Hero */}
         <div className="relative rounded-3xl bg-gradient-to-br from-brand-black via-brand-dark to-slate-900 border border-gold-500/30 p-8 sm:p-12 overflow-hidden shadow-2xl">
           <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />

@@ -142,6 +142,25 @@ export default function ConstructionPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      {/* Visual Preview Notice Banner */}
+      <div className="bg-amber-100 border-b border-amber-300 text-amber-950 py-2.5 px-4 text-xs font-semibold">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <span className="bg-amber-600 text-white text-[10px] uppercase font-black px-2 py-0.5 rounded">
+              UI/UX Preview
+            </span>
+            <span>
+              {language === "ta"
+                ? "கட்டுமானப் பிரிவு முன்னோட்டம் • Er. J. வைரவேலின் சிவில் இன்ஜினியரிங் தர விவரங்கள்."
+                : "Construction Division Visual Preview • Civil engineering specifications & turnkey estimation."}
+            </span>
+          </div>
+          <span className="hidden md:inline text-amber-800 text-[11px] font-bold">
+            Custom Quotation & BOQ
+          </span>
+        </div>
+      </div>
+
       {/* Hero Section Styled with Logo Dark, Gold & Cyan */}
       <section className="bg-brand-black text-white py-14 sm:py-20 relative overflow-hidden border-b-2 border-gold-500/40">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />

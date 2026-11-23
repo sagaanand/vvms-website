@@ -158,27 +158,27 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/construction" className="text-slate-400 hover:text-cyan-400 transition font-medium">
-                  • {t.nav.construction} (₹1,950/sq.ft)
+                  • {t.nav.construction}
                 </Link>
               </li>
               <li>
-                <Link href="/promote" className="text-slate-400 hover:text-red-400 transition font-medium">
-                  • {t.nav.promote}
+                <Link href="/services" className="text-slate-400 hover:text-gold-400 transition font-medium">
+                  • {t.nav.services}
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-slate-400 hover:text-gold-400 transition font-medium">
-                  • {t.nav.about}
+                <Link href="/business-solutions" className="text-slate-400 hover:text-cyan-400 transition font-medium">
+                  • {t.nav.businessSolutions}
                 </Link>
               </li>
               <li>
-                <Link href="/offices" className="text-slate-400 hover:text-cyan-400 transition font-medium">
-                  • {t.nav.offices}
+                <Link href="/resources" className="text-slate-400 hover:text-gold-400 transition font-medium">
+                  • {t.nav.resources}
                 </Link>
               </li>
               <li>
-                <Link href="/admin" className="text-slate-400 hover:text-white transition font-medium">
-                  • Staff Portal
+                <Link href="/contact" className="text-slate-400 hover:text-white transition font-medium">
+                  • {t.nav.contact}
                 </Link>
               </li>
             </ul>
@@ -192,22 +192,22 @@ export default function Footer() {
             <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/services" className="text-slate-400 hover:text-gold-400 transition font-medium">
-                  • All Advisory Services
+                  • 11 Advisory Services
                 </Link>
               </li>
               <li>
                 <Link href="/services/online-legal-opinion" className="text-slate-400 hover:text-cyan-400 transition font-medium">
-                  • 30-Yr Legal Opinion (₹4,999)
+                  • 30-Yr Legal Due Diligence
                 </Link>
               </li>
               <li>
                 <Link href="/services/onsite-infrastructure-valuation" className="text-slate-400 hover:text-gold-400 transition font-medium">
-                  • On-Site Water & Soil Audit (₹3,999)
+                  • On-Site Technical & Water Audit
                 </Link>
               </li>
               <li>
                 <Link href="/services/property-valuation" className="text-slate-400 hover:text-cyan-400 transition font-medium">
-                  • Property & Land Valuation
+                  • Independent Property Valuation
                 </Link>
               </li>
               <li>
@@ -217,7 +217,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/academy" className="text-slate-400 hover:text-cyan-400 transition font-medium">
-                  • 30-Yr Due Diligence Academy
+                  • Due Diligence Academy
                 </Link>
               </li>
             </ul>

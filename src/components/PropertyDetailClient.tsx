@@ -138,6 +138,23 @@ export default function PropertyDetailClient({ property }: PropertyDetailClientP
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+        {/* Visual Preview Notice */}
+        <div className="mb-6 p-3 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-xs flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <span className="bg-amber-600 text-white text-[10px] uppercase font-black px-2 py-0.5 rounded">
+              Visual Preview
+            </span>
+            <span className="font-semibold text-slate-700">
+              {language === "ta"
+                ? "இந்த சொத்து விவரங்கள் வடிவமைப்பு மாதிரி முன்னோட்டத்திற்காக மட்டுமே காட்டப்படுகின்றன."
+                : "This property profile is presented as a realistic demonstration specimen for design review."}
+            </span>
+          </div>
+          <span className="text-[11px] font-bold text-amber-800 hidden sm:inline">
+            Sample Demonstration Specimen
+          </span>
+        </div>
+
         {/* Title & Price Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-6">
           <div>

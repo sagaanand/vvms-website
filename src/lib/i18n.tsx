@@ -9,17 +9,41 @@ export interface Translations {
     home: string;
     properties: string;
     services: string;
+    construction: string;
     intelligence: string;
     academy: string;
-    construction: string;
-    promote: string;
+    businessSolutions: string;
+    resources: string;
     about: string;
     offices: string;
     contact: string;
+    promote: string;
     admin: string;
     whatsappUs: string;
     callNow: string;
+    exploreCta: string;
   };
+  divisions: {
+    eyebrow: string;
+    headline: string;
+    subheadline: string;
+    d1Title: string;
+    d1Desc: string;
+    d1Cta: string;
+    d2Title: string;
+    d2Desc: string;
+    d2Cta: string;
+    d3Title: string;
+    d3Desc: string;
+    d3Cta: string;
+    d4Title: string;
+    d4Desc: string;
+    d4Cta: string;
+    d5Title: string;
+    d5Desc: string;
+    d5Cta: string;
+  };
+  demoBadge: string;
   hero: {
     badge: string;
     eyebrow: string;
@@ -136,16 +160,41 @@ export const translations: Record<Language, Translations> = {
       home: "Home",
       properties: "Properties",
       services: "Services",
-      intelligence: "Land Intelligence",
-      academy: "Real Estate Academy",
-      construction: "Turnkey Construction",
-      promote: "List Your Property",
-      about: "About Er. J. Vairavel",
-      offices: "Our Offices",
+      construction: "Construction",
+      intelligence: "Intelligence",
+      academy: "Academy",
+      businessSolutions: "Business Solutions",
+      resources: "Resources",
+      about: "About",
+      offices: "Offices",
       contact: "Contact",
+      promote: "List Property",
       admin: "Staff Portal",
       whatsappUs: "WhatsApp Us",
       callNow: "Call +91 73052 00754",
+      exploreCta: "Explore Properties",
+    },
+    demoBadge: "Sample Demonstration Content • Visual Preview",
+    divisions: {
+      eyebrow: "FIVE BUSINESS DIVISIONS",
+      headline: "Integrated Real Estate, Engineering & Intelligence Platform",
+      subheadline:
+        "VVMS operates across five core capabilities to deliver end-to-end transparency, technical certainty, and commercial success.",
+      d1Title: "Property Marketplace",
+      d1Desc: "DTCP and RERA approved residential plots, individual homes, and luxury villas verified by civil engineers.",
+      d1Cta: "Explore Listings",
+      d2Title: "Property Services",
+      d2Desc: "30-year legal scrutiny, unbiased SRO valuations, bank loan coordination, and buyer advisory on a custom quotation basis.",
+      d2Cta: "View Services",
+      d3Title: "Construction & Engineering",
+      d3Desc: "Architectural design, soil and groundwater testing, BOQ estimation, and turnkey home construction by Er. J. Vairavel.",
+      d3Cta: "Plan Construction",
+      d4Title: "Property Intelligence",
+      d4Desc: "SRO guideline benchmarking, corridor growth projections, and infrastructure impact analytics across Central Tamil Nadu.",
+      d4Cta: "Access Intelligence",
+      d5Title: "Academy & Business Solutions",
+      d5Desc: "Buyer education, due diligence handbooks, real estate creator marketing, CRM implementation, and WhatsApp workflows.",
+      d5Cta: "Explore Solutions",
     },
     hero: {
       badge: "Trichy's #1 Real Estate & Construction Authority",
@@ -269,18 +318,43 @@ export const translations: Record<Language, Translations> = {
   ta: {
     nav: {
       home: "முகப்பு",
-      properties: "வீட்டுமனைகள் / வீடுகள்",
+      properties: "சொத்துகள்",
       services: "சேவைகள்",
-      intelligence: "நில வழிகாட்டி & மதிப்பு",
-      academy: "ரியல் எஸ்டேட் அகாடமி",
-      construction: "வீடு கட்டுதல் (Turnkey)",
-      promote: "சொத்து விளம்பரம் செய்ய",
-      about: "Er. J. வைரவேல் பற்றி",
+      construction: "கட்டுமானம்",
+      intelligence: "நில வழிகாட்டி",
+      academy: "அகாடமி",
+      businessSolutions: "வணிக தீர்வுகள்",
+      resources: "வளங்கள்",
+      about: "எங்களைப் பற்றி",
       offices: "அலுவலகங்கள்",
       contact: "தொடர்புக்கு",
+      promote: "விளம்பரம் செய்ய",
       admin: "ஊழியர் தளம்",
       whatsappUs: "வாட்ஸ்அப் செய்யவும்",
       callNow: "அழைக்க: +91 73052 00754",
+      exploreCta: "சொத்துகளைக் காண்க",
+    },
+    demoBadge: "மாதிரி முன்னோட்டத் தகவல் • Visual Preview",
+    divisions: {
+      eyebrow: "ஐந்து முதன்மைப் பிரிவுகள்",
+      headline: "ஒருங்கிணைந்த ரியல் எஸ்டேட், பொறியியல் மற்றும் நில வழிகாட்டி தளம்",
+      subheadline:
+        "முழுமையான வெளிப்படைத்தன்மை, தொழில்நுட்ப உத்தரவாதம் மற்றும் வர்த்தக வளர்ச்சிக்காக வீடு வீட்டுமனை சந்தையின் ஐந்து பிரதான பிரிவுகள்.",
+      d1Title: "சொத்து சந்தை (Marketplace)",
+      d1Desc: "சிவில் இன்ஜினியரால் சரிபார்க்கப்பட்ட DTCP மற்றும் RERA அங்கீகரிக்கப்பட்ட வீட்டுமனைகள், தனி வீடுகள் மற்றும் வில்லாக்கள்.",
+      d1Cta: "மனைகளைக் காண்க",
+      d2Title: "சொத்து சேவைகள் (Services)",
+      d2Desc: "30 ஆண்டு சட்ட ஆய்வு, பாரபட்சமற்ற நில மதிப்பீடு, வங்கிக் கடன் வழிகாட்டுதல் மற்றும் வாங்குபவர் ஆலோசனை.",
+      d2Cta: "சேவைகளைக் காண்க",
+      d3Title: "கட்டுமானம் & பொறியியல் (Engineering)",
+      d3Desc: "வரைபட வடிவமைப்பு, மண் & நிலத்தடி நீர் சோதனை, விரிவான மதிப்பீடு மற்றும் Er. J. வைரவேலின் தரமான கட்டுமானப் பணிகள்.",
+      d3Cta: "வீடு கட்ட திட்டமிடுங்கள்",
+      d4Title: "நில வழிகாட்டி & நுண்ணறிவு (Intelligence)",
+      d4Desc: "பதிவுத்துறை வழிகாட்டி மதிப்பு, வளர்ச்சிப் பகுதிகள் மற்றும் மத்திய தமிழ்நாட்டின் கட்டமைப்பு மாற்றங்கள் குறித்த ஆய்வுகள்.",
+      d4Cta: "மதிப்பீட்டைக் காண்க",
+      d5Title: "அகாடமி & வணிக தீர்வுகள் (Solutions)",
+      d5Desc: "வாங்குபவர் விழிப்புணர்வு, யூடியூப் வீடியோ தயாரிப்பு, ரியல் எஸ்டேட் CRM மற்றும் வாட்ஸ்அப் தானியங்கி தீர்வுகள்.",
+      d5Cta: "தீர்வுகளைக் காண்க",
     },
     hero: {
       badge: "திருச்சியின் நம்பகமான ரியல் எஸ்டேட் & கட்டுமான நிறுவனம்",
