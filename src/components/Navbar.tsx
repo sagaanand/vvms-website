@@ -164,13 +164,13 @@ export default function Navbar() {
               {/* Language Selector: EN | தமிழ் */}
               <button
                 onClick={toggleLanguage}
-                aria-label="Toggle Language"
+                aria-label="EN | தமிழ் - Toggle Language"
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 border border-[#B78D42]/40 text-xs font-bold transition shadow-sm active:scale-95 text-[#202020]"
               >
                 <Languages className="w-3.5 h-3.5 text-[#22CDE1]" />
-                <span className={language === "en" ? "text-[#202020] font-black" : "text-slate-400"}>EN</span>
-                <span className="text-[#B78D42]/40">|</span>
-                <span className={language === "ta" ? "text-[#202020] font-black" : "text-slate-400"}>தமிழ்</span>
+                <span className={language === "en" ? "text-[#202020] font-black" : "text-slate-600 font-semibold"}>EN</span>
+                <span className="text-[#B78D42]/60">|</span>
+                <span className={language === "ta" ? "text-[#202020] font-black" : "text-slate-600 font-semibold"}>தமிழ்</span>
               </button>
 
               {/* Mobile Menu Hamburger */}

@@ -151,32 +151,32 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/properties" className="text-slate-300 hover:text-[#F9DB5C] transition font-medium">
+                <Link href="/properties" className="inline-block py-1 text-slate-200 hover:text-[#F9DB5C] transition font-medium">
                   • {t.nav.properties}
                 </Link>
               </li>
               <li>
-                <Link href="/construction" className="text-slate-300 hover:text-[#22CDE1] transition font-medium">
+                <Link href="/construction" className="inline-block py-1 text-slate-200 hover:text-[#22CDE1] transition font-medium">
                   • {t.nav.construction}
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-slate-300 hover:text-[#F9DB5C] transition font-medium">
+                <Link href="/services" className="inline-block py-1 text-slate-200 hover:text-[#F9DB5C] transition font-medium">
                   • {t.nav.services}
                 </Link>
               </li>
               <li>
-                <Link href="/business-solutions" className="text-slate-300 hover:text-[#22CDE1] transition font-medium">
+                <Link href="/business-solutions" className="inline-block py-1 text-slate-200 hover:text-[#22CDE1] transition font-medium">
                   • {t.nav.businessSolutions}
                 </Link>
               </li>
               <li>
-                <Link href="/resources" className="text-slate-300 hover:text-[#F9DB5C] transition font-medium">
+                <Link href="/resources" className="inline-block py-1 text-slate-200 hover:text-[#F9DB5C] transition font-medium">
                   • {t.nav.resources}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-slate-300 hover:text-[#F2F2F2] transition font-medium">
+                <Link href="/contact" className="inline-block py-1 text-slate-200 hover:text-[#F2F2F2] transition font-medium">
                   • {t.nav.contact}
                 </Link>
               </li>
@@ -190,32 +190,32 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/services" className="text-slate-300 hover:text-[#F9DB5C] transition font-medium">
+                <Link href="/services" className="inline-block py-1 text-slate-200 hover:text-[#F9DB5C] transition font-medium">
                   • 11 Advisory Services
                 </Link>
               </li>
               <li>
-                <Link href="/services/online-legal-opinion" className="text-slate-300 hover:text-[#22CDE1] transition font-medium">
+                <Link href="/services/online-legal-opinion" className="inline-block py-1 text-slate-200 hover:text-[#22CDE1] transition font-medium">
                   • 30-Yr Legal Due Diligence
                 </Link>
               </li>
               <li>
-                <Link href="/services/onsite-infrastructure-valuation" className="text-slate-300 hover:text-[#F9DB5C] transition font-medium">
+                <Link href="/services/onsite-infrastructure-valuation" className="inline-block py-1 text-slate-200 hover:text-[#F9DB5C] transition font-medium">
                   • On-Site Technical & Water Audit
                 </Link>
               </li>
               <li>
-                <Link href="/services/property-valuation" className="text-slate-300 hover:text-[#22CDE1] transition font-medium">
+                <Link href="/services/property-valuation" className="inline-block py-1 text-slate-200 hover:text-[#22CDE1] transition font-medium">
                   • Independent Property Valuation
                 </Link>
               </li>
               <li>
-                <Link href="/intelligence" className="text-slate-300 hover:text-[#F9DB5C] transition font-medium">
+                <Link href="/intelligence" className="inline-block py-1 text-slate-200 hover:text-[#F9DB5C] transition font-medium">
                   • Trichy SRO Guideline Comps
                 </Link>
               </li>
               <li>
-                <Link href="/academy" className="text-slate-300 hover:text-[#22CDE1] transition font-medium">
+                <Link href="/academy" className="inline-block py-1 text-slate-200 hover:text-[#22CDE1] transition font-medium">
                   • Due Diligence Academy
                 </Link>
               </li>

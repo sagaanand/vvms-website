@@ -9,7 +9,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://veeduveettumanaisanthai.in"),
+  metadataBase: new URL("https://imclass.co.in"),
   title: "Veedu Veettumanai Santhai Pvt Ltd | Trichy Real Estate & Turnkey Construction | Er. J. Vairavel",
   description:
     "Official portal of Veedu Veettumanai Santhai Pvt Ltd, founded by Er. J. Vairavel (Civil Engineer). Explore DTCP/RERA plots, luxury villas, and turnkey house construction across Tiruchirappalli (Trichy) with 1,900+ YouTube video walkthroughs.",
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
     "Panjappur Bus Stand Plots",
     "Vayalur Road Villas",
   ],
-  authors: [{ name: "Er. J. Vairavel", url: "https://veeduveettumanaisanthai.in" }],
+  authors: [{ name: "Er. J. Vairavel", url: "https://imclass.co.in" }],
   openGraph: {
     title: "Veedu Veettumanai Santhai Pvt Ltd | Er. J. Vairavel (Civil Engineer)",
     description:
       "Trichy's most trusted real estate & turnkey construction firm. 125K+ YouTube subscribers, 1,900+ video walkthroughs, and 100% legal scrutiny.",
-    url: "https://veeduveettumanaisanthai.in",
+    url: "https://imclass.co.in",
     siteName: "Veedu Veettumanai Santhai Pvt Ltd",
     images: [
       {
@@ -55,32 +55,41 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // JSON-LD RealEstateAgent Schema for local Trichy SEO
-  const jsonLd = {
+  // JSON-LD Schemas for local Trichy SEO and AI Search Engines (GPTBot, Perplexity, ClaudeBot)
+  const realEstateAgentSchema = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
+    "@id": "https://imclass.co.in/#realestateagent",
     name: "Veedu Veettumanai Santhai Pvt Ltd",
-    alternateName: "வீடு வீட்டுமனை சந்தை",
+    alternateName: ["வீடு வீட்டுமனை சந்தை", "VVMS", "VVMS Trichy"],
     founder: {
       "@type": "Person",
       name: "Er. J. Vairavel",
       jobTitle: "Founder & Chief Civil Consultant",
+      knowsAbout: [
+        "Civil Engineering",
+        "DTCP Approvals",
+        "Trichy Real Estate",
+        "Turnkey Construction",
+        "Land Due Diligence"
+      ]
     },
-    url: "https://veeduveettumanaisanthai.in",
-    logo: "https://veeduveettumanaisanthai.in/images/logo.png",
-    image: "https://veeduveettumanaisanthai.in/images/logo.png",
+    url: "https://imclass.co.in",
+    logo: "https://imclass.co.in/images/logo.png",
+    image: "https://imclass.co.in/images/logo.png",
     telephone: "+91-7305200754",
     email: "contact@veeduveettumanaisanthai.in",
-    address: [
-      {
-        "@type": "PostalAddress",
-        streetAddress: "2nd Floor, Valli Tower, Upstairs to SBI Bank 2, Ring Road, K.K. Nagar, Olaiyur",
-        addressLocality: "Tiruchirappalli",
-        addressRegion: "Tamil Nadu",
-        postalCode: "620021",
-        addressCountry: "IN",
-      },
-    ],
+    priceRange: "₹₹ - ₹₹₹",
+    currenciesAccepted: "INR",
+    paymentAccepted: "Cash, Cheque, Bank Transfer, Home Loan",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "2nd Floor, Valli Tower, Upstairs to SBI Bank 2, Ring Road, K.K. Nagar, Olaiyur",
+      addressLocality: "Tiruchirappalli",
+      addressRegion: "Tamil Nadu",
+      postalCode: "620021",
+      addressCountry: "IN",
+    },
     geo: {
       "@type": "GeoCoordinates",
       latitude: "10.7656",
@@ -110,12 +119,65 @@ export default function RootLayout({
     ],
   };
 
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Who is the founder of Veedu Veettumanai Santhai?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Veedu Veettumanai Santhai was founded by Er. J. Vairavel, a registered civil engineer with 10+ years of construction experience and over 125,000 YouTube subscribers across Tamil Nadu."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "What turnkey construction packages are offered in Trichy?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "VVMS offers three turnkey construction packages: Basic Package at ₹1,950/sq.ft, Standard Package at ₹2,250/sq.ft (most popular with 5-year structural warranty), and Premium Luxury at ₹2,650/sq.ft with 10-year warranty."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "What promoter and developer services does VVMS provide?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "VVMS provides 6 end-to-end B2B services: Channel Partner Representation, Targeted Digital Marketing, AI Lead Qualification, Accompanied Site-Visits, Broker Network Distribution, and Guided Home Construction & Bank Loan Advisory."
+        }
+      }
+    ]
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://imclass.co.in/#website",
+    url: "https://imclass.co.in",
+    name: "Veedu Veettumanai Santhai Pvt Ltd",
+    publisher: {
+      "@id": "https://imclass.co.in/#realestateagent"
+    }
+  };
+
   return (
     <html lang="en">
       <head>
+        <meta name="theme-color" content="#202020" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <link rel="author" href="https://imclass.co.in/llms.txt" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(realEstateAgentSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
       <body className="antialiased min-h-screen flex flex-col bg-slate-50 text-slate-900 pb-16 md:pb-0">

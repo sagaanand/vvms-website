@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { FALLBACK_PROPERTIES } from "@/lib/staticProperties";
 
 export async function GET(request: Request) {
   try {
@@ -35,11 +36,43 @@ export async function GET(request: Request) {
 
     return NextResponse.json({ success: true, properties });
   } catch (error: any) {
-    console.error("Error fetching properties:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch properties" },
-      { status: 500 }
-    );
+    console.warn("Database query failed, returning static fallback properties:", error?.message || error);
+    
+    // In production/serverless environments where SQLite file may not exist yet,
+    // gracefully serve verified static properties so API never fails.
+    try {
+      const { searchParams } = new URL(request.url);
+      const locality = searchParams.get("locality");
+      const propertyType = searchParams.get("propertyType");
+      const city = searchParams.get("city");
+      const featured = searchParams.get("featured");
+      const maxPrice = searchParams.get("maxPrice") ? parseFloat(searchParams.get("maxPrice")!) : null;
+      const minPrice = searchParams.get("minPrice") ? parseFloat(searchParams.get("minPrice")!) : null;
+
+      let filtered = [...FALLBACK_PROPERTIES];
+      if (locality && locality !== "All") {
+        filtered = filtered.filter((p) => p.locality.toLowerCase().includes(locality.toLowerCase()));
+      }
+      if (propertyType && propertyType !== "All") {
+        filtered = filtered.filter((p) => p.propertyType.toLowerCase() === propertyType.toLowerCase());
+      }
+      if (city && city !== "All") {
+        filtered = filtered.filter((p) => p.city.toLowerCase() === city.toLowerCase());
+      }
+      if (featured === "true") {
+        filtered = filtered.filter((p) => p.isFeatured);
+      }
+      if (minPrice !== null) {
+        filtered = filtered.filter((p) => p.price >= minPrice);
+      }
+      if (maxPrice !== null) {
+        filtered = filtered.filter((p) => p.price <= maxPrice);
+      }
+
+      return NextResponse.json({ success: true, properties: filtered, isFallback: true });
+    } catch {
+      return NextResponse.json({ success: true, properties: FALLBACK_PROPERTIES, isFallback: true });
+    }
   }
 }
 

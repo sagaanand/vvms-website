@@ -284,10 +284,13 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                   {/* City */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 mb-1">
+                    <label htmlFor="search-city" className="block text-[11px] font-bold text-slate-300 mb-1">
                       City / Location
                     </label>
                     <select
+                      id="search-city"
+                      name="city"
+                      aria-label="Select City or Location"
                       value={selectedCity}
                       onChange={(e) => setSelectedCity(e.target.value)}
                       className="w-full bg-[#202020] border border-[#B78D42]/40 rounded-xl px-3 py-2.5 text-xs text-[#F2F2F2] focus:outline-none focus:border-[#F9DB5C] font-semibold shadow-sm"
@@ -302,10 +305,13 @@ export default function HomePage() {
 
                   {/* Locality */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 mb-1">
+                    <label htmlFor="search-locality" className="block text-[11px] font-bold text-slate-300 mb-1">
                       Trichy Locality
                     </label>
                     <select
+                      id="search-locality"
+                      name="locality"
+                      aria-label="Select Trichy Locality"
                       value={selectedLocality}
                       onChange={(e) => setSelectedLocality(e.target.value)}
                       className="w-full bg-[#202020] border border-[#B78D42]/40 rounded-xl px-3 py-2.5 text-xs text-[#F2F2F2] focus:outline-none focus:border-[#F9DB5C] font-semibold shadow-sm"
@@ -321,10 +327,13 @@ export default function HomePage() {
 
                   {/* Property Type */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 mb-1">
+                    <label htmlFor="search-property-type" className="block text-[11px] font-bold text-slate-300 mb-1">
                       Property Type
                     </label>
                     <select
+                      id="search-property-type"
+                      name="propertyType"
+                      aria-label="Select Property Type"
                       value={selectedPropertyType}
                       onChange={(e) => setSelectedPropertyType(e.target.value)}
                       className="w-full bg-[#202020] border border-[#B78D42]/40 rounded-xl px-3 py-2.5 text-xs text-[#F2F2F2] focus:outline-none focus:border-[#F9DB5C] font-semibold shadow-sm"
@@ -340,10 +349,13 @@ export default function HomePage() {
 
                   {/* Budget */}
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 mb-1">
+                    <label htmlFor="search-budget" className="block text-[11px] font-bold text-slate-300 mb-1">
                       Budget Range
                     </label>
                     <select
+                      id="search-budget"
+                      name="budget"
+                      aria-label="Select Budget Range"
                       value={selectedBudget}
                       onChange={(e) => setSelectedBudget(e.target.value)}
                       className="w-full bg-[#202020] border border-[#B78D42]/40 rounded-xl px-3 py-2.5 text-xs text-[#F2F2F2] focus:outline-none focus:border-[#F9DB5C] font-semibold shadow-sm"
