@@ -125,7 +125,7 @@ export default function Navbar() {
                 />
               </div>
               <div className="flex items-center gap-1.5 font-black text-base sm:text-xl tracking-tight">
-                <span className="text-[#B78D42] drop-shadow-sm font-black">வீடு</span>
+                <span className="text-[#7C5A20] drop-shadow-sm font-black">வீடு</span>
                 <span className="text-[#202020] drop-shadow-sm font-black">வீட்டுமனை சந்தை</span>
               </div>
             </Link>

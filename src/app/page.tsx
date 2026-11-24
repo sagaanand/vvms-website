@@ -768,7 +768,7 @@ export default function HomePage() {
               <h2 className="text-2xl sm:text-3xl font-black text-[#202020] tracking-tight">
                 {t.properties.heading}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl">
+              <p className="text-xs sm:text-sm text-slate-700 mt-1 max-w-xl">
                 {t.properties.subheading}
               </p>
             </div>
