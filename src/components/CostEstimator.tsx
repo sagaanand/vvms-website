@@ -267,10 +267,10 @@ export default function CostEstimator({ initialArea = 1200 }: CostEstimatorProps
 
             {/* Stage-wise payment breakdown */}
             <div className="space-y-3 pt-2 border-t border-[#B78D42]/20">
-              <h4 className="text-xs font-black uppercase tracking-wider text-[#202020] flex items-center gap-1.5">
+              <h3 className="text-xs font-black uppercase tracking-wider text-[#202020] flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#22CDE1]" />
                 <span>{t.estimator.stageBreakdown}</span>
-              </h4>
+              </h3>
 
               <div className="space-y-2.5 text-xs">
                 {stages.map((stage, idx) => (

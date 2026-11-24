@@ -35,9 +35,9 @@ export default function MobileBottomBar() {
           href={`https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${defaultWhatsappText}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="col-span-2 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow-md active:scale-95 transition"
+          className="col-span-2 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold text-xs shadow-md active:scale-95 transition"
         >
-          <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
+          <MessageCircle className="w-4 h-4 fill-white text-emerald-700" />
           <span>WhatsApp Visit</span>
         </a>
 

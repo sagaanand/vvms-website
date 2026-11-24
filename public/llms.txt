@@ -1,40 +1,19 @@
 # Veedu Veettumanai Santhai Pvt Ltd (VVMS)
 
-> Leading Civil Engineering Due Diligence, Real Estate Advisory & Turnkey Construction firm headquartered in Tiruchirappalli (Trichy), Tamil Nadu, India. Founded by Chartered Civil Engineer Er. J. Vairavel.
+> Leading Civil Engineering Due Diligence, Real Estate Advisory & Turnkey Construction firm headquartered in Tiruchirappalli (Trichy), Tamil Nadu, India. Founded by Chartered Civil Engineer Er. J. Vairavel. 125,000+ YouTube subscribers and 1,900+ on-site walkthroughs.
 
-## Overview & Authority
-- **Company Name:** Veedu Veettumanai Santhai Pvt Ltd (VVMS)
-- **Founder & Chief Consultant:** Er. J. Vairavel (B.E. Civil Engineering, Chartered Engineer, YouTube Creator)
-- **Headquarters:** 2nd Floor, Valli Tower, Upstairs to SBI Bank 2, Ring Road, K.K. Nagar, Olaiyur, Tiruchirappalli, Tamil Nadu 620021, India
-- **Primary Phone & WhatsApp:** +91 73052 00754
-- **Working Hours:** Monday – Sunday, 10:00 AM – 7:30 PM IST
-- **YouTube Channel:** @Veeduveettumanaisandhai (125,000+ Subscribers, 1,900+ On-Site Walkthrough Videos)
-- **Official Domains:** https://imclass.co.in (Live Hostinger deployment), https://veeduveettumanaisanthai.in
+## Core Services & Portals
+- [Promoter Representation & Real Estate Sales Solutions](https://imclass.co.in/business-solutions): Six end-to-end B2B solutions including sole selling mandates, digital buyer acquisition, AI lead qualification, accompanied site visits, 100+ broker distribution, and bank loan coordination.
+- [Turnkey House Construction Packages](https://imclass.co.in/construction): Civil engineering construction rates per sqft in Trichy (Basic ₹1,950, Standard ₹2,250, Premium ₹2,650), structural warranties, and milestone payment schedules.
+- [Civil Engineering Due Diligence Services](https://imclass.co.in/services): 11 specialized property advisory services including 30-year legal title opinions, on-site water & structural audits, and guideline valuations.
+- [Market Intelligence & SRO Guideline Comps](https://imclass.co.in/intelligence): Ground-verified micro-market dossiers comparing registration guideline values with market rates across 8 Trichy corridors.
+- [Verified Property Listings](https://imclass.co.in/properties): 100% DTCP and RERA approved residential plots, luxury duplex villas, and independent homes in Trichy.
+- [Real Estate Due Diligence Academy](https://imclass.co.in/academy): Practical educational guides for Tamil home buyers to avoid unapproved layout traps and verify Patta/Chitta.
+- [Free Legal & Construction Resources](https://imclass.co.in/resources): Downloadable due diligence checklists, sample BOQ templates, and guideline value tools.
+- [About Founder Er. J. Vairavel](https://imclass.co.in/about): Background, civil engineering credentials, and company history.
+- [Head Office & Consultation Booking](https://imclass.co.in/contact): In-person advisory appointments at Valli Tower, Olaiyur Ring Road, Trichy.
 
-## Core Divisions
-1. **Property Marketplace & Verified Listings:** 100% DTCP and RERA approved gated residential plots, luxury duplex villas, and independent homes across Trichy with 0% buyer commission and verified parent deeds.
-2. **Civil Engineering Turnkey Construction:** Architect-supervised home construction with branded materials (TATA Tiscon 550D, Ultratech Super), transparent milestone billing, 10-year structural warranty, and fixed rate tiers (Basic: ₹1,950/sq.ft, Standard: ₹2,250/sq.ft, Premium: ₹2,650/sq.ft).
-3. **PropTech & Market Intelligence:** Ground-verified micro-market dossiers comparing exact SRO guideline valuations with market transactions across 8 Trichy growth corridors (Olaiyur Ring Road, Panjappur Bus Terminus, K.K. Nagar, Vayalur Road, Samayapuram, Thanjavur Highway).
-4. **Real Estate Academy & Buyer Education:** Free Tamil and English educational guides explaining 30-year Encumbrance Certificates (EC), Patta/Chitta online scrutiny, FMB sketch matching, and avoiding unapproved Panchayat layout traps.
-5. **Promoter Studio & Channel Partner Representation:** Mandate-driven sales representation, 4K aerial drone walkthroughs, bilingual AI qualification, and access to a 100+ broker network in Trichy.
-
-## The Six End-to-End Promoter Services in Trichy
-- **01. Real Estate Channel Partner Representation:** Sole and co-exclusive sales mandates taking active closing responsibility, lead vetting, and Sub-Registrar coordination.
-- **02. Targeted Real Estate Digital Marketing:** High-intent buyer campaigns profiling homebuilders and NRI Tamil diaspora investors (Singapore, Malaysia, UAE, USA) with 4K drone cinematography and landing pages.
-- **03. AI Lead Qualification & Sales Automation:** Sub-second bilingual (Tamil & English) WhatsApp and web conversational intelligence qualifying buyers by budget, road width, and construction timeline.
-- **04. Accompanied Site-Visit & Field Coordination:** Free cab transit pickup from central Trichy, on-site survey stone demonstration, and presentation of original DTCP approvals and road gift deeds.
-- **05. Broker & Channel Partner Distribution Network:** Access to 100+ active Trichy brokers with timestamped lead registration protection and escrow-settled commission governance.
-- **06. Guided Home Construction & Bank Loan Advisory:** Objective requirement profiling, matching with DTCP inventory, 80% bank loan sanction assistance (SBI, HDFC, LIC), and 30-year legal due diligence.
-
-## Key URLs
-- Homepage: https://imclass.co.in/
-- Six B2B Promoter Services: https://imclass.co.in/business-solutions
-- Civil Due Diligence Services: https://imclass.co.in/services
-- Turnkey Construction Packages: https://imclass.co.in/construction
-- Market Intelligence & SRO Valuations: https://imclass.co.in/intelligence
-- About Founder Er. J. Vairavel: https://imclass.co.in/about
-- Head Office & Consultation Appointments: https://imclass.co.in/contact
-- Verified Real Estate Listings: https://imclass.co.in/properties
-- Free Buyer Due Diligence Guides: https://imclass.co.in/resources
-- Real Estate Academy & Traps: https://imclass.co.in/academy
-- Full AI Knowledge File: https://imclass.co.in/llms-full.txt
+## Optional
+- [Full LLM Knowledge Dossier](https://imclass.co.in/llms-full.txt): Comprehensive deep text dossier with detailed FAQ schemas, technical specifications, and company policies.
+- [XML Sitemap](https://imclass.co.in/sitemap.xml): Machine-readable index of all pages and service slugs.
+- [Robots Directives](https://imclass.co.in/robots.txt): Crawler policies for AI engines and web indexers.

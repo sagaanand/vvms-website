@@ -753,7 +753,7 @@ export default function HomePage() {
                   : "Listing cards below are presented as realistic visual demonstration specimens for design review."}
               </span>
             </div>
-            <span className="text-[11px] font-bold text-[#B78D42] hidden sm:inline">
+            <span className="text-[11px] font-bold text-[#7C5A20] hidden sm:inline">
               Sample Demonstration Data
             </span>
           </div>
@@ -761,7 +761,7 @@ export default function HomePage() {
           {/* Header & Locality Filter Chips */}
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
-              <div className="text-[#B78D42] font-black text-xs uppercase tracking-wider mb-1 flex items-center gap-1.5">
+              <div className="text-[#7C5A20] font-black text-xs uppercase tracking-wider mb-1 flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-[#22CDE1] inline-block" />
                 <span>Verified Trichy Listings</span>
               </div>
