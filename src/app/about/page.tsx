@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import ScrollReveal from "@/components/ScrollReveal";
+import { ParallaxLayer, ParallaxFloatingAccents } from "@/components/Parallax";
 import {
   Award,
   ShieldCheck,
@@ -22,38 +23,41 @@ export default function AboutPage() {
   const { language } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-slate-50 py-10 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+    <div className="min-h-screen bg-slate-50 py-10 sm:py-16 relative overflow-hidden blueprint-grid-bg">
+      <ParallaxFloatingAccents variant="gold" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14 relative z-10">
         {/* Hero Section Styled with White & Gold Theme & Real Consultation Photo */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           <div className="lg:col-span-5 text-center lg:text-left">
             <ScrollReveal direction="right">
-              <div className="relative aspect-square rounded-3xl overflow-hidden border-2 border-amber-300 shadow-2xl bg-[#202020] group card-hover-lift">
-                <Image
-                  src="/images/vairavel.jpg"
-                  alt="Er. J. Vairavel - Founder & Chief Civil Consultant VVMS"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  priority
-                />
-                <div className="absolute top-3 left-3 flex items-center gap-2 bg-[#202020]/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-amber-400/60">
-                  <div className="relative w-6 h-6 rounded-full overflow-hidden border border-amber-400">
-                    <Image src="/images/logo.png" alt="Logo" fill className="object-cover" />
+              <ParallaxLayer speed={0.12} clamp={50}>
+                <div className="relative aspect-square rounded-3xl overflow-hidden border-2 border-amber-300 shadow-2xl bg-[#202020] group card-hover-lift">
+                  <Image
+                    src="/images/vairavel.jpg"
+                    alt="Er. J. Vairavel - Founder & Chief Civil Consultant VVMS"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    priority
+                  />
+                  <div className="absolute top-3 left-3 flex items-center gap-2 bg-[#202020]/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-amber-400/60">
+                    <div className="relative w-6 h-6 rounded-full overflow-hidden border border-amber-400">
+                      <Image src="/images/logo.png" alt="Logo" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs font-black text-[#F9DB5C]">Er. J. Vairavel</span>
                   </div>
-                  <span className="text-xs font-black text-[#F9DB5C]">Er. J. Vairavel</span>
                 </div>
-              </div>
-              <div className="mt-3.5 space-y-0.5">
-                <span className="text-[11px] font-black text-amber-700 uppercase tracking-widest block">
-                  Founder & Chief Consultant
-                </span>
-                <h1 className="text-xl sm:text-2xl font-black text-slate-900">
-                  {COMPANY_INFO.founder}
-                </h1>
-                <p className="text-xs text-slate-600 font-semibold">
-                  Civil Engineer • Real Estate Authority • YouTube Creator
-                </p>
-              </div>
+                <div className="mt-3.5 space-y-0.5">
+                  <span className="text-[11px] font-black text-amber-700 uppercase tracking-widest block">
+                    Founder & Chief Consultant
+                  </span>
+                  <h1 className="text-xl sm:text-2xl font-black text-slate-900">
+                    {COMPANY_INFO.founder}
+                  </h1>
+                  <p className="text-xs text-slate-600 font-semibold">
+                    Civil Engineer • Real Estate Authority • YouTube Creator
+                  </p>
+                </div>
+              </ParallaxLayer>
             </ScrollReveal>
           </div>
 

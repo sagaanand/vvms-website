@@ -6,6 +6,7 @@ import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
+import { ParallaxFloatingAccents } from "@/components/Parallax";
 import {
   Camera,
   CheckCircle2,
@@ -114,8 +115,10 @@ export default function PromotePropertyPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* 1. Hero Carousel */}
+    <div className="min-h-screen bg-slate-50 relative overflow-hidden blueprint-grid-bg">
+      <ParallaxFloatingAccents variant="mixed" />
+
+      {/* 1. Hero Carousel with Built-in Parallax */}
       <HeroSlider slides={promoteSlides} />
 
       <div className="py-12 sm:py-16">

@@ -41,7 +41,30 @@ export default function HeroSlider({
 }: HeroSliderProps) {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery.matches) return;
+
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY < 1200) {
+            setScrollY(window.scrollY);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (isPaused || slides.length <= 1) return;
@@ -66,6 +89,9 @@ export default function HeroSlider({
   if (!slides || slides.length === 0) return null;
 
   const currentSlide = slides[current];
+  const bgParallaxOffset = Math.round(scrollY * 0.35 * 10) / 10;
+  const contentParallaxOffset = Math.round(scrollY * 0.12 * 10) / 10;
+  const contentOpacity = Math.max(0, 1 - scrollY / 620);
 
   return (
     <div
@@ -75,41 +101,54 @@ export default function HeroSlider({
       role="region"
       aria-label="Image Carousel"
     >
-      {/* Background Slides with Ken Burns / Fade Transition */}
-      {slides.map((slide, index) => {
-        const isActive = index === current;
-        return (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-            }`}
-          >
+      {/* Parallax Background Slides Container */}
+      <div
+        className="absolute -top-16 -bottom-16 -left-2 -right-2 will-change-transform pointer-events-none"
+        style={{
+          transform: `translate3d(0, ${bgParallaxOffset}px, 0)`,
+        }}
+      >
+        {slides.map((slide, index) => {
+          const isActive = index === current;
+          return (
             <div
-              className={`relative w-full h-full transform transition-transform duration-[7000ms] ease-out ${
-                isActive ? "scale-105" : "scale-100"
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
               }`}
             >
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                fill
-                priority={index === 0}
-                className="object-cover object-center"
-                sizes="100vw"
-              />
+              <div
+                className={`relative w-full h-full transform transition-transform duration-[7000ms] ease-out ${
+                  isActive ? "scale-105" : "scale-100"
+                }`}
+              >
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  priority={index === 0}
+                  className="object-cover object-center"
+                  sizes="100vw"
+                />
+              </div>
+
+              {/* Gradient Overlays for Hybrid Glass Contrast */}
+              <div className={`absolute inset-0 bg-gradient-to-r ${overlayOpacity}`} />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E17] via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#F9DB5C]/10 via-transparent to-transparent" />
             </div>
+          );
+        })}
+      </div>
 
-            {/* Gradient Overlays for Hybrid Glass Contrast */}
-            <div className={`absolute inset-0 bg-gradient-to-r ${overlayOpacity}`} />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E17] via-transparent to-transparent opacity-80" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#F9DB5C]/10 via-transparent to-transparent" />
-          </div>
-        );
-      })}
-
-      {/* Slide Content Layer */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
+      {/* Slide Content Layer with Differential Parallax Translation & Fade */}
+      <div
+        className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full will-change-transform"
+        style={{
+          transform: `translate3d(0, ${contentParallaxOffset}px, 0)`,
+          opacity: contentOpacity,
+        }}
+      >
         <div className="max-w-3xl space-y-6">
           {/* Tag Pill with Controlled Glassmorphism */}
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#202020]/90 backdrop-blur-md border border-[#B78D42]/60 text-xs sm:text-sm font-black uppercase tracking-widest shadow-gold animate-fade-in">

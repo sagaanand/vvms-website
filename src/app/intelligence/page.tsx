@@ -10,6 +10,7 @@ import AIPropertyGuide from "@/components/AIPropertyGuide";
 import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import ScrollReveal from "@/components/ScrollReveal";
+import { ParallaxFloatingAccents } from "@/components/Parallax";
 import {
   BarChart3,
   TrendingUp,
@@ -153,8 +154,10 @@ export default function IntelligencePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 pb-20">
-      {/* 1. Hero Carousel */}
+    <div className="min-h-screen bg-slate-950 text-slate-100 pb-20 relative overflow-hidden blueprint-grid-dark">
+      <ParallaxFloatingAccents variant="mixed" />
+
+      {/* 1. Hero Carousel with Built-in Parallax */}
       <HeroSlider slides={intelligenceSlides} />
 
       {/* Notice Banner */}

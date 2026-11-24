@@ -7,6 +7,7 @@ import { COMPANY_INFO } from "@/lib/constants";
 import CostEstimator from "@/components/CostEstimator";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import ScrollReveal from "@/components/ScrollReveal";
+import { ParallaxFloatingAccents } from "@/components/Parallax";
 import {
   HardHat,
   MessageCircle,
@@ -198,7 +199,9 @@ export default function ConstructionPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 relative overflow-hidden blueprint-grid-bg">
+      <ParallaxFloatingAccents variant="mixed" />
+
       {/* Visual Preview Notice Banner */}
       <div className="bg-amber-100 border-b border-amber-300 text-amber-950 py-2.5 px-4 text-xs font-semibold">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">

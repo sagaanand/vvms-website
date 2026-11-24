@@ -7,6 +7,7 @@ import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 import ScrollReveal from "@/components/ScrollReveal";
+import { ParallaxLayer, ParallaxFloatingAccents } from "@/components/Parallax";
 import {
   MapPin,
   Phone,
@@ -71,8 +72,9 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="bg-brand-black text-white py-14 sm:py-20 relative overflow-hidden border-b-2 border-amber-400/40">
+      {/* Hero Section with Parallax Accents */}
+      <section className="bg-brand-black text-white py-14 sm:py-20 relative overflow-hidden border-b-2 border-amber-400/40 blueprint-grid-dark">
+        <ParallaxFloatingAccents variant="turquoise" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -121,26 +123,30 @@ export default function ContactPage() {
 
             <div className="lg:col-span-4 flex justify-center lg:justify-end">
               <ScrollReveal direction="right">
-                <div className="relative w-52 sm:w-60 aspect-square rounded-3xl overflow-hidden border-2 border-amber-400/60 shadow-2xl bg-[#202020] group card-hover-lift">
-                  <Image
-                    src="/images/vairavel.jpg"
-                    alt="Er. J. Vairavel - VVMS"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute bottom-2 left-2 right-2 bg-[#202020]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amber-400/40 text-center">
-                    <div className="text-xs font-black text-[#F9DB5C]">{COMPANY_INFO.founder}</div>
-                    <div className="text-[10px] text-slate-300 font-semibold">{COMPANY_INFO.founderTitle}</div>
+                <ParallaxLayer speed={0.12} clamp={50}>
+                  <div className="relative w-52 sm:w-60 aspect-square rounded-3xl overflow-hidden border-2 border-amber-400/60 shadow-2xl bg-[#202020] group card-hover-lift">
+                    <Image
+                      src="/images/vairavel.jpg"
+                      alt="Er. J. Vairavel - VVMS"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute bottom-2 left-2 right-2 bg-[#202020]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amber-400/40 text-center">
+                      <div className="text-xs font-black text-[#F9DB5C]">{COMPANY_INFO.founder}</div>
+                      <div className="text-[10px] text-slate-300 font-semibold">{COMPANY_INFO.founderTitle}</div>
+                    </div>
                   </div>
-                </div>
+                </ParallaxLayer>
               </ScrollReveal>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Content: Dual Offices & Interactive Appointment Form */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-12">
+      {/* Main Content: Dual Offices & Interactive Appointment Form with Parallax Accents */}
+      <div className="relative overflow-hidden blueprint-grid-bg">
+        <ParallaxFloatingAccents variant="gold" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Dual Office Locations & Hours (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
@@ -326,5 +332,6 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 }

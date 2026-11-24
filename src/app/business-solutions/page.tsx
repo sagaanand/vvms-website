@@ -8,6 +8,7 @@ import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import ScrollReveal from "@/components/ScrollReveal";
+import { ParallaxFloatingAccents } from "@/components/Parallax";
 import {
   ArrowRight,
   ShieldCheck,
@@ -169,8 +170,10 @@ export default function BusinessSolutionsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F2F2F2] pb-20">
-      {/* 1. Hero Carousel */}
+    <div className="min-h-screen bg-[#F2F2F2] pb-20 relative overflow-hidden blueprint-grid-bg">
+      <ParallaxFloatingAccents variant="gold" />
+
+      {/* 1. Hero Carousel with Built-in Parallax */}
       <HeroSlider slides={businessSlides} />
 
       {/* Visual Preview Notice Banner */}

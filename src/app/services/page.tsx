@@ -9,6 +9,7 @@ import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import ScrollReveal from "@/components/ScrollReveal";
+import { ParallaxFloatingAccents } from "@/components/Parallax";
 import {
   ShieldCheck,
   Award,
@@ -122,11 +123,13 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F2F2F2]">
-      {/* 1. Hero Carousel */}
+    <div className="min-h-screen bg-[#F2F2F2] relative overflow-hidden blueprint-grid-bg">
+      <ParallaxFloatingAccents variant="gold" />
+
+      {/* 1. Hero Carousel with Built-in Parallax */}
       <HeroSlider slides={serviceSlides} />
 
-      <div id="services-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-10">
+      <div id="services-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-10 relative z-10">
         {/* Category Header */}
         <ScrollReveal direction="down">
           <div className="text-center max-w-3xl mx-auto space-y-3">

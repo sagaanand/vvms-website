@@ -10,6 +10,7 @@ import SafePurchaseStandard from "@/components/SafePurchaseStandard";
 import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import ScrollReveal from "@/components/ScrollReveal";
+import { ParallaxFloatingAccents } from "@/components/Parallax";
 import {
   Search,
   RotateCcw,
@@ -140,8 +141,10 @@ function PropertiesDirectoryContent() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Hero Visual Slider */}
+    <div className="min-h-screen bg-slate-50 relative overflow-hidden blueprint-grid-bg">
+      <ParallaxFloatingAccents variant="mixed" />
+
+      {/* Hero Visual Slider with Built-in Parallax */}
       <HeroSlider
         slides={propertyHeroSlides}
         heightClass="min-h-[480px] sm:min-h-[520px] lg:min-h-[560px]"

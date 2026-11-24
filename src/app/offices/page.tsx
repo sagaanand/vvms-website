@@ -5,6 +5,7 @@ import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 import ReviewsAndOffices from "@/components/ReviewsAndOffices";
+import { ParallaxFloatingAccents } from "@/components/Parallax";
 import {
   MapPin,
   Clock,
@@ -67,8 +68,9 @@ export default function OfficesContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 py-10 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <div className="min-h-screen bg-slate-50 py-10 sm:py-16 relative overflow-hidden blueprint-grid-bg">
+      <ParallaxFloatingAccents variant="gold" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="text-gold-600 font-bold text-xs uppercase tracking-wider block">
             Visit Our Tiruchirappalli Locations

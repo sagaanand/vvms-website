@@ -7,6 +7,7 @@ import { COMPANY_INFO } from "@/lib/constants";
 import { ACADEMY_GUIDES, AcademyGuide } from "@/lib/namnilam-data";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import ScrollReveal from "@/components/ScrollReveal";
+import { ParallaxFloatingAccents } from "@/components/Parallax";
 import {
   BookOpen,
   ShieldCheck,
@@ -143,8 +144,10 @@ export default function AcademyPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 pb-20">
-      {/* 1. Hero Carousel */}
+    <div className="min-h-screen bg-slate-950 text-slate-100 pb-20 relative overflow-hidden blueprint-grid-dark">
+      <ParallaxFloatingAccents variant="mixed" />
+
+      {/* 1. Hero Carousel with Built-in Parallax */}
       <HeroSlider slides={academySlides} />
 
       {/* Notice Banner */}

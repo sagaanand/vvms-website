@@ -13,6 +13,7 @@ import SmartRequirementSurvey from "@/components/SmartRequirementSurvey";
 import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
 import ReviewsAndOffices from "@/components/ReviewsAndOffices";
 import ScrollReveal from "@/components/ScrollReveal";
+import { ParallaxLayer, ParallaxFloatingAccents, useParallax } from "@/components/Parallax";
 import {
   Search,
   Building2,
@@ -72,6 +73,10 @@ export default function HomePage() {
     return () => clearInterval(timer);
   }, [heroBackgrounds.length]);
 
+  // Parallax scroll hooks for Homepage Hero
+  const { ref: heroBgParallaxRef, offsetY: heroBgOffsetY } = useParallax({ speed: 0.32, clamp: 140 });
+  const { ref: heroContentParallaxRef, offsetY: heroContentOffsetY } = useParallax({ speed: 0.12, clamp: 60 });
+
   useEffect(() => {
     async function loadProperties() {
       try {
@@ -115,10 +120,14 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* 1. LUXURY HYBRID GLASS HERO IN CHARCOAL BLACK & BRAND GOLD PALETTE */}
-      <section className="relative bg-[#202020] text-[#F2F2F2] pt-10 sm:pt-14 pb-20 sm:pb-28 overflow-hidden border-b border-[#B78D42]/35">
-        {/* Full-width cycling architectural backdrop with smooth crossfade */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      {/* 1. LUXURY HYBRID GLASS HERO IN CHARCOAL BLACK & BRAND GOLD PALETTE WITH PARALLAX */}
+      <section className="relative bg-[#202020] text-[#F2F2F2] pt-10 sm:pt-14 pb-20 sm:pb-28 overflow-hidden border-b border-[#B78D42]/35 parallax-container">
+        {/* Full-width cycling architectural backdrop with Parallax scrolling */}
+        <div
+          ref={heroBgParallaxRef}
+          className="absolute -top-16 -bottom-16 inset-x-0 z-0 pointer-events-none overflow-hidden will-change-transform"
+          style={{ transform: `translate3d(0, ${heroBgOffsetY}px, 0)` }}
+        >
           {heroBackgrounds.map((bg, idx) => {
             const isActive = idx === bgIndex;
             return (
@@ -152,7 +161,11 @@ export default function HomePage() {
         <div className="absolute top-10 right-1/4 w-[480px] h-[480px] bg-[#F9DB5C]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 left-10 w-[480px] h-[480px] bg-[#22CDE1]/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div
+          ref={heroContentParallaxRef}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 will-change-transform"
+          style={{ transform: `translate3d(0, ${heroContentOffsetY}px, 0)` }}
+        >
           <div className="text-center max-w-3xl mx-auto space-y-5 mb-8 sm:mb-12">
             {/* Approved Eyebrow Badge in Charcoal & Antique Gold */}
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#202020]/90 border border-[#B78D42]/60 text-[#F9DB5C] text-xs sm:text-sm font-black tracking-widest uppercase shadow-md backdrop-blur-md">
@@ -495,9 +508,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 1.5 FIVE BUSINESS DIVISIONS IN LUXURY HYBRID GLASS PALETTE */}
-      <section className="py-14 sm:py-20 bg-[#F2F2F2] border-b border-[#B78D42]/25">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 1.5 FIVE BUSINESS DIVISIONS IN LUXURY HYBRID GLASS PALETTE WITH PARALLAX ACCENTS */}
+      <section className="relative py-14 sm:py-20 bg-[#F2F2F2] border-b border-[#B78D42]/25 overflow-hidden blueprint-grid-bg">
+        <ParallaxFloatingAccents variant="gold" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <ScrollReveal direction="up">
             <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
               <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-[#B78D42]/40 text-[#202020] text-xs sm:text-sm font-black uppercase tracking-wider shadow-sm">
@@ -711,9 +725,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. FEATURED PROPERTIES GRID */}
-      <section id="featured-properties" className="py-14 sm:py-20 bg-[#F2F2F2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 2. FEATURED PROPERTIES GRID WITH PARALLAX ACCENTS */}
+      <section id="featured-properties" className="relative py-14 sm:py-20 bg-[#F2F2F2] overflow-hidden">
+        <ParallaxFloatingAccents variant="mixed" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Demonstration Notice */}
           <div className="mb-6 p-3 rounded-2xl bg-white border border-[#B78D42]/40 text-[#202020] text-xs flex items-center justify-between gap-3 shadow-sm">
             <div className="flex items-center gap-2">
@@ -810,7 +825,8 @@ export default function HomePage() {
       </section>
 
       {/* 2.5 LAND INTELLIGENCE & ADVISORY DOSSIERS */}
-      <section className="py-14 sm:py-18 bg-white text-[#202020] border-y border-[#B78D42]/25 relative overflow-hidden">
+      <section className="py-14 sm:py-18 bg-white text-[#202020] border-y border-[#B78D42]/25 relative overflow-hidden blueprint-grid-bg">
+        <ParallaxFloatingAccents variant="turquoise" />
         <div className="absolute top-0 right-10 w-96 h-96 bg-[#F9DB5C]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
