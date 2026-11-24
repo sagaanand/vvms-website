@@ -7,6 +7,7 @@ import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
+import ScrollReveal from "@/components/ScrollReveal";
 import {
   ArrowRight,
   ShieldCheck,
@@ -192,28 +193,30 @@ export default function BusinessSolutionsPage() {
       </div>
 
       {/* Solutions Tabs & Detailed Breakdown */}
-      <section id="solutions-overview" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section id="solutions-overview" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         {/* Solution Category Selector */}
-        <div className="flex items-center justify-center gap-3 mb-10 overflow-x-auto pb-2">
-          {solutions.map((sol) => {
-            const Icon = sol.icon;
-            const isActive = activeTab === sol.id;
-            return (
-              <button
-                key={sol.id}
-                onClick={() => setActiveTab(sol.id as any)}
-                className={`flex items-center gap-2.5 px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-black transition border-2 whitespace-nowrap ${
-                  isActive
-                    ? "bg-[#202020] text-[#F9DB5C] border-[#B78D42] shadow-gold"
-                    : "bg-white text-slate-700 border-slate-200 hover:border-[#B78D42]/40"
-                }`}
-              >
-                <Icon className={`w-4 h-4 ${isActive ? "text-[#F9DB5C]" : "text-[#B78D42]"}`} />
-                <span>{sol.title.split("&")[0]}</span>
-              </button>
-            );
-          })}
-        </div>
+        <ScrollReveal direction="up">
+          <div className="flex items-center justify-center gap-2.5 mb-8 overflow-x-auto pb-2 touch-scroll">
+            {solutions.map((sol) => {
+              const Icon = sol.icon;
+              const isActive = activeTab === sol.id;
+              return (
+                <button
+                  key={sol.id}
+                  onClick={() => setActiveTab(sol.id as any)}
+                  className={`flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl text-xs sm:text-[13px] font-bold transition border whitespace-nowrap ${
+                    isActive
+                      ? "bg-[#202020] text-[#F9DB5C] border-[#B78D42] shadow-gold"
+                      : "bg-white text-slate-700 border-slate-200 hover:border-[#B78D42]/40"
+                  }`}
+                >
+                  <Icon className={`w-4 h-4 ${isActive ? "text-[#F9DB5C]" : "text-[#B78D42]"}`} />
+                  <span>{sol.title.split("&")[0]}</span>
+                </button>
+              );
+            })}
+          </div>
+        </ScrollReveal>
 
         {/* Selected Solution Detail Card */}
         {solutions
@@ -221,10 +224,10 @@ export default function BusinessSolutionsPage() {
           .map((item) => {
             const Icon = item.icon;
             return (
-              <div
-                key={item.id}
-                className="bg-white rounded-3xl overflow-hidden border-2 border-[#B78D42]/35 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-0"
-              >
+              <ScrollReveal key={item.id} direction="up" delayMs={50}>
+                <div
+                  className="bg-white rounded-3xl overflow-hidden border border-[#B78D42]/35 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-0 card-hover-lift"
+                >
                 {/* Left Media Banner */}
                 <div className="relative aspect-[16/10] lg:aspect-auto lg:col-span-5 bg-slate-900 overflow-hidden">
                   <Image
@@ -297,53 +300,56 @@ export default function BusinessSolutionsPage() {
                   </div>
                 </div>
               </div>
+              </ScrollReveal>
             );
           })}
       </section>
 
       {/* Why Choose VVMS for B2B Growth */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <h3 className="text-xl sm:text-2xl font-black text-[#202020]">
-            Why Tamil Nadu Real Estate Firms Partner With VVMS
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-600">
-            A combination of verified engineering credibility, high-intent audience, and practical digital automation.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-2xl border border-[#B78D42]/30 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-[#F2F2F2] text-[#B78D42] border border-[#B78D42]/30 flex items-center justify-center">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
-            <h4 className="font-bold text-slate-900 text-base">Civil Engineering Authority</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Every project promoted is verified by Er. J. Vairavel, giving buyers 100% confidence in road widths, approvals, and legal authenticity.
+      <ScrollReveal direction="up">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+            <h3 className="text-xl sm:text-2xl font-black text-[#202020]">
+              Why Tamil Nadu Real Estate Firms Partner With VVMS
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 font-normal">
+              A combination of verified engineering credibility, high-intent audience, and practical digital automation.
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-[#B78D42]/30 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-[#C20E10]/10 text-[#C20E10] border border-[#C20E10]/30 flex items-center justify-center">
-              <Youtube className="w-5 h-5 fill-[#C20E10]" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-2xl border border-[#B78D42]/30 shadow-sm space-y-3 card-hover-lift">
+              <div className="w-10 h-10 rounded-xl bg-[#F2F2F2] text-[#B78D42] border border-[#B78D42]/30 flex items-center justify-center">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <h4 className="font-bold text-slate-900 text-base">Civil Engineering Authority</h4>
+              <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                Every project promoted is verified by registered chartered engineers, giving buyers 100% confidence in road widths, approvals, and legal authenticity.
+              </p>
             </div>
-            <h4 className="font-bold text-slate-900 text-base">125K+ Active NRI Audience</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Reach affluent Tamil families in Chennai, Bengaluru, Singapore, Malaysia, and the Middle East actively searching for verified land parcels.
-            </p>
-          </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-[#B78D42]/30 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-[#22CDE1]/10 text-[#0891B2] border border-[#22CDE1]/30 flex items-center justify-center">
-              <Layers className="w-5 h-5" />
+            <div className="bg-white p-6 rounded-2xl border border-[#B78D42]/30 shadow-sm space-y-3 card-hover-lift">
+              <div className="w-10 h-10 rounded-xl bg-[#C20E10]/10 text-[#C20E10] border border-[#C20E10]/30 flex items-center justify-center">
+                <Youtube className="w-5 h-5 fill-[#C20E10]" />
+              </div>
+              <h4 className="font-bold text-slate-900 text-base">125K+ Active NRI Audience</h4>
+              <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                Reach affluent Tamil families in Chennai, Bengaluru, Singapore, Malaysia, and the Middle East actively searching for verified land parcels.
+              </p>
             </div>
-            <h4 className="font-bold text-slate-900 text-base">End-to-End Operational Fit</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              We do not sell fragile generic software. We configure operational workflows that fit the day-to-day realities of Indian property developers.
-            </p>
+
+            <div className="bg-white p-6 rounded-2xl border border-[#B78D42]/30 shadow-sm space-y-3 card-hover-lift">
+              <div className="w-10 h-10 rounded-xl bg-[#22CDE1]/10 text-[#0891B2] border border-[#22CDE1]/30 flex items-center justify-center">
+                <Layers className="w-5 h-5" />
+              </div>
+              <h4 className="font-bold text-slate-900 text-base">End-to-End Operational Fit</h4>
+              <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                We do not sell fragile generic software. We configure operational workflows that fit the day-to-day realities of Indian property developers.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   );
 }

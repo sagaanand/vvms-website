@@ -9,6 +9,7 @@ import VideoModal from "@/components/VideoModal";
 import SafePurchaseStandard from "@/components/SafePurchaseStandard";
 import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
+import ScrollReveal from "@/components/ScrollReveal";
 import {
   Search,
   RotateCcw,
@@ -269,12 +270,13 @@ function PropertiesDirectoryContent() {
           </div>
         ) : filteredProperties.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {filteredProperties.map((property) => (
-              <PropertyCard
-                key={property.id}
-                property={property}
-                onWatchVideo={(id, title) => setActiveVideo({ id, title })}
-              />
+            {filteredProperties.map((property, idx) => (
+              <ScrollReveal key={property.id} direction="up" delayMs={(idx % 6) * 60}>
+                <PropertyCard
+                  property={property}
+                  onWatchVideo={(id, title) => setActiveVideo({ id, title })}
+                />
+              </ScrollReveal>
             ))}
           </div>
         ) : (
@@ -297,14 +299,18 @@ function PropertiesDirectoryContent() {
       </div>
 
       {/* Safe Land Acquisition Standard (VVMS vs Unverified Brokers) */}
-      <div className="mt-16">
-        <SafePurchaseStandard />
-      </div>
+      <ScrollReveal direction="up">
+        <div className="mt-16">
+          <SafePurchaseStandard />
+        </div>
+      </ScrollReveal>
 
       {/* Plotted Land vs Apartment Flat Matrix */}
-      <div className="mt-12">
-        <PlotVsApartmentMatrix />
-      </div>
+      <ScrollReveal direction="up">
+        <div className="mt-12">
+          <PlotVsApartmentMatrix />
+        </div>
+      </ScrollReveal>
 
       {/* Video Modal */}
       {activeVideo && (

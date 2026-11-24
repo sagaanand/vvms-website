@@ -2,11 +2,13 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-interface ScrollRevealProps {
+export interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
   delayMs?: number;
-  direction?: "up" | "down" | "left" | "right" | "none";
+  direction?: "up" | "down" | "left" | "right" | "scale" | "fade";
+  durationMs?: number;
+  distance?: number;
 }
 
 export default function ScrollReveal({
@@ -14,6 +16,8 @@ export default function ScrollReveal({
   className = "",
   delayMs = 0,
   direction = "up",
+  durationMs = 600,
+  distance = 24,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -21,6 +25,12 @@ export default function ScrollReveal({
   useEffect(() => {
     const currentRef = ref.current;
     if (!currentRef) return;
+
+    // If IntersectionObserver is not supported, reveal immediately
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      setIsVisible(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -30,7 +40,7 @@ export default function ScrollReveal({
         }
       },
       {
-        threshold: 0.1,
+        threshold: 0.08,
         rootMargin: "0px 0px -40px 0px",
       }
     );
@@ -41,30 +51,38 @@ export default function ScrollReveal({
     };
   }, []);
 
-  const getDirectionClasses = () => {
-    if (isVisible) return "opacity-100 translate-x-0 translate-y-0 scale-100";
-
+  const getHiddenTransform = () => {
     switch (direction) {
       case "up":
-        return "opacity-0 translate-y-8 scale-[0.98]";
+        return `translateY(${distance}px)`;
       case "down":
-        return "opacity-0 -translate-y-8 scale-[0.98]";
+        return `translateY(-${distance}px)`;
       case "left":
-        return "opacity-0 translate-x-8";
+        return `translateX(${distance}px)`;
       case "right":
-        return "opacity-0 -translate-x-8";
-      case "none":
-        return "opacity-0 scale-95";
+        return `translateX(-${distance}px)`;
+      case "scale":
+        return "scale(0.95)";
+      case "fade":
+        return "none";
       default:
-        return "opacity-0 translate-y-8";
+        return `translateY(${distance}px)`;
     }
   };
 
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${delayMs}ms` }}
-      className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${getDirectionClasses()} ${className}`}
+      style={{
+        transitionProperty: "opacity, transform",
+        transitionDuration: `${durationMs}ms`,
+        transitionDelay: `${delayMs}ms`,
+        transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "none" : getHiddenTransform(),
+        willChange: "opacity, transform",
+      }}
+      className={className}
     >
       {children}
     </div>

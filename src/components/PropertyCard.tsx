@@ -127,39 +127,39 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
             )}
           </div>
 
-          {/* Title with Increased Font Size & Airy Line Spacing */}
+          {/* Title with Responsive Font Size */}
           <Link href={`/properties/${property.slug}`}>
-            <h3 className="font-black text-[#202020] text-lg sm:text-xl leading-snug line-clamp-2 hover:text-[#B78D42] transition mb-3">
+            <h3 className="font-black text-[#202020] text-base sm:text-lg leading-snug line-clamp-2 hover:text-[#B78D42] transition mb-2.5">
               {displayTitle}
             </h3>
           </Link>
 
           {/* Key Specs Pills with Off-White Surface */}
-          <div className="grid grid-cols-3 gap-2 py-3 px-3.5 bg-[#F2F2F2] rounded-2xl border border-[#B78D42]/20 text-center mb-3">
+          <div className="grid grid-cols-3 gap-2 py-2.5 px-3 bg-[#F2F2F2] rounded-2xl border border-[#B78D42]/20 text-center mb-2.5">
             <div>
-              <div className="text-xs text-slate-500 uppercase font-bold">Plot Area</div>
-              <div className="font-black text-[#202020] text-sm sm:text-base mt-0.5">
-                {formatIndianNumber(property.plotAreaSqFt)} <span className="text-xs text-slate-500 font-normal">sq.ft</span>
+              <div className="text-[10px] sm:text-[11px] text-slate-500 uppercase font-bold">Plot Area</div>
+              <div className="font-black text-[#202020] text-xs sm:text-sm mt-0.5">
+                {formatIndianNumber(property.plotAreaSqFt)} <span className="text-[10px] text-slate-500 font-normal">sq.ft</span>
               </div>
             </div>
             {property.builtUpAreaSqFt && property.builtUpAreaSqFt > 0 ? (
               <div>
-                <div className="text-xs text-slate-500 uppercase font-bold">Built-Up</div>
-                <div className="font-black text-[#202020] text-sm sm:text-base mt-0.5">
-                  {formatIndianNumber(property.builtUpAreaSqFt)} <span className="text-xs text-slate-500 font-normal">sq.ft</span>
+                <div className="text-[10px] sm:text-[11px] text-slate-500 uppercase font-bold">Built-Up</div>
+                <div className="font-black text-[#202020] text-xs sm:text-sm mt-0.5">
+                  {formatIndianNumber(property.builtUpAreaSqFt)} <span className="text-[10px] text-slate-500 font-normal">sq.ft</span>
                 </div>
               </div>
             ) : (
               <div>
-                <div className="text-xs text-slate-500 uppercase font-bold">Approval</div>
-                <div className="font-black text-emerald-700 text-sm mt-0.5 truncate">
+                <div className="text-[10px] sm:text-[11px] text-slate-500 uppercase font-bold">Approval</div>
+                <div className="font-black text-emerald-700 text-xs sm:text-sm mt-0.5 truncate">
                   DTCP / RERA
                 </div>
               </div>
             )}
             <div>
-              <div className="text-xs text-slate-500 uppercase font-bold">Config</div>
-              <div className="font-black text-[#202020] text-sm sm:text-base mt-0.5 flex items-center justify-center gap-1">
+              <div className="text-[10px] sm:text-[11px] text-slate-500 uppercase font-bold">Config</div>
+              <div className="font-black text-[#202020] text-xs sm:text-sm mt-0.5 flex items-center justify-center gap-1">
                 {property.bedrooms ? `${property.bedrooms} BHK` : "Plots"}
               </div>
             </div>
@@ -167,8 +167,8 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
 
           {/* Downpayment deal callout in Primary Gold */}
           {property.downPaymentDisplay && (
-            <div className="mb-3 px-3.5 py-2 rounded-xl bg-[#F9DB5C]/15 border border-[#B78D42]/40 flex items-center gap-2 text-xs sm:text-sm text-[#202020] font-black">
-              <ShieldCheck className="w-4 h-4 text-[#B78D42] flex-shrink-0" />
+            <div className="mb-2.5 px-3 py-1.5 rounded-xl bg-[#F9DB5C]/15 border border-[#B78D42]/40 flex items-center gap-2 text-xs text-[#202020] font-black">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#B78D42] flex-shrink-0" />
               <span>{property.downPaymentDisplay}</span>
             </div>
           )}
@@ -176,15 +176,15 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
           {/* Price Highlight */}
           <div className="pt-2 flex items-baseline justify-between border-t border-slate-100">
             <div>
-              <span className="text-xs text-slate-500 block uppercase font-bold">Total Price</span>
-              <span className="text-2xl sm:text-3xl font-black text-[#202020] tracking-tight">
+              <span className="text-[11px] text-slate-500 block uppercase font-bold">Total Price</span>
+              <span className="text-xl sm:text-2xl font-black text-[#202020] tracking-tight">
                 {property.priceDisplay}
               </span>
             </div>
             {property.bankLoanEligible && (
-              <span className="text-xs text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200 flex items-center gap-1">
+              <span className="text-xs text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-200 flex items-center gap-1">
                 <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Bank Loan Ready</span>
+                <span>Bank Loan</span>
               </span>
             )}
           </div>
@@ -192,10 +192,10 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
       </div>
 
       {/* Card Actions Footer with Off-White and Emerald Buttons */}
-      <div className="p-4 pt-0 sm:p-5 sm:pt-0 grid grid-cols-2 gap-2.5 mt-2">
+      <div className="p-4 pt-0 sm:p-5 sm:pt-0 grid grid-cols-2 gap-2 mt-2">
         <Link
           href={`/properties/${property.slug}`}
-          className="flex items-center justify-center gap-1.5 py-3 px-3.5 rounded-xl bg-[#F2F2F2] hover:bg-white text-[#202020] font-black text-xs sm:text-sm transition border border-[#B78D42]/35 shadow-sm"
+          className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[#F2F2F2] hover:bg-white text-[#202020] font-black text-xs transition border border-[#B78D42]/35 shadow-sm"
         >
           <span>{t.properties.viewDetails}</span>
           <ArrowRight className="w-3.5 h-3.5" />
@@ -205,7 +205,7 @@ export default function PropertyCard({ property, onWatchVideo }: PropertyCardPro
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-1.5 py-3 px-3.5 rounded-xl bg-[#202020] hover:bg-emerald-700 text-[#F9DB5C] hover:text-white font-black text-xs sm:text-sm shadow-sm transition border border-[#B78D42]/50"
+          className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[#202020] hover:bg-emerald-700 text-[#F9DB5C] hover:text-white font-black text-xs shadow-sm transition border border-[#B78D42]/50"
         >
           <MessageCircle className="w-3.5 h-3.5 text-[#22CDE1]" />
           <span>{t.properties.bookSiteVisit}</span>

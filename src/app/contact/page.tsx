@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
+import ScrollReveal from "@/components/ScrollReveal";
 import {
   MapPin,
   Phone,
@@ -78,57 +79,61 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-amber-400/50 text-amber-300 text-xs font-black uppercase tracking-wider backdrop-blur-md">
-                <Building2 className="w-4 h-4 text-amber-400" />
-                <span>Headquarters in Tiruchirappalli</span>
-              </div>
+              <ScrollReveal direction="left">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-amber-400/50 text-amber-300 text-xs font-black uppercase tracking-wider backdrop-blur-md">
+                  <Building2 className="w-4 h-4 text-amber-400" />
+                  <span>Headquarters in Tiruchirappalli</span>
+                </div>
 
-              <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-                {language === "ta"
-                  ? "எங்கள் திருச்சி தலைமை அலுவலகத்திற்கு நேரில் வருகை தாருங்கள்"
-                  : "Visit Our Trichy Head Office or Connect Directly"}
-              </h1>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
+                  {language === "ta"
+                    ? "எங்கள் திருச்சி தலைமை அலுவலகத்திற்கு நேரில் வருகை தாருங்கள்"
+                    : "Visit Our Trichy Head Office or Connect Directly"}
+                </h1>
 
-              <p className="text-xs sm:text-base text-slate-300 leading-relaxed font-medium">
-                {language === "ta"
-                  ? "Er. J. வைரவேல் மற்றும் எங்கள் சிவில் இன்ஜினியரிங் குழுவினரை நேரில் சந்தித்து ஆவணங்களைச் சரிபார்க்கவும், மனை வரைபடங்கள் மற்றும் கட்டுமான ஒப்பந்தங்களை ஆலோசிக்கவும் அழைக்கிறோம்."
-                  : "Meet Er. J. Vairavel and our engineering team in person for transparent deed reviews, layout maps, structural designs, and turnkey home construction consultations."}
-              </p>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                  {language === "ta"
+                    ? "Er. J. வைரவேல் மற்றும் எங்கள் சிவில் இன்ஜினியரிங் குழுவினரை நேரில் சந்தித்து ஆவணங்களைச் சரிபார்க்கவும், மனை வரைபடங்கள் மற்றும் கட்டுமான ஒப்பந்தங்களை ஆலோசிக்கவும் அழைக்கிறோம்."
+                    : "Meet Er. J. Vairavel and our engineering team in person for transparent deed reviews, layout maps, structural designs, and turnkey home construction consultations."}
+                </p>
 
-              <div className="pt-2 flex flex-wrap items-center gap-3">
-                <a
-                  href={`tel:${COMPANY_INFO.phoneRaw}`}
-                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-600/30 transition hover:-translate-y-0.5"
-                >
-                  Call: {COMPANY_INFO.phone}
-                </a>
-                <a
-                  href={`https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
-                    "Hello Er. J. Vairavel, I would like to schedule an office consultation in Trichy."
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>WhatsApp Appointment</span>
-                </a>
-              </div>
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <a
+                    href={`tel:${COMPANY_INFO.phoneRaw}`}
+                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-md transition hover:-translate-y-0.5"
+                  >
+                    Call: {COMPANY_INFO.phone}
+                  </a>
+                  <a
+                    href={`https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+                      "Hello Er. J. Vairavel, I would like to schedule an office consultation in Trichy."
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>WhatsApp Appointment</span>
+                  </a>
+                </div>
+              </ScrollReveal>
             </div>
 
             <div className="lg:col-span-4 flex justify-center lg:justify-end">
-              <div className="relative w-56 sm:w-64 aspect-square rounded-3xl overflow-hidden border-2 border-amber-400/60 shadow-2xl bg-[#202020] group">
-                <Image
-                  src="/images/vairavel.jpg"
-                  alt="Er. J. Vairavel - VVMS"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute bottom-2 left-2 right-2 bg-[#202020]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amber-400/40 text-center">
-                  <div className="text-xs font-black text-[#F9DB5C]">{COMPANY_INFO.founder}</div>
-                  <div className="text-[10px] text-slate-300 font-semibold">{COMPANY_INFO.founderTitle}</div>
+              <ScrollReveal direction="right">
+                <div className="relative w-52 sm:w-60 aspect-square rounded-3xl overflow-hidden border-2 border-amber-400/60 shadow-2xl bg-[#202020] group card-hover-lift">
+                  <Image
+                    src="/images/vairavel.jpg"
+                    alt="Er. J. Vairavel - VVMS"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute bottom-2 left-2 right-2 bg-[#202020]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amber-400/40 text-center">
+                    <div className="text-xs font-black text-[#F9DB5C]">{COMPANY_INFO.founder}</div>
+                    <div className="text-[10px] text-slate-300 font-semibold">{COMPANY_INFO.founderTitle}</div>
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>
@@ -139,6 +144,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Dual Office Locations & Hours (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
+            <ScrollReveal direction="right">
             <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
               <MapPin className="w-5 h-5 text-amber-600" />
               <span>{language === "ta" ? "தலைமை அலுவலக முகவரி" : "Our Head Office Location"}</span>
@@ -200,10 +206,12 @@ export default function ContactPage() {
                 <div className="text-xs text-slate-600">Phone: {COMPANY_INFO.phone}</div>
               </div>
             </div>
+            </ScrollReveal>
           </div>
 
           {/* Right Column: Interactive Appointment Booking Form Preview (5 Cols) */}
           <div className="lg:col-span-5">
+            <ScrollReveal direction="left">
             <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-amber-300 shadow-xl space-y-6">
               <div className="space-y-1">
                 <div className="inline-flex items-center gap-1.5 text-[11px] font-black uppercase text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-md border border-amber-200">
@@ -313,6 +321,7 @@ export default function ContactPage() {
                 </form>
               )}
             </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>

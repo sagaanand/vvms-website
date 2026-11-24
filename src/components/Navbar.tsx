@@ -124,13 +124,13 @@ export default function Navbar() {
                   priority
                 />
               </div>
-              <div className="flex items-center gap-1.5 font-black text-lg sm:text-2xl tracking-tight">
+              <div className="flex items-center gap-1.5 font-black text-base sm:text-xl tracking-tight">
                 <span className="text-[#B78D42] drop-shadow-sm font-black">வீடு</span>
                 <span className="text-[#202020] drop-shadow-sm font-black">வீட்டுமனை சந்தை</span>
               </div>
             </Link>
 
-            {/* Desktop Navigation Links with Boosted Font Size */}
+            {/* Desktop Navigation Links with Crisp Typography */}
             <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 2xl:gap-2">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
@@ -138,10 +138,10 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-2 py-1.5 xl:px-2.5 xl:py-2 2xl:px-3 rounded-xl text-xs xl:text-sm 2xl:text-[14.5px] transition flex items-center gap-1.5 whitespace-nowrap ${
+                    className={`px-2 py-1.5 xl:px-2.5 xl:py-1.5 2xl:px-3 rounded-xl text-xs xl:text-[13px] 2xl:text-sm transition flex items-center gap-1.5 whitespace-nowrap ${
                       isActive
                         ? "text-[#202020] bg-white border border-[#B78D42]/60 shadow-sm font-black"
-                        : "text-slate-700 hover:text-[#202020] hover:bg-white/70 font-bold"
+                        : "text-slate-700 hover:text-[#202020] hover:bg-white/70 font-semibold"
                     }`}
                   >
                     {link.label}
@@ -155,10 +155,10 @@ export default function Navbar() {
               {/* Primary Header CTA */}
               <Link
                 href="/properties"
-                className="hidden xl:inline-flex items-center gap-1.5 px-4 py-2 2xl:px-5 2xl:py-2.5 rounded-xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-black text-xs 2xl:text-sm uppercase tracking-wider shadow-sm border border-[#B78D42]/50 transition transform hover:-translate-y-0.5 active:translate-y-0"
+                className="hidden xl:inline-flex items-center gap-1.5 px-3.5 py-2 2xl:px-4 2xl:py-2.5 rounded-xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-black text-xs uppercase tracking-wider shadow-sm border border-[#B78D42]/50 transition transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span>{t.nav.exploreCta}</span>
-                <ArrowRight className="w-4 h-4 text-[#202020]" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#202020]" />
               </Link>
 
               {/* Language Selector: EN | தமிழ் */}

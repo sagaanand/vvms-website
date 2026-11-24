@@ -36,7 +36,7 @@ interface HeroSliderProps {
 export default function HeroSlider({
   slides,
   autoPlayInterval = 5500,
-  heightClass = "min-h-[620px] sm:min-h-[680px] lg:min-h-[740px]",
+  heightClass = "min-h-[520px] sm:min-h-[580px] lg:min-h-[640px]",
   overlayOpacity = "from-[#0A0E17]/95 via-[#0A0E17]/75 to-[#0A0E17]/40",
 }: HeroSliderProps) {
   const [current, setCurrent] = useState(0);
@@ -129,10 +129,10 @@ export default function HeroSlider({
             </span>
           </div>
 
-          {/* Animated Headline with Spacious Line Height */}
+          {/* Animated Headline with Responsive Scaling */}
           <h1
             key={`title-${current}`}
-            className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.2] sm:leading-[1.25] transition-all duration-700 transform translate-y-0 opacity-100 drop-shadow-md"
+            className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.2] transition-all duration-700 transform translate-y-0 opacity-100 drop-shadow-md"
           >
             <span className="block text-[#F2F2F2]">
               {currentSlide.title.includes("•")
@@ -146,20 +146,20 @@ export default function HeroSlider({
             )}
           </h1>
 
-          {/* Subtitle with Airy Line Spacing & Increased Font Size */}
+          {/* Subtitle with Clean Responsive Line Spacing */}
           <p
             key={`sub-${current}`}
-            className="text-sm sm:text-lg lg:text-xl text-slate-200 leading-relaxed sm:leading-loose font-medium max-w-2xl drop-shadow-sm transition-all duration-700"
+            className="text-xs sm:text-sm lg:text-base text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-sm transition-all duration-700"
           >
             {currentSlide.subtitle}
           </p>
 
           {/* Call to Action Buttons */}
-          <div className="pt-4 flex flex-wrap items-center gap-4">
+          <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
             {currentSlide.primaryCta && (
               <Link
                 href={currentSlide.primaryCta.href}
-                className="px-7 py-4 rounded-2xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-black text-sm uppercase tracking-wider shadow-gold transition transform hover:-translate-y-0.5 active:scale-95 border border-[#B78D42]/50 inline-flex items-center gap-2.5"
+                className="px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-black text-xs sm:text-sm uppercase tracking-wider shadow-gold transition transform hover:-translate-y-0.5 active:scale-95 border border-[#B78D42]/50 inline-flex items-center gap-2"
               >
                 <span>{currentSlide.primaryCta.label}</span>
                 <ArrowRight className="w-4 h-4 text-[#202020]" />
@@ -169,7 +169,7 @@ export default function HeroSlider({
             {currentSlide.secondaryCta && (
               <Link
                 href={currentSlide.secondaryCta.href}
-                className="px-7 py-4 rounded-2xl bg-white/10 hover:bg-white/20 text-[#F2F2F2] font-black text-sm uppercase tracking-wider backdrop-blur-md border border-white/20 transition hover:-translate-y-0.5 inline-flex items-center gap-2.5"
+                className="px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-[#F2F2F2] font-black text-xs sm:text-sm uppercase tracking-wider backdrop-blur-md border border-white/20 transition hover:-translate-y-0.5 inline-flex items-center gap-2"
               >
                 <span>{currentSlide.secondaryCta.label}</span>
               </Link>

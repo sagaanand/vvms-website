@@ -6,6 +6,7 @@ import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import CostEstimator from "@/components/CostEstimator";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
+import ScrollReveal from "@/components/ScrollReveal";
 import {
   HardHat,
   MessageCircle,
@@ -224,18 +225,19 @@ export default function ConstructionPage() {
       />
 
       {/* Side-by-Side Comparison Table of Packages */}
-      <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <span className="text-gold-600 font-black text-xs sm:text-sm uppercase tracking-wider block">
-            Material Specifications
-          </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-brand-black tracking-tight leading-snug">
-            Compare Our Construction Packages
-          </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-slate-600 font-medium leading-relaxed sm:leading-loose">
-            Every specification is explicitly documented in the legal construction contract with batch receipts and test certificates.
-          </p>
-        </div>
+      <ScrollReveal direction="up">
+        <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+            <span className="text-gold-600 font-black text-xs uppercase tracking-wider block">
+              Material Specifications
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-black tracking-tight leading-snug">
+              Compare Our Construction Packages
+            </h2>
+            <p className="text-xs sm:text-sm lg:text-base text-slate-600 font-normal leading-relaxed">
+              Every specification is explicitly documented in the legal construction contract with batch receipts and test certificates.
+            </p>
+          </div>
 
         {/* Responsive Comparison Table */}
         <div className="bg-white rounded-3xl border-2 border-gold-400/40 shadow-xl overflow-hidden overflow-x-auto touch-scroll">
@@ -283,90 +285,95 @@ export default function ConstructionPage() {
           </table>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* 5-Step Execution Timeline in Logo Brand Black */}
-      <section className="py-14 sm:py-20 bg-brand-black text-white border-y-2 border-gold-500/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-gold-400 font-black text-xs uppercase tracking-wider block mb-1">
-              Engineering Workflow
+      <ScrollReveal direction="up">
+        <section className="py-12 sm:py-16 bg-brand-black text-white border-y-2 border-gold-500/40">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+              <span className="text-gold-400 font-black text-xs uppercase tracking-wider block">
+                Engineering Workflow
+              </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
+                5-Step Construction Process
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed">
+                From soil testing to key handover, our registered civil engineers supervise structural integrity and quality checks at every milestone.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              {executionSteps.map((step, idx) => (
+                <div
+                  key={idx}
+                  className="bg-brand-dark rounded-2xl p-5 border border-slate-700/80 hover:border-gold-400 transition shadow-lg card-hover-lift"
+                >
+                  <div className="text-2xl font-black text-gold-400 mb-2">
+                    {step.step}
+                  </div>
+                  <h3 className="font-black text-white text-xs sm:text-sm leading-snug mb-1.5">
+                    {step.title}
+                  </h3>
+                  <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                    {step.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* Completed Projects Showcase Gallery */}
+      <ScrollReveal direction="up">
+        <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="text-cyan-600 font-black text-xs uppercase tracking-wider block mb-1">
+              Proven Track Record
             </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
-              5-Step Construction Process
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-black tracking-tight leading-snug">
+              Completed Turnkey Projects in Trichy
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 mt-2 font-medium">
-              From soil testing to key handover, Er. J. Vairavel personally supervises structural integrity and quality checks at every milestone.
+            <p className="text-xs sm:text-sm text-slate-500 mt-1 font-normal">
+              Explore homes built under our supervision across K.K. Nagar, Olaiyur, and Vayalur Road.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-            {executionSteps.map((step, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {completedProjects.map((proj, idx) => (
               <div
                 key={idx}
-                className="bg-brand-dark rounded-3xl p-5 border border-slate-700 relative space-y-3 flex flex-col justify-between hover:border-gold-500 transition shadow-lg"
+                className="bg-white rounded-3xl overflow-hidden border border-slate-200 hover:border-gold-400 shadow-sm hover:shadow-xl transition flex flex-col justify-between card-hover-lift"
               >
-                <div>
-                  <div className="text-3xl font-black text-gold-400 mb-2">
-                    {step.step}
+                <div className="relative aspect-[16/10] bg-slate-100">
+                  <Image
+                    src={proj.image}
+                    alt={proj.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <span className="absolute top-3 left-3 bg-brand-black text-gold-400 text-xs font-black px-3 py-1 rounded-xl border border-gold-400/40">
+                    {proj.package}
+                  </span>
+                </div>
+                <div className="p-5 space-y-1.5">
+                  <h3 className="font-black text-slate-900 text-base">{proj.title}</h3>
+                  <div className="text-xs text-slate-500 font-medium">{proj.locality}</div>
+                  <div className="text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-lg inline-block border border-emerald-200">
+                    Built-Up: {proj.area}
                   </div>
-                  <h3 className="font-black text-white text-sm leading-snug mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs text-slate-300 leading-relaxed font-medium">
-                    {step.desc}
-                  </p>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Completed Projects Showcase Gallery */}
-      <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-cyan-600 font-black text-xs uppercase tracking-wider block mb-1">
-            Proven Track Record
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-black text-brand-black tracking-tight">
-            Completed Turnkey Projects in Trichy
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-500 mt-2 font-medium">
-            Explore homes built under our supervision across K.K. Nagar, Olaiyur, and Vayalur Road.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {completedProjects.map((proj, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-3xl overflow-hidden border border-slate-200 hover:border-gold-400 shadow-card hover:shadow-gold transition flex flex-col justify-between"
-            >
-              <div className="relative aspect-[16/10] bg-slate-100">
-                <Image
-                  src={proj.image}
-                  alt={proj.title}
-                  fill
-                  className="object-cover"
-                />
-                <span className="absolute top-3 left-3 bg-brand-black text-gold-400 text-xs font-black px-3 py-1 rounded-xl border border-gold-400/40">
-                  {proj.package}
-                </span>
-              </div>
-              <div className="p-5 space-y-2">
-                <h3 className="font-black text-slate-900 text-base">{proj.title}</h3>
-                <div className="text-xs text-slate-500 font-medium">{proj.locality}</div>
-                <div className="text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-lg inline-block border border-emerald-200">
-                  Built-Up: {proj.area}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Interactive Turnkey Estimator */}
-      <CostEstimator />
+      <ScrollReveal direction="up">
+        <CostEstimator />
+      </ScrollReveal>
     </div>
   );
 }

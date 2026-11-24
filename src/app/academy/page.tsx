@@ -6,6 +6,7 @@ import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { ACADEMY_GUIDES, AcademyGuide } from "@/lib/namnilam-data";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
+import ScrollReveal from "@/components/ScrollReveal";
 import {
   BookOpen,
   ShieldCheck,
@@ -171,28 +172,28 @@ export default function AcademyPage() {
           <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -left-20 -top-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-brand-card border border-gold-500/40 text-gold-400 text-xs sm:text-sm font-black uppercase tracking-wider">
+          <div className="relative z-10 max-w-3xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-card border border-gold-500/40 text-gold-400 text-xs font-black uppercase tracking-wider">
               <BookOpen className="w-4 h-4 text-cyan-400" />
               <span>Real Estate Academy & Buyer Education Hub</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-snug sm:leading-normal">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-snug">
               The Tamil Nadu Land & Property <br />
               <span className="text-gold-400">Due Diligence Masterclass</span>
             </h1>
 
-            <p className="text-slate-200 text-base sm:text-lg leading-relaxed sm:leading-loose">
+            <p className="text-slate-200 text-xs sm:text-sm lg:text-base leading-relaxed font-normal">
               Before paying a single rupee in token advance, master the legal and technical safeguards
               developed by <strong className="text-white">Er. J. Vairavel (Civil Engineer)</strong>.
               Learn to decipher Patta, Chitta, TSLR, FMB sketches, and 30-year encumbrance certificates
               like a pro.
             </p>
 
-            <div className="pt-2 flex flex-wrap gap-4 text-sm sm:text-base">
+            <div className="pt-2 flex flex-wrap gap-3 text-xs sm:text-sm">
               <button
                 onClick={() => setDownloadModalOpen(true)}
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-gold-500 hover:bg-gold-400 text-slate-950 font-black shadow-md transition"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-slate-950 font-black shadow-md transition"
               >
                 <Download className="w-4 h-4" />
                 <span>Download Free 15-Point Due Diligence Checklist</span>
@@ -200,7 +201,7 @@ export default function AcademyPage() {
 
               <Link
                 href="/services/online-legal-opinion"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-brand-card hover:bg-slate-800 text-cyan-400 font-bold border border-cyan-500/30 transition"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-card hover:bg-slate-800 text-cyan-400 font-bold border border-cyan-500/30 transition"
               >
                 <ShieldCheck className="w-4 h-4" />
                 <span>Get 30-Year Advocate Legal Opinion (₹4,999)</span>
@@ -210,12 +211,13 @@ export default function AcademyPage() {
         </div>
 
         {/* 6-Stage Due Diligence Master Framework */}
+        <ScrollReveal direction="up">
         <div className="bg-brand-card rounded-3xl border border-brand-dark p-6 sm:p-10 space-y-8">
           <div className="max-w-3xl space-y-2">
             <div className="text-xs font-bold text-cyan-400 uppercase tracking-widest">
               Standard Operating Procedure
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white leading-snug">
               The 6-Stage Tamil Nadu Land Verification Framework
             </h2>
             <p className="text-xs sm:text-sm text-slate-300">
@@ -298,8 +300,10 @@ export default function AcademyPage() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
 
         {/* Detailed Due Diligence Guides Accordion / Card Section */}
+        <ScrollReveal direction="up">
         <div id="academy-guides" className="space-y-6">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <div className="text-xs font-bold text-gold-400 uppercase tracking-widest">
@@ -387,8 +391,10 @@ export default function AcademyPage() {
             })}
           </div>
         </div>
+        </ScrollReveal>
 
         {/* 8 Deadly Traps & Red Flags in Tamil Nadu */}
+        <ScrollReveal direction="up">
         <div id="fatal-traps" className="bg-brand-card rounded-3xl border border-red-500/30 p-6 sm:p-10 space-y-6">
           <div className="space-y-2">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-red-400 uppercase tracking-widest">
@@ -431,6 +437,7 @@ export default function AcademyPage() {
             ))}
           </div>
         </div>
+        </ScrollReveal>
 
         {/* Free Checklist Download Lead Capture Modal / Card */}
         {downloadModalOpen && (

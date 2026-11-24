@@ -9,6 +9,7 @@ import { formatLakhsCrores } from "@/lib/utils";
 import AIPropertyGuide from "@/components/AIPropertyGuide";
 import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
+import ScrollReveal from "@/components/ScrollReveal";
 import {
   BarChart3,
   TrendingUp,
@@ -181,35 +182,35 @@ export default function IntelligencePage() {
           <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -left-20 -top-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-card border border-gold-500/40 text-gold-400 text-xs sm:text-sm font-black uppercase tracking-wider">
+          <div className="relative z-10 max-w-3xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-card border border-gold-500/40 text-gold-400 text-xs font-black uppercase tracking-wider">
               <BarChart3 className="w-4 h-4 text-cyan-400" />
               <span>Institutional Land Intelligence & Micro-Market Comps</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-snug sm:leading-normal">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-snug">
               Trichy Land Intelligence & <br />
               <span className="text-gold-400">Sub-Registrar Guideline Value</span> Hub
             </h1>
 
-            <p className="text-slate-200 text-base sm:text-lg leading-relaxed sm:leading-loose">
+            <p className="text-slate-200 text-xs sm:text-sm lg:text-base leading-relaxed font-normal">
               Curated under the civil engineering leadership of{" "}
               <strong className="text-white">Er. J. Vairavel</strong>. Unbiased, registered
               transaction comps, guideline values, groundwater aquifer depths, and mega infrastructure
               impact matrices across Tiruchirappalli so you never overpay.
             </p>
 
-            <div className="pt-2 flex flex-wrap gap-4 text-xs sm:text-sm">
-              <div className="flex items-center gap-2 bg-brand-card/80 px-3.5 py-2 rounded-xl border border-gold-500/30 text-slate-200">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            <div className="pt-2 flex flex-wrap gap-3 text-xs">
+              <div className="flex items-center gap-2 bg-brand-card/80 px-3 py-1.5 rounded-xl border border-gold-500/30 text-slate-200">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                 <span>8 Major Trichy Corridors Audited</span>
               </div>
-              <div className="flex items-center gap-2 bg-brand-card/80 px-3.5 py-2 rounded-xl border border-cyan-500/30 text-slate-200">
-                <ShieldCheck className="w-4 h-4 text-cyan-400" />
+              <div className="flex items-center gap-2 bg-brand-card/80 px-3 py-1.5 rounded-xl border border-cyan-500/30 text-slate-200">
+                <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
                 <span>100% Registered SRO Transaction Data</span>
               </div>
-              <div className="flex items-center gap-2 bg-brand-card/80 px-3.5 py-2 rounded-xl border border-red-500/30 text-slate-200">
-                <Droplets className="w-4 h-4 text-cyan-300" />
+              <div className="flex items-center gap-2 bg-brand-card/80 px-3 py-1.5 rounded-xl border border-red-500/30 text-slate-200">
+                <Droplets className="w-3.5 h-3.5 text-cyan-300" />
                 <span>Groundwater & Soil Tested</span>
               </div>
             </div>
@@ -217,15 +218,16 @@ export default function IntelligencePage() {
         </div>
 
         {/* 3 Intelligence Report Packages (Nam Nilam Inspired) */}
+        <ScrollReveal direction="up">
         <div>
           <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
             <div className="text-xs font-bold text-cyan-400 uppercase tracking-widest">
               Verified Dossiers & Audits
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white leading-snug">
               Data-Backed Intelligence Reports Before You Invest
             </h2>
-            <p className="text-slate-400 text-xs sm:text-sm">
+            <p className="text-slate-400 text-xs sm:text-sm font-normal">
               Whether you are buying a 1,200 sq.ft plot or a 2-acre layout, make decisions backed by
               civil engineering ground reality and legal scrutiny.
             </p>
@@ -405,8 +407,10 @@ export default function IntelligencePage() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
 
         {/* Interactive SRO Guideline vs Market Price Matrix */}
+        <ScrollReveal direction="up">
         <div id="corridors-section" className="bg-brand-card rounded-3xl border border-brand-dark p-6 sm:p-8 space-y-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
@@ -609,8 +613,10 @@ export default function IntelligencePage() {
             })}
           </div>
         </div>
+        </ScrollReveal>
 
         {/* Live Guideline vs Market Acquisition Calculator */}
+        <ScrollReveal direction="up">
         <div id="calculator-section" className="bg-gradient-to-r from-brand-black via-brand-dark to-brand-black rounded-3xl border border-gold-500/30 p-6 sm:p-10 shadow-xl space-y-8">
           <div className="max-w-3xl space-y-2">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 uppercase tracking-widest">
@@ -753,8 +759,10 @@ export default function IntelligencePage() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
 
         {/* 2.5 INTERACTIVE AI PROPERTY & ENGINEERING GUIDE */}
+        <ScrollReveal direction="up">
         <div id="ai-guide-section" className="space-y-4">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-card border border-gold-500/40 text-gold-400 text-xs font-black uppercase tracking-wider">
@@ -775,8 +783,10 @@ export default function IntelligencePage() {
 
           <AIPropertyGuide />
         </div>
+        </ScrollReveal>
 
         {/* Trichy Mega Infrastructure Catalysts */}
+        <ScrollReveal direction="up">
         <div className="space-y-6">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <div className="text-xs font-bold text-gold-400 uppercase tracking-widest">
@@ -867,21 +877,25 @@ export default function IntelligencePage() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
 
         {/* 4.5 PLOTTED LAND VS APARTMENT COMPARATIVE MATRIX */}
+        <ScrollReveal direction="up">
         <div className="rounded-3xl overflow-hidden border border-gold-500/20">
           <PlotVsApartmentMatrix />
         </div>
+        </ScrollReveal>
 
         {/* Bottom CTA Card */}
-        <div className="bg-brand-black rounded-3xl border border-gold-500/40 p-8 sm:p-12 text-center space-y-6 shadow-gold">
+        <ScrollReveal direction="up">
+        <div className="bg-brand-black rounded-3xl border border-gold-500/40 p-8 sm:p-12 text-center space-y-6 shadow-gold card-hover-lift">
           <div className="max-w-2xl mx-auto space-y-3">
-            <h2 className="text-2xl sm:text-3xl font-black text-white">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-snug">
               Evaluating a Specific Plot or Survey Number in Trichy?
             </h2>
-            <p className="text-slate-300 text-xs sm:text-sm">
+            <p className="text-slate-300 text-xs sm:text-sm font-normal">
               Don’t rely on hearsay or seller claims. Send your survey number, layout name, or FMB sketch
-              to Er. J. Vairavel for authentic SRO comps and ground engineering reality check.
+              to our technical team for authentic SRO comps and ground engineering reality check.
             </p>
           </div>
 
@@ -892,7 +906,7 @@ export default function IntelligencePage() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm shadow-lg transition"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs sm:text-sm shadow-lg transition"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
               <span>Send Survey Details on WhatsApp</span>
@@ -900,13 +914,14 @@ export default function IntelligencePage() {
 
             <Link
               href="/academy"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-card hover:bg-slate-800 text-slate-200 font-bold text-sm border border-slate-700 transition"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-card hover:bg-slate-800 text-slate-200 font-bold text-xs sm:text-sm border border-slate-700 transition"
             >
               <FileText className="w-4 h-4 text-cyan-400" />
               <span>Read 30-Year Due Diligence Academy</span>
             </Link>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </div>
   );

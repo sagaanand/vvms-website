@@ -7,6 +7,7 @@ import { useLanguage } from "@/lib/i18n";
 import { COMPANY_INFO } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
+import ScrollReveal from "@/components/ScrollReveal";
 import {
   FileText,
   Download,
@@ -163,9 +164,9 @@ export default function ResourcesPage() {
       </div>
 
       {/* Resource Cards Grid */}
-      <section id="guides-list" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-8">
+      <section id="guides-list" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {resourceGuides.map((guide) => {
+          {resourceGuides.map((guide, idx) => {
             const Icon = guide.icon;
             const waMsg = encodeURIComponent(
               `Hello Er. J. Vairavel, please send me a digital copy of "${guide.title}" from veeduveettumanaisanthai.in.`
@@ -173,70 +174,72 @@ export default function ResourcesPage() {
             const waUrl = getWhatsAppUrl(COMPANY_INFO.whatsappRaw, waMsg);
 
             return (
-              <div
-                key={guide.id}
-                className="bg-white rounded-3xl p-6 sm:p-7 border border-amber-200/90 hover:border-amber-400 shadow-sm hover:shadow-xl glass-card-interactive transition-all duration-300 flex flex-col justify-between group"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-700 group-hover:scale-105 transition">
-                      <Icon className="w-5 h-5 text-amber-600" />
+              <ScrollReveal key={guide.id} direction="up" delayMs={(idx % 6) * 60}>
+                <div
+                  className="h-full bg-white rounded-3xl p-6 sm:p-7 border border-amber-200/90 hover:border-amber-400 shadow-sm hover:shadow-xl card-hover-lift transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div className="space-y-3.5">
+                    <div className="flex items-center justify-between">
+                      <div className="p-3 rounded-2xl bg-amber-50 border border-amber-200 text-amber-700 group-hover:scale-105 transition">
+                        <Icon className="w-5 h-5 text-amber-600" />
+                      </div>
+                      <span className="text-[11px] font-black text-amber-900 bg-amber-50 px-2.5 py-0.5 rounded-lg border border-amber-300">
+                        {guide.pages}
+                      </span>
                     </div>
-                    <span className="text-xs font-black text-amber-900 bg-amber-50 px-3 py-1 rounded-lg border border-amber-300">
-                      {guide.pages}
-                    </span>
+
+                    <div>
+                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-cyan-700">
+                        {guide.category}
+                      </span>
+                      <h3 className="text-base sm:text-lg font-black text-slate-900 mt-1 leading-snug group-hover:text-amber-700 transition">
+                        {guide.title}
+                      </h3>
+                    </div>
+
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                      {guide.desc}
+                    </p>
+
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-700">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>{guide.badge}</span>
+                    </div>
                   </div>
 
-                  <div>
-                    <span className="text-xs font-extrabold uppercase tracking-wider text-cyan-700">
-                      {guide.category}
-                    </span>
-                    <h3 className="text-lg sm:text-xl font-black text-slate-900 mt-1.5 leading-snug group-hover:text-amber-700 transition">
-                      {guide.title}
-                    </h3>
-                  </div>
+                  <div className="pt-5 mt-5 border-t border-amber-100 flex items-center justify-between gap-3">
+                    <a
+                      href={waUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-xs flex items-center justify-center gap-2 shadow-sm transition"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      <span>{language === "ta" ? "கையேடு பெற" : "Request PDF Copy"}</span>
+                    </a>
 
-                  <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                    {guide.desc}
-                  </p>
-
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    <span>{guide.badge}</span>
+                    <Link
+                      href="/academy"
+                      className="p-2 rounded-xl border border-amber-200 text-slate-700 hover:text-amber-700 hover:bg-amber-50 transition"
+                      title="Read Academy Summary"
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
-
-                <div className="pt-6 mt-6 border-t border-amber-100 flex items-center justify-between gap-3">
-                  <a
-                    href={waUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition"
-                  >
-                    <Download className="w-4 h-4" />
-                    <span>{language === "ta" ? "கையேடு பெற" : "Request PDF Copy"}</span>
-                  </a>
-
-                  <Link
-                    href="/academy"
-                    className="p-2.5 rounded-xl border border-amber-200 text-slate-700 hover:text-amber-700 hover:bg-amber-50 transition"
-                    title="Read Academy Summary"
-                  >
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
 
         {/* Free Consultation Callout Card */}
-        <div className="mt-12 bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 text-white p-8 sm:p-10 rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border-2 border-amber-300">
-          <div className="space-y-2 text-center md:text-left max-w-2xl">
-            <h3 className="text-2xl font-black">
-              {language === "ta"
-                ? "உங்கள் ஆவணங்களை நேரடியாகச் சரிபார்க்க வேண்டுமா?"
-                : "Need Personal Document Forensics by Er. J. Vairavel?"}
+        <ScrollReveal direction="up">
+          <div className="mt-10 bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 text-white p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border-2 border-amber-300 card-hover-lift">
+            <div className="space-y-1.5 text-center md:text-left max-w-2xl">
+              <h3 className="text-xl sm:text-2xl font-black">
+                {language === "ta"
+                  ? "உங்கள் ஆவணங்களை நேரடியாகச் சரிபார்க்க வேண்டுமா?"
+                  : "Need Personal Document Forensics by Er. J. Vairavel?"}
             </h3>
             <p className="text-xs sm:text-sm text-amber-50 font-medium">
               {language === "ta"
@@ -260,6 +263,7 @@ export default function ResourcesPage() {
             </a>
           </div>
         </div>
+        </ScrollReveal>
       </section>
     </div>
   );

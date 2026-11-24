@@ -515,188 +515,198 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Division 1: Property Marketplace */}
-            <div className="group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
-                  <Image
-                    src="/images/hero-villa.jpg"
-                    alt={t.divisions.d1Title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
-                  />
-                  <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
-                    <Building2 className="w-3.5 h-3.5 text-[#F9DB5C]" />
-                    <span>Division 01</span>
+            <ScrollReveal direction="up" delayMs={0}>
+              <div className="h-full group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between card-hover-lift">
+                <div>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+                    <Image
+                      src="/images/hero-villa.jpg"
+                      alt={t.divisions.d1Title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    />
+                    <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                      <Building2 className="w-3.5 h-3.5 text-[#F9DB5C]" />
+                      <span>Division 01</span>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6 space-y-2.5">
-                  <h3 className="text-xl font-black text-[#202020] group-hover:text-[#B78D42] transition">
-                    {t.divisions.d1Title}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                    {t.divisions.d1Desc}
-                  </p>
-                </div>
-              </div>
-              <div className="p-6 pt-0">
-                <Link
-                  href="/properties"
-                  className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
-                >
-                  <span>{t.divisions.d1Cta}</span>
-                  <ArrowRight className="w-4 h-4 text-[#202020]" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Division 2: Property Services */}
-            <div className="group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
-                  <Image
-                    src="/images/consulting.jpg"
-                    alt={t.divisions.d2Title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
-                  />
-                  <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
-                    <FileCheck className="w-3.5 h-3.5 text-[#F9DB5C]" />
-                    <span>Division 02</span>
-                  </div>
-                </div>
-                <div className="p-6 space-y-2.5">
-                  <h3 className="text-xl font-black text-[#202020] group-hover:text-[#B78D42] transition">
-                    {t.divisions.d2Title}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                    {t.divisions.d2Desc}
-                  </p>
-                </div>
-              </div>
-              <div className="p-6 pt-0">
-                <Link
-                  href="/services"
-                  className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
-                >
-                  <span>{t.divisions.d2Cta}</span>
-                  <ArrowRight className="w-4 h-4 text-[#202020]" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Division 3: Construction & Engineering */}
-            <div className="group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
-                  <Image
-                    src="/images/turnkey-home.jpg"
-                    alt={t.divisions.d3Title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
-                  />
-                  <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
-                    <HardHat className="w-3.5 h-3.5 text-[#F9DB5C]" />
-                    <span>Division 03</span>
-                  </div>
-                </div>
-                <div className="p-6 space-y-2.5">
-                  <h3 className="text-xl font-black text-[#202020] group-hover:text-[#B78D42] transition">
-                    {t.divisions.d3Title}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                    {t.divisions.d3Desc}
-                  </p>
-                </div>
-              </div>
-              <div className="p-6 pt-0">
-                <Link
-                  href="/construction"
-                  className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
-                >
-                  <span>{t.divisions.d3Cta}</span>
-                  <ArrowRight className="w-4 h-4 text-[#202020]" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Division 4: Property Intelligence */}
-            <div className="group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
-                  <Image
-                    src="/images/dtcp-plots.jpg"
-                    alt={t.divisions.d4Title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
-                  />
-                  <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
-                    <BarChart3 className="w-3.5 h-3.5 text-[#F9DB5C]" />
-                    <span>Division 04</span>
-                  </div>
-                </div>
-                <div className="p-6 space-y-2.5">
-                  <h3 className="text-xl font-black text-[#202020] group-hover:text-[#B78D42] transition">
-                    {t.divisions.d4Title}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                    {t.divisions.d4Desc}
-                  </p>
-                </div>
-              </div>
-              <div className="p-6 pt-0">
-                <Link
-                  href="/intelligence"
-                  className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
-                >
-                  <span>{t.divisions.d4Cta}</span>
-                  <ArrowRight className="w-4 h-4 text-[#202020]" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Division 5: Academy & Business Solutions */}
-            <div className="group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between md:col-span-2 lg:col-span-2">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="relative aspect-[16/10] sm:aspect-auto h-48 sm:h-full overflow-hidden bg-slate-900">
-                  <Image
-                    src="/images/youtube-production.jpg"
-                    alt={t.divisions.d5Title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
-                  />
-                  <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#F9DB5C]" />
-                    <span>Division 05</span>
-                  </div>
-                </div>
-                <div className="p-6 flex flex-col justify-between space-y-4">
-                  <div className="space-y-2.5">
-                    <h3 className="text-xl font-black text-[#202020] group-hover:text-[#B78D42] transition">
-                      {t.divisions.d5Title}
+                  <div className="p-6 space-y-2">
+                    <h3 className="text-lg font-black text-[#202020] group-hover:text-[#B78D42] transition">
+                      {t.divisions.d1Title}
                     </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                      {t.divisions.d5Desc}
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      {t.divisions.d1Desc}
                     </p>
                   </div>
-                  <div className="flex flex-wrap items-center gap-2 pt-2">
-                    <Link
-                      href="/academy"
-                      className="inline-flex items-center gap-1.5 py-2 px-3.5 rounded-lg bg-[#F2F2F2] hover:bg-slate-200 text-[#202020] font-bold text-xs border border-[#B78D42]/30 transition"
-                    >
-                      <BookOpen className="w-3.5 h-3.5 text-[#22CDE1]" />
-                      <span>Academy</span>
-                    </Link>
-                    <Link
-                      href="/business-solutions"
-                      className="inline-flex items-center gap-1.5 py-2 px-3.5 rounded-lg bg-[#202020] hover:bg-[#2A2A2A] text-[#F9DB5C] font-black text-xs border border-[#B78D42]/40 transition shadow-sm"
-                    >
-                      <span>{t.divisions.d5Cta}</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#F9DB5C]" />
-                    </Link>
+                </div>
+                <div className="p-6 pt-0">
+                  <Link
+                    href="/properties"
+                    className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
+                  >
+                    <span>{t.divisions.d1Cta}</span>
+                    <ArrowRight className="w-4 h-4 text-[#202020]" />
+                  </Link>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Division 2: Property Services */}
+            <ScrollReveal direction="up" delayMs={80}>
+              <div className="h-full group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between card-hover-lift">
+                <div>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+                    <Image
+                      src="/images/consulting.jpg"
+                      alt={t.divisions.d2Title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    />
+                    <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                      <FileCheck className="w-3.5 h-3.5 text-[#F9DB5C]" />
+                      <span>Division 02</span>
+                    </div>
+                  </div>
+                  <div className="p-6 space-y-2">
+                    <h3 className="text-lg font-black text-[#202020] group-hover:text-[#B78D42] transition">
+                      {t.divisions.d2Title}
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      {t.divisions.d2Desc}
+                    </p>
+                  </div>
+                </div>
+                <div className="p-6 pt-0">
+                  <Link
+                    href="/services"
+                    className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
+                  >
+                    <span>{t.divisions.d2Cta}</span>
+                    <ArrowRight className="w-4 h-4 text-[#202020]" />
+                  </Link>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Division 3: Construction & Engineering */}
+            <ScrollReveal direction="up" delayMs={160}>
+              <div className="h-full group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between card-hover-lift">
+                <div>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+                    <Image
+                      src="/images/turnkey-home.jpg"
+                      alt={t.divisions.d3Title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    />
+                    <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                      <HardHat className="w-3.5 h-3.5 text-[#F9DB5C]" />
+                      <span>Division 03</span>
+                    </div>
+                  </div>
+                  <div className="p-6 space-y-2">
+                    <h3 className="text-lg font-black text-[#202020] group-hover:text-[#B78D42] transition">
+                      {t.divisions.d3Title}
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      {t.divisions.d3Desc}
+                    </p>
+                  </div>
+                </div>
+                <div className="p-6 pt-0">
+                  <Link
+                    href="/construction"
+                    className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
+                  >
+                    <span>{t.divisions.d3Cta}</span>
+                    <ArrowRight className="w-4 h-4 text-[#202020]" />
+                  </Link>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Division 4: Property Intelligence */}
+            <ScrollReveal direction="up" delayMs={240}>
+              <div className="h-full group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between card-hover-lift">
+                <div>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+                    <Image
+                      src="/images/dtcp-plots.jpg"
+                      alt={t.divisions.d4Title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    />
+                    <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                      <BarChart3 className="w-3.5 h-3.5 text-[#F9DB5C]" />
+                      <span>Division 04</span>
+                    </div>
+                  </div>
+                  <div className="p-6 space-y-2">
+                    <h3 className="text-lg font-black text-[#202020] group-hover:text-[#B78D42] transition">
+                      {t.divisions.d4Title}
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      {t.divisions.d4Desc}
+                    </p>
+                  </div>
+                </div>
+                <div className="p-6 pt-0">
+                  <Link
+                    href="/intelligence"
+                    className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
+                  >
+                    <span>{t.divisions.d4Cta}</span>
+                    <ArrowRight className="w-4 h-4 text-[#202020]" />
+                  </Link>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Division 5: Academy & Business Solutions */}
+            <ScrollReveal direction="up" delayMs={320} className="md:col-span-2 lg:col-span-2">
+              <div className="h-full group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between card-hover-lift">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="relative aspect-[16/10] sm:aspect-auto h-48 sm:h-full overflow-hidden bg-slate-900">
+                    <Image
+                      src="/images/youtube-production.jpg"
+                      alt={t.divisions.d5Title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    />
+                    <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#F9DB5C]" />
+                      <span>Division 05</span>
+                    </div>
+                  </div>
+                  <div className="p-6 flex flex-col justify-between space-y-4">
+                    <div className="space-y-2">
+                      <h3 className="text-lg font-black text-[#202020] group-hover:text-[#B78D42] transition">
+                        {t.divisions.d5Title}
+                      </h3>
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                        {t.divisions.d5Desc}
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 pt-2">
+                      <Link
+                        href="/academy"
+                        className="inline-flex items-center gap-1.5 py-2 px-3.5 rounded-lg bg-[#F2F2F2] hover:bg-slate-200 text-[#202020] font-bold text-xs border border-[#B78D42]/30 transition"
+                      >
+                        <BookOpen className="w-3.5 h-3.5 text-[#22CDE1]" />
+                        <span>Academy</span>
+                      </Link>
+                      <Link
+                        href="/business-solutions"
+                        className="inline-flex items-center gap-1.5 py-2 px-3.5 rounded-lg bg-[#202020] hover:bg-[#2A2A2A] text-[#F9DB5C] font-black text-xs border border-[#B78D42]/40 transition shadow-sm"
+                      >
+                        <span>{t.divisions.d5Cta}</span>
+                        <ArrowRight className="w-3.5 h-3.5 text-[#F9DB5C]" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -770,12 +780,13 @@ export default function HomePage() {
             </div>
           ) : filteredProperties.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {filteredProperties.slice(0, 6).map((property) => (
-                <PropertyCard
-                  key={property.id}
-                  property={property}
-                  onWatchVideo={(id, title) => setActiveVideo({ id, title })}
-                />
+              {filteredProperties.slice(0, 6).map((property, idx) => (
+                <ScrollReveal key={property.id} direction="up" delayMs={idx * 60}>
+                  <PropertyCard
+                    property={property}
+                    onWatchVideo={(id, title) => setActiveVideo({ id, title })}
+                  />
+                </ScrollReveal>
               ))}
             </div>
           ) : (
@@ -927,41 +938,48 @@ export default function HomePage() {
       </section>
 
       {/* 3. INTERACTIVE TURNKEY CONSTRUCTION COST ESTIMATOR */}
-      <CostEstimator />
+      <ScrollReveal direction="up">
+        <CostEstimator />
+      </ScrollReveal>
 
       {/* 4. SMART REQUIREMENT CAPTURE (SURVEYHEART REPLACEMENT) */}
-      <SmartRequirementSurvey />
+      <ScrollReveal direction="up">
+        <SmartRequirementSurvey />
+      </ScrollReveal>
 
       {/* 4.5 PLOTTED LAND VS APARTMENT COMPARATIVE MATRIX */}
-      <PlotVsApartmentMatrix />
+      <ScrollReveal direction="up">
+        <PlotVsApartmentMatrix />
+      </ScrollReveal>
 
       {/* 5. PROMOTE WITH US (B2B CREATOR & PROMOTER STUDIO) */}
-      <section className="py-14 sm:py-18 bg-[#F2F2F2] relative overflow-hidden border-y border-[#B78D42]/25">
-        {/* Real Estate Media Production Studio Image Backdrop */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <Image
-            src="/images/youtube-production.jpg"
-            alt="YouTube Media Production Studio"
-            fill
-            className="object-cover object-center opacity-15"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-[#F2F2F2]" />
-        </div>
+      <ScrollReveal direction="up">
+        <section className="py-14 sm:py-18 bg-[#F2F2F2] relative overflow-hidden border-y border-[#B78D42]/25">
+          {/* Real Estate Media Production Studio Image Backdrop */}
+          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+            <Image
+              src="/images/youtube-production.jpg"
+              alt="YouTube Media Production Studio"
+              fill
+              className="object-cover object-center opacity-15"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-[#F2F2F2]" />
+          </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="bg-white/95 backdrop-blur-xl p-8 sm:p-12 rounded-3xl flex flex-col lg:flex-row items-center justify-between gap-8 border-2 border-[#B78D42]/30 shadow-xl">
-            <div className="space-y-3 text-center lg:text-left max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C20E10]/10 text-[#C20E10] text-xs font-black uppercase tracking-wider border border-[#C20E10]/30">
-                <Youtube className="w-4 h-4 fill-[#C20E10] text-[#C20E10]" />
-                <span>YouTube Creator Network • 125K+ Subscribers</span>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="bg-white/95 backdrop-blur-xl p-8 sm:p-12 rounded-3xl flex flex-col lg:flex-row items-center justify-between gap-8 border-2 border-[#B78D42]/30 shadow-xl">
+              <div className="space-y-3 text-center lg:text-left max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C20E10]/10 text-[#C20E10] text-xs font-black uppercase tracking-wider border border-[#C20E10]/30">
+                  <Youtube className="w-4 h-4 fill-[#C20E10] text-[#C20E10]" />
+                  <span>YouTube Creator Network • 125K+ Subscribers</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#202020] leading-snug tracking-tight">
+                  {t.promote.title}
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                  {t.promote.subtitle}
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-black text-[#202020] leading-tight">
-                {t.promote.title}
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-                {t.promote.subtitle}
-              </p>
-            </div>
 
             <div className="flex-shrink-0">
               <Link
@@ -975,50 +993,55 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* 5.5 INTEGRATED ENQUIRY & CONSULTATION CALLOUT */}
-      <section className="py-12 bg-white border-b border-[#B78D42]/25">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-[#202020] via-[#2A2A2A] to-[#202020] text-white p-8 sm:p-12 rounded-3xl border-2 border-[#B78D42]/50 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#F9DB5C]/10 rounded-full blur-3xl pointer-events-none" />
+      <ScrollReveal direction="up">
+        <section className="py-12 bg-white border-b border-[#B78D42]/25">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-gradient-to-r from-[#202020] via-[#2A2A2A] to-[#202020] text-white p-8 sm:p-12 rounded-3xl border-2 border-[#B78D42]/50 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-[#F9DB5C]/10 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="space-y-3 text-center lg:text-left max-w-2xl relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#F9DB5C] text-xs font-bold uppercase tracking-wider border border-[#B78D42]/40">
-                <Building2 className="w-3.5 h-3.5 text-[#22CDE1]" />
-                <span>Custom Quotation & Engineering Advisory</span>
+              <div className="space-y-3 text-center lg:text-left max-w-2xl relative z-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#F9DB5C] text-xs font-bold uppercase tracking-wider border border-[#B78D42]/40">
+                  <Building2 className="w-3.5 h-3.5 text-[#22CDE1]" />
+                  <span>Custom Quotation & Engineering Advisory</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-snug">
+                  {language === "ta"
+                    ? "நிலம் வாங்க அல்லது வீடு கட்ட திட்டமிடுகிறீர்களா?"
+                    : "Ready to Make Confident Property Decisions?"}
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                  {language === "ta"
+                    ? "சட்ட ஆய்வு, நேரடி மண்/நீர் சோதனை அல்லது டர்ன்கீ வீடு கட்டுதல் குறித்த விரிவான ஆலோசனைக்கு Er. J. வைரவேல் மற்றும் எங்கள் பொறியியல் குழுவை தொடர்பு கொள்ளுங்கள்."
+                    : "From 30-year deed forensics to turnkey construction and business growth solutions, connect directly with Er. J. Vairavel's engineering team for custom scoped quotations."}
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-black tracking-tight">
-                {language === "ta"
-                  ? "நிலம் வாங்க அல்லது வீடு கட்ட திட்டமிடுகிறீர்களா?"
-                  : "Ready to Make Confident Property Decisions?"}
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
-                {language === "ta"
-                  ? "சட்ட ஆய்வு, நேரடி மண்/நீர் சோதனை அல்லது டர்ன்கீ வீடு கட்டுதல் குறித்த விரிவான ஆலோசனைக்கு Er. J. வைரவேல் மற்றும் எங்கள் பொறியியல் குழுவை தொடர்பு கொள்ளுங்கள்."
-                  : "From 30-year deed forensics to turnkey construction and business growth solutions, connect directly with Er. J. Vairavel's engineering team for custom scoped quotations."}
-              </p>
-            </div>
 
-            <div className="flex-shrink-0 flex flex-wrap items-center justify-center gap-3 relative z-10">
-              <Link
-                href="/contact"
-                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-extrabold text-xs uppercase tracking-wider shadow-gold transition transform hover:-translate-y-0.5 border border-[#B78D42]/50"
-              >
-                {language === "ta" ? "நேரடி ஆலோசனை முன்பதிவு" : "Schedule Consultation"}
-              </Link>
-              <Link
-                href="/services"
-                className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-[#F2F2F2] font-bold text-xs uppercase tracking-wider border border-white/20 transition"
-              >
-                {language === "ta" ? "11 சேவைகளைக் காண்க" : "View 11 Services"}
-              </Link>
+              <div className="flex-shrink-0 flex flex-wrap items-center justify-center gap-3 relative z-10">
+                <Link
+                  href="/contact"
+                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-extrabold text-xs uppercase tracking-wider shadow-gold transition transform hover:-translate-y-0.5 border border-[#B78D42]/50"
+                >
+                  {language === "ta" ? "நேரடி ஆலோசனை முன்பதிவு" : "Schedule Consultation"}
+                </Link>
+                <Link
+                  href="/services"
+                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-[#F2F2F2] font-bold text-xs uppercase tracking-wider border border-white/20 transition"
+                >
+                  {language === "ta" ? "11 சேவைகளைக் காண்க" : "View 11 Services"}
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* 6. REVIEWS & DUAL-OFFICE LOCATION SECTION */}
-      <ReviewsAndOffices />
+      <ScrollReveal direction="up">
+        <ReviewsAndOffices />
+      </ScrollReveal>
 
       {/* Interactive YouTube Walkthrough Video Modal */}
       {activeVideo && (
