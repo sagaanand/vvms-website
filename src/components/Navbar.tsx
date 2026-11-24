@@ -12,7 +12,6 @@ import {
   Menu,
   X,
   Languages,
-  Building2,
   Home,
   HardHat,
   Share2,
@@ -24,7 +23,6 @@ import {
   Briefcase,
   BarChart3,
   BookOpen,
-  FileText,
   PhoneCall,
   ArrowRight,
 } from "lucide-react";
@@ -46,13 +44,11 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "/", label: t.nav.home, icon: Home },
-    { href: "/properties", label: t.nav.properties, icon: Building2 },
     { href: "/services", label: t.nav.services, icon: Briefcase },
     { href: "/construction", label: t.nav.construction, icon: HardHat },
     { href: "/intelligence", label: t.nav.intelligence, icon: BarChart3 },
     { href: "/academy", label: t.nav.academy, icon: BookOpen },
     { href: "/business-solutions", label: t.nav.businessSolutions, icon: Layers },
-    { href: "/resources", label: t.nav.resources, icon: FileText },
     { href: "/about", label: t.nav.about, icon: UserCheck },
     { href: "/contact", label: t.nav.contact, icon: PhoneCall },
   ];
