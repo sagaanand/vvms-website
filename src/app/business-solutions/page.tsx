@@ -173,10 +173,10 @@ export default function BusinessSolutionsPage() {
       <HeroSlider slides={businessSlides} />
 
       {/* Visual Preview Notice Banner */}
-      <div className="bg-white border-b border-[#B78D42]/30 text-[#202020] py-2.5 px-4 text-xs font-semibold shadow-sm">
+      <div className="bg-white border-b border-[#B78D42]/30 text-[#202020] py-3 px-4 text-xs sm:text-sm font-semibold shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="bg-[#202020] text-[#F9DB5C] text-[10px] uppercase font-black px-2 py-0.5 rounded">
+          <div className="flex items-center gap-2.5">
+            <span className="bg-[#202020] text-[#F9DB5C] text-xs uppercase font-black px-2.5 py-1 rounded">
               UI/UX Preview
             </span>
             <span>
@@ -185,18 +185,16 @@ export default function BusinessSolutionsPage() {
                 : "Business Solutions Visual Preview • Solutions are delivered as managed consulting services, not multi-tenant SaaS products."}
             </span>
           </div>
-          <span className="hidden md:inline text-[#B78D42] text-[11px] font-bold">
+          <span className="hidden md:inline text-[#B78D42] text-xs font-bold">
             Custom Quotation Model
           </span>
         </div>
       </div>
 
-
-
       {/* Solutions Tabs & Detailed Breakdown */}
       <section id="solutions-overview" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         {/* Solution Category Selector */}
-        <div className="flex items-center justify-center gap-2 mb-10 overflow-x-auto pb-2">
+        <div className="flex items-center justify-center gap-3 mb-10 overflow-x-auto pb-2">
           {solutions.map((sol) => {
             const Icon = sol.icon;
             const isActive = activeTab === sol.id;
@@ -204,7 +202,7 @@ export default function BusinessSolutionsPage() {
               <button
                 key={sol.id}
                 onClick={() => setActiveTab(sol.id as any)}
-                className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs font-black transition border-2 whitespace-nowrap ${
+                className={`flex items-center gap-2.5 px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-black transition border-2 whitespace-nowrap ${
                   isActive
                     ? "bg-[#202020] text-[#F9DB5C] border-[#B78D42] shadow-gold"
                     : "bg-white text-slate-700 border-slate-200 hover:border-[#B78D42]/40"

@@ -148,25 +148,25 @@ function PropertiesDirectoryContent() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Visual Preview Notice */}
-        <div className="mb-6 p-3 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-xs flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="bg-amber-600 text-white text-[10px] uppercase font-black px-2 py-0.5 rounded">
+        <div className="mb-6 p-4 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-xs sm:text-sm flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
+            <span className="bg-amber-600 text-white text-xs uppercase font-black px-2.5 py-1 rounded-md">
               Visual Preview
             </span>
-            <span className="font-semibold text-slate-700">
+            <span className="font-semibold text-slate-800">
               {language === "ta"
                 ? "கீழே உள்ள சொத்து விவரங்கள் மாதிரி வடிவமைப்பு முன்னோட்டத்திற்காக மட்டுமே காட்டப்படுகின்றன."
                 : "Property profiles below are presented as realistic visual demonstration specimens for design review."}
             </span>
           </div>
-          <span className="text-[11px] font-bold text-amber-800 hidden sm:inline">
+          <span className="text-xs font-bold text-amber-900 hidden sm:inline">
             Sample Demonstration Data
           </span>
         </div>
 
         {/* Search & Filter Toolbar with Gold Trim */}
-        <div className="bg-white rounded-3xl p-4 sm:p-5 border-2 border-gold-400/40 shadow-sm mb-8 space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <div className="bg-white rounded-3xl p-4 sm:p-6 border-2 border-gold-400/40 shadow-sm mb-8 space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
             {/* Search Input */}
             <div className="lg:col-span-2 relative">
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -175,7 +175,7 @@ function PropertiesDirectoryContent() {
                 placeholder="Search by ID (VVS-TRY-101), K.K. Nagar, Villa..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-gold-500 font-medium"
+                className="w-full pl-10 pr-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-gold-500 font-medium"
               />
             </div>
 

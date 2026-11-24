@@ -144,10 +144,10 @@ export default function ResourcesPage() {
       <HeroSlider slides={resourcesSlides} />
 
       {/* Notice Banner */}
-      <div className="bg-amber-100 border-b border-amber-300 text-amber-950 py-2.5 px-4 text-xs font-semibold">
+      <div className="bg-amber-100 border-b border-amber-300 text-amber-950 py-3 px-4 text-xs sm:text-sm font-semibold">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="bg-amber-600 text-white text-[10px] uppercase font-black px-2 py-0.5 rounded">
+          <div className="flex items-center gap-2.5">
+            <span className="bg-amber-600 text-white text-xs uppercase font-black px-2.5 py-1 rounded">
               UI/UX Preview
             </span>
             <span>
@@ -156,7 +156,7 @@ export default function ResourcesPage() {
                 : "Resources & Buyer Handbooks Visual Preview • Practical due diligence literature authored by Er. J. Vairavel."}
             </span>
           </div>
-          <span className="hidden md:inline text-amber-800 text-[11px] font-bold">
+          <span className="hidden md:inline text-amber-800 text-xs font-bold">
             Free Educational Access
           </span>
         </div>
@@ -179,29 +179,29 @@ export default function ResourcesPage() {
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="p-3 rounded-2xl bg-amber-50 border border-amber-200 text-amber-700 group-hover:scale-105 transition">
+                    <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-700 group-hover:scale-105 transition">
                       <Icon className="w-5 h-5 text-amber-600" />
                     </div>
-                    <span className="text-[11px] font-black text-amber-900 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-300">
+                    <span className="text-xs font-black text-amber-900 bg-amber-50 px-3 py-1 rounded-lg border border-amber-300">
                       {guide.pages}
                     </span>
                   </div>
 
                   <div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-700">
+                    <span className="text-xs font-extrabold uppercase tracking-wider text-cyan-700">
                       {guide.category}
                     </span>
-                    <h3 className="text-lg font-black text-slate-900 mt-1 leading-snug group-hover:text-amber-700 transition">
+                    <h3 className="text-lg sm:text-xl font-black text-slate-900 mt-1.5 leading-snug group-hover:text-amber-700 transition">
                       {guide.title}
                     </h3>
                   </div>
 
-                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                  <p className="text-sm text-slate-600 leading-relaxed font-medium">
                     {guide.desc}
                   </p>
 
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-[11px] font-bold text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                     <span>{guide.badge}</span>
                   </div>
                 </div>
@@ -211,9 +211,9 @@ export default function ResourcesPage() {
                     href={waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-sm transition"
+                    className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition"
                   >
-                    <Download className="w-3.5 h-3.5" />
+                    <Download className="w-4 h-4" />
                     <span>{language === "ta" ? "கையேடு பெற" : "Request PDF Copy"}</span>
                   </a>
 

@@ -157,10 +157,10 @@ export default function IntelligencePage() {
       <HeroSlider slides={intelligenceSlides} />
 
       {/* Notice Banner */}
-      <div className="bg-amber-500/20 border-b border-amber-400/40 text-amber-200 py-2.5 px-4 text-xs font-semibold backdrop-blur-md">
+      <div className="bg-amber-500/20 border-b border-amber-400/40 text-amber-200 py-3 px-4 text-xs sm:text-sm font-semibold backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-slate-950 text-[10px] uppercase font-black px-2 py-0.5 rounded">
+          <div className="flex items-center gap-2.5">
+            <span className="bg-amber-500 text-slate-950 text-xs uppercase font-black px-2.5 py-1 rounded">
               UI/UX Preview
             </span>
             <span>
@@ -169,7 +169,7 @@ export default function IntelligencePage() {
                 : "Property Intelligence Visual Preview • Sub-Registrar guideline values, corridor appreciation, and infrastructure analytics."}
             </span>
           </div>
-          <span className="hidden md:inline text-amber-300 text-[11px] font-bold">
+          <span className="hidden md:inline text-amber-300 text-xs font-bold">
             Methodology & SRO Deeds
           </span>
         </div>
@@ -181,18 +181,18 @@ export default function IntelligencePage() {
           <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -left-20 -top-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-card border border-gold-500/40 text-gold-400 text-xs font-bold uppercase tracking-wider">
-              <BarChart3 className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="relative z-10 max-w-3xl space-y-5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-card border border-gold-500/40 text-gold-400 text-xs sm:text-sm font-black uppercase tracking-wider">
+              <BarChart3 className="w-4 h-4 text-cyan-400" />
               <span>Institutional Land Intelligence & Micro-Market Comps</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-snug sm:leading-normal">
               Trichy Land Intelligence & <br />
               <span className="text-gold-400">Sub-Registrar Guideline Value</span> Hub
             </h1>
 
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-200 text-base sm:text-lg leading-relaxed sm:leading-loose">
               Curated under the civil engineering leadership of{" "}
               <strong className="text-white">Er. J. Vairavel</strong>. Unbiased, registered
               transaction comps, guideline values, groundwater aquifer depths, and mega infrastructure

@@ -12,6 +12,7 @@ import CostEstimator from "@/components/CostEstimator";
 import SmartRequirementSurvey from "@/components/SmartRequirementSurvey";
 import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
 import ReviewsAndOffices from "@/components/ReviewsAndOffices";
+import ScrollReveal from "@/components/ScrollReveal";
 import {
   Search,
   Building2,
@@ -152,15 +153,15 @@ export default function HomePage() {
         <div className="absolute bottom-10 left-10 w-[480px] h-[480px] bg-[#22CDE1]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-8 sm:mb-12">
+          <div className="text-center max-w-3xl mx-auto space-y-5 mb-8 sm:mb-12">
             {/* Approved Eyebrow Badge in Charcoal & Antique Gold */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#202020]/90 border border-[#B78D42]/60 text-[#F9DB5C] text-xs font-black tracking-widest uppercase shadow-md backdrop-blur-md">
-              <Compass className="w-3.5 h-3.5 text-[#22CDE1]" />
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#202020]/90 border border-[#B78D42]/60 text-[#F9DB5C] text-xs sm:text-sm font-black tracking-widest uppercase shadow-md backdrop-blur-md">
+              <Compass className="w-4 h-4 text-[#22CDE1]" />
               <span>{t.hero.eyebrow}</span>
             </div>
 
             {/* Approved Brand Positioning Headline with Primary Gold Gradient */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.22] sm:leading-[1.25]">
               <span className="block text-[#F2F2F2] drop-shadow-sm">
                 {t.hero.headline.split(".")[0]}.
               </span>
@@ -169,20 +170,20 @@ export default function HomePage() {
               </span>
             </h1>
 
-            {/* Approved Supporting Description */}
-            <p className="text-xs sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
+            {/* Approved Supporting Description with Spacious Leading */}
+            <p className="text-sm sm:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed sm:leading-loose font-medium">
               {t.hero.supportingDesc}
             </p>
 
             {/* Primary & Secondary Dual CTAs */}
-            <div className="pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <div className="pt-3 flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
               <button
                 type="button"
                 onClick={() => {
                   const el = document.getElementById("featured-properties");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-black text-xs sm:text-sm tracking-wide shadow-gold border border-[#B78D42]/60 transition transform hover:-translate-y-0.5 active:translate-y-0"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] hover:brightness-105 text-[#202020] font-black text-sm sm:text-base tracking-wide shadow-gold border border-[#B78D42]/60 transition transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span>{t.hero.primaryCta}</span>
                 <ArrowRight className="w-4 h-4 text-[#202020]" />
@@ -194,7 +195,7 @@ export default function HomePage() {
                   const el = document.getElementById("cost-estimator");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#202020]/80 hover:bg-[#202020] text-[#F2F2F2] font-bold text-xs sm:text-sm border-2 border-[#B78D42]/50 shadow-md backdrop-blur-md transition transform hover:-translate-y-0.5 active:translate-y-0"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#202020]/80 hover:bg-[#202020] text-[#F2F2F2] font-bold text-sm sm:text-base border-2 border-[#B78D42]/50 shadow-md backdrop-blur-md transition transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <HardHat className="w-4 h-4 text-[#F9DB5C]" />
                 <span>{t.hero.secondaryCta}</span>
@@ -202,7 +203,7 @@ export default function HomePage() {
             </div>
 
             {/* Visual Subject Carousel Indicators */}
-            <div className="pt-3 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+            <div className="pt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
               {heroBackgrounds.map((bg, idx) => {
                 const isActive = idx === bgIndex;
                 return (
@@ -210,14 +211,14 @@ export default function HomePage() {
                     key={bg.src}
                     type="button"
                     onClick={() => setBgIndex(idx)}
-                    className={`px-3 py-1 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all duration-300 flex items-center gap-1.5 ${
+                    className={`px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-black uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
                       isActive
                         ? "bg-[#F9DB5C] text-[#202020] shadow-gold scale-105 border border-[#B78D42]"
                         : "bg-[#202020]/70 text-slate-300 hover:text-white border border-white/10 hover:border-[#B78D42]/40"
                     }`}
                   >
                     <span
-                      className={`w-1.5 h-1.5 rounded-full ${
+                      className={`w-2 h-2 rounded-full ${
                         isActive ? "bg-[#202020]" : "bg-[#22CDE1]"
                       }`}
                     />
@@ -229,36 +230,36 @@ export default function HomePage() {
           </div>
 
           {/* FLOATING CHARCOAL GLASS SEARCH DOCK */}
-          <div className="max-w-4xl mx-auto bg-[#252525]/95 backdrop-blur-xl rounded-3xl p-3 sm:p-5 shadow-2xl relative border-2 border-[#B78D42]/45">
-            <div className="text-center sm:text-left px-2 pt-1 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#B78D42]/30">
-              <span className="text-xs sm:text-sm font-extrabold text-[#F2F2F2] tracking-wide flex items-center justify-center sm:justify-start gap-2">
+          <div className="max-w-4xl mx-auto bg-[#252525]/95 backdrop-blur-xl rounded-3xl p-4 sm:p-6 shadow-2xl relative border-2 border-[#B78D42]/45">
+            <div className="text-center sm:text-left px-2 pt-1 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#B78D42]/30">
+              <span className="text-sm sm:text-base font-extrabold text-[#F2F2F2] tracking-wide flex items-center justify-center sm:justify-start gap-2">
                 <Search className="w-4 h-4 text-[#F9DB5C]" />
                 <span>{t.hero.searchHeading}</span>
               </span>
 
               {/* Two Tabs: Buy Property & Build a Home */}
-              <div className="inline-flex p-1 rounded-2xl bg-[#202020] border border-[#B78D42]/30 self-center sm:self-auto">
+              <div className="inline-flex p-1.5 rounded-2xl bg-[#202020] border border-[#B78D42]/30 self-center sm:self-auto gap-1">
                 <button
                   type="button"
                   onClick={() => setActiveTab("buy")}
-                  className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${activeTab === "buy"
+                  className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center gap-2 ${activeTab === "buy"
                     ? "bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] text-[#202020] shadow-md"
                     : "text-slate-300 hover:text-[#F9DB5C]"
                     }`}
                 >
-                  <Building2 className="w-3.5 h-3.5" />
+                  <Building2 className="w-4 h-4" />
                   <span>{t.hero.tabBuy}</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setActiveTab("build")}
-                  className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 ${activeTab === "build"
+                  className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center gap-2 ${activeTab === "build"
                     ? "bg-gradient-to-r from-[#F6E785] to-[#F9DB5C] text-[#202020] shadow-md"
                     : "text-slate-300 hover:text-[#F9DB5C]"
                     }`}
                 >
-                  <HardHat className="w-3.5 h-3.5" />
+                  <HardHat className="w-4 h-4" />
                   <span>{t.hero.tabBuild}</span>
                 </button>
               </div>
@@ -497,18 +498,20 @@ export default function HomePage() {
       {/* 1.5 FIVE BUSINESS DIVISIONS IN LUXURY HYBRID GLASS PALETTE */}
       <section className="py-14 sm:py-20 bg-[#F2F2F2] border-b border-[#B78D42]/25">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#B78D42]/40 text-[#202020] text-xs font-black uppercase tracking-wider shadow-sm">
-              <Layers className="w-3.5 h-3.5 text-[#B78D42]" />
-              <span>{t.divisions.eyebrow}</span>
+          <ScrollReveal direction="up">
+            <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-[#B78D42]/40 text-[#202020] text-xs sm:text-sm font-black uppercase tracking-wider shadow-sm">
+                <Layers className="w-4 h-4 text-[#B78D42]" />
+                <span>{t.divisions.eyebrow}</span>
+              </div>
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#202020] tracking-tight leading-snug">
+                {t.divisions.headline}
+              </h2>
+              <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed font-medium">
+                {t.divisions.subheadline}
+              </p>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-black text-[#202020] tracking-tight">
-              {t.divisions.headline}
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-              {t.divisions.subheadline}
-            </p>
-          </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Division 1: Property Marketplace */}
@@ -551,7 +554,7 @@ export default function HomePage() {
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                   <Image
-                    src="/images/vairavel.jpg"
+                    src="/images/consulting.jpg"
                     alt={t.divisions.d2Title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"

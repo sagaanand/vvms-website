@@ -10,6 +10,10 @@ import {
   ShieldCheck,
   HardHat,
   Phone,
+  Compass,
+  TrendingUp,
+  Target,
+  CheckCircle2,
 } from "lucide-react";
 import { Youtube } from "@/components/icons/YoutubeIcon";
 
@@ -81,6 +85,71 @@ export default function AboutPage() {
                 <div className="text-xl font-black text-gold-600">4.8★</div>
                 <div className="text-[11px] text-slate-500 font-bold">Google Rating</div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* The VVMS Brand Ethos: Vision | Value | Mission | Success */}
+        <div className="bg-[#202020] rounded-3xl p-6 sm:p-10 border-2 border-[#F9DB5C]/40 shadow-2xl space-y-6">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-black uppercase tracking-widest text-[#22CDE1] block">
+              The VVMS Brand Creed
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-[#F9DB5C]">
+              Vision • Value • Mission • Success
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
+              Every decision we make, from on-camera YouTube reviews to turnkey construction, is guided by our four core institutional pillars.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-[#F9DB5C]/60 transition group space-y-2.5">
+              <div className="w-10 h-10 rounded-xl bg-[#F9DB5C]/20 text-[#F9DB5C] flex items-center justify-center border border-[#F9DB5C]/40">
+                <Compass className="w-5 h-5" />
+              </div>
+              <div className="text-xs font-black uppercase tracking-wider text-[#F9DB5C]">
+                V • Vision
+              </div>
+              <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                Pioneering ethical, civil engineering-backed property standards across Tamil Nadu so families invest with total peace of mind.
+              </p>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-[#22CDE1]/60 transition group space-y-2.5">
+              <div className="w-10 h-10 rounded-xl bg-[#22CDE1]/20 text-[#22CDE1] flex items-center justify-center border border-[#22CDE1]/40">
+                <TrendingUp className="w-5 h-5" />
+              </div>
+              <div className="text-xs font-black uppercase tracking-wider text-[#22CDE1]">
+                V • Value
+              </div>
+              <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                Uncompromising fair value with 0% buyer commission, transparent pricing, and direct-owner deals free of broker inflation.
+              </p>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-red-400/60 transition group space-y-2.5">
+              <div className="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center border border-red-500/40">
+                <Target className="w-5 h-5" />
+              </div>
+              <div className="text-xs font-black uppercase tracking-wider text-red-400">
+                M • Mission
+              </div>
+              <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                Rigorous parent deed verification, soil testing, BOQ estimation, and turnkey home construction built with structural excellence.
+              </p>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:border-[#F6E785]/60 transition group space-y-2.5">
+              <div className="w-10 h-10 rounded-xl bg-[#F6E785]/20 text-[#F6E785] flex items-center justify-center border border-[#F6E785]/40">
+                <CheckCircle2 className="w-5 h-5" />
+              </div>
+              <div className="text-xs font-black uppercase tracking-wider text-[#F6E785]">
+                S • Success
+              </div>
+              <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                Over 125,000 YouTube community members and thousands of happy homeowners who built their lifetime dreams without conflict.
+              </p>
             </div>
           </div>
         </div>

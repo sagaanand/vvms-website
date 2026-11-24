@@ -66,7 +66,7 @@ export default function SingleServicePage({
 
       setSubmitted(true);
 
-      const waMsg = `Hello Er. J. Vairavel, I want to book your "${service.title}" service (${service.priceTag}) on veeduveettumanaisanthai.in:\n\n• Name: ${form.name}\n• Phone: ${form.phone}\n• Property Locality: ${form.propertyLocality || "Trichy"}\n• Survey No: ${form.surveyNumber || "N/A"}\n• Note: ${form.message || "Consultation"}\n\nPlease share the docket submission instructions.`;
+      const waMsg = `Hello VVMS Services Desk, I want to book your "${service.title}" service (${service.priceTag}) on veeduveettumanaisanthai.in:\n\n• Name: ${form.name}\n• Phone: ${form.phone}\n• Property Locality: ${form.propertyLocality || "Trichy"}\n• Survey No: ${form.surveyNumber || "N/A"}\n• Note: ${form.message || "Consultation"}\n\nPlease share the docket submission instructions.`;
       const waUrl = getWhatsAppUrl(COMPANY_INFO.whatsappRaw, waMsg);
 
       setTimeout(() => {
@@ -165,7 +165,7 @@ export default function SingleServicePage({
               </div>
             </div>
 
-            {/* What Er. J. Vairavel & Team Help With */}
+            {/* What Our Civil & Legal Experts Help With */}
             <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-gold-300 shadow-sm space-y-4">
               <div className="flex items-center gap-2 text-gold-900 font-black text-base">
                 <ShieldCheck className="w-5 h-5 text-gold-600" />
@@ -216,7 +216,7 @@ export default function SingleServicePage({
                   Request {service.title}
                 </h3>
                 <p className="text-xs text-slate-500 font-medium">
-                  Submit your details below. Er. J. Vairavel&apos;s legal/technical team will review your case within 24 hours.
+                  Submit your details below. Our legal and technical advisory board will review your case within 24 hours.
                 </p>
               </div>
 
@@ -320,18 +320,18 @@ export default function SingleServicePage({
             {/* Credibility Card */}
             <div className="bg-brand-black text-white rounded-3xl p-5 border-2 border-gold-400/50 shadow-gold space-y-3">
               <div className="flex items-center gap-3">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-gold-400 bg-brand-black flex-shrink-0">
+                <div className="relative w-12 h-12 rounded-2xl overflow-hidden border-2 border-gold-400 bg-brand-black flex-shrink-0 flex items-center justify-center p-1 shadow-md">
                   <Image
-                    src="/images/vairavel-avatar.jpg"
-                    alt="Er. J. Vairavel"
-                    width={48}
-                    height={48}
-                    className="object-cover"
+                    src="/images/logo.png"
+                    alt="VVMS Engineering & Legal Board"
+                    width={40}
+                    height={40}
+                    className="object-contain"
                   />
                 </div>
                 <div>
-                  <h4 className="font-black text-sm text-white">{COMPANY_INFO.founder}</h4>
-                  <p className="text-[11px] text-gold-400 font-bold">Civil Engineer & Advisory Head</p>
+                  <h4 className="font-black text-sm text-white">VVMS Technical Advisory Directorate</h4>
+                  <p className="text-[11px] text-gold-400 font-bold">Senior Civil Engineers & High Court Advocates</p>
                 </div>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed font-medium">

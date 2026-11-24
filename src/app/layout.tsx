@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ScrollProgress from "@/components/ScrollProgress";
+import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://veeduveettumanaisanthai.in"),
@@ -118,9 +120,11 @@ export default function RootLayout({
       </head>
       <body className="antialiased min-h-screen flex flex-col bg-slate-50 text-slate-900 pb-16 md:pb-0">
         <LanguageProvider>
+          <ScrollProgress />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
+          <BackToTop />
           <FloatingWhatsApp />
           <MobileBottomBar />
         </LanguageProvider>

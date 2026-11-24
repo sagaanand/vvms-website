@@ -225,14 +225,14 @@ export default function ConstructionPage() {
 
       {/* Side-by-Side Comparison Table of Packages */}
       <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-gold-600 font-black text-xs uppercase tracking-wider block mb-1">
+        <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
+          <span className="text-gold-600 font-black text-xs sm:text-sm uppercase tracking-wider block">
             Material Specifications
           </span>
-          <h2 className="text-2xl sm:text-4xl font-black text-brand-black tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-brand-black tracking-tight leading-snug">
             Compare Our Construction Packages
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500 mt-2 font-medium">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-600 font-medium leading-relaxed sm:leading-loose">
             Every specification is explicitly documented in the legal construction contract with batch receipts and test certificates.
           </p>
         </div>

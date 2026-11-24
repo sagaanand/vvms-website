@@ -147,10 +147,10 @@ export default function AcademyPage() {
       <HeroSlider slides={academySlides} />
 
       {/* Notice Banner */}
-      <div className="bg-amber-500/20 border-b border-amber-400/40 text-amber-200 py-2.5 px-4 text-xs font-semibold backdrop-blur-md">
+      <div className="bg-amber-500/20 border-b border-amber-400/40 text-amber-200 py-3 px-4 text-xs sm:text-sm font-semibold backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-slate-950 text-[10px] uppercase font-black px-2 py-0.5 rounded">
+          <div className="flex items-center gap-2.5">
+            <span className="bg-amber-500 text-slate-950 text-xs uppercase font-black px-2.5 py-1 rounded">
               UI/UX Preview
             </span>
             <span>
@@ -159,7 +159,7 @@ export default function AcademyPage() {
                 : "Academy Visual Preview • Due diligence education and buyer training modules by Er. J. Vairavel."}
             </span>
           </div>
-          <span className="hidden md:inline text-amber-300 text-[11px] font-bold">
+          <span className="hidden md:inline text-amber-300 text-xs font-bold">
             Public Education Initiative
           </span>
         </div>
@@ -171,28 +171,28 @@ export default function AcademyPage() {
           <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -left-20 -top-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-card border border-gold-500/40 text-gold-400 text-xs font-bold uppercase tracking-wider">
-              <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="relative z-10 max-w-3xl space-y-5">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-brand-card border border-gold-500/40 text-gold-400 text-xs sm:text-sm font-black uppercase tracking-wider">
+              <BookOpen className="w-4 h-4 text-cyan-400" />
               <span>Real Estate Academy & Buyer Education Hub</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-snug sm:leading-normal">
               The Tamil Nadu Land & Property <br />
               <span className="text-gold-400">Due Diligence Masterclass</span>
             </h1>
 
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-200 text-base sm:text-lg leading-relaxed sm:leading-loose">
               Before paying a single rupee in token advance, master the legal and technical safeguards
               developed by <strong className="text-white">Er. J. Vairavel (Civil Engineer)</strong>.
               Learn to decipher Patta, Chitta, TSLR, FMB sketches, and 30-year encumbrance certificates
               like a pro.
             </p>
 
-            <div className="pt-2 flex flex-wrap gap-4 text-xs sm:text-sm">
+            <div className="pt-2 flex flex-wrap gap-4 text-sm sm:text-base">
               <button
                 onClick={() => setDownloadModalOpen(true)}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-slate-950 font-black shadow-md transition"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-gold-500 hover:bg-gold-400 text-slate-950 font-black shadow-md transition"
               >
                 <Download className="w-4 h-4" />
                 <span>Download Free 15-Point Due Diligence Checklist</span>
@@ -200,7 +200,7 @@ export default function AcademyPage() {
 
               <Link
                 href="/services/online-legal-opinion"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-card hover:bg-slate-800 text-cyan-400 font-bold border border-cyan-500/30 transition"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-brand-card hover:bg-slate-800 text-cyan-400 font-bold border border-cyan-500/30 transition"
               >
                 <ShieldCheck className="w-4 h-4" />
                 <span>Get 30-Year Advocate Legal Opinion (₹4,999)</span>

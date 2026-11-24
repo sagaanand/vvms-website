@@ -3,6 +3,8 @@ export const COMPANY_INFO = {
   nameTa: "வீடு வீட்டுமனை சந்தை பிரைவேட் லிமிடெட்",
   tagline: "Your Dream Home Becomes Reality With Us",
   taglineTa: "உங்கள் கனவு இல்லம் எங்களுடன் சாத்தியமாகும்...",
+  motto: "Vision | Value | Mission | Success",
+  mottoTa: "தொலைநோக்கு • மதிப்பு • இலக்கு • வெற்றி (VVMS)",
   founder: "Er. J. Vairavel",
   founderTitle: "Founder & Chief Civil Consultant",
   founderTitleTa: "நிறுவனர் & முதன்மை சிவில் ஆலோசகர்",
