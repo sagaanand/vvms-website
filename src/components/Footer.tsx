@@ -275,7 +275,6 @@ export default function Footer() {
           <p className="font-medium">© {new Date().getFullYear()} {COMPANY_INFO.name}. {t.footer.rights}</p>
           <p className="text-[11px] text-slate-400 max-w-4xl mx-auto">
             Veedu Veettumanai Santhai Pvt Ltd is an engineering and property consultancy firm founded by Er. J. Vairavel.
-            Corporate visual identity: Primary Gold (#F9DB5C), Light Gold (#F6E785), Turquoise Blue (#22CDE1), Construction Red (#C20E10), Antique Gold (#B78D42), Charcoal Black (#202020), and Off White (#F2F2F2).
           </p>
         </div>
       </div>
