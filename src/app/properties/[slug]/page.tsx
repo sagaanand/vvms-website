@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { prisma } from "@/lib/prisma";
+import { prisma, ensureDbInitialized } from "@/lib/prisma";
 import PropertyDetailClient from "@/components/PropertyDetailClient";
 import { PropertyFaqItem } from "@/lib/propertySeo";
 
@@ -25,6 +25,7 @@ export async function generateStaticParams() {
 
 async function getProperty(slug: string) {
   try {
+    await ensureDbInitialized();
     return await prisma.property.findUnique({
       where: { slug },
     });

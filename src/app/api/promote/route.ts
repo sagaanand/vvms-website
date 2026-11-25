@@ -1,8 +1,11 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma, ensureDbInitialized } from "@/lib/prisma";
+
+export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
   try {
+    await ensureDbInitialized();
     const body = await request.json();
     const { ownerName, phone, email, propertyType, locality, askingPrice, plotAreaSqFt, notes } = body;
 
@@ -40,6 +43,7 @@ export async function POST(request: Request) {
 
 export async function GET() {
   try {
+    await ensureDbInitialized();
     const promotions = await prisma.promotionRequest.findMany({
       orderBy: { createdAt: "desc" },
     });

@@ -1,8 +1,11 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma, ensureDbInitialized } from "@/lib/prisma";
+
+export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
   try {
+    await ensureDbInitialized();
     const body = await request.json();
     const {
       name,
@@ -60,6 +63,7 @@ export async function POST(request: Request) {
 
 export async function GET(request: Request) {
   try {
+    await ensureDbInitialized();
     const { searchParams } = new URL(request.url);
     const status = searchParams.get("status");
     const leadType = searchParams.get("leadType");

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma, ensureDbInitialized } from "@/lib/prisma";
 import {
   generatePropertyOptimization,
   generatePropertySlug,
@@ -10,6 +10,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
   try {
+    await ensureDbInitialized();
     const { searchParams } = new URL(request.url);
     const locality = searchParams.get("locality");
     const propertyType = searchParams.get("propertyType");
@@ -67,6 +68,7 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
+    await ensureDbInitialized();
     const body = await request.json();
 
     const title = String(body.title || "").trim();

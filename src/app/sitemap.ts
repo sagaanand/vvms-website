@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { prisma } from "@/lib/prisma";
+import { prisma, ensureDbInitialized } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
 
@@ -45,6 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   let propertyRoutes: MetadataRoute.Sitemap = [];
   try {
+    await ensureDbInitialized();
     const properties = await prisma.property.findMany({
       select: { slug: true, updatedAt: true },
     });

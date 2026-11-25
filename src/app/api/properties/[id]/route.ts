@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma, ensureDbInitialized } from "@/lib/prisma";
 import { extractYoutubeId, formatPrice } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
@@ -9,6 +9,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
+    await ensureDbInitialized();
     const property = await prisma.property.findFirst({
       where: {
         OR: [{ id: params.id }, { slug: params.id }, { propertyId: params.id }],
@@ -35,6 +36,7 @@ export async function PATCH(
   { params }: { params: { id: string } }
 ) {
   try {
+    await ensureDbInitialized();
     const body = await request.json();
     const data: Record<string, unknown> = {};
 
@@ -156,6 +158,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
+    await ensureDbInitialized();
     await prisma.property.delete({
       where: { id: params.id },
     });
