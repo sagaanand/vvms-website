@@ -30,6 +30,8 @@ import {
   Globe,
   MapPin,
   HelpCircle,
+  Upload,
+  ImagePlus,
 } from "lucide-react";
 
 export default function AdminPage() {
@@ -69,6 +71,7 @@ export default function AdminPage() {
     youtubeUrl: "",
     youtubeVideoId: "",
     coverImage: "/images/hero-villa.jpg",
+    galleryImages: [] as string[],
     description: "",
     descriptionTa: "",
     featuresText: "DTCP Approved, 100% Vasthu, North Facing, Bank Loan Ready",
@@ -94,6 +97,7 @@ export default function AdminPage() {
   const [modalTab, setModalTab] = useState<"details" | "seo" | "aeo" | "geo">("details");
   const [saveError, setSaveError] = useState("");
   const [savingProperty, setSavingProperty] = useState(false);
+  const [uploadingImages, setUploadingImages] = useState(false);
   const [propertyForm, setPropertyForm] = useState(createEmptyForm);
 
   // Leads Filter
@@ -205,6 +209,13 @@ export default function AdminPage() {
     } catch {
       parsedFeatures = "";
     }
+    let parsedImages: string[] = [];
+    try {
+      const arr = prop.images ? JSON.parse(prop.images) : [];
+      parsedImages = Array.isArray(arr) ? arr.filter(Boolean) : [];
+    } catch {
+      parsedImages = [];
+    }
 
     setPropertyForm({
       propertyId: prop.propertyId || "",
@@ -231,6 +242,7 @@ export default function AdminPage() {
       youtubeUrl: prop.youtubeUrl || "",
       youtubeVideoId: prop.youtubeVideoId || "",
       coverImage: prop.coverImage || "/images/hero-villa.jpg",
+      galleryImages: parsedImages,
       description: prop.description || "",
       descriptionTa: prop.descriptionTa || "",
       featuresText: parsedFeatures,
@@ -295,6 +307,41 @@ export default function AdminPage() {
     }));
   };
 
+  const handleImageUpload = async (files: FileList | null, asCover: boolean) => {
+    if (!files || files.length === 0) return;
+    setUploadingImages(true);
+    setSaveError("");
+    try {
+      const formData = new FormData();
+      Array.from(files).forEach((file) => formData.append("files", file));
+
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (!data.success || !Array.isArray(data.urls)) {
+        setSaveError(data.error || "Image upload failed.");
+        return;
+      }
+
+      setPropertyForm((prev) => {
+        const mergedGallery = Array.from(
+          new Set([...(prev.galleryImages || []), ...data.urls])
+        );
+        return {
+          ...prev,
+          coverImage: asCover ? data.urls[0] : prev.coverImage || data.urls[0],
+          galleryImages: mergedGallery,
+        };
+      });
+    } catch (err: unknown) {
+      setSaveError(err instanceof Error ? err.message : "Image upload failed.");
+    } finally {
+      setUploadingImages(false);
+    }
+  };
+
   const handleSaveProperty = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaveError("");
@@ -320,7 +367,14 @@ export default function AdminPage() {
           : null,
         latitude: propertyForm.latitude ? parseFloat(propertyForm.latitude) : null,
         longitude: propertyForm.longitude ? parseFloat(propertyForm.longitude) : null,
-        images: JSON.stringify([propertyForm.coverImage || "/images/hero-villa.jpg"]),
+        images: JSON.stringify(
+          Array.from(
+            new Set([
+              propertyForm.coverImage || "/images/hero-villa.jpg",
+              ...(propertyForm.galleryImages || []),
+            ].filter(Boolean))
+          )
+        ),
         features: JSON.stringify(
           featuresArray.length > 0
             ? featuresArray
@@ -979,32 +1033,132 @@ export default function AdminPage() {
                     )}
                   </div>
 
-                  {/* Cover Image URL + Quick Preset */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end">
-                    <div className="sm:col-span-2">
-                      <label className="block font-bold text-slate-700 mb-1">Cover Image URL / Local Path *</label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="/images/hero-villa.jpg or https://..."
-                        value={propertyForm.coverImage}
-                        onChange={(e) => setPropertyForm({ ...propertyForm, coverImage: e.target.value })}
-                        className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-medium"
-                      />
+                  {/* Property Image Upload (Cover & Gallery) */}
+                  <div className="bg-amber-50/70 p-4 rounded-2xl border border-amber-200 space-y-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div>
+                        <label className="block font-black text-amber-950">
+                          Property Photos (Upload Cover &amp; Gallery Images) *
+                        </label>
+                        <p className="text-[11px] text-amber-800">
+                          Upload JPG, PNG, WEBP, or AVIF photos (max 8 MB each), or paste an image URL below.
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#202020] hover:bg-slate-800 text-[#F9DB5C] font-black text-[11px] transition shadow-sm">
+                          <Upload className="w-3.5 h-3.5" />
+                          <span>{uploadingImages ? "Uploading..." : "Upload Cover"}</span>
+                          <input
+                            type="file"
+                            accept="image/jpeg,image/png,image/webp,image/avif"
+                            disabled={uploadingImages}
+                            onChange={(e) => {
+                              handleImageUpload(e.target.files, true);
+                              e.target.value = "";
+                            }}
+                            className="hidden"
+                          />
+                        </label>
+                        <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-amber-100 text-amber-950 border border-amber-300 font-black text-[11px] transition">
+                          <ImagePlus className="w-3.5 h-3.5 text-amber-700" />
+                          <span>+ Add Gallery Photos</span>
+                          <input
+                            type="file"
+                            accept="image/jpeg,image/png,image/webp,image/avif"
+                            multiple
+                            disabled={uploadingImages}
+                            onChange={(e) => {
+                              handleImageUpload(e.target.files, false);
+                              e.target.value = "";
+                            }}
+                            className="hidden"
+                          />
+                        </label>
+                      </div>
                     </div>
-                    <div>
-                      <label className="block font-bold text-slate-700 mb-1">Quick Preset</label>
-                      <select
-                        value={propertyForm.coverImage}
-                        onChange={(e) => setPropertyForm({ ...propertyForm, coverImage: e.target.value })}
-                        className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-medium"
-                      >
-                        <option value="/images/hero-villa.jpg">Luxury Villa</option>
-                        <option value="/images/dtcp-plots.jpg">DTCP Plots</option>
-                        <option value="/images/turnkey-home.jpg">Individual House</option>
-                        <option value="/images/luxury-interior.jpg">Villa Interior</option>
-                      </select>
+
+                    {/* Cover Image Preview + URL / Preset */}
+                    <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
+                      <div className="sm:col-span-3">
+                        <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-amber-300">
+                          <Image
+                            src={propertyForm.coverImage || "/images/hero-villa.jpg"}
+                            alt="Cover preview"
+                            fill
+                            className="object-cover"
+                          />
+                          <span className="absolute bottom-1 left-1 px-1.5 py-0.5 rounded bg-black/75 text-[#F9DB5C] text-[9px] font-black">
+                            COVER
+                          </span>
+                        </div>
+                      </div>
+                      <div className="sm:col-span-6">
+                        <label className="block font-bold text-slate-700 mb-1">Cover Image Path / URL *</label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="/api/uploads/... or /images/hero-villa.jpg"
+                          value={propertyForm.coverImage}
+                          onChange={(e) => setPropertyForm({ ...propertyForm, coverImage: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-white border border-slate-200 text-slate-900 font-medium"
+                        />
+                      </div>
+                      <div className="sm:col-span-3">
+                        <label className="block font-bold text-slate-700 mb-1">Quick Preset</label>
+                        <select
+                          value={propertyForm.coverImage}
+                          onChange={(e) => setPropertyForm({ ...propertyForm, coverImage: e.target.value })}
+                          className="w-full px-3 py-2 rounded-xl bg-white border border-slate-200 text-slate-900 font-medium"
+                        >
+                          <option value="/images/hero-villa.jpg">Luxury Villa</option>
+                          <option value="/images/dtcp-plots.jpg">DTCP Plots</option>
+                          <option value="/images/turnkey-home.jpg">Individual House</option>
+                          <option value="/images/luxury-interior.jpg">Villa Interior</option>
+                        </select>
+                      </div>
                     </div>
+
+                    {/* Uploaded Gallery Thumbnails */}
+                    {propertyForm.galleryImages.length > 0 && (
+                      <div className="space-y-1.5 pt-1">
+                        <span className="text-[11px] font-bold text-slate-700 block">
+                          Gallery Photos ({propertyForm.galleryImages.length})
+                        </span>
+                        <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                          {propertyForm.galleryImages.map((imgUrl, idx) => (
+                            <div
+                              key={`${imgUrl}-${idx}`}
+                              className={`relative aspect-square rounded-xl overflow-hidden border-2 bg-slate-900 group ${
+                                propertyForm.coverImage === imgUrl ? "border-gold-500" : "border-slate-200"
+                              }`}
+                            >
+                              <Image src={imgUrl} alt={`Gallery ${idx + 1}`} fill className="object-cover" />
+                              <div className="absolute inset-x-0 bottom-0 p-1 bg-black/70 flex items-center justify-between gap-1">
+                                <button
+                                  type="button"
+                                  onClick={() => setPropertyForm((prev) => ({ ...prev, coverImage: imgUrl }))}
+                                  className="text-[9px] font-black text-[#F9DB5C] hover:underline"
+                                >
+                                  {propertyForm.coverImage === imgUrl ? "Cover" : "Set Cover"}
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    setPropertyForm((prev) => ({
+                                      ...prev,
+                                      galleryImages: prev.galleryImages.filter((_, i) => i !== idx),
+                                    }))
+                                  }
+                                  className="text-[10px] font-black text-red-400 hover:text-red-300"
+                                >
+                                  ✕
+                                </button>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
