@@ -8,17 +8,30 @@ export default function BackToTop() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+    let rafId: number | null = null;
+
     const onScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      setProgress(scrollPercent);
-      setVisible(scrollTop > 280);
+      if (!ticking) {
+        rafId = window.requestAnimationFrame(() => {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+          setProgress(scrollPercent);
+          setVisible(scrollTop > 280);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+
+    return () => {
+      if (rafId) window.cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   const scrollToTop = () => {

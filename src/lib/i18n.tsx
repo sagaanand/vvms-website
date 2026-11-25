@@ -42,6 +42,9 @@ export interface Translations {
     d5Title: string;
     d5Desc: string;
     d5Cta: string;
+    d6Title: string;
+    d6Desc: string;
+    d6Cta: string;
   };
   demoBadge: string;
   hero: {
@@ -176,10 +179,10 @@ export const translations: Record<Language, Translations> = {
     },
     demoBadge: "Sample Demonstration Content • Visual Preview",
     divisions: {
-      eyebrow: "FIVE BUSINESS DIVISIONS",
+      eyebrow: "CORE BUSINESS DIVISIONS",
       headline: "Integrated Real Estate, Engineering & Intelligence Platform",
       subheadline:
-        "VVMS operates across five core capabilities to deliver end-to-end transparency, technical certainty, and commercial success.",
+        "VVMS operates across six specialized divisions to deliver end-to-end transparency, technical certainty, and commercial velocity.",
       d1Title: "Property Marketplace",
       d1Desc: "DTCP and RERA approved residential plots, individual homes, and luxury villas verified by civil engineers.",
       d1Cta: "Explore Listings",
@@ -192,9 +195,12 @@ export const translations: Record<Language, Translations> = {
       d4Title: "Property Intelligence",
       d4Desc: "SRO guideline benchmarking, corridor growth projections, and infrastructure impact analytics across Central Tamil Nadu.",
       d4Cta: "Access Intelligence",
-      d5Title: "Academy & Business Solutions",
-      d5Desc: "Buyer education, due diligence handbooks, real estate creator marketing, CRM implementation, and WhatsApp workflows.",
-      d5Cta: "Explore Solutions",
+      d5Title: "Due Diligence Academy",
+      d5Desc: "Buyer education, due diligence handbooks, avoiding unapproved layout traps, EC checking, and Patta verification.",
+      d5Cta: "Access Academy",
+      d6Title: "Business Solutions",
+      d6Desc: "Promoter mandates, 4K aerial walkthroughs, bilingual AI lead qualification, and 100+ active broker distribution.",
+      d6Cta: "Explore Solutions",
     },
     hero: {
       badge: "Trichy's #1 Real Estate & Construction Authority",
@@ -336,10 +342,10 @@ export const translations: Record<Language, Translations> = {
     },
     demoBadge: "மாதிரி முன்னோட்டத் தகவல் • Visual Preview",
     divisions: {
-      eyebrow: "ஐந்து முதன்மைப் பிரிவுகள்",
+      eyebrow: "முதன்மை வணிகப் பிரிவுகள்",
       headline: "ஒருங்கிணைந்த ரியல் எஸ்டேட், பொறியியல் மற்றும் நில வழிகாட்டி தளம்",
       subheadline:
-        "முழுமையான வெளிப்படைத்தன்மை, தொழில்நுட்ப உத்தரவாதம் மற்றும் வர்த்தக வளர்ச்சிக்காக வீடு வீட்டுமனை சந்தையின் ஐந்து பிரதான பிரிவுகள்.",
+        "முழுமையான வெளிப்படைத்தன்மை, தொழில்நுட்ப உத்தரவாதம் மற்றும் வர்த்தக வளர்ச்சிக்காக வீடு வீட்டுமனை சந்தையின் ஆறு பிரதான பிரிவுகள்.",
       d1Title: "சொத்து சந்தை (Marketplace)",
       d1Desc: "சிவில் இன்ஜினியரால் சரிபார்க்கப்பட்ட DTCP மற்றும் RERA அங்கீகரிக்கப்பட்ட வீட்டுமனைகள், தனி வீடுகள் மற்றும் வில்லாக்கள்.",
       d1Cta: "மனைகளைக் காண்க",
@@ -352,9 +358,12 @@ export const translations: Record<Language, Translations> = {
       d4Title: "நில வழிகாட்டி & நுண்ணறிவு (Intelligence)",
       d4Desc: "பதிவுத்துறை வழிகாட்டி மதிப்பு, வளர்ச்சிப் பகுதிகள் மற்றும் மத்திய தமிழ்நாட்டின் கட்டமைப்பு மாற்றங்கள் குறித்த ஆய்வுகள்.",
       d4Cta: "மதிப்பீட்டைக் காண்க",
-      d5Title: "அகாடமி & வணிக தீர்வுகள் (Solutions)",
-      d5Desc: "வாங்குபவர் விழிப்புணர்வு, யூடியூப் வீடியோ தயாரிப்பு, ரியல் எஸ்டேட் CRM மற்றும் வாட்ஸ்அப் தானியங்கி தீர்வுகள்.",
-      d5Cta: "தீர்வுகளைக் காண்க",
+      d5Title: "ரியல் எஸ்டேட் அகாடமி (Academy)",
+      d5Desc: "வாங்குபவர் விழிப்புணர்வு வழிகாட்டிகள், பட்டா/சிட்டா சரிபார்ப்பு, மற்றும் மோசடி லே-அவுட்களை தவிர்க்கும் முறைகள்.",
+      d5Cta: "அகாடமிக்குச் செல்க",
+      d6Title: "வணிக தீர்வுகள் (Business Solutions)",
+      d6Desc: "புரோமோட்டர் விற்பனை பிரதிநிதித்துவம், ட்ரோன் வீடியோ விளம்பரம், AI வாடிக்கையாளர் வடிகட்டுதல் மற்றும் புரோக்கர் நெட்வொர்க்.",
+      d6Cta: "தீர்வுகளைக் காண்க",
     },
     hero: {
       badge: "திருச்சியின் நம்பகமான ரியல் எஸ்டேட் & கட்டுமான நிறுவனம்",

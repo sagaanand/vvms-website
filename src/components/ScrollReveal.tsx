@@ -80,7 +80,7 @@ export default function ScrollReveal({
         transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "none" : getHiddenTransform(),
-        willChange: "opacity, transform",
+        willChange: isVisible ? "auto" : "opacity, transform",
       }}
       className={className}
     >

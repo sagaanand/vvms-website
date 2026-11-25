@@ -75,8 +75,8 @@ export default function HomePage() {
   }, [heroBackgrounds.length]);
 
   // Parallax scroll hooks for Homepage Hero
-  const { ref: heroBgParallaxRef, offsetY: heroBgOffsetY } = useParallax({ speed: 0.32, clamp: 140 });
-  const { ref: heroContentParallaxRef, offsetY: heroContentOffsetY } = useParallax({ speed: 0.12, clamp: 60 });
+  const { ref: heroBgParallaxRef } = useParallax({ speed: 0.32, clamp: 140 });
+  const { ref: heroContentParallaxRef } = useParallax({ speed: 0.12, clamp: 60 });
 
   useEffect(() => {
     async function loadProperties() {
@@ -130,7 +130,6 @@ export default function HomePage() {
         <div
           ref={heroBgParallaxRef}
           className="absolute -top-16 -bottom-16 inset-x-0 z-0 pointer-events-none overflow-hidden will-change-transform"
-          style={{ transform: `translate3d(0, ${heroBgOffsetY}px, 0)` }}
         >
           {heroBackgrounds.map((bg, idx) => {
             const isActive = idx === bgIndex;
@@ -168,7 +167,6 @@ export default function HomePage() {
         <div
           ref={heroContentParallaxRef}
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 will-change-transform"
-          style={{ transform: `translate3d(0, ${heroContentOffsetY}px, 0)` }}
         >
           <div className="text-center max-w-3xl mx-auto space-y-5 mb-8 sm:mb-12">
             {/* Approved Eyebrow Badge in Charcoal & Antique Gold */}
@@ -524,7 +522,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 1.5 FIVE BUSINESS DIVISIONS IN LUXURY HYBRID GLASS PALETTE WITH PARALLAX ACCENTS */}
+      {/* 1.5 SIX BUSINESS DIVISIONS IN LUXURY HYBRID GLASS PALETTE WITH PARALLAX ACCENTS */}
       <section className="relative py-14 sm:py-20 bg-[#F2F2F2] border-b border-[#B78D42]/25 overflow-hidden blueprint-grid-bg">
         <ParallaxFloatingAccents variant="gold" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -692,48 +690,76 @@ export default function HomePage() {
               </div>
             </ScrollReveal>
 
-            {/* Division 5: Academy & Business Solutions */}
-            <ScrollReveal direction="up" delayMs={320} className="md:col-span-2 lg:col-span-2">
+            {/* Division 5: Due Diligence Academy */}
+            <ScrollReveal direction="up" delayMs={320}>
               <div className="h-full group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between card-hover-lift">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="relative aspect-[16/10] sm:aspect-auto h-48 sm:h-full overflow-hidden bg-slate-900">
+                <div>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                     <Image
-                      src="/images/youtube-production.jpg"
+                      src="/images/blueprint-audit.jpg"
                       alt={t.divisions.d5Title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                     />
                     <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#F9DB5C]" />
+                      <BookOpen className="w-3.5 h-3.5 text-[#F9DB5C]" />
                       <span>Division 05</span>
                     </div>
                   </div>
-                  <div className="p-6 flex flex-col justify-between space-y-4">
-                    <div className="space-y-2">
-                      <h3 className="text-lg font-black text-[#202020] group-hover:text-[#B78D42] transition">
-                        {t.divisions.d5Title}
-                      </h3>
-                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                        {t.divisions.d5Desc}
-                      </p>
-                    </div>
-                    <div className="flex flex-wrap items-center gap-2 pt-2">
-                      <Link
-                        href="/academy"
-                        className="inline-flex items-center gap-1.5 py-2 px-3.5 rounded-lg bg-[#F2F2F2] hover:bg-slate-200 text-[#202020] font-bold text-xs border border-[#B78D42]/30 transition"
-                      >
-                        <BookOpen className="w-3.5 h-3.5 text-[#22CDE1]" />
-                        <span>Academy</span>
-                      </Link>
-                      <Link
-                        href="/business-solutions"
-                        className="inline-flex items-center gap-1.5 py-2 px-3.5 rounded-lg bg-[#202020] hover:bg-[#2A2A2A] text-[#F9DB5C] font-black text-xs border border-[#B78D42]/40 transition shadow-sm"
-                      >
-                        <span>{t.divisions.d5Cta}</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-[#F9DB5C]" />
-                      </Link>
+                  <div className="p-6 space-y-2">
+                    <h3 className="text-lg font-black text-[#202020] group-hover:text-[#B78D42] transition">
+                      {t.divisions.d5Title}
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      {t.divisions.d5Desc}
+                    </p>
+                  </div>
+                </div>
+                <div className="p-6 pt-0">
+                  <Link
+                    href="/academy"
+                    className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
+                  >
+                    <span>{t.divisions.d5Cta}</span>
+                    <ArrowRight className="w-4 h-4 text-[#202020]" />
+                  </Link>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Division 6: Business Solutions */}
+            <ScrollReveal direction="up" delayMs={400}>
+              <div className="h-full group bg-white rounded-3xl overflow-hidden border border-[#B78D42]/30 hover:border-[#B78D42] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between card-hover-lift">
+                <div>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+                    <Image
+                      src="/images/drone-walkthrough.jpg"
+                      alt={t.divisions.d6Title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    />
+                    <div className="absolute top-3 left-3 bg-[#202020]/95 text-[#F9DB5C] text-xs font-bold px-3 py-1 rounded-xl border border-[#B78D42]/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                      <Layers className="w-3.5 h-3.5 text-[#F9DB5C]" />
+                      <span>Division 06</span>
                     </div>
                   </div>
+                  <div className="p-6 space-y-2">
+                    <h3 className="text-lg font-black text-[#202020] group-hover:text-[#B78D42] transition">
+                      {t.divisions.d6Title}
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      {t.divisions.d6Desc}
+                    </p>
+                  </div>
+                </div>
+                <div className="p-6 pt-0">
+                  <Link
+                    href="/business-solutions"
+                    className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F2F2F2] group-hover:bg-gradient-to-r group-hover:from-[#F6E785] group-hover:to-[#F9DB5C] text-[#202020] font-black text-xs transition border border-[#B78D42]/30 group-hover:border-[#B78D42]"
+                  >
+                    <span>{t.divisions.d6Cta}</span>
+                    <ArrowRight className="w-4 h-4 text-[#202020]" />
+                  </Link>
                 </div>
               </div>
             </ScrollReveal>

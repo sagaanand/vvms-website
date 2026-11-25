@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 interface UseParallaxOptions {
   speed?: number; // e.g. 0.2 (moves down slower), -0.2 (moves up faster)
@@ -9,8 +9,8 @@ interface UseParallaxOptions {
 }
 
 /**
- * High-performance, GPU-accelerated hook for viewport parallax scrolling
- * Uses requestAnimationFrame, passive listeners, and bounding checks
+ * High-performance, zero-rerender, GPU-accelerated hook for viewport parallax scrolling.
+ * Updates DOM style.transform directly via requestAnimationFrame without triggering React state updates.
  */
 export function useParallax({
   speed = 0.25,
@@ -18,59 +18,61 @@ export function useParallax({
   mobileDampen = 0.4,
 }: UseParallaxOptions = {}) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [offsetY, setOffsetY] = useState(0);
 
   useEffect(() => {
-    // Check for prefers-reduced-motion
     if (typeof window === "undefined") return;
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mediaQuery.matches) return;
 
-    let ticking = false;
+    // Mobile check: disable or zero out parallax on smaller touch screens to maximize scroll fluidity
     const isMobile = window.innerWidth < 768;
-    const effectiveSpeed = isMobile ? speed * mobileDampen : speed;
+    if (isMobile) return;
+
+    let ticking = false;
+    let rafId: number | null = null;
+
+    const updateTransform = () => {
+      const el = ref.current;
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Only calculate if within or approaching viewport
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          const elementCenter = rect.top + rect.height / 2;
+          const viewportCenter = windowHeight / 2;
+          const distanceFromCenter = elementCenter - viewportCenter;
+          const calculatedOffset = distanceFromCenter * speed;
+
+          // Clamp to prevent visual clipping
+          const clamped = Math.max(-clamp, Math.min(clamp, calculatedOffset));
+          const rounded = Math.round(clamped * 10) / 10;
+          el.style.transform = `translate3d(0, ${rounded}px, 0)`;
+        }
+      }
+      ticking = false;
+    };
 
     const handleScroll = () => {
       if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (ref.current) {
-            const rect = ref.current.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-
-            // Only calculate if within or approaching viewport
-            if (rect.top < windowHeight && rect.bottom > 0) {
-              const elementCenter = rect.top + rect.height / 2;
-              const viewportCenter = windowHeight / 2;
-              const distanceFromCenter = elementCenter - viewportCenter;
-              const calculatedOffset = distanceFromCenter * effectiveSpeed;
-
-              // Clamp to prevent visual clipping
-              const clamped = Math.max(
-                -clamp,
-                Math.min(clamp, calculatedOffset)
-              );
-              setOffsetY(Math.round(clamped * 10) / 10);
-            }
-          }
-          ticking = false;
-        });
+        rafId = window.requestAnimationFrame(updateTransform);
         ticking = true;
       }
     };
 
-    // Initial calculation
-    handleScroll();
+    updateTransform();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll, { passive: true });
 
     return () => {
+      if (rafId) window.cancelAnimationFrame(rafId);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
   }, [speed, clamp, mobileDampen]);
 
-  return { ref, offsetY };
+  return { ref, offsetY: 0 };
 }
 
 interface ParallaxLayerProps {
@@ -91,16 +93,13 @@ export function ParallaxLayer({
   className = "",
   style = {},
 }: ParallaxLayerProps) {
-  const { ref, offsetY } = useParallax({ speed, clamp });
+  const { ref } = useParallax({ speed, clamp });
 
   return (
     <div
       ref={ref}
       className={`will-change-transform ${className}`}
-      style={{
-        transform: `translate3d(0, ${offsetY}px, 0)`,
-        ...style,
-      }}
+      style={style}
     >
       {children}
     </div>
@@ -119,8 +118,8 @@ export function ParallaxFloatingAccents({
   variant = "mixed",
   className = "",
 }: ParallaxFloatingAccentsProps) {
-  const { ref: refSlow, offsetY: offsetSlow } = useParallax({ speed: -0.15, clamp: 90 });
-  const { ref: refFast, offsetY: offsetFast } = useParallax({ speed: 0.25, clamp: 120 });
+  const { ref: refSlow } = useParallax({ speed: -0.15, clamp: 90 });
+  const { ref: refFast } = useParallax({ speed: 0.25, clamp: 120 });
 
   return (
     <div className={`pointer-events-none absolute inset-0 overflow-hidden select-none z-0 ${className}`}>
@@ -128,7 +127,6 @@ export function ParallaxFloatingAccents({
       <div
         ref={refSlow}
         className="absolute -top-16 -right-16 w-80 h-80 rounded-full border border-[#B78D42]/20 opacity-30 will-change-transform"
-        style={{ transform: `translate3d(0, ${offsetSlow}px, 0)` }}
       >
         <div className="absolute inset-4 rounded-full border border-dashed border-[#F9DB5C]/20" />
       </div>
@@ -137,7 +135,6 @@ export function ParallaxFloatingAccents({
       <div
         ref={refFast}
         className="absolute top-1/2 -left-20 w-64 h-64 rounded-full border border-[#22CDE1]/15 opacity-25 will-change-transform"
-        style={{ transform: `translate3d(0, ${offsetFast}px, 0)` }}
       >
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#22CDE1]/20" />
         <div className="absolute top-0 left-1/2 w-[1px] h-full bg-[#22CDE1]/20" />

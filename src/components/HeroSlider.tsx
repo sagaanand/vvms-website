@@ -48,11 +48,13 @@ export default function HeroSlider({
     if (typeof window === "undefined") return;
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mediaQuery.matches) return;
+    if (window.innerWidth < 768) return;
 
     let ticking = false;
+    let rafId: number | null = null;
     const handleScroll = () => {
       if (!ticking) {
-        window.requestAnimationFrame(() => {
+        rafId = window.requestAnimationFrame(() => {
           if (window.scrollY < 1200) {
             setScrollY(window.scrollY);
           }
@@ -63,7 +65,10 @@ export default function HeroSlider({
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      if (rafId) window.cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   useEffect(() => {
