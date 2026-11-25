@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
+import { FALLBACK_PROPERTIES } from "@/lib/staticProperties";
 import PropertyDetailClient from "@/components/PropertyDetailClient";
 
 interface PropertyDetailPageProps {
@@ -9,12 +10,29 @@ interface PropertyDetailPageProps {
   };
 }
 
+// Pre-render all known properties for instant loading and zero server error risk
+export async function generateStaticParams() {
+  return FALLBACK_PROPERTIES.map((p) => ({
+    slug: p.slug,
+  }));
+}
+
+async function getProperty(slug: string) {
+  try {
+    const prop = await prisma.property.findUnique({
+      where: { slug },
+    });
+    if (prop) return prop;
+  } catch (err: any) {
+    console.warn("Database query failed in PropertyDetailPage, using static fallback:", err?.message || err);
+  }
+  return FALLBACK_PROPERTIES.find((p) => p.slug === slug) || null;
+}
+
 export async function generateMetadata({
   params,
 }: PropertyDetailPageProps): Promise<Metadata> {
-  const property = await prisma.property.findUnique({
-    where: { slug: params.slug },
-  });
+  const property = await getProperty(params.slug);
 
   if (!property) {
     return {
@@ -43,9 +61,7 @@ export async function generateMetadata({
 export default async function PropertyDetailPage({
   params,
 }: PropertyDetailPageProps) {
-  const property = await prisma.property.findUnique({
-    where: { slug: params.slug },
-  });
+  const property = await getProperty(params.slug);
 
   if (!property) {
     notFound();
@@ -57,7 +73,7 @@ export default async function PropertyDetailPage({
     "@type": "SingleFamilyResidence",
     name: property.title,
     description: property.description,
-    url: `https://veeduveettumanaisanthai.in/properties/${property.slug}`,
+    url: `https://imclass.co.in/properties/${property.slug}`,
     image: property.coverImage,
     address: {
       "@type": "PostalAddress",
