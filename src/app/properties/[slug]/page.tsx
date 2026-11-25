@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
-import { FALLBACK_PROPERTIES } from "@/lib/staticProperties";
 import PropertyDetailClient from "@/components/PropertyDetailClient";
+import { PropertyFaqItem } from "@/lib/propertySeo";
+
+export const dynamic = "force-dynamic";
 
 interface PropertyDetailPageProps {
   params: {
@@ -10,23 +12,26 @@ interface PropertyDetailPageProps {
   };
 }
 
-// Pre-render all known properties for instant loading and zero server error risk
 export async function generateStaticParams() {
-  return FALLBACK_PROPERTIES.map((p) => ({
-    slug: p.slug,
-  }));
+  try {
+    const properties = await prisma.property.findMany({
+      select: { slug: true },
+    });
+    return properties.map((p) => ({ slug: p.slug }));
+  } catch {
+    return [];
+  }
 }
 
 async function getProperty(slug: string) {
   try {
-    const prop = await prisma.property.findUnique({
+    return await prisma.property.findUnique({
       where: { slug },
     });
-    if (prop) return prop;
-  } catch (err: any) {
-    console.warn("Database query failed in PropertyDetailPage, using static fallback:", err?.message || err);
+  } catch (err: unknown) {
+    console.error("Database query failed in PropertyDetailPage:", err);
+    return null;
   }
-  return FALLBACK_PROPERTIES.find((p) => p.slug === slug) || null;
 }
 
 export async function generateMetadata({
@@ -40,12 +45,37 @@ export async function generateMetadata({
     };
   }
 
+  const title =
+    property.seoTitle ||
+    `${property.title} | ${property.locality}, Trichy | ${property.priceDisplay}`;
+  const description =
+    property.seoDescription ||
+    property.aeoSummary?.slice(0, 160) ||
+    property.description.slice(0, 160);
+  const keywords = property.seoKeywords
+    ? property.seoKeywords.split(",").map((k) => k.trim())
+    : [
+        property.propertyType,
+        `${property.locality} Trichy`,
+        property.approvalStatus,
+        "Veedu Veettumanai Santhai",
+      ];
+  const canonical =
+    property.canonicalUrl ||
+    `https://imclass.co.in/properties/${property.slug}`;
+
   return {
-    title: `${property.title} | ${property.locality}, Trichy | Er. J. Vairavel`,
-    description: property.description.slice(0, 160),
+    title,
+    description,
+    keywords,
+    alternates: {
+      canonical,
+    },
     openGraph: {
-      title: `${property.title} - ${property.priceDisplay}`,
-      description: property.description.slice(0, 160),
+      title,
+      description,
+      url: canonical,
+      type: "website",
       images: [
         {
           url: property.coverImage,
@@ -54,6 +84,12 @@ export async function generateMetadata({
           alt: property.title,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [property.coverImage],
     },
   };
 }
@@ -67,41 +103,120 @@ export default async function PropertyDetailPage({
     notFound();
   }
 
-  // JSON-LD RealEstateListing schema
-  const jsonLd = {
+  let faqs: PropertyFaqItem[] = [];
+  try {
+    faqs = property.aeoFaqs ? JSON.parse(property.aeoFaqs) : [];
+  } catch {
+    faqs = [];
+  }
+
+  const baseUrl = "https://imclass.co.in";
+  const propertyUrl = property.canonicalUrl || `${baseUrl}/properties/${property.slug}`;
+
+  // 1. GEO & SEO: RealEstateListing + Place + GeoCoordinates JSON-LD
+  const listingJsonLd = {
     "@context": "https://schema.org",
-    "@type": "SingleFamilyResidence",
-    name: property.title,
-    description: property.description,
-    url: `https://imclass.co.in/properties/${property.slug}`,
+    "@type": "RealEstateListing",
+    name: property.seoTitle || property.title,
+    description: property.aeoSummary || property.description,
+    url: propertyUrl,
     image: property.coverImage,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: property.address,
-      addressLocality: property.locality,
-      addressRegion: "Tamil Nadu",
-      addressCountry: "IN",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: "10.7905",
-      longitude: "78.7047",
+    datePosted: property.createdAt.toISOString(),
+    about: {
+      "@type": "SingleFamilyResidence",
+      name: property.title,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: property.address,
+        addressLocality: property.locality,
+        addressRegion: "Tamil Nadu",
+        addressCountry: "IN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: property.latitude ?? 10.7905,
+        longitude: property.longitude ?? 78.7047,
+      },
+      floorSize: property.builtUpAreaSqFt
+        ? {
+            "@type": "QuantitativeValue",
+            value: property.builtUpAreaSqFt,
+            unitCode: "FTK",
+          }
+        : undefined,
+      numberOfRooms: property.bedrooms || undefined,
     },
     offers: {
       "@type": "Offer",
       price: property.price,
       priceCurrency: "INR",
       availability: property.isSold
-        ? "https://schema.org/Sold"
+        ? "https://schema.org/SoldOut"
         : "https://schema.org/InStock",
+      url: propertyUrl,
     },
+  };
+
+  // 2. AEO: FAQPage JSON-LD for Answer Engines (Google AI, Perplexity, ChatGPT)
+  const faqJsonLd =
+    faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs
+            .filter((f) => f.question && f.answer)
+            .map((f) => ({
+              "@type": "Question",
+              name: f.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: f.answer,
+              },
+            })),
+        }
+      : null;
+
+  // 3. SEO: BreadcrumbList JSON-LD
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: baseUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Property Marketplace",
+        item: `${baseUrl}/properties`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: property.title,
+        item: propertyUrl,
+      },
+    ],
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(listingJsonLd) }}
+      />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <PropertyDetailClient property={property} />
     </>

@@ -771,23 +771,6 @@ export default function HomePage() {
       <section id="featured-properties" className="relative py-14 sm:py-20 bg-[#F2F2F2] overflow-hidden">
         <ParallaxFloatingAccents variant="mixed" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Demonstration Notice */}
-          <div className="mb-6 p-3 rounded-2xl bg-white border border-[#B78D42]/40 text-[#202020] text-xs flex items-center justify-between gap-3 shadow-sm">
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded-md bg-[#202020] text-[#F9DB5C] font-black text-[10px] uppercase tracking-wider">
-                Visual Preview
-              </span>
-              <span className="font-semibold text-slate-700">
-                {language === "ta"
-                  ? "கீழே உள்ள பட்டியல்கள் மாதிரி முன்னோட்டத்திற்காக மட்டுமே வழங்கப்பட்டுள்ளன."
-                  : "Listing cards below are presented as realistic visual demonstration specimens for design review."}
-              </span>
-            </div>
-            <span className="text-[11px] font-bold text-[#7C5A20] hidden sm:inline">
-              Sample Demonstration Data
-            </span>
-          </div>
-
           {/* Header & Locality Filter Chips */}
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
@@ -847,10 +830,28 @@ export default function HomePage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 bg-white rounded-3xl border border-slate-200">
-              <p className="text-slate-500 text-sm">
-                No properties found matching this locality. Try selecting &quot;All&quot;.
+            <div className="text-center py-12 px-6 bg-white rounded-3xl border border-[#B78D42]/30 space-y-3">
+              <p className="text-slate-700 text-sm font-bold">
+                {properties.length === 0
+                  ? "No live properties published yet. Add verified listings from the Staff Control Center."
+                  : "No properties found matching this locality. Try selecting \"All\"."}
               </p>
+              {properties.length === 0 && (
+                <div className="flex flex-wrap justify-center gap-3 pt-1">
+                  <Link
+                    href="/admin"
+                    className="px-5 py-2.5 rounded-xl bg-[#202020] text-[#F9DB5C] font-black text-xs border border-[#B78D42]/40 hover:brightness-110 transition"
+                  >
+                    Staff Portal: Add Property
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="px-5 py-2.5 rounded-xl bg-[#F2F2F2] text-[#202020] font-bold text-xs border border-slate-200 hover:bg-slate-200 transition"
+                  >
+                    Request Custom Property Match
+                  </Link>
+                </div>
+              )}
             </div>
           )}
 
@@ -859,7 +860,10 @@ export default function HomePage() {
               href="/properties"
               className="inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-2xl bg-[#202020] hover:bg-[#2A2A2A] text-[#F9DB5C] font-black text-xs uppercase tracking-wider shadow-gold border border-[#B78D42]/50 transition"
             >
-              <span>{t.properties.viewAll} (8 Trichy Listings)</span>
+              <span>
+                {t.properties.viewAll}
+                {properties.length > 0 ? ` (${properties.length} Live Listings)` : ""}
+              </span>
               <ArrowRight className="w-4 h-4 text-[#22CDE1]" />
             </Link>
           </div>

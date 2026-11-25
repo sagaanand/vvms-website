@@ -40,6 +40,24 @@ model Property {
   isFeatured         Boolean  @default(false)
   isSold             Boolean  @default(false)
   viewsCount         Int      @default(0)
+
+  // SEO Fields (Editable)
+  seoTitle           String?
+  seoDescription     String?
+  seoKeywords        String?
+  canonicalUrl       String?
+
+  // AEO (Answer Engine Optimization) Fields (Editable)
+  aeoSummary         String?
+  aeoFaqs            String?  // JSON string array of { question, answer }
+
+  // GEO (Geographic & Generative Engine Optimization) Fields (Editable)
+  latitude           Float?
+  longitude          Float?
+  microMarket        String?
+  nearbyLandmarks    String?
+  geoSummary         String?
+
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
 }

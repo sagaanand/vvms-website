@@ -129,7 +129,7 @@ export default function ContactPage() {
                       src="/images/vairavel.jpg"
                       alt="Er. J. Vairavel - VVMS"
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-[50%_20%] group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute bottom-2 left-2 right-2 bg-[#202020]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amber-400/40 text-center">
                       <div className="text-xs font-black text-[#F9DB5C]">{COMPANY_INFO.founder}</div>

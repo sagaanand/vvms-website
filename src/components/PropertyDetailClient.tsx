@@ -21,6 +21,11 @@ import {
   Calculator,
   CheckCircle2,
   ChevronRight,
+  HelpCircle,
+  Compass,
+  ChevronDown,
+  ExternalLink,
+  Sparkles,
 } from "lucide-react";
 
 interface PropertyDetailClientProps {
@@ -33,6 +38,7 @@ interface PropertyDetailClientProps {
     description: string;
     descriptionTa?: string | null;
     propertyType: string;
+    listingType?: string;
     locality: string;
     address: string;
     price: number;
@@ -52,6 +58,13 @@ interface PropertyDetailClientProps {
     coverImage: string;
     images?: string;
     features?: string;
+    aeoSummary?: string | null;
+    aeoFaqs?: string | null;
+    latitude?: number | null;
+    longitude?: number | null;
+    microMarket?: string | null;
+    nearbyLandmarks?: string | null;
+    geoSummary?: string | null;
   };
 }
 
@@ -63,8 +76,15 @@ export default function PropertyDetailClient({ property }: PropertyDetailClientP
   const videoId = extractYoutubeId(property.youtubeVideoId || property.youtubeUrl);
   const images: string[] = JSON.parse(property.images || "[]");
   const features: string[] = JSON.parse(property.features || "[]");
+  let aeoFaqs: { question: string; answer: string }[] = [];
+  try {
+    aeoFaqs = property.aeoFaqs ? JSON.parse(property.aeoFaqs) : [];
+  } catch {
+    aeoFaqs = [];
+  }
 
   const [activeImage, setActiveImage] = useState<string>(property.coverImage);
+  const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
 
   // EMI Calculator State
   const defaultLoanAmount = Math.round(property.price * 0.8);
@@ -137,23 +157,6 @@ export default function PropertyDetailClient({ property }: PropertyDetailClientP
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
-        {/* Visual Preview Notice */}
-        <div className="mb-6 p-3 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-xs flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="bg-amber-600 text-white text-[10px] uppercase font-black px-2 py-0.5 rounded">
-              Visual Preview
-            </span>
-            <span className="font-semibold text-slate-700">
-              {language === "ta"
-                ? "இந்த சொத்து விவரங்கள் வடிவமைப்பு மாதிரி முன்னோட்டத்திற்காக மட்டுமே காட்டப்படுகின்றன."
-                : "This property profile is presented as a realistic demonstration specimen for design review."}
-            </span>
-          </div>
-          <span className="text-[11px] font-bold text-amber-800 hidden sm:inline">
-            Sample Demonstration Specimen
-          </span>
-        </div>
-
         {/* Title & Price Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-6">
           <div>
@@ -332,6 +335,19 @@ export default function PropertyDetailClient({ property }: PropertyDetailClientP
               </div>
             </div>
 
+            {/* AEO Quick Answer & Key Facts */}
+            {property.aeoSummary && (
+              <div className="bg-gradient-to-br from-cyan-50 to-white rounded-3xl p-6 sm:p-8 border border-cyan-200 shadow-sm space-y-2">
+                <div className="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-cyan-800">
+                  <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
+                  <span>Verified Property Summary</span>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-semibold">
+                  {property.aeoSummary}
+                </p>
+              </div>
+            )}
+
             {/* Description */}
             <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-3">
               <h2 className="text-base font-black text-brand-black pb-2 border-b border-slate-100 flex items-center gap-2">
@@ -342,6 +358,87 @@ export default function PropertyDetailClient({ property }: PropertyDetailClientP
                 {displayDesc}
               </p>
             </div>
+
+            {/* GEO Location & Corridor Intelligence */}
+            {(property.microMarket || property.nearbyLandmarks || property.geoSummary) && (
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-amber-200/80 shadow-sm space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-slate-100">
+                  <h2 className="text-base font-black text-brand-black flex items-center gap-2">
+                    <Compass className="w-4 h-4 text-amber-600" />
+                    <span>Location &amp; Corridor Intelligence ({property.locality})</span>
+                  </h2>
+                  {property.latitude && property.longitude && (
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${property.latitude},${property.longitude}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-black text-cyan-700 hover:text-cyan-900"
+                    >
+                      <span>Open in Google Maps</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
+
+                {property.microMarket && (
+                  <div className="p-3.5 rounded-2xl bg-amber-50/70 border border-amber-200/70 text-xs">
+                    <span className="font-black text-amber-900 block text-[10px] uppercase tracking-wider">
+                      Growth Corridor / Micro-Market
+                    </span>
+                    <span className="font-bold text-slate-900 text-sm">{property.microMarket}</span>
+                  </div>
+                )}
+
+                {property.nearbyLandmarks && (
+                  <div className="text-xs text-slate-700">
+                    <span className="font-black text-slate-900 block mb-1">Nearby Landmarks &amp; Connectivity:</span>
+                    <p className="font-medium leading-relaxed">{property.nearbyLandmarks}</p>
+                  </div>
+                )}
+
+                {property.geoSummary && (
+                  <p className="text-xs text-slate-600 leading-relaxed">{property.geoSummary}</p>
+                )}
+              </div>
+            )}
+
+            {/* AEO Interactive Property FAQs */}
+            {aeoFaqs.length > 0 && (
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-3">
+                <h2 className="text-base font-black text-brand-black pb-2 border-b border-slate-100 flex items-center gap-2">
+                  <HelpCircle className="w-4 h-4 text-cyan-600" />
+                  <span>Frequently Asked Questions</span>
+                </h2>
+                <div className="space-y-2.5">
+                  {aeoFaqs.map((faq, idx) => {
+                    const isOpen = openFaqIdx === idx;
+                    return (
+                      <div key={idx} className="rounded-2xl border border-slate-200 overflow-hidden">
+                        <button
+                          type="button"
+                          onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
+                          className="w-full px-4 py-3 text-left flex items-center justify-between gap-3 bg-slate-50 hover:bg-slate-100 transition"
+                        >
+                          <span className="text-xs sm:text-sm font-black text-slate-900">
+                            {faq.question}
+                          </span>
+                          <ChevronDown
+                            className={`w-4 h-4 text-slate-500 flex-shrink-0 transition-transform ${
+                              isOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                        {isOpen && (
+                          <div className="px-4 py-3 bg-white text-xs sm:text-sm text-slate-700 leading-relaxed font-medium border-t border-slate-100">
+                            {faq.answer}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
             {/* Highlights & Features Pills */}
             {features.length > 0 && (

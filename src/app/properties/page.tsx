@@ -11,11 +11,15 @@ import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
 import HeroSlider, { HeroSlide } from "@/components/HeroSlider";
 import ScrollReveal from "@/components/ScrollReveal";
 import { ParallaxFloatingAccents } from "@/components/Parallax";
+import Link from "next/link";
 import {
   Search,
   RotateCcw,
   Building2,
   ArrowUpDown,
+  ShieldCheck,
+  Sparkles,
+  PlusCircle,
 } from "lucide-react";
 
 function PropertiesDirectoryContent() {
@@ -151,21 +155,53 @@ function PropertiesDirectoryContent() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        {/* Visual Preview Notice */}
-        <div className="mb-6 p-4 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-xs sm:text-sm flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5">
-            <span className="bg-amber-600 text-white text-xs uppercase font-black px-2.5 py-1 rounded-md">
-              Visual Preview
-            </span>
-            <span className="font-semibold text-slate-800">
+        {/* Verified Property Marketplace Header & Trust Strip */}
+        <div className="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white rounded-3xl p-5 sm:p-6 border border-[#B78D42]/30 shadow-sm">
+          <div>
+            <div className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-wider text-cyan-800 mb-1">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
+              <span>VVMS Verified Property Marketplace</span>
+            </div>
+            <h1 className="text-xl sm:text-2xl font-black text-[#202020] tracking-tight">
               {language === "ta"
-                ? "கீழே உள்ள சொத்து விவரங்கள் மாதிரி வடிவமைப்பு முன்னோட்டத்திற்காக மட்டுமே காட்டப்படுகின்றன."
-                : "Property profiles below are presented as realistic visual demonstration specimens for design review."}
+                ? "திருச்சி சரிபார்க்கப்பட்ட சொத்து சந்தை"
+                : "Tiruchirappalli Verified Property Marketplace"}
+            </h1>
+            <p className="text-xs text-slate-600 mt-1">
+              {language === "ta"
+                ? "Er. J. வைரவேல் அவர்களால் சட்டப்பூர்வமாக சரிபார்க்கப்பட்ட DTCP & RERA சொத்துகள்."
+                : "100% legally scrutinized DTCP/RERA plots, individual homes & villas with 0% buyer brokerage."}
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold">
+            <span className="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              30-Yr Legal Audit
+            </span>
+            <span className="px-3 py-1.5 rounded-xl bg-amber-50 text-amber-900 border border-amber-200">
+              80% Bank Loan Ready
+            </span>
+            <span className="px-3 py-1.5 rounded-xl bg-cyan-50 text-cyan-900 border border-cyan-200">
+              0% Buyer Commission
             </span>
           </div>
-          <span className="text-xs font-bold text-amber-900 hidden sm:inline">
-            Sample Demonstration Data
-          </span>
+        </div>
+
+        {/* Quick Category Pills */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-4 touch-scroll">
+          {["All", "DTCP Plots", "Individual Houses", "Duplex Villas", "Commercial"].map((type) => (
+            <button
+              key={type}
+              onClick={() => setSelectedType(type)}
+              className={`px-4 py-2 rounded-full text-xs font-black whitespace-nowrap transition border ${
+                selectedType === type
+                  ? "bg-[#202020] text-[#F9DB5C] border-[#B78D42] shadow-gold"
+                  : "bg-white text-slate-700 border-slate-200 hover:border-[#22CDE1]"
+              }`}
+            >
+              {type === "All" ? "All Properties" : type}
+            </button>
+          ))}
         </div>
 
         {/* Search & Filter Toolbar with Gold Trim */}
@@ -283,20 +319,41 @@ function PropertiesDirectoryContent() {
             ))}
           </div>
         ) : (
-          <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 space-y-3">
+          <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 space-y-4">
             <Building2 className="w-12 h-12 text-slate-300 mx-auto" />
-            <h3 className="text-base font-bold text-slate-800">
-              No matching properties found
+            <h3 className="text-base font-black text-slate-800">
+              {properties.length === 0
+                ? "No properties published in the marketplace yet"
+                : "No matching properties found"}
             </h3>
-            <p className="text-xs text-slate-500 max-w-sm mx-auto">
-              Try adjusting your filters or search terms. You can also submit your custom requirement to our team.
+            <p className="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
+              {properties.length === 0
+                ? "New verified Trichy properties can be added anytime from the Staff Control Center, or you can request a custom property match from Er. J. Vairavel."
+                : "Try adjusting your filters or search terms. You can also submit your custom requirement to our team."}
             </p>
-            <button
-              onClick={resetFilters}
-              className="px-4 py-2 rounded-2xl bg-gold-500 text-brand-black font-black text-xs shadow-gold"
-            >
-              Reset All Filters
-            </button>
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+              {properties.length > 0 && (
+                <button
+                  onClick={resetFilters}
+                  className="px-4 py-2.5 rounded-2xl bg-gold-500 text-brand-black font-black text-xs shadow-gold"
+                >
+                  Reset All Filters
+                </button>
+              )}
+              <Link
+                href="/contact"
+                className="px-5 py-2.5 rounded-2xl bg-[#202020] text-[#F9DB5C] font-black text-xs border border-[#B78D42]/40 hover:brightness-110 transition"
+              >
+                Request Custom Property Match
+              </Link>
+              <Link
+                href="/admin"
+                className="px-4 py-2.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs inline-flex items-center gap-1.5 transition"
+              >
+                <PlusCircle className="w-3.5 h-3.5 text-cyan-700" />
+                <span>Staff Portal: Add Property</span>
+              </Link>
+            </div>
           </div>
         )}
       </div>

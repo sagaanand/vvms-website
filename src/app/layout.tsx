@@ -78,6 +78,23 @@ export default function RootLayout({
         "Land Due Diligence"
       ]
     },
+    employee: [
+      {
+        "@type": "Person",
+        name: "Er. J. Vairavel",
+        jobTitle: "Founder"
+      },
+      {
+        "@type": "Person",
+        name: "J. Rajavel",
+        jobTitle: "Chairman"
+      },
+      {
+        "@type": "Person",
+        name: "V. Vinothkumar Vilvendan",
+        jobTitle: "Managing Director"
+      }
+    ],
     url: "https://imclass.co.in",
     logo: "https://imclass.co.in/images/logo.png",
     image: "https://imclass.co.in/images/logo.png",

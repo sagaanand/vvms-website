@@ -100,6 +100,12 @@ export default function Footer() {
               {t.footer.founderDisclaimer}
             </p>
 
+            <div className="text-[11px] text-slate-300 space-y-1 pt-1 border-t border-[#2E2E2E]">
+              <div><span className="text-[#F9DB5C] font-bold">Founder:</span> {COMPANY_INFO.founder}</div>
+              <div><span className="text-[#F9DB5C] font-bold">Chairman:</span> {COMPANY_INFO.chairman}</div>
+              <div><span className="text-[#F9DB5C] font-bold">Managing Director:</span> {COMPANY_INFO.managingDirector}</div>
+            </div>
+
             {/* Social Proof Channels matching Logo */}
             <div className="pt-2 flex flex-wrap gap-2">
               <a

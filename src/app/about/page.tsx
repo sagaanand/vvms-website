@@ -36,7 +36,7 @@ export default function AboutPage() {
                     src="/images/vairavel.jpg"
                     alt="Er. J. Vairavel - Founder & Chief Civil Consultant VVMS"
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-[50%_20%] group-hover:scale-105 transition-transform duration-500"
                     priority
                   />
                   <div className="absolute top-3 left-3 flex items-center gap-2 bg-[#202020]/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-amber-400/60">
@@ -97,6 +97,59 @@ export default function AboutPage() {
             </ScrollReveal>
           </div>
         </div>
+
+        {/* Corporate Leadership: Founder, Chairman, Managing Director */}
+        <ScrollReveal direction="up">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#B78D42]/40 shadow-sm space-y-6">
+            <div className="text-center max-w-2xl mx-auto space-y-1.5">
+              <span className="text-[11px] font-black uppercase tracking-widest text-[#B78D42] block">
+                Corporate Leadership
+              </span>
+              <h2 className="text-xl sm:text-2xl font-black text-[#202020]">
+                {language === "ta"
+                  ? "வீடு வீட்டுமனை சந்தை தலைமைக் குழு"
+                  : "Leadership Team — Veedu Veettumanai Santhai Pvt Ltd"}
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {COMPANY_INFO.leadership.map((leader) => (
+                <div
+                  key={leader.name}
+                  className="p-6 rounded-2xl bg-[#F2F2F2] border border-[#B78D42]/30 text-center space-y-2.5 card-hover-lift flex flex-col items-center"
+                >
+                  {leader.image ? (
+                    <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-[#B78D42] bg-white shadow-md">
+                      <Image
+                        src={leader.image}
+                        alt={`${leader.name} - ${leader.role}`}
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-24 h-24 rounded-full border-2 border-[#B78D42] bg-[#202020] text-[#F9DB5C] flex items-center justify-center font-black text-2xl shadow-md">
+                      {leader.name
+                        .split(" ")
+                        .filter((p) => !p.includes("."))
+                        .map((p) => p[0])
+                        .slice(0, 2)
+                        .join("")}
+                    </div>
+                  )}
+                  <span className="inline-block px-3 py-1 rounded-full bg-[#202020] text-[#F9DB5C] text-[11px] font-black uppercase tracking-wider">
+                    {language === "ta" ? leader.roleTa : leader.role}
+                  </span>
+                  <h3 className="text-lg font-black text-[#202020]">
+                    {leader.name}
+                  </h3>
+                  <p className="text-xs text-slate-600 font-medium">
+                    {leader.subtitle}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
 
         {/* The VVMS Brand Ethos: Vision | Value | Mission | Success */}
         <ScrollReveal direction="up">
