@@ -13,6 +13,7 @@ import SmartRequirementSurvey from "@/components/SmartRequirementSurvey";
 import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
 import ReviewsAndOffices from "@/components/ReviewsAndOffices";
 import ScrollReveal from "@/components/ScrollReveal";
+import HomePreloader from "@/components/HomePreloader";
 import { ParallaxLayer, ParallaxFloatingAccents, useParallax } from "@/components/Parallax";
 import {
   Search,
@@ -120,6 +121,9 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/* 0. LUXURY BRAND PRELOADER ANIMATION WITH LOGO & VISION • VALUE • MISSION • SUCCESS */}
+      <HomePreloader />
+
       {/* 1. LUXURY HYBRID GLASS HERO IN CHARCOAL BLACK & BRAND GOLD PALETTE WITH PARALLAX */}
       <section className="relative bg-[#202020] text-[#F2F2F2] pt-10 sm:pt-14 pb-20 sm:pb-28 overflow-hidden border-b border-[#B78D42]/35 parallax-container">
         {/* Full-width cycling architectural backdrop with Parallax scrolling */}
