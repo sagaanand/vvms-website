@@ -255,11 +255,22 @@ async function seedFlagshipProjectIfMissing() {
           plotNumber: p.plotNumber,
           areaSqFt: p.areaSqFt,
           category: p.category || null,
-          availability: "ENQUIRE",
+          availability: p.availability || "ENQUIRE",
         },
       });
     }
   }
+
+  // Sync confirmed sold plots in AUREON BREEZE EXTENSION (Plots 1, 49, 68)
+  await prisma.projectPlot.updateMany({
+    where: {
+      projectId: project.id,
+      phase: "AUREON BREEZE EXTENSION",
+      plotNumber: { in: ["1", "49", "68"] },
+      availability: "ENQUIRE",
+    },
+    data: { availability: "SOLD" },
+  });
 }
 
 export async function ensureDbInitialized(): Promise<void> {

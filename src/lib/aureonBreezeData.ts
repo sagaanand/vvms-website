@@ -4,6 +4,7 @@ export interface BrochurePlotRow {
   areaSqFt: number;
   category?: "Luxury" | "Premium" | "Clasic";
   roadWidthFt?: number;
+  availability?: "ENQUIRE" | "AVAILABLE" | "RESERVED" | "SOLD";
 }
 
 function expandRange(
@@ -110,7 +111,7 @@ export const AUREON_BREEZE_PLOTS: BrochurePlotRow[] = [
 
 export const AUREON_BREEZE_EXTENSION_PLOTS: BrochurePlotRow[] = [
   // Luxury (Green in brochure)
-  { phase: "AUREON BREEZE EXTENSION", plotNumber: "1", areaSqFt: 1399.0, category: "Luxury" },
+  { phase: "AUREON BREEZE EXTENSION", plotNumber: "1", areaSqFt: 1399.0, category: "Luxury", availability: "SOLD" },
   { phase: "AUREON BREEZE EXTENSION", plotNumber: "12", areaSqFt: 2238.0, category: "Luxury" },
   { phase: "AUREON BREEZE EXTENSION", plotNumber: "14", areaSqFt: 1435.0, category: "Luxury" },
   { phase: "AUREON BREEZE EXTENSION", plotNumber: "22", areaSqFt: 613.5, category: "Luxury" },
@@ -118,7 +119,7 @@ export const AUREON_BREEZE_EXTENSION_PLOTS: BrochurePlotRow[] = [
   { phase: "AUREON BREEZE EXTENSION", plotNumber: "28", areaSqFt: 723.0, category: "Luxury" },
   { phase: "AUREON BREEZE EXTENSION", plotNumber: "37", areaSqFt: 1754.0, category: "Luxury" },
   { phase: "AUREON BREEZE EXTENSION", plotNumber: "38", areaSqFt: 2000.0, category: "Luxury" },
-  { phase: "AUREON BREEZE EXTENSION", plotNumber: "49", areaSqFt: 1723.5, category: "Luxury" },
+  { phase: "AUREON BREEZE EXTENSION", plotNumber: "49", areaSqFt: 1723.5, category: "Luxury", availability: "SOLD" },
   { phase: "AUREON BREEZE EXTENSION", plotNumber: "50", areaSqFt: 1851.0, category: "Luxury" },
   { phase: "AUREON BREEZE EXTENSION", plotNumber: "61", areaSqFt: 2000.0, category: "Luxury" },
   { phase: "AUREON BREEZE EXTENSION", plotNumber: "62", areaSqFt: 1754.0, category: "Luxury" },
@@ -169,7 +170,7 @@ export const AUREON_BREEZE_EXTENSION_PLOTS: BrochurePlotRow[] = [
   ...expandRange("AUREON BREEZE EXTENSION", 24, 27, 656.5, "Clasic"),
   ...expandRange("AUREON BREEZE EXTENSION", 29, 36, 563.0, "Clasic"),
   { phase: "AUREON BREEZE EXTENSION", plotNumber: "67", areaSqFt: 651.0, category: "Clasic" },
-  { phase: "AUREON BREEZE EXTENSION", plotNumber: "68", areaSqFt: 656.0, category: "Clasic" },
+  { phase: "AUREON BREEZE EXTENSION", plotNumber: "68", areaSqFt: 656.0, category: "Clasic", availability: "SOLD" },
 ];
 
 export const AUREON_BREEZE_SEED = {
