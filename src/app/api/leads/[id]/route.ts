@@ -1,11 +1,16 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma, ensureDbInitialized } from "@/lib/prisma";
+import { isAdminAuthenticated } from "@/lib/adminAuth";
 
 export async function PATCH(
   request: Request,
   { params }: { params: { id: string } }
 ) {
+  if (!isAdminAuthenticated()) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
   try {
+    await ensureDbInitialized();
     const body = await request.json();
     const { status } = body;
 
@@ -25,10 +30,14 @@ export async function PATCH(
 }
 
 export async function DELETE(
-  request: Request,
+  _request: Request,
   { params }: { params: { id: string } }
 ) {
+  if (!isAdminAuthenticated()) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
   try {
+    await ensureDbInitialized();
     await prisma.lead.delete({
       where: { id: params.id },
     });

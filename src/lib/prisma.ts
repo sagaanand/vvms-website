@@ -2,6 +2,11 @@ import { PrismaClient } from "@prisma/client";
 import fs from "fs";
 import os from "os";
 import path from "path";
+import {
+  AUREON_BREEZE_EXTENSION_PLOTS,
+  AUREON_BREEZE_PLOTS,
+  AUREON_BREEZE_SEED,
+} from "@/lib/aureonBreezeData";
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
@@ -12,14 +17,12 @@ function resolveDatabaseUrl(): string {
   if (process.env.DATABASE_URL) {
     return process.env.DATABASE_URL;
   }
-  // On Hostinger or servers without .env, store SQLite in a persistent writable directory in user's home
   const dataDir = path.join(os.homedir(), ".vvms-data");
   try {
     if (!fs.existsSync(dataDir)) {
       fs.mkdirSync(dataDir, { recursive: true });
     }
   } catch {
-    // Fallback to /tmp if homedir is not writable
     const tmpDir = "/tmp/vvms-data";
     if (!fs.existsSync(tmpDir)) {
       fs.mkdirSync(tmpDir, { recursive: true });
@@ -111,6 +114,14 @@ const TABLE_STATEMENTS = [
     "message" TEXT,
     "status" TEXT NOT NULL DEFAULT 'NEW',
     "source" TEXT NOT NULL DEFAULT 'WEBSITE',
+    "purpose" TEXT,
+    "preferredPlotSize" TEXT,
+    "preferredVisitDate" TEXT,
+    "utmSource" TEXT,
+    "utmMedium" TEXT,
+    "utmCampaign" TEXT,
+    "landingPage" TEXT,
+    "referrer" TEXT,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
   )`,
@@ -149,7 +160,107 @@ const TABLE_STATEMENTS = [
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
   )`,
+  `CREATE TABLE IF NOT EXISTS "Project" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "slug" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "tagline" TEXT,
+    "promoterName" TEXT NOT NULL DEFAULT 'VVMS Showcase Project',
+    "category" TEXT NOT NULL DEFAULT 'Premium Gated Community Residential Villa Plots',
+    "location" TEXT NOT NULL,
+    "city" TEXT NOT NULL DEFAULT 'Tiruchirappalli',
+    "approvals" TEXT NOT NULL DEFAULT '',
+    "isFlagship" BOOLEAN NOT NULL DEFAULT false,
+    "isVisible" BOOLEAN NOT NULL DEFAULT true,
+    "heroImage" TEXT NOT NULL DEFAULT '',
+    "masterLayoutImage" TEXT,
+    "brochureUrl" TEXT,
+    "galleryImages" TEXT NOT NULL DEFAULT '[]',
+    "youtubeUrls" TEXT NOT NULL DEFAULT '[]',
+    "overview" TEXT NOT NULL DEFAULT '',
+    "highlights" TEXT NOT NULL DEFAULT '[]',
+    "amenities" TEXT NOT NULL DEFAULT '[]',
+    "nearbyLocations" TEXT NOT NULL DEFAULT '{}',
+    "extensionInfo" TEXT NOT NULL DEFAULT '{}',
+    "approvedBanks" TEXT NOT NULL DEFAULT '[]',
+    "faqs" TEXT NOT NULL DEFAULT '[]',
+    "seoTitle" TEXT,
+    "seoDescription" TEXT,
+    "canonicalUrl" TEXT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+  )`,
+  `CREATE UNIQUE INDEX IF NOT EXISTS "Project_slug_key" ON "Project"("slug")`,
+  `CREATE TABLE IF NOT EXISTS "ProjectPlot" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "projectId" TEXT NOT NULL,
+    "phase" TEXT NOT NULL,
+    "plotNumber" TEXT NOT NULL,
+    "areaSqFt" REAL NOT NULL,
+    "dimensions" TEXT,
+    "facing" TEXT,
+    "roadWidthFt" INTEGER,
+    "category" TEXT,
+    "availability" TEXT NOT NULL DEFAULT 'ENQUIRE',
+    "notes" TEXT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "ProjectPlot_projectId_fkey" FOREIGN KEY ("projectId") REFERENCES "Project" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+  )`,
+  `CREATE UNIQUE INDEX IF NOT EXISTS "ProjectPlot_projectId_phase_plotNumber_key" ON "ProjectPlot"("projectId", "phase", "plotNumber")`,
 ];
+
+const LEAD_EXTRA_COLUMNS = [
+  "purpose",
+  "preferredPlotSize",
+  "preferredVisitDate",
+  "utmSource",
+  "utmMedium",
+  "utmCampaign",
+  "landingPage",
+  "referrer",
+];
+
+async function seedFlagshipProjectIfMissing() {
+  let project = await prisma.project.findUnique({
+    where: { slug: "aureon-breeze" },
+  });
+
+  if (!project) {
+    project = await prisma.project.create({
+      data: AUREON_BREEZE_SEED,
+    });
+  } else if (
+    !project.heroImage ||
+    !project.overview ||
+    project.promoterName.toLowerCase().includes("chozha") ||
+    project.overview.toLowerCase().includes("chozha")
+  ) {
+    project = await prisma.project.update({
+      where: { id: project.id },
+      data: AUREON_BREEZE_SEED,
+    });
+  }
+
+  const plotCount = await prisma.projectPlot.count({
+    where: { projectId: project.id },
+  });
+  if (plotCount === 0) {
+    const allPlots = [...AUREON_BREEZE_PLOTS, ...AUREON_BREEZE_EXTENSION_PLOTS];
+    for (const p of allPlots) {
+      await prisma.projectPlot.create({
+        data: {
+          projectId: project.id,
+          phase: p.phase,
+          plotNumber: p.plotNumber,
+          areaSqFt: p.areaSqFt,
+          category: p.category || null,
+          availability: "ENQUIRE",
+        },
+      });
+    }
+  }
+}
 
 export async function ensureDbInitialized(): Promise<void> {
   if (!resolvedUrl.startsWith("file:")) return;
@@ -159,6 +270,16 @@ export async function ensureDbInitialized(): Promise<void> {
         for (const stmt of TABLE_STATEMENTS) {
           await prisma.$executeRawUnsafe(stmt);
         }
+        for (const col of LEAD_EXTRA_COLUMNS) {
+          try {
+            await prisma.$executeRawUnsafe(
+              `ALTER TABLE "Lead" ADD COLUMN "${col}" TEXT`
+            );
+          } catch {
+            // Column already exists
+          }
+        }
+        await seedFlagshipProjectIfMissing();
       } catch (err) {
         globalForPrisma.schemaReady = undefined;
         console.error("Failed to initialize SQLite tables:", err);

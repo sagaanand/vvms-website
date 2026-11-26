@@ -18,7 +18,7 @@ import {
   Building2,
   ArrowUpDown,
   ShieldCheck,
-  Sparkles,
+  Building2 as BuildingIcon,
   PlusCircle,
 } from "lucide-react";
 
@@ -159,7 +159,7 @@ function PropertiesDirectoryContent() {
         <div className="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white rounded-3xl p-5 sm:p-6 border border-[#B78D42]/30 shadow-sm">
           <div>
             <div className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-wider text-cyan-800 mb-1">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
+              <ShieldCheck className="w-3.5 h-3.5 text-cyan-600" />
               <span>VVMS Verified Property Marketplace</span>
             </div>
             <h1 className="text-xl sm:text-2xl font-black text-[#202020] tracking-tight">

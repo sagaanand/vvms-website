@@ -14,6 +14,7 @@ import PlotVsApartmentMatrix from "@/components/PlotVsApartmentMatrix";
 import ReviewsAndOffices from "@/components/ReviewsAndOffices";
 import ScrollReveal from "@/components/ScrollReveal";
 import HomePreloader from "@/components/HomePreloader";
+import FlagshipProjectHero from "@/components/FlagshipProjectHero";
 import { ParallaxLayer, ParallaxFloatingAccents, useParallax } from "@/components/Parallax";
 import {
   Search,
@@ -124,6 +125,9 @@ export default function HomePage() {
       {/* 0. LUXURY BRAND PRELOADER ANIMATION WITH LOGO & VISION • VALUE • MISSION • SUCCESS */}
       <HomePreloader />
 
+      {/* 0.5 PERMANENT FLAGSHIP PROJECT HERO: AUREON BREEZE */}
+      <FlagshipProjectHero />
+
       {/* 1. LUXURY HYBRID GLASS HERO IN CHARCOAL BLACK & BRAND GOLD PALETTE WITH PARALLAX */}
       <section className="relative bg-[#202020] text-[#F2F2F2] pt-10 sm:pt-14 pb-20 sm:pb-28 overflow-hidden border-b border-[#B78D42]/35 parallax-container">
         {/* Full-width cycling architectural backdrop with Parallax scrolling */}
@@ -176,14 +180,14 @@ export default function HomePage() {
             </div>
 
             {/* Approved Brand Positioning Headline with Primary Gold Gradient */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.22] sm:leading-[1.25]">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.22] sm:leading-[1.25]">
               <span className="block text-[#F2F2F2] drop-shadow-sm">
                 {t.hero.headline.split(".")[0]}.
               </span>
               <span className="bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] bg-clip-text text-transparent drop-shadow-sm">
                 {t.hero.headline.split(".")[1] ? `${t.hero.headline.split(".")[1]}.` : ""}
               </span>
-            </h1>
+            </h2>
 
             {/* Approved Supporting Description with Spacious Leading */}
             <p className="text-sm sm:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed sm:leading-loose font-medium">

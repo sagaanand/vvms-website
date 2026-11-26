@@ -25,7 +25,6 @@ import {
   Compass,
   ChevronDown,
   ExternalLink,
-  Sparkles,
 } from "lucide-react";
 
 interface PropertyDetailClientProps {
@@ -339,7 +338,7 @@ export default function PropertyDetailClient({ property }: PropertyDetailClientP
             {property.aeoSummary && (
               <div className="bg-gradient-to-br from-cyan-50 to-white rounded-3xl p-6 sm:p-8 border border-cyan-200 shadow-sm space-y-2">
                 <div className="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-cyan-800">
-                  <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-cyan-600" />
                   <span>Verified Property Summary</span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-semibold">

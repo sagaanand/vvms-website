@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma, ensureDbInitialized } from "@/lib/prisma";
+import { isAdminAuthenticated } from "@/lib/adminAuth";
 
 export const dynamic = "force-dynamic";
 
@@ -22,6 +23,14 @@ export async function POST(request: Request) {
       selectedPackage,
       message,
       source,
+      purpose,
+      preferredPlotSize,
+      preferredVisitDate,
+      utmSource,
+      utmMedium,
+      utmCampaign,
+      landingPage,
+      referrer,
     } = body;
 
     if (!name || !phone) {
@@ -33,9 +42,9 @@ export async function POST(request: Request) {
 
     const lead = await prisma.lead.create({
       data: {
-        name,
-        phone,
-        email: email || null,
+        name: String(name).trim(),
+        phone: String(phone).trim(),
+        email: email ? String(email).trim() : null,
         leadType: leadType || "General Inquiry",
         propertyId: propertyId || null,
         propertyTitle: propertyTitle || null,
@@ -45,30 +54,43 @@ export async function POST(request: Request) {
         plotLocation: plotLocation || null,
         builtUpArea: builtUpArea ? parseFloat(builtUpArea) : null,
         selectedPackage: selectedPackage || null,
-        message: message || null,
+        message: message ? String(message).trim() : null,
         source: source || "WEBSITE",
+        purpose: purpose || null,
+        preferredPlotSize: preferredPlotSize || null,
+        preferredVisitDate: preferredVisitDate || null,
+        utmSource: utmSource || null,
+        utmMedium: utmMedium || null,
+        utmCampaign: utmCampaign || null,
+        landingPage: landingPage || null,
+        referrer: referrer || null,
         status: "NEW",
       },
     });
 
-    return NextResponse.json({ success: true, lead }, { status: 201 });
-  } catch (error: any) {
-    console.error("Error creating lead:", error);
+    return NextResponse.json({ success: true, leadId: lead.id }, { status: 201 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Failed to submit lead";
+    console.error("Error creating lead:", message);
     return NextResponse.json(
-      { error: "Failed to submit lead", details: error.message },
+      { error: "Failed to submit lead", details: message },
       { status: 500 }
     );
   }
 }
 
 export async function GET(request: Request) {
+  if (!isAdminAuthenticated()) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     await ensureDbInitialized();
     const { searchParams } = new URL(request.url);
     const status = searchParams.get("status");
     const leadType = searchParams.get("leadType");
 
-    const where: any = {};
+    const where: Record<string, string> = {};
     if (status) where.status = status;
     if (leadType) where.leadType = leadType;
 
@@ -78,8 +100,9 @@ export async function GET(request: Request) {
     });
 
     return NextResponse.json({ success: true, leads });
-  } catch (error: any) {
-    console.error("Error fetching leads:", error);
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Failed to fetch leads";
+    console.error("Error fetching leads:", message);
     return NextResponse.json(
       { error: "Failed to fetch leads" },
       { status: 500 }

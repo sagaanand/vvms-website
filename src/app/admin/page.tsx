@@ -10,6 +10,7 @@ import {
   generatePropertySlug,
   PropertyFaqItem,
 } from "@/lib/propertySeo";
+import AdminProjectManager from "@/components/AdminProjectManager";
 import {
   Lock,
   Building,
@@ -26,7 +27,7 @@ import {
   Phone,
   Share2,
   Pencil,
-  Sparkles,
+  Award,
   Globe,
   MapPin,
   HelpCircle,
@@ -38,7 +39,7 @@ export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [passwordInput, setPasswordInput] = useState("");
   const [loginError, setLoginError] = useState("");
-  const [activeTab, setActiveTab] = useState<"properties" | "leads" | "promotions">("properties");
+  const [activeTab, setActiveTab] = useState<"properties" | "projects" | "leads" | "promotions">("properties");
 
   // Data states
   const [properties, setProperties] = useState<any[]>([]);
@@ -104,11 +105,15 @@ export default function AdminPage() {
   const [leadFilterType, setLeadFilterType] = useState("All");
 
   useEffect(() => {
-    const token = localStorage.getItem("vvs_staff_auth");
-    if (token === "authenticated_vvs_staff") {
-      setIsAuthenticated(true);
-      fetchData();
-    }
+    fetch("/api/admin/login")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.authenticated) {
+          setIsAuthenticated(true);
+          fetchData();
+        }
+      })
+      .catch(() => {});
   }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -133,7 +138,8 @@ export default function AdminPage() {
     }
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await fetch("/api/admin/login", { method: "DELETE" }).catch(() => {});
     setIsAuthenticated(false);
     localStorage.removeItem("vvs_staff_auth");
   };
@@ -599,6 +605,17 @@ export default function AdminPage() {
             </button>
 
             <button
+              onClick={() => setActiveTab("projects")}
+              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 transition ${activeTab === "projects"
+                ? "bg-brand-black text-gold-400 shadow-gold border border-gold-500/30"
+                : "text-slate-600 hover:text-brand-black"
+                }`}
+            >
+              <Award className="w-4 h-4" />
+              <span>Flagship Project</span>
+            </button>
+
+            <button
               onClick={() => setActiveTab("leads")}
               className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 transition ${activeTab === "leads"
                 ? "bg-brand-black text-gold-400 shadow-gold border border-gold-500/30"
@@ -761,6 +778,9 @@ export default function AdminPage() {
             </div>
           </div>
         )}
+
+        {/* TAB 1.5: FLAGSHIP PROJECT CMS (AUREON BREEZE) */}
+        {activeTab === "projects" && <AdminProjectManager />}
 
         {/* TAB 2: LEADS & INQUIRIES MANAGEMENT */}
         {activeTab === "leads" && (
@@ -951,7 +971,7 @@ export default function AdminPage() {
                   onClick={handleAutoGenerateSeoAeoGeo}
                   className="px-3 py-1.5 rounded-xl bg-cyan-50 hover:bg-cyan-100 text-cyan-800 border border-cyan-300 font-black text-xs flex items-center gap-1.5 transition"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
+                  <Award className="w-3.5 h-3.5 text-cyan-600" />
                   <span>Auto-Generate SEO/AEO/GEO</span>
                 </button>
                 <button

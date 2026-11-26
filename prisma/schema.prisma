@@ -79,8 +79,67 @@ model Lead {
   message            String?
   status             String   @default("NEW") // "NEW", "CONTACTED", "SITE_VISIT_SCHEDULED", "CLOSED"
   source             String   @default("WEBSITE")
+  purpose            String?  // "Self-use", "Investment"
+  preferredPlotSize  String?
+  preferredVisitDate String?
+  utmSource          String?
+  utmMedium          String?
+  utmCampaign        String?
+  landingPage        String?
+  referrer           String?
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
+}
+
+model Project {
+  id                String        @id @default(cuid())
+  slug              String        @unique
+  name              String
+  tagline           String?
+  promoterName      String        @default("VVMS Showcase Project")
+  category          String        @default("Premium Gated Community Residential Villa Plots")
+  location          String
+  city              String        @default("Tiruchirappalli")
+  approvals         String        @default("")
+  isFlagship        Boolean       @default(false)
+  isVisible         Boolean       @default(true)
+  heroImage         String        @default("")
+  masterLayoutImage String?
+  brochureUrl       String?
+  galleryImages     String        @default("[]") // JSON array of image URLs
+  youtubeUrls       String        @default("[]") // JSON array of YouTube URLs
+  overview          String        @default("")
+  highlights        String        @default("[]") // JSON array
+  amenities         String        @default("[]") // JSON array
+  nearbyLocations   String        @default("{}") // JSON object of categories
+  extensionInfo     String        @default("{}") // JSON object
+  approvedBanks     String        @default("[]") // JSON array
+  faqs              String        @default("[]") // JSON array of { question, answer }
+  seoTitle          String?
+  seoDescription    String?
+  canonicalUrl      String?
+  plots             ProjectPlot[]
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+}
+
+model ProjectPlot {
+  id           String   @id @default(cuid())
+  projectId    String
+  project      Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  phase        String   // "AUREON BREEZE" or "AUREON BREEZE EXTENSION"
+  plotNumber   String
+  areaSqFt     Float
+  dimensions   String?
+  facing       String?
+  roadWidthFt  Int?
+  category     String?  // "Luxury", "Premium", "Clasic"
+  availability String   @default("ENQUIRE") // "ENQUIRE", "AVAILABLE", "RESERVED", "SOLD"
+  notes        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([projectId, phase, plotNumber])
 }
 
 model ConstructionPackage {

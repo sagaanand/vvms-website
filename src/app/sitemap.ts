@@ -9,6 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const coreRoutes: MetadataRoute.Sitemap = [
     { url: `${baseUrl}`, lastModified: now, changeFrequency: "daily", priority: 1.0 },
+    { url: "https://veeduveettumanaisanthai.in/projects/aureon-breeze", lastModified: now, changeFrequency: "daily", priority: 0.95 },
     { url: `${baseUrl}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/business-solutions`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/construction`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
