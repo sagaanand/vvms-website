@@ -261,15 +261,32 @@ async function seedFlagshipProjectIfMissing() {
     }
   }
 
-  // Sync confirmed sold plots in AUREON BREEZE EXTENSION (Plots 1, 49, 68)
+  // Sync confirmed plot statuses:
+  // - AUREON BREEZE: Plot 68 is SOLD
+  // - AUREON BREEZE EXTENSION: Plots 1, 49 are SOLD; Plot 68 is AVAILABLE
+  await prisma.projectPlot.updateMany({
+    where: {
+      projectId: project.id,
+      phase: "AUREON BREEZE",
+      plotNumber: "68",
+    },
+    data: { availability: "SOLD" },
+  });
   await prisma.projectPlot.updateMany({
     where: {
       projectId: project.id,
       phase: "AUREON BREEZE EXTENSION",
-      plotNumber: { in: ["1", "49", "68"] },
-      availability: "ENQUIRE",
+      plotNumber: { in: ["1", "49"] },
     },
     data: { availability: "SOLD" },
+  });
+  await prisma.projectPlot.updateMany({
+    where: {
+      projectId: project.id,
+      phase: "AUREON BREEZE EXTENSION",
+      plotNumber: "68",
+    },
+    data: { availability: "AVAILABLE" },
   });
 }
 

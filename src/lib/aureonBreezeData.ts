@@ -33,7 +33,7 @@ export const AUREON_BREEZE_PLOTS: BrochurePlotRow[] = [
   { phase: "AUREON BREEZE", plotNumber: "25", areaSqFt: 1098.0 },
   { phase: "AUREON BREEZE", plotNumber: "26", areaSqFt: 1157.0 },
   ...expandRange("AUREON BREEZE", 55, 56, 1271.25),
-  { phase: "AUREON BREEZE", plotNumber: "68", areaSqFt: 1485.0 },
+  { phase: "AUREON BREEZE", plotNumber: "68", areaSqFt: 1485.0, availability: "SOLD" },
   { phase: "AUREON BREEZE", plotNumber: "69", areaSqFt: 1657.5 },
   ...expandRange("AUREON BREEZE", 81, 82, 1271.25),
   ...expandRange("AUREON BREEZE", 105, 106, 1271.25),
@@ -170,7 +170,7 @@ export const AUREON_BREEZE_EXTENSION_PLOTS: BrochurePlotRow[] = [
   ...expandRange("AUREON BREEZE EXTENSION", 24, 27, 656.5, "Clasic"),
   ...expandRange("AUREON BREEZE EXTENSION", 29, 36, 563.0, "Clasic"),
   { phase: "AUREON BREEZE EXTENSION", plotNumber: "67", areaSqFt: 651.0, category: "Clasic" },
-  { phase: "AUREON BREEZE EXTENSION", plotNumber: "68", areaSqFt: 656.0, category: "Clasic", availability: "SOLD" },
+  { phase: "AUREON BREEZE EXTENSION", plotNumber: "68", areaSqFt: 656.0, category: "Clasic", availability: "AVAILABLE" },
 ];
 
 export const AUREON_BREEZE_SEED = {
