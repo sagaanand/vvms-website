@@ -137,6 +137,8 @@ export default function RootLayout({
     },
     sameAs: [
       "https://www.youtube.com/@Veeduveettumanaisandhai",
+      "https://www.facebook.com/vairevel",
+      "https://www.instagram.com/veedu_veettumanaisanthai",
     ],
   };
 

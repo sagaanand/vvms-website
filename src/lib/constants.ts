@@ -51,6 +51,11 @@ export const COMPANY_INFO = {
     videos: "1,900+",
     channelUrl: "https://www.youtube.com/@Veeduveettumanaisandhai",
   },
+  social: {
+    youtube: "https://www.youtube.com/@Veeduveettumanaisandhai",
+    facebook: "https://www.facebook.com/vairevel",
+    instagram: "https://www.instagram.com/veedu_veettumanaisanthai",
+  },
   ratings: {
     google: "4.8★",
     googleReviewsCount: "350+",
