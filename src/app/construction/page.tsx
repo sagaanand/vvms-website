@@ -19,9 +19,9 @@ export default function ConstructionPage() {
   const comparisonSpecs = [
     {
       feature: "Civil Construction Rate",
-      basic: "₹1,950 / sq.ft",
-      standard: "₹2,250 / sq.ft (Popular)",
-      premium: "₹2,650 / sq.ft (Luxury)",
+      basic: "₹2,349 / sq.ft",
+      standard: "₹2,599 / sq.ft (Popular)",
+      premium: "₹2,849 / sq.ft (Complete)",
     },
     {
       feature: "Cement Brands",
@@ -124,21 +124,21 @@ export default function ConstructionPage() {
       title: "Luxury Duplex Villa - K.K. Nagar",
       locality: "K.K. Nagar Ring Road, Trichy",
       area: "2,400 sq.ft (G+1)",
-      package: "Standard Package",
+      package: "Building With Interior Or Exterior",
       image: "/images/hero-villa.jpg",
     },
     {
       title: "Modern Contemporary Residence - Olaiyur",
       locality: "Olaiyur Main Road, Trichy",
       area: "1,850 sq.ft (G+1)",
-      package: "Standard Package",
+      package: "Building",
       image: "/images/turnkey-home.jpg",
     },
     {
       title: "Architectural Villa - Vayalur Road",
       locality: "Somarasampettai, Vayalur Road",
       area: "3,100 sq.ft (G+2)",
-      package: "Premium Package",
+      package: "Building With Interior & Exterior",
       image: "/images/villa-interior.jpg",
     },
   ];
@@ -162,9 +162,9 @@ export default function ConstructionPage() {
         )}`,
       },
       metrics: [
-        { value: "₹1,950", label: "Basic Package / sq.ft" },
-        { value: "₹2,250", label: "Standard / sq.ft" },
-        { value: "₹2,650", label: "Luxury / sq.ft" },
+        { value: "₹2,349", label: "Building / sq.ft" },
+        { value: "₹2,599", label: "With Int. or Ext. / sq.ft" },
+        { value: "₹2,849", label: "With Int. & Ext. / sq.ft" },
         { value: "10 Yrs", label: "Structural Guarantee" },
       ],
     },
@@ -251,19 +251,19 @@ export default function ConstructionPage() {
                   Specification Item
                 </th>
                 <th className="p-4 sm:p-5 font-bold w-1/4 text-slate-200 bg-brand-dark">
-                  <div className="text-sm sm:text-base font-black text-white">Basic Package</div>
-                  <div className="text-xs text-gold-400 font-bold">₹1,950 / sq.ft</div>
+                  <div className="text-sm sm:text-base font-black text-white">Building</div>
+                  <div className="text-xs text-gold-400 font-bold">₹2,349 / sq.ft</div>
                 </th>
                 <th className="p-4 sm:p-5 font-bold w-1/4 text-white bg-gold-500/20 border-x-2 border-gold-400 relative">
                   <span className="absolute top-2 right-2 bg-gradient-to-r from-gold-500 to-amber-500 text-brand-black text-[10px] font-black uppercase px-2 py-0.5 rounded-full shadow-md">
                     Most Popular
                   </span>
-                  <div className="text-sm sm:text-base font-black text-white">Standard Package</div>
-                  <div className="text-xs text-gold-400 font-black">₹2,250 / sq.ft</div>
+                  <div className="text-sm sm:text-base font-black text-white">Building With Interior Or Exterior</div>
+                  <div className="text-xs text-gold-400 font-black">₹2,599 / sq.ft</div>
                 </th>
                 <th className="p-4 sm:p-5 font-bold w-1/4 text-slate-200 bg-brand-dark">
-                  <div className="text-sm sm:text-base font-black text-white">Premium Package</div>
-                  <div className="text-xs text-cyan-400 font-bold">₹2,650 / sq.ft</div>
+                  <div className="text-sm sm:text-base font-black text-white">Building With Interior &amp; Exterior</div>
+                  <div className="text-xs text-cyan-400 font-bold">₹2,849 / sq.ft</div>
                 </th>
               </tr>
             </thead>

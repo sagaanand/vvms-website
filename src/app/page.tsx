@@ -465,7 +465,7 @@ export default function HomePage() {
 
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-[#B78D42]/30">
                   <div className="text-xs text-slate-300 text-center sm:text-left font-medium">
-                    Basic (₹1,950) • Standard (₹2,250) • Premium (₹2,650/sq.ft) under Er. J. Vairavel
+                    Building (₹2,349) • Interior or Exterior (₹2,599) • Interior &amp; Exterior (₹2,849/sq.ft) under Er. J. Vairavel
                   </div>
 
                   <button

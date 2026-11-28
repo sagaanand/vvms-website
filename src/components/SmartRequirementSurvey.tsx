@@ -173,7 +173,7 @@ export default function SmartRequirementSurvey() {
                           {t.survey.turnkeyBuild}
                         </div>
                         <div className="text-xs text-slate-500 mt-0.5">
-                          Turnkey construction from ₹1,950/sq.ft on your own plot
+                          Turnkey construction from ₹2,349/sq.ft on your own plot
                         </div>
                       </div>
                     </button>

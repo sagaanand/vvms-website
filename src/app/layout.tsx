@@ -159,7 +159,7 @@ export default function RootLayout({
         name: "What turnkey construction packages are offered in Trichy?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "VVMS offers three turnkey construction packages: Basic Package at ₹1,950/sq.ft, Standard Package at ₹2,250/sq.ft (most popular with 5-year structural warranty), and Premium Luxury at ₹2,650/sq.ft with 10-year warranty."
+          text: "VVMS offers three turnkey construction packages: Building at ₹2,349/sq.ft, Building With Interior Or Exterior at ₹2,599/sq.ft, and Building With Interior & Exterior at ₹2,849/sq.ft."
         }
       },
       {
