@@ -12,6 +12,7 @@ import {
   CheckCircle2,
   Map,
   FileText,
+  ExternalLink,
 } from "lucide-react";
 
 interface PlotRow {
@@ -505,15 +506,26 @@ export default function AdminProjectManager() {
                 </button>
               </div>
 
-              <div className="relative w-64">
-                <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                <input
-                  type="text"
-                  placeholder="Search Plot No..."
-                  value={plotSearch}
-                  onChange={(e) => setPlotSearch(e.target.value)}
-                  className="w-full pl-8 pr-3 py-2 rounded-xl bg-slate-50 border border-slate-200 font-medium"
-                />
+              <div className="flex flex-wrap items-center gap-2">
+                <a
+                  href="/projects/aureon-breeze/layout-3d"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#F6E785] via-[#F9DB5C] to-[#B78D42] text-[#202020] font-black inline-flex items-center gap-1.5 shadow-sm hover:opacity-95"
+                >
+                  <span>Open 3D Layout Explorer</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <div className="relative w-56 sm:w-64">
+                  <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    placeholder="Search Plot No..."
+                    value={plotSearch}
+                    onChange={(e) => setPlotSearch(e.target.value)}
+                    className="w-full pl-8 pr-3 py-2 rounded-xl bg-slate-50 border border-slate-200 font-medium"
+                  />
+                </div>
               </div>
             </div>
 
@@ -562,21 +574,27 @@ export default function AdminProjectManager() {
                       </td>
                       <td className="p-2.5">
                         <select
-                          value={plot.availability}
+                          value={
+                            plot.availability === "RESERVED"
+                              ? "BOOKED"
+                              : plot.availability === "ENQUIRE"
+                              ? "AVAILABLE"
+                              : plot.availability
+                          }
                           onChange={(e) => updatePlot(plot, { availability: e.target.value })}
                           className={`px-2.5 py-1 rounded-lg border font-bold ${
-                            plot.availability === "AVAILABLE"
+                            plot.availability === "AVAILABLE" || plot.availability === "ENQUIRE"
                               ? "bg-emerald-50 text-emerald-800 border-emerald-300"
                               : plot.availability === "SOLD"
                               ? "bg-red-50 text-red-700 border-red-200"
-                              : plot.availability === "RESERVED"
+                              : plot.availability === "BOOKED" || plot.availability === "RESERVED"
                               ? "bg-amber-50 text-amber-800 border-amber-300"
-                              : "bg-slate-50 text-slate-700 border-slate-200"
+                              : "bg-slate-200 text-slate-800 border-slate-300"
                           }`}
                         >
-                          <option value="ENQUIRE">Enquire</option>
                           <option value="AVAILABLE">Available</option>
-                          <option value="RESERVED">Reserved</option>
+                          <option value="BOOKED">Booked</option>
+                          <option value="BLOCKED">Blocked</option>
                           <option value="SOLD">Sold</option>
                         </select>
                       </td>

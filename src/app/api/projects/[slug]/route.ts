@@ -47,7 +47,7 @@ export async function PATCH(
 
     // Update individual plot availability / details if plotUpdate is passed
     if (body.plotUpdate && body.plotUpdate.id) {
-      const { id, availability, dimensions, facing, roadWidthFt, notes, areaSqFt } =
+      const { id, availability, dimensions, facing, roadWidthFt, notes, areaSqFt, coordX, coordY, coordW, coordH } =
         body.plotUpdate;
       const plotData: Record<string, unknown> = {};
       if (availability !== undefined) plotData.availability = String(availability);
@@ -60,6 +60,10 @@ export async function PATCH(
       if (areaSqFt !== undefined && !isNaN(parseFloat(areaSqFt))) {
         plotData.areaSqFt = parseFloat(areaSqFt);
       }
+      if (coordX !== undefined) plotData.coordX = coordX !== null && coordX !== "" ? parseFloat(coordX) : null;
+      if (coordY !== undefined) plotData.coordY = coordY !== null && coordY !== "" ? parseFloat(coordY) : null;
+      if (coordW !== undefined) plotData.coordW = coordW !== null && coordW !== "" ? parseFloat(coordW) : null;
+      if (coordH !== undefined) plotData.coordH = coordH !== null && coordH !== "" ? parseFloat(coordH) : null;
 
       const plot = await prisma.projectPlot.update({
         where: { id },

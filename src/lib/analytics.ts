@@ -2,6 +2,7 @@ export type AureonAnalyticsEvent =
   | "aureon_hero_cta"
   | "aureon_page_view"
   | "aureon_master_layout_view"
+  | "aureon_plot_select"
   | "aureon_brochure_request"
   | "aureon_whatsapp_click"
   | "aureon_phone_click"

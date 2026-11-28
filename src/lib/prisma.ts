@@ -7,6 +7,7 @@ import {
   AUREON_BREEZE_PLOTS,
   AUREON_BREEZE_SEED,
 } from "@/lib/aureonBreezeData";
+import { AUREON_PLOT_COORDS } from "@/lib/aureonPlotCoords";
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
@@ -15,6 +16,17 @@ const globalForPrisma = globalThis as unknown as {
 
 function resolveDatabaseUrl(): string {
   if (process.env.DATABASE_URL) {
+    if (process.env.DATABASE_URL.startsWith("file:/")) {
+      const dbPath = process.env.DATABASE_URL.replace(/^file:/, "");
+      const dir = path.dirname(dbPath);
+      try {
+        if (!fs.existsSync(dir)) {
+          fs.mkdirSync(dir, { recursive: true });
+        }
+      } catch {
+        // ignore if handled externally
+      }
+    }
     return process.env.DATABASE_URL;
   }
   const dataDir = path.join(os.homedir(), ".vvms-data");
@@ -201,7 +213,11 @@ const TABLE_STATEMENTS = [
     "facing" TEXT,
     "roadWidthFt" INTEGER,
     "category" TEXT,
-    "availability" TEXT NOT NULL DEFAULT 'ENQUIRE',
+    "availability" TEXT NOT NULL DEFAULT 'AVAILABLE',
+    "coordX" REAL,
+    "coordY" REAL,
+    "coordW" REAL,
+    "coordH" REAL,
     "notes" TEXT,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -220,6 +236,8 @@ const LEAD_EXTRA_COLUMNS = [
   "landingPage",
   "referrer",
 ];
+
+const PLOT_COORD_COLUMNS = ["coordX", "coordY", "coordW", "coordH"];
 
 async function seedFlagshipProjectIfMissing() {
   let project = await prisma.project.findUnique({
@@ -242,12 +260,17 @@ async function seedFlagshipProjectIfMissing() {
     });
   }
 
+  const coordMap = new Map(
+    AUREON_PLOT_COORDS.map((c) => [`${c.phase}:${c.plotNumber}`, c])
+  );
+
   const plotCount = await prisma.projectPlot.count({
     where: { projectId: project.id },
   });
   if (plotCount === 0) {
     const allPlots = [...AUREON_BREEZE_PLOTS, ...AUREON_BREEZE_EXTENSION_PLOTS];
     for (const p of allPlots) {
+      const c = coordMap.get(`${p.phase}:${p.plotNumber}`);
       await prisma.projectPlot.create({
         data: {
           projectId: project.id,
@@ -255,9 +278,52 @@ async function seedFlagshipProjectIfMissing() {
           plotNumber: p.plotNumber,
           areaSqFt: p.areaSqFt,
           category: p.category || null,
-          availability: p.availability || "ENQUIRE",
+          availability: p.availability || "AVAILABLE",
+          coordX: c?.x ?? null,
+          coordY: c?.y ?? null,
+          coordW: c?.w ?? null,
+          coordH: c?.h ?? null,
         },
       });
+    }
+  } else {
+    // Migrate legacy ENQUIRE -> AVAILABLE and RESERVED -> BOOKED
+    await prisma.projectPlot.updateMany({
+      where: { projectId: project.id, availability: "ENQUIRE" },
+      data: { availability: "AVAILABLE" },
+    });
+    await prisma.projectPlot.updateMany({
+      where: { projectId: project.id, availability: "RESERVED" },
+      data: { availability: "BOOKED" },
+    });
+
+    // Sync coordinates from AUREON_PLOT_COORDS whenever missing or refined
+    const existingPlots = await prisma.projectPlot.findMany({
+      where: { projectId: project.id },
+      select: {
+        id: true,
+        phase: true,
+        plotNumber: true,
+        coordX: true,
+        coordY: true,
+        coordW: true,
+        coordH: true,
+      },
+    });
+    for (const row of existingPlots) {
+      const c = coordMap.get(`${row.phase}:${row.plotNumber}`);
+      if (
+        c &&
+        (row.coordX !== c.x ||
+          row.coordY !== c.y ||
+          row.coordW !== c.w ||
+          row.coordH !== c.h)
+      ) {
+        await prisma.projectPlot.update({
+          where: { id: row.id },
+          data: { coordX: c.x, coordY: c.y, coordW: c.w, coordH: c.h },
+        });
+      }
     }
   }
 
@@ -302,6 +368,15 @@ export async function ensureDbInitialized(): Promise<void> {
           try {
             await prisma.$executeRawUnsafe(
               `ALTER TABLE "Lead" ADD COLUMN "${col}" TEXT`
+            );
+          } catch {
+            // Column already exists
+          }
+        }
+        for (const col of PLOT_COORD_COLUMNS) {
+          try {
+            await prisma.$executeRawUnsafe(
+              `ALTER TABLE "ProjectPlot" ADD COLUMN "${col}" REAL`
             );
           } catch {
             // Column already exists
